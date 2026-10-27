@@ -1,0 +1,436 @@
+{
+  "unit_tests": [
+    {
+      "test": "test_structured_content_support_is_a_revision_floor",
+      "parameters": [
+        "2025-06-18",
+        true
+      ],
+      "status": "pass"
+    },
+    {
+      "test": "test_structured_content_support_is_a_revision_floor",
+      "parameters": [
+        "2025-11-25",
+        true
+      ],
+      "status": "pass"
+    },
+    {
+      "test": "test_structured_content_support_is_a_revision_floor",
+      "parameters": [
+        "2026-01-01",
+        true
+      ],
+      "status": "pass"
+    },
+    {
+      "test": "test_structured_content_support_is_a_revision_floor",
+      "parameters": [
+        "2025-03-26",
+        false
+      ],
+      "status": "pass"
+    },
+    {
+      "test": "test_structured_content_support_is_a_revision_floor",
+      "parameters": [
+        "2024-11-05",
+        false
+      ],
+      "status": "pass"
+    },
+    {
+      "test": "test_structured_content_support_is_a_revision_floor",
+      "parameters": [
+        null,
+        false
+      ],
+      "status": "pass"
+    },
+    {
+      "test": "test_structured_content_support_is_a_revision_floor",
+      "parameters": [
+        "",
+        false
+      ],
+      "status": "pass"
+    },
+    {
+      "test": "test_unknown_client_is_treated_as_old_not_new",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_summary_reports_record_count_for_a_list",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_summary_reports_an_error",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_summary_does_not_double_punctuate_an_error",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_summary_flags_a_pending_preview",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_summary_flags_a_dry_run",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_summary_surfaces_a_failed_verification",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_summary_is_hard_capped",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_summary_never_invents_domain_facts",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_new_client_gets_summary_plus_full_structured_content",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_old_client_gets_the_original_payload_untouched",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_force_full_text_overrides_a_capable_client",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_non_json_text_passes_through",
+      "parameters": [],
+      "status": "pass"
+    },
+    {
+      "test": "test_genuine_structured_content_is_left_alone",
+      "parameters": [],
+      "status": "pass"
+    }
+  ],
+  "rows": [
+    {
+      "force_full_text": false,
+      "task": "wan_status",
+      "answer": "ALPHA_PROBE",
+      "tool_payload": {
+        "wan2": {
+          "state": "ALPHA_PROBE"
+        }
+      },
+      "negotiated_protocol_version": "2025-11-25",
+      "listed_output_schema": null,
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "get_wan_status completed. Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "wan2": {
+            "state": "ALPHA_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "producer_client_retains_full_payload": true
+    },
+    {
+      "force_full_text": false,
+      "task": "wan_status",
+      "answer": "BETA_PROBE",
+      "tool_payload": {
+        "wan2": {
+          "state": "BETA_PROBE"
+        }
+      },
+      "negotiated_protocol_version": "2025-11-25",
+      "listed_output_schema": null,
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "get_wan_status completed. Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "wan2": {
+            "state": "BETA_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "producer_client_retains_full_payload": true
+    },
+    {
+      "force_full_text": false,
+      "task": "wlan_record",
+      "answer": "ALPHA_PROBE",
+      "tool_payload": [
+        {
+          "_id": "w1",
+          "name": "ALPHA_PROBE",
+          "enabled": true,
+          "security": "wpa2",
+          "wlan_band": "both",
+          "x_passphrase": "[REDACTED]"
+        }
+      ],
+      "negotiated_protocol_version": "2025-11-25",
+      "listed_output_schema": null,
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "list_wlans returned 1 record(s). Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "result": [
+            {
+              "_id": "w1",
+              "name": "ALPHA_PROBE",
+              "enabled": true,
+              "security": "wpa2",
+              "wlan_band": "both",
+              "x_passphrase": "[REDACTED]"
+            }
+          ]
+        },
+        "isError": false
+      },
+      "producer_client_retains_full_payload": true
+    },
+    {
+      "force_full_text": false,
+      "task": "wlan_record",
+      "answer": "BETA_PROBE",
+      "tool_payload": [
+        {
+          "_id": "w1",
+          "name": "BETA_PROBE",
+          "enabled": true,
+          "security": "wpa2",
+          "wlan_band": "both",
+          "x_passphrase": "[REDACTED]"
+        }
+      ],
+      "negotiated_protocol_version": "2025-11-25",
+      "listed_output_schema": null,
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "list_wlans returned 1 record(s). Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "result": [
+            {
+              "_id": "w1",
+              "name": "BETA_PROBE",
+              "enabled": true,
+              "security": "wpa2",
+              "wlan_band": "both",
+              "x_passphrase": "[REDACTED]"
+            }
+          ]
+        },
+        "isError": false
+      },
+      "producer_client_retains_full_payload": true
+    },
+    {
+      "force_full_text": true,
+      "task": "wan_status",
+      "answer": "ALPHA_PROBE",
+      "tool_payload": {
+        "wan2": {
+          "state": "ALPHA_PROBE"
+        }
+      },
+      "negotiated_protocol_version": "2025-11-25",
+      "listed_output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"wan2\": {\n    \"state\": \"ALPHA_PROBE\"\n  }\n}"
+          }
+        ],
+        "structuredContent": {
+          "result": "{\n  \"wan2\": {\n    \"state\": \"ALPHA_PROBE\"\n  }\n}"
+        },
+        "isError": false
+      },
+      "producer_client_retains_full_payload": true
+    },
+    {
+      "force_full_text": true,
+      "task": "wan_status",
+      "answer": "BETA_PROBE",
+      "tool_payload": {
+        "wan2": {
+          "state": "BETA_PROBE"
+        }
+      },
+      "negotiated_protocol_version": "2025-11-25",
+      "listed_output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"wan2\": {\n    \"state\": \"BETA_PROBE\"\n  }\n}"
+          }
+        ],
+        "structuredContent": {
+          "result": "{\n  \"wan2\": {\n    \"state\": \"BETA_PROBE\"\n  }\n}"
+        },
+        "isError": false
+      },
+      "producer_client_retains_full_payload": true
+    },
+    {
+      "force_full_text": true,
+      "task": "wlan_record",
+      "answer": "ALPHA_PROBE",
+      "tool_payload": [
+        {
+          "_id": "w1",
+          "name": "ALPHA_PROBE",
+          "enabled": true,
+          "security": "wpa2",
+          "wlan_band": "both",
+          "x_passphrase": "[REDACTED]"
+        }
+      ],
+      "negotiated_protocol_version": "2025-11-25",
+      "listed_output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[\n  {\n    \"_id\": \"w1\",\n    \"name\": \"ALPHA_PROBE\",\n    \"enabled\": true,\n    \"security\": \"wpa2\",\n    \"wlan_band\": \"both\",\n    \"x_passphrase\": \"[REDACTED]\"\n  }\n]"
+          }
+        ],
+        "structuredContent": {
+          "result": "[\n  {\n    \"_id\": \"w1\",\n    \"name\": \"ALPHA_PROBE\",\n    \"enabled\": true,\n    \"security\": \"wpa2\",\n    \"wlan_band\": \"both\",\n    \"x_passphrase\": \"[REDACTED]\"\n  }\n]"
+        },
+        "isError": false
+      },
+      "producer_client_retains_full_payload": true
+    },
+    {
+      "force_full_text": true,
+      "task": "wlan_record",
+      "answer": "BETA_PROBE",
+      "tool_payload": [
+        {
+          "_id": "w1",
+          "name": "BETA_PROBE",
+          "enabled": true,
+          "security": "wpa2",
+          "wlan_band": "both",
+          "x_passphrase": "[REDACTED]"
+        }
+      ],
+      "negotiated_protocol_version": "2025-11-25",
+      "listed_output_schema": {
+        "properties": {
+          "result": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "x-fastmcp-wrap-result": true
+      },
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[\n  {\n    \"_id\": \"w1\",\n    \"name\": \"BETA_PROBE\",\n    \"enabled\": true,\n    \"security\": \"wpa2\",\n    \"wlan_band\": \"both\",\n    \"x_passphrase\": \"[REDACTED]\"\n  }\n]"
+          }
+        ],
+        "structuredContent": {
+          "result": "[\n  {\n    \"_id\": \"w1\",\n    \"name\": \"BETA_PROBE\",\n    \"enabled\": true,\n    \"security\": \"wpa2\",\n    \"wlan_band\": \"both\",\n    \"x_passphrase\": \"[REDACTED]\"\n  }\n]"
+        },
+        "isError": false
+      },
+      "producer_client_retains_full_payload": true
+    }
+  ],
+  "paid_model_calls": 0,
+  "environment": {
+    "python": "3.10.12",
+    "fastmcp": "3.4.7",
+    "mcp": "1.30.0"
+  },
+  "source_sha256": {
+    "artifacts/mcp-obligation-study-20261026/sources/unifi/src/mcp_unifi/responses.py": "468653f23e14ef7d455b49a24210b8609529f838e2bf168e5b97cf73a5d5f77f",
+    "artifacts/mcp-obligation-study-20261026/sources/unifi/tests/test_adaptive_responses.py": "fd60a9f2237b24b2b867bb4b00b65c8efe48b5ee9d44f2b3ff074369d1041242"
+  },
+  "limits": [
+    "Whole pinned response middleware; exact declared FastMCP 3.4.7 dependency.",
+    "Component executes on Python 3.10; full UniFi application declares Python >=3.13 and is not installed.",
+    "Real in-memory MCP initialization/list_tools/call_tool; no stdio, HTTP, UniFi controller or LLM.",
+    "Authored records and local tool callbacks; not production recordings or real WAN measurements.",
+    "Original revision-floor and middleware tests execute; original build_server E2E tests excluded.",
+    "Legacy/unknown-revision behavior is covered by original controlled-context unit tests, not old-client transport."
+  ]
+}

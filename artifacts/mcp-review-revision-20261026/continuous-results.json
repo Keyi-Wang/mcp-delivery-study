@@ -1,0 +1,501 @@
+{
+  "python": "3.13.17",
+  "consumer_mcp": "2.0.0",
+  "protocol_sha256": "ed996a12ec78ce6eb05c02bc1db315062b03bfac8382d1547b376b074a461c62",
+  "scope": "Complete producer build_server, upstream built-in controller stub, native Hermes live MCP connection and unchanged synchronous handler; no model/provider request",
+  "interventions": [
+    "Author sensitivity state perturbation",
+    "Existing producer full-text option"
+  ],
+  "replaced_dependencies": [
+    "Live UniFi controller replaced by upstream built-in StubState",
+    "gateway package initializer bypassed to avoid unrelated chat-platform bootstrap; native gateway.status and MCP lifecycle functions retained"
+  ],
+  "observation_wrappers": [
+    "session.call_tool delegates unchanged, records the returned SDK object"
+  ],
+  "cells": [
+    {
+      "state": "upstream_seed",
+      "mode": "adaptive",
+      "tool": "get_wan_status",
+      "initialize": {
+        "_meta": null,
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "experimental": {},
+          "logging": {},
+          "prompts": {
+            "listChanged": false
+          },
+          "resources": {
+            "subscribe": false,
+            "listChanged": false
+          },
+          "tools": {
+            "listChanged": true
+          },
+          "completions": null,
+          "extensions": {
+            "io.modelcontextprotocol/ui": {}
+          },
+          "tasks": null
+        },
+        "serverInfo": {
+          "name": "UniFi",
+          "title": null,
+          "version": "3.4.7",
+          "description": null,
+          "websiteUrl": null,
+          "icons": null
+        },
+        "instructions": null
+      },
+      "received": {
+        "content": [
+          {
+            "type": "text",
+            "text": "get_wan_status completed. Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "subsystem": "wan",
+          "status": "ok",
+          "gw_name": "Gateway",
+          "gw_mac": "f4:e2:c6:00:00:01",
+          "wan_ip": "203.0.113.42",
+          "isp_name": "Empire Internet Access",
+          "speedtest_status": "Idle",
+          "uptime": 482311,
+          "latency": 8,
+          "xput_up": 1820.5,
+          "xput_down": 1985.2
+        },
+        "isError": false,
+        "resultType": "complete"
+      },
+      "handler_output": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\"}",
+      "native_render_equal": true
+    },
+    {
+      "state": "upstream_seed",
+      "mode": "adaptive",
+      "tool": "list_wlans",
+      "initialize": {
+        "_meta": null,
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "experimental": {},
+          "logging": {},
+          "prompts": {
+            "listChanged": false
+          },
+          "resources": {
+            "subscribe": false,
+            "listChanged": false
+          },
+          "tools": {
+            "listChanged": true
+          },
+          "completions": null,
+          "extensions": {
+            "io.modelcontextprotocol/ui": {}
+          },
+          "tasks": null
+        },
+        "serverInfo": {
+          "name": "UniFi",
+          "title": null,
+          "version": "3.4.7",
+          "description": null,
+          "websiteUrl": null,
+          "icons": null
+        },
+        "instructions": null
+      },
+      "received": {
+        "content": [
+          {
+            "type": "text",
+            "text": "list_wlans returned 1 record(s). Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "result": [
+            {
+              "_id": "78a36809d9f24a819a05aab5",
+              "name": "Home",
+              "enabled": true,
+              "security": "wpapsk",
+              "wpa_mode": "wpa2",
+              "x_passphrase": "[REDACTED]",
+              "networkconf_id": "8542be8e3b5c4e11bc87afff",
+              "is_guest": false,
+              "hide_ssid": false,
+              "wlan_band": "both"
+            }
+          ]
+        },
+        "isError": false,
+        "resultType": "complete"
+      },
+      "handler_output": "{\"result\": \"list_wlans returned 1 record(s). Full result is in structuredContent.\"}",
+      "native_render_equal": true
+    },
+    {
+      "state": "upstream_seed",
+      "mode": "full_text",
+      "tool": "get_wan_status",
+      "initialize": {
+        "_meta": null,
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "experimental": {},
+          "logging": {},
+          "prompts": {
+            "listChanged": false
+          },
+          "resources": {
+            "subscribe": false,
+            "listChanged": false
+          },
+          "tools": {
+            "listChanged": true
+          },
+          "completions": null,
+          "extensions": {
+            "io.modelcontextprotocol/ui": {}
+          },
+          "tasks": null
+        },
+        "serverInfo": {
+          "name": "UniFi",
+          "title": null,
+          "version": "3.4.7",
+          "description": null,
+          "websiteUrl": null,
+          "icons": null
+        },
+        "instructions": null
+      },
+      "received": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"subsystem\": \"wan\",\n  \"status\": \"ok\",\n  \"gw_name\": \"Gateway\",\n  \"gw_mac\": \"f4:e2:c6:00:00:01\",\n  \"wan_ip\": \"203.0.113.42\",\n  \"isp_name\": \"Empire Internet Access\",\n  \"speedtest_status\": \"Idle\",\n  \"uptime\": 482311,\n  \"latency\": 8,\n  \"xput_up\": 1820.5,\n  \"xput_down\": 1985.2\n}"
+          }
+        ],
+        "structuredContent": {
+          "result": "{\n  \"subsystem\": \"wan\",\n  \"status\": \"ok\",\n  \"gw_name\": \"Gateway\",\n  \"gw_mac\": \"f4:e2:c6:00:00:01\",\n  \"wan_ip\": \"203.0.113.42\",\n  \"isp_name\": \"Empire Internet Access\",\n  \"speedtest_status\": \"Idle\",\n  \"uptime\": 482311,\n  \"latency\": 8,\n  \"xput_up\": 1820.5,\n  \"xput_down\": 1985.2\n}"
+        },
+        "isError": false,
+        "resultType": "complete"
+      },
+      "handler_output": "{\"result\": \"{\\n  \\\"subsystem\\\": \\\"wan\\\",\\n  \\\"status\\\": \\\"ok\\\",\\n  \\\"gw_name\\\": \\\"Gateway\\\",\\n  \\\"gw_mac\\\": \\\"f4:e2:c6:00:00:01\\\",\\n  \\\"wan_ip\\\": \\\"203.0.113.42\\\",\\n  \\\"isp_name\\\": \\\"Empire Internet Access\\\",\\n  \\\"speedtest_status\\\": \\\"Idle\\\",\\n  \\\"uptime\\\": 482311,\\n  \\\"latency\\\": 8,\\n  \\\"xput_up\\\": 1820.5,\\n  \\\"xput_down\\\": 1985.2\\n}\", \"_meta\": {\"fastmcp\": {\"wrap_result\": true}}}",
+      "native_render_equal": true
+    },
+    {
+      "state": "upstream_seed",
+      "mode": "full_text",
+      "tool": "list_wlans",
+      "initialize": {
+        "_meta": null,
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "experimental": {},
+          "logging": {},
+          "prompts": {
+            "listChanged": false
+          },
+          "resources": {
+            "subscribe": false,
+            "listChanged": false
+          },
+          "tools": {
+            "listChanged": true
+          },
+          "completions": null,
+          "extensions": {
+            "io.modelcontextprotocol/ui": {}
+          },
+          "tasks": null
+        },
+        "serverInfo": {
+          "name": "UniFi",
+          "title": null,
+          "version": "3.4.7",
+          "description": null,
+          "websiteUrl": null,
+          "icons": null
+        },
+        "instructions": null
+      },
+      "received": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[\n  {\n    \"_id\": \"78a36809d9f24a819a05aab5\",\n    \"name\": \"Home\",\n    \"enabled\": true,\n    \"security\": \"wpapsk\",\n    \"wpa_mode\": \"wpa2\",\n    \"x_passphrase\": \"[REDACTED]\",\n    \"networkconf_id\": \"8542be8e3b5c4e11bc87afff\",\n    \"is_guest\": false,\n    \"hide_ssid\": false,\n    \"wlan_band\": \"both\"\n  }\n]"
+          }
+        ],
+        "structuredContent": {
+          "result": "[\n  {\n    \"_id\": \"78a36809d9f24a819a05aab5\",\n    \"name\": \"Home\",\n    \"enabled\": true,\n    \"security\": \"wpapsk\",\n    \"wpa_mode\": \"wpa2\",\n    \"x_passphrase\": \"[REDACTED]\",\n    \"networkconf_id\": \"8542be8e3b5c4e11bc87afff\",\n    \"is_guest\": false,\n    \"hide_ssid\": false,\n    \"wlan_band\": \"both\"\n  }\n]"
+        },
+        "isError": false,
+        "resultType": "complete"
+      },
+      "handler_output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"78a36809d9f24a819a05aab5\\\",\\n    \\\"name\\\": \\\"Home\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpapsk\\\",\\n    \\\"wpa_mode\\\": \\\"wpa2\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\",\\n    \\\"networkconf_id\\\": \\\"8542be8e3b5c4e11bc87afff\\\",\\n    \\\"is_guest\\\": false,\\n    \\\"hide_ssid\\\": false,\\n    \\\"wlan_band\\\": \\\"both\\\"\\n  }\\n]\", \"_meta\": {\"fastmcp\": {\"wrap_result\": true}}}",
+      "native_render_equal": true
+    },
+    {
+      "state": "perturbed",
+      "mode": "adaptive",
+      "tool": "get_wan_status",
+      "initialize": {
+        "_meta": null,
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "experimental": {},
+          "logging": {},
+          "prompts": {
+            "listChanged": false
+          },
+          "resources": {
+            "subscribe": false,
+            "listChanged": false
+          },
+          "tools": {
+            "listChanged": true
+          },
+          "completions": null,
+          "extensions": {
+            "io.modelcontextprotocol/ui": {}
+          },
+          "tasks": null
+        },
+        "serverInfo": {
+          "name": "UniFi",
+          "title": null,
+          "version": "3.4.7",
+          "description": null,
+          "websiteUrl": null,
+          "icons": null
+        },
+        "instructions": null
+      },
+      "received": {
+        "content": [
+          {
+            "type": "text",
+            "text": "get_wan_status completed. Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "subsystem": "wan",
+          "status": "warning",
+          "gw_name": "Gateway",
+          "gw_mac": "f4:e2:c6:00:00:01",
+          "wan_ip": "203.0.113.99",
+          "isp_name": "Empire Internet Access",
+          "speedtest_status": "Idle",
+          "uptime": 482311,
+          "latency": 8,
+          "xput_up": 1820.5,
+          "xput_down": 1985.2
+        },
+        "isError": false,
+        "resultType": "complete"
+      },
+      "handler_output": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\"}",
+      "native_render_equal": true
+    },
+    {
+      "state": "perturbed",
+      "mode": "adaptive",
+      "tool": "list_wlans",
+      "initialize": {
+        "_meta": null,
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "experimental": {},
+          "logging": {},
+          "prompts": {
+            "listChanged": false
+          },
+          "resources": {
+            "subscribe": false,
+            "listChanged": false
+          },
+          "tools": {
+            "listChanged": true
+          },
+          "completions": null,
+          "extensions": {
+            "io.modelcontextprotocol/ui": {}
+          },
+          "tasks": null
+        },
+        "serverInfo": {
+          "name": "UniFi",
+          "title": null,
+          "version": "3.4.7",
+          "description": null,
+          "websiteUrl": null,
+          "icons": null
+        },
+        "instructions": null
+      },
+      "received": {
+        "content": [
+          {
+            "type": "text",
+            "text": "list_wlans returned 1 record(s). Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "result": [
+            {
+              "_id": "78a36809d9f24a819a05aab5",
+              "name": "Office-Review",
+              "enabled": false,
+              "security": "wpapsk",
+              "wpa_mode": "wpa2",
+              "x_passphrase": "[REDACTED]",
+              "networkconf_id": "8542be8e3b5c4e11bc87afff",
+              "is_guest": false,
+              "hide_ssid": false,
+              "wlan_band": "both"
+            }
+          ]
+        },
+        "isError": false,
+        "resultType": "complete"
+      },
+      "handler_output": "{\"result\": \"list_wlans returned 1 record(s). Full result is in structuredContent.\"}",
+      "native_render_equal": true
+    },
+    {
+      "state": "perturbed",
+      "mode": "full_text",
+      "tool": "get_wan_status",
+      "initialize": {
+        "_meta": null,
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "experimental": {},
+          "logging": {},
+          "prompts": {
+            "listChanged": false
+          },
+          "resources": {
+            "subscribe": false,
+            "listChanged": false
+          },
+          "tools": {
+            "listChanged": true
+          },
+          "completions": null,
+          "extensions": {
+            "io.modelcontextprotocol/ui": {}
+          },
+          "tasks": null
+        },
+        "serverInfo": {
+          "name": "UniFi",
+          "title": null,
+          "version": "3.4.7",
+          "description": null,
+          "websiteUrl": null,
+          "icons": null
+        },
+        "instructions": null
+      },
+      "received": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"subsystem\": \"wan\",\n  \"status\": \"warning\",\n  \"gw_name\": \"Gateway\",\n  \"gw_mac\": \"f4:e2:c6:00:00:01\",\n  \"wan_ip\": \"203.0.113.99\",\n  \"isp_name\": \"Empire Internet Access\",\n  \"speedtest_status\": \"Idle\",\n  \"uptime\": 482311,\n  \"latency\": 8,\n  \"xput_up\": 1820.5,\n  \"xput_down\": 1985.2\n}"
+          }
+        ],
+        "structuredContent": {
+          "result": "{\n  \"subsystem\": \"wan\",\n  \"status\": \"warning\",\n  \"gw_name\": \"Gateway\",\n  \"gw_mac\": \"f4:e2:c6:00:00:01\",\n  \"wan_ip\": \"203.0.113.99\",\n  \"isp_name\": \"Empire Internet Access\",\n  \"speedtest_status\": \"Idle\",\n  \"uptime\": 482311,\n  \"latency\": 8,\n  \"xput_up\": 1820.5,\n  \"xput_down\": 1985.2\n}"
+        },
+        "isError": false,
+        "resultType": "complete"
+      },
+      "handler_output": "{\"result\": \"{\\n  \\\"subsystem\\\": \\\"wan\\\",\\n  \\\"status\\\": \\\"warning\\\",\\n  \\\"gw_name\\\": \\\"Gateway\\\",\\n  \\\"gw_mac\\\": \\\"f4:e2:c6:00:00:01\\\",\\n  \\\"wan_ip\\\": \\\"203.0.113.99\\\",\\n  \\\"isp_name\\\": \\\"Empire Internet Access\\\",\\n  \\\"speedtest_status\\\": \\\"Idle\\\",\\n  \\\"uptime\\\": 482311,\\n  \\\"latency\\\": 8,\\n  \\\"xput_up\\\": 1820.5,\\n  \\\"xput_down\\\": 1985.2\\n}\", \"_meta\": {\"fastmcp\": {\"wrap_result\": true}}}",
+      "native_render_equal": true
+    },
+    {
+      "state": "perturbed",
+      "mode": "full_text",
+      "tool": "list_wlans",
+      "initialize": {
+        "_meta": null,
+        "protocolVersion": "2025-11-25",
+        "capabilities": {
+          "experimental": {},
+          "logging": {},
+          "prompts": {
+            "listChanged": false
+          },
+          "resources": {
+            "subscribe": false,
+            "listChanged": false
+          },
+          "tools": {
+            "listChanged": true
+          },
+          "completions": null,
+          "extensions": {
+            "io.modelcontextprotocol/ui": {}
+          },
+          "tasks": null
+        },
+        "serverInfo": {
+          "name": "UniFi",
+          "title": null,
+          "version": "3.4.7",
+          "description": null,
+          "websiteUrl": null,
+          "icons": null
+        },
+        "instructions": null
+      },
+      "received": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[\n  {\n    \"_id\": \"78a36809d9f24a819a05aab5\",\n    \"name\": \"Office-Review\",\n    \"enabled\": false,\n    \"security\": \"wpapsk\",\n    \"wpa_mode\": \"wpa2\",\n    \"x_passphrase\": \"[REDACTED]\",\n    \"networkconf_id\": \"8542be8e3b5c4e11bc87afff\",\n    \"is_guest\": false,\n    \"hide_ssid\": false,\n    \"wlan_band\": \"both\"\n  }\n]"
+          }
+        ],
+        "structuredContent": {
+          "result": "[\n  {\n    \"_id\": \"78a36809d9f24a819a05aab5\",\n    \"name\": \"Office-Review\",\n    \"enabled\": false,\n    \"security\": \"wpapsk\",\n    \"wpa_mode\": \"wpa2\",\n    \"x_passphrase\": \"[REDACTED]\",\n    \"networkconf_id\": \"8542be8e3b5c4e11bc87afff\",\n    \"is_guest\": false,\n    \"hide_ssid\": false,\n    \"wlan_band\": \"both\"\n  }\n]"
+        },
+        "isError": false,
+        "resultType": "complete"
+      },
+      "handler_output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"78a36809d9f24a819a05aab5\\\",\\n    \\\"name\\\": \\\"Office-Review\\\",\\n    \\\"enabled\\\": false,\\n    \\\"security\\\": \\\"wpapsk\\\",\\n    \\\"wpa_mode\\\": \\\"wpa2\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\",\\n    \\\"networkconf_id\\\": \\\"8542be8e3b5c4e11bc87afff\\\",\\n    \\\"is_guest\\\": false,\\n    \\\"hide_ssid\\\": false,\\n    \\\"wlan_band\\\": \\\"both\\\"\\n  }\\n]\", \"_meta\": {\"fastmcp\": {\"wrap_result\": true}}}",
+      "native_render_equal": true
+    }
+  ]
+}

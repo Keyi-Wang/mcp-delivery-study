@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-26",
+  "recorded_before_new_execution": true,
+  "objective": "Qualify a bounded multiple-case empirical paper on repair verification boundaries, without claiming new fault categories or ecosystem prevalence.",
+  "upstream_test_audit": {
+    "scope": "Seven repair PR change lists across four projects, plus pinned Agno/Hermes test files.",
+    "execution": "Execute unchanged selected upstream Agno test functions with their original assertion bodies; execute complete upstream Hermes structured-content test modules against three pinned native handlers. Selection and failures recorded. Not the complete project test suites.",
+    "selection_rule": "Agno tests whose names concern structured content, metadata, or fallback to structured data; Hermes all test methods in the two repair-specific structured-content modules.",
+    "interpretation": "A passing preservation assertion may be correct for its tested contract while inadequate to establish downstream availability. Failure of an old representation-specific assertion on a later repair is not automatically semantic regression."
+  },
+  "provider_request_capture": {
+    "project": "Agno 2.6.20 native Agent and OpenAI-compatible client",
+    "intervention": "Swap only pinned MCP adapter implementation; freeze task, model configuration, tool schema and tool response within each comparison.",
+    "capture": "A loopback HTTP receiver returns a scripted tool call and records the subsequent actual JSON request. It is a transport harness, not an LLM or task-solving baseline.",
+    "fixtures": [
+      "structured-only",
+      "summary plus complementary structured data",
+      "file text plus metadata",
+      "equivalent text and structured data"
+    ],
+    "counterfactuals": "Two equally shaped records with different required answers per fixture; same question and tool name; check whether actual follow-up request messages distinguish them.",
+    "claims": "Request-level preservation and indistinguishability only; no measured LLM success inferred from scripted replies."
+  },
+  "formal_paid_model_scaleup": false,
+  "cost": "All currently specified executions use local fixtures and loopback HTTP; zero paid model calls."
+}

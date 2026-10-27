@@ -1,0 +1,11 @@
+{
+  "recorded_before_execution": true,
+  "discovery": "Record S35 in the completed frozen retrieval, adcontextprotocol/adcp-client issue464, closed by merged PR461.",
+  "question": "Does restoring fields by extracting an error code from prose also restore the original structured error detail?",
+  "source_versions": ["69a6dde7c199c2bfe22fad0ab48f7087429e33a4", "41e9f9eb78ecb69dbd8983c247cb172a3b03507e"],
+  "planned_boundary": "Unchanged TypeScript source functions compiled with the TypeScript compiler and controlled external collaborators; no hand-reimplementation of the conversion/extraction logic.",
+  "inputs": "Controller error shape from public issue and original source: text=Controller error: CODE, structuredContent includes success=false, error=CODE, error_detail. Use UNKNOWN_SCENARIO, INVALID_PARAMS, NOT_FOUND and paired distinct details with the same code; success and directly available structured data as controls.",
+  "oracle": "Check typed/code fields separately from exact original detail. Retain the emitted reconstructed object; do not infer recovery accuracy from field presence. Compare before and after, and distinguish a raw-data path from a flattened-error path.",
+  "limits": "Source-shaped controls, not production recordings. An error-detail mismatch is a task-relative limitation of reconstruction, not evidence the maintainers promised every detail or that a new defect has been confirmed. No full AdCP deployment or model inference.",
+  "paid_calls": 0
+}

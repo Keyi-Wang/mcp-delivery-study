@@ -1,0 +1,30 @@
+[
+  {
+    "path": "sources/webui-media-before/middleware.py",
+    "revision": "344ea530688684c83f4cf247a1ca08bce60c0ba2",
+    "sha256": "019632dbc6accafa2927da55a203b752752c5a5bb5f43a7a05fa6afd2ac2ba06",
+    "remote_exact_or_only_trailing_newline_difference": true,
+    "source_url": "https://github.com/open-webui/open-webui/blob/344ea530688684c83f4cf247a1ca08bce60c0ba2/backend/open_webui/utils/middleware.py"
+  },
+  {
+    "path": "sources/webui-media-before/misc.py",
+    "revision": "344ea530688684c83f4cf247a1ca08bce60c0ba2",
+    "sha256": "d41212c582e04a41849f0db988385cf0c90d0daa06efee41b8cd9befc3f6d707",
+    "remote_exact_or_only_trailing_newline_difference": true,
+    "source_url": "https://github.com/open-webui/open-webui/blob/344ea530688684c83f4cf247a1ca08bce60c0ba2/backend/open_webui/utils/misc.py"
+  },
+  {
+    "path": "sources/webui-media-after/middleware.py",
+    "revision": "6f6792d4848bd47be6abd6860f594e643f9de4ba",
+    "sha256": "7a534b9003bec4db476d50bc71cd7ee54443b04d6e208ab5e6f86b48fc8e3a42",
+    "remote_exact_or_only_trailing_newline_difference": true,
+    "source_url": "https://github.com/open-webui/open-webui/blob/6f6792d4848bd47be6abd6860f594e643f9de4ba/backend/open_webui/utils/middleware.py"
+  },
+  {
+    "path": "sources/webui-media-after/misc.py",
+    "revision": "6f6792d4848bd47be6abd6860f594e643f9de4ba",
+    "sha256": "d41212c582e04a41849f0db988385cf0c90d0daa06efee41b8cd9befc3f6d707",
+    "remote_exact_or_only_trailing_newline_difference": true,
+    "source_url": "https://github.com/open-webui/open-webui/blob/6f6792d4848bd47be6abd6860f594e643f9de4ba/backend/open_webui/utils/misc.py"
+  }
+]

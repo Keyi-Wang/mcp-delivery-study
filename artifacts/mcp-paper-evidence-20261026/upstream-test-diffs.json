@@ -1,0 +1,301 @@
+[
+  {
+    "path": "agno-agi/agno/pulls/7715/files",
+    "data": [
+      {
+        "sha": "620df167a4d9621bdb0a8f9dcfea4a0c34d39348",
+        "filename": "libs/agno/agno/tools/function.py",
+        "status": "modified",
+        "additions": 1,
+        "deletions": 0,
+        "changes": 1,
+        "blob_url": "https://github.com/agno-agi/agno/blob/d9b12e5bf6b6adb9618c7fb073d9e99b46983428/libs%2Fagno%2Fagno%2Ftools%2Ffunction.py",
+        "raw_url": "https://github.com/agno-agi/agno/raw/d9b12e5bf6b6adb9618c7fb073d9e99b46983428/libs%2Fagno%2Fagno%2Ftools%2Ffunction.py",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/libs%2Fagno%2Fagno%2Ftools%2Ffunction.py?ref=d9b12e5bf6b6adb9618c7fb073d9e99b46983428",
+        "patch": "@@ -1358,3 +1358,4 @@ class ToolResult(BaseModel):\n     videos: Optional[List[Video]] = None\n     audios: Optional[List[Audio]] = None\n     files: Optional[List[File]] = None\n+    structured_content: Optional[Dict[str, Any]] = None"
+      },
+      {
+        "sha": "4a7bc53ad0aadc731bc93fc87f0f5266a32e3a11",
+        "filename": "libs/agno/agno/utils/mcp.py",
+        "status": "modified",
+        "additions": 2,
+        "deletions": 0,
+        "changes": 2,
+        "blob_url": "https://github.com/agno-agi/agno/blob/d9b12e5bf6b6adb9618c7fb073d9e99b46983428/libs%2Fagno%2Fagno%2Futils%2Fmcp.py",
+        "raw_url": "https://github.com/agno-agi/agno/raw/d9b12e5bf6b6adb9618c7fb073d9e99b46983428/libs%2Fagno%2Fagno%2Futils%2Fmcp.py",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/libs%2Fagno%2Fagno%2Futils%2Fmcp.py?ref=d9b12e5bf6b6adb9618c7fb073d9e99b46983428",
+        "patch": "@@ -68,6 +68,7 @@ async def _call_with_session(active_session: ClientSession) -> ToolResult:\n                 return ToolResult(\n                     content=f\"Error from MCP tool '{tool_name}': {result.content}\",\n                     metadata=result.meta,\n+                    structured_content=getattr(result, \"structuredContent\", None),\n                 )\n \n             # Process the result content\n@@ -150,6 +151,7 @@ async def _call_with_session(active_session: ClientSession) -> ToolResult:\n                 content=response_str.strip(),\n                 metadata=result.meta,\n                 images=images if images else None,\n+                structured_content=getattr(result, \"structuredContent\", None),\n             )\n \n         # Execute the MCP tool call"
+      },
+      {
+        "sha": "4030e09e03dcb0efc2c7e9cdddd1b3fe10b993a5",
+        "filename": "libs/agno/tests/unit/tools/test_mcp.py",
+        "status": "modified",
+        "additions": 75,
+        "deletions": 0,
+        "changes": 75,
+        "blob_url": "https://github.com/agno-agi/agno/blob/d9b12e5bf6b6adb9618c7fb073d9e99b46983428/libs%2Fagno%2Ftests%2Funit%2Ftools%2Ftest_mcp.py",
+        "raw_url": "https://github.com/agno-agi/agno/raw/d9b12e5bf6b6adb9618c7fb073d9e99b46983428/libs%2Fagno%2Ftests%2Funit%2Ftools%2Ftest_mcp.py",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/libs%2Fagno%2Ftests%2Funit%2Ftools%2Ftest_mcp.py?ref=d9b12e5bf6b6adb9618c7fb073d9e99b46983428",
+        "patch": "@@ -1035,6 +1035,80 @@ async def test_parallel_calls_no_deadlock_with_timeout():\n             assert all(s is results[0] for s in results)\n \n \n+@pytest.mark.asyncio\n+async def test_mcp_tool_result_preserves_structured_content():\n+    mock_tool = MagicMock()\n+    mock_tool.name = \"get_data\"\n+\n+    session = AsyncMock()\n+    session.send_ping = AsyncMock()\n+    session.call_tool = AsyncMock(\n+        return_value=CallToolResult(\n+            content=[TextContent(type=\"text\", text=\"hello\")],\n+            isError=False,\n+            structuredContent={\"id\": \"u1\", \"name\": \"Ada\"},\n+        )\n+    )\n+\n+    entrypoint = get_entrypoint_for_tool(mock_tool, session)\n+    result = await entrypoint()\n+\n+    assert result.structured_content == {\"id\": \"u1\", \"name\": \"Ada\"}\n+\n+\n+@pytest.mark.asyncio\n+async def test_mcp_tool_error_result_preserves_structured_content():\n+    mock_tool = MagicMock()\n+    mock_tool.name = \"get_data\"\n+\n+    session = AsyncMock()\n+    session.send_ping = AsyncMock()\n+    session.call_tool = AsyncMock(\n+        return_value=CallToolResult(\n+            content=[TextContent(type=\"text\", text=\"upstream error\")],\n+            isError=True,\n+            structuredContent={\"error_details\": {\"code\": 42}},\n+        )\n+    )\n+\n+    entrypoint = get_entrypoint_for_tool(mock_tool, session)\n+    result = await entrypoint()\n+\n+    assert \"Error from MCP tool 'get_data'\" in result.content\n+    assert result.structured_content == {\"error_details\": {\"code\": 42}}\n+\n+\n+@pytest.mark.asyncio\n+async def test_mcp_tool_result_handles_missing_structured_content_attr():\n+    # mcp < 1.10.0 CallToolResult has no structuredContent attribute; the wrapper\n+    # must fall back to None instead of raising AttributeError.\n+    mock_tool = MagicMock()\n+    mock_tool.name = \"get_data\"\n+\n+    result = MagicMock()\n+    result.isError = False\n+    result.content = [TextContent(type=\"text\", text=\"hello\")]\n+    result.meta = None\n+    del result.structuredContent\n+\n+    session = AsyncMock()\n+    session.send_ping = AsyncMock()\n+    session.call_tool = AsyncMock(return_value=result)\n+\n+    entrypoint = get_entrypoint_for_tool(mock_tool, session)\n+    result = await entrypoint()\n+\n+    assert result.content == \"hello\"\n+    assert result.structured_content is None\n+\n+\n+def test_tool_result_model_dump_roundtrip_preserves_structured_content():\n+    tool_result = ToolResult(content=\"hello\", structured_content={\"key\": \"value\", \"list\": [1, 2, 3]})\n+    payload = tool_result.model_dump()\n+    restored = ToolResult.model_validate(payload)\n+    assert restored.structured_content == {\"key\": \"value\", \"list\": [1, 2, 3]}\n+\n+\n @pytest.mark.asyncio\n async def test_mcp_tool_result_preserves_meta():\n     mock_tool = MagicMock()\n@@ -1106,6 +1180,7 @@ def _make_session_returning(content_text: str):\n     result.isError = False\n     result.content = [TextContent(type=\"text\", text=content_text)]\n     result.meta = None\n+    result.structuredContent = None\n \n     session = AsyncMock()\n     session.send_ping = AsyncMock()"
+      }
+    ]
+  },
+  {
+    "path": "agno-agi/agno/pulls/8580/files",
+    "data": [
+      {
+        "sha": "8df688be5f8a33acca5f8b21540c83a30d1e1a02",
+        "filename": "libs/agno/agno/tools/function.py",
+        "status": "modified",
+        "additions": 1,
+        "deletions": 1,
+        "changes": 2,
+        "blob_url": "https://github.com/agno-agi/agno/blob/cf081140c0f1ae31df73348daa5e4bb8fd77e5ad/libs%2Fagno%2Fagno%2Ftools%2Ffunction.py",
+        "raw_url": "https://github.com/agno-agi/agno/raw/cf081140c0f1ae31df73348daa5e4bb8fd77e5ad/libs%2Fagno%2Fagno%2Ftools%2Ffunction.py",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/libs%2Fagno%2Fagno%2Ftools%2Ffunction.py?ref=cf081140c0f1ae31df73348daa5e4bb8fd77e5ad",
+        "patch": "@@ -1353,9 +1353,9 @@ class ToolResult(BaseModel):\n     \"\"\"Result from a tool that can include media artifacts.\"\"\"\n \n     content: str\n+    # Holds extra MCP tool data, stored as \"meta\" and \"structured_content\". Can be used for any other provider's extra data.\n     metadata: Optional[Dict[str, Any]] = None\n     images: Optional[List[Image]] = None\n     videos: Optional[List[Video]] = None\n     audios: Optional[List[Audio]] = None\n     files: Optional[List[File]] = None\n-    structured_content: Optional[Dict[str, Any]] = None"
+      },
+      {
+        "sha": "16a0c656eb3d8959f310a16207ef15de2a26c7ec",
+        "filename": "libs/agno/agno/utils/mcp.py",
+        "status": "modified",
+        "additions": 21,
+        "deletions": 5,
+        "changes": 26,
+        "blob_url": "https://github.com/agno-agi/agno/blob/cf081140c0f1ae31df73348daa5e4bb8fd77e5ad/libs%2Fagno%2Fagno%2Futils%2Fmcp.py",
+        "raw_url": "https://github.com/agno-agi/agno/raw/cf081140c0f1ae31df73348daa5e4bb8fd77e5ad/libs%2Fagno%2Fagno%2Futils%2Fmcp.py",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/libs%2Fagno%2Fagno%2Futils%2Fmcp.py?ref=cf081140c0f1ae31df73348daa5e4bb8fd77e5ad",
+        "patch": "@@ -1,6 +1,6 @@\n import json\n from functools import partial\n-from typing import TYPE_CHECKING, Optional, Union\n+from typing import TYPE_CHECKING, Any, Dict, Optional, Union\n from uuid import uuid4\n \n from agno.utils.log import log_debug, log_exception\n@@ -67,8 +67,7 @@ async def _call_with_session(active_session: ClientSession) -> ToolResult:\n             if result.isError:\n                 return ToolResult(\n                     content=f\"Error from MCP tool '{tool_name}': {result.content}\",\n-                    metadata=result.meta,\n-                    structured_content=getattr(result, \"structuredContent\", None),\n+                    metadata=_build_mcp_metadata(result),\n                 )\n \n             # Process the result content\n@@ -149,9 +148,8 @@ async def _call_with_session(active_session: ClientSession) -> ToolResult:\n \n             return ToolResult(\n                 content=response_str.strip(),\n-                metadata=result.meta,\n+                metadata=_build_mcp_metadata(result),\n                 images=images if images else None,\n-                structured_content=getattr(result, \"structuredContent\", None),\n             )\n \n         # Execute the MCP tool call\n@@ -198,6 +196,24 @@ async def _call_with_session(active_session: ClientSession) -> ToolResult:\n     return partial(call_tool, tool_name=tool.name)\n \n \n+def _build_mcp_metadata(result: \"CallToolResult\") -> Optional[Dict[str, Any]]:\n+    \"\"\"Collect a tool result's extra MCP data into a single ToolResult.metadata dict.\n+\n+    Protocol `_meta` and the tool's `structuredContent` are stored as the reserved keys\n+    `meta` and `structured_content` rather than as separate ToolResult fields, so future MCP\n+    additions become new keys here instead of new attributes. `getattr` guards both: older MCP\n+    servers (mcp < 1.10.0) expose no `structuredContent`, so the key is simply omitted. Returns\n+    None when there is nothing to preserve.\n+    \"\"\"\n+    metadata: Dict[str, Any] = {}\n+    if getattr(result, \"meta\", None) is not None:\n+        metadata[\"meta\"] = result.meta\n+    structured_content = getattr(result, \"structuredContent\", None)\n+    if structured_content is not None:\n+        metadata[\"structured_content\"] = structured_content\n+    return metadata or None\n+\n+\n def prepare_command(command: str) -> list[str]:\n     \"\"\"Sanitize a command and split it into parts before using it to run a MCP server.\"\"\"\n     import os"
+      },
+      {
+        "sha": "f05ae38ba6c9dbd02aab319fe5270ae8093bf0fd",
+        "filename": "libs/agno/tests/unit/tools/test_mcp.py",
+        "status": "modified",
+        "additions": 31,
+        "deletions": 7,
+        "changes": 38,
+        "blob_url": "https://github.com/agno-agi/agno/blob/cf081140c0f1ae31df73348daa5e4bb8fd77e5ad/libs%2Fagno%2Ftests%2Funit%2Ftools%2Ftest_mcp.py",
+        "raw_url": "https://github.com/agno-agi/agno/raw/cf081140c0f1ae31df73348daa5e4bb8fd77e5ad/libs%2Fagno%2Ftests%2Funit%2Ftools%2Ftest_mcp.py",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/libs%2Fagno%2Ftests%2Funit%2Ftools%2Ftest_mcp.py?ref=cf081140c0f1ae31df73348daa5e4bb8fd77e5ad",
+        "patch": "@@ -1053,7 +1053,7 @@ async def test_mcp_tool_result_preserves_structured_content():\n     entrypoint = get_entrypoint_for_tool(mock_tool, session)\n     result = await entrypoint()\n \n-    assert result.structured_content == {\"id\": \"u1\", \"name\": \"Ada\"}\n+    assert result.metadata[\"structured_content\"] == {\"id\": \"u1\", \"name\": \"Ada\"}\n \n \n @pytest.mark.asyncio\n@@ -1075,7 +1075,7 @@ async def test_mcp_tool_error_result_preserves_structured_content():\n     result = await entrypoint()\n \n     assert \"Error from MCP tool 'get_data'\" in result.content\n-    assert result.structured_content == {\"error_details\": {\"code\": 42}}\n+    assert result.metadata[\"structured_content\"] == {\"error_details\": {\"code\": 42}}\n \n \n @pytest.mark.asyncio\n@@ -1099,14 +1099,15 @@ async def test_mcp_tool_result_handles_missing_structured_content_attr():\n     result = await entrypoint()\n \n     assert result.content == \"hello\"\n-    assert result.structured_content is None\n+    # No _meta and no structuredContent -> the envelope collapses to None.\n+    assert result.metadata is None\n \n \n def test_tool_result_model_dump_roundtrip_preserves_structured_content():\n-    tool_result = ToolResult(content=\"hello\", structured_content={\"key\": \"value\", \"list\": [1, 2, 3]})\n+    tool_result = ToolResult(content=\"hello\", metadata={\"structured_content\": {\"key\": \"value\", \"list\": [1, 2, 3]}})\n     payload = tool_result.model_dump()\n     restored = ToolResult.model_validate(payload)\n-    assert restored.structured_content == {\"key\": \"value\", \"list\": [1, 2, 3]}\n+    assert restored.metadata[\"structured_content\"] == {\"key\": \"value\", \"list\": [1, 2, 3]}\n \n \n @pytest.mark.asyncio\n@@ -1128,7 +1129,7 @@ async def test_mcp_tool_result_preserves_meta():\n     result = await entrypoint()\n \n     assert result.content == \"hello\"\n-    assert result.metadata == {\"trace_id\": \"abc-123\"}\n+    assert result.metadata == {\"meta\": {\"trace_id\": \"abc-123\"}}\n \n \n @pytest.mark.asyncio\n@@ -1150,7 +1151,30 @@ async def test_mcp_tool_error_result_preserves_meta():\n     result = await entrypoint()\n \n     assert \"Error from MCP tool 'get_data'\" in result.content\n-    assert result.metadata == {\"trace_id\": \"err-456\"}\n+    assert result.metadata == {\"meta\": {\"trace_id\": \"err-456\"}}\n+\n+\n+@pytest.mark.asyncio\n+async def test_mcp_tool_result_preserves_meta_and_structured_content():\n+    mock_tool = MagicMock()\n+    mock_tool.name = \"get_data\"\n+\n+    session = AsyncMock()\n+    session.send_ping = AsyncMock()\n+    session.call_tool = AsyncMock(\n+        return_value=CallToolResult(\n+            content=[TextContent(type=\"text\", text=\"hello\")],\n+            isError=False,\n+            _meta={\"trace_id\": \"abc-123\"},\n+            structuredContent={\"id\": \"u1\", \"name\": \"Ada\"},\n+        )\n+    )\n+\n+    entrypoint = get_entrypoint_for_tool(mock_tool, session)\n+    result = await entrypoint()\n+\n+    # Both sidecar values coexist under reserved keys in the single metadata envelope.\n+    assert result.metadata == {\"meta\": {\"trace_id\": \"abc-123\"}, \"structured_content\": {\"id\": \"u1\", \"name\": \"Ada\"}}\n \n \n def test_tool_result_model_dump_roundtrip_preserves_metadata():"
+      }
+    ]
+  },
+  {
+    "path": "agno-agi/agno/pulls/8695/files",
+    "data": [
+      {
+        "sha": "ded2ceba96d2a21a16c04148b154f0f366409f66",
+        "filename": "cookbook/91_tools/mcp/README.md",
+        "status": "modified",
+        "additions": 5,
+        "deletions": 0,
+        "changes": 5,
+        "blob_url": "https://github.com/agno-agi/agno/blob/f1dbf196461557559c6299293c826c3915172d7e/cookbook%2F91_tools%2Fmcp%2FREADME.md",
+        "raw_url": "https://github.com/agno-agi/agno/raw/f1dbf196461557559c6299293c826c3915172d7e/cookbook%2F91_tools%2Fmcp%2FREADME.md",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/cookbook%2F91_tools%2Fmcp%2FREADME.md?ref=f1dbf196461557559c6299293c826c3915172d7e",
+        "patch": "@@ -36,6 +36,10 @@ This example shows how to use the MCP agent to perform sequential thinking.\n \n This example shows how to create an agent that uses MCP and Gemini 2.5 Pro to search for Airbnb listings.\n \n+9. Structured Content Agent (`structured_content.py`)\n+\n+This example connects to the hosted DeepWiki MCP server (public, no API key) to answer questions about GitHub repositories. It shows how a tool's `structuredContent` is preserved on `ToolResult.metadata[\"structured_content\"]` and read back through a tool hook.\n+\n \n ## Getting Started\n \n@@ -61,6 +65,7 @@ export OPENAI_API_KEY=\"your_openai_api_key\"\n python filesystem.py\n python github.py\n python bgpt.py\n+python structured_content.py\n ```\n \n ## How It Works"
+      },
+      {
+        "sha": "754b686d67ed2c238004312b5e2f99e91c98c4ac",
+        "filename": "cookbook/91_tools/mcp/TEST_LOG.md",
+        "status": "modified",
+        "additions": 15,
+        "deletions": 0,
+        "changes": 15,
+        "blob_url": "https://github.com/agno-agi/agno/blob/f1dbf196461557559c6299293c826c3915172d7e/cookbook%2F91_tools%2Fmcp%2FTEST_LOG.md",
+        "raw_url": "https://github.com/agno-agi/agno/raw/f1dbf196461557559c6299293c826c3915172d7e/cookbook%2F91_tools%2Fmcp%2FTEST_LOG.md",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/cookbook%2F91_tools%2Fmcp%2FTEST_LOG.md?ref=f1dbf196461557559c6299293c826c3915172d7e",
+        "patch": "@@ -1,5 +1,20 @@\n # Test Log\n \n+### structured_content.py\n+\n+**Status:** PASS\n+\n+**Description:** Connects to the hosted DeepWiki MCP server (public, no auth) and asks\n+about facebook/react. Verifies the agent answers from the tool's `structuredContent`\n+and that `structured_content_hook` reads the typed object from\n+`ToolResult.metadata[\"structured_content\"]`.\n+\n+**Result:** `ask_question` returned successfully (with `timeout_seconds=60` for DeepWiki's\n+slower analysis), the hook printed the `structured_content` payload read from metadata, and\n+the agent produced a grounded one-sentence answer about the repository.\n+\n+---\n+\n ### Pending\n \n **Status:** NOT RUN"
+      },
+      {
+        "sha": "c2083d071271d32ce52ff583050fa3be9d2c4c17",
+        "filename": "cookbook/91_tools/mcp/structured_content.py",
+        "status": "added",
+        "additions": 101,
+        "deletions": 0,
+        "changes": 101,
+        "blob_url": "https://github.com/agno-agi/agno/blob/f1dbf196461557559c6299293c826c3915172d7e/cookbook%2F91_tools%2Fmcp%2Fstructured_content.py",
+        "raw_url": "https://github.com/agno-agi/agno/raw/f1dbf196461557559c6299293c826c3915172d7e/cookbook%2F91_tools%2Fmcp%2Fstructured_content.py",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/cookbook%2F91_tools%2Fmcp%2Fstructured_content.py?ref=f1dbf196461557559c6299293c826c3915172d7e",
+        "patch": "@@ -0,0 +1,101 @@\n+\"\"\"\n+Structured Content Agent\n+=============================\n+\n+Some MCP servers declare an output schema and return their answer as\n+`structuredContent`. Agno surfaces that payload as the tool output so the agent\n+can answer from it, and preserves the original typed object on\n+`ToolResult.metadata[\"structured_content\"]` for hooks and observability.\n+\n+If a server returns an empty (null) `content` array with only `structuredContent`,\n+Agno serializes that structured payload into `ToolResult.content` so the model\n+still sees the result instead of an empty tool message. When `content` already\n+has text (as DeepWiki returns), that text stays the tool output and the structured\n+object is kept only in metadata.\n+\n+This example connects to the hosted DeepWiki MCP server (public, no auth) via\n+Streamable HTTP. DeepWiki answers questions about any public GitHub repository\n+and returns its answer as structuredContent. The `structured_content_hook` reads\n+that typed payload straight from metadata, even though the model only ever sees\n+`ToolResult.content`.\n+\n+Example prompts to try:\n+- \"What is the top-level architecture of facebook/react?\"\n+- \"How does agno-agi/agno structure its MCP integration?\"\n+- \"Summarize the modules in modelcontextprotocol/python-sdk\"\n+\n+Run: `uv pip install agno mcp anthropic` to install the dependencies\n+\n+Environment variables:\n+- ANTHROPIC_API_KEY: Required for the default Claude model\n+\n+Links:\n+- MCP endpoint: https://mcp.deepwiki.com/mcp\n+- Docs: https://docs.devin.ai/work-with-devin/deepwiki-mcp\n+\"\"\"\n+\n+import asyncio\n+from textwrap import dedent\n+\n+from agno.agent import Agent\n+from agno.models.anthropic import Claude\n+from agno.tools.mcp import MCPTools\n+\n+DEEPWIKI_MCP_URL = \"https://mcp.deepwiki.com/mcp\"\n+\n+\n+# ---------------------------------------------------------------------------\n+# Tool Hook\n+# ---------------------------------------------------------------------------\n+\n+\n+async def structured_content_hook(function_name: str, func: callable, args: dict):\n+    \"\"\"Access the tool's structuredContent through ToolResult.metadata.\n+\n+    DeepWiki returns its answer as structuredContent. Agno preserves that object on\n+    metadata[\"structured_content\"], so this hook can read the typed payload even\n+    though the model only ever sees ToolResult.content.\n+    \"\"\"\n+    result = await func(**args)\n+    structured = (getattr(result, \"metadata\", None) or {}).get(\"structured_content\")\n+    if structured is not None:\n+        print(\n+            f\"[structured_content_hook] {function_name} structured_content: {structured}\"\n+        )\n+    return result\n+\n+\n+# ---------------------------------------------------------------------------\n+# Create Agent\n+# ---------------------------------------------------------------------------\n+\n+\n+async def run_agent(message: str) -> None:\n+    # DeepWiki's ask_question does deep analysis, so raise the default 10s read timeout.\n+    async with MCPTools(\n+        transport=\"streamable-http\", url=DEEPWIKI_MCP_URL, timeout_seconds=60\n+    ) as deepwiki_tools:\n+        agent = Agent(\n+            model=Claude(id=\"claude-sonnet-4-5\"),\n+            tools=[deepwiki_tools],\n+            tool_hooks=[structured_content_hook],\n+            instructions=dedent(\"\"\"\\\n+                You answer questions about public GitHub repositories using DeepWiki.\n+\n+                - Use read_wiki_structure to see what a repo's wiki covers\n+                - Use ask_question for specific questions about a repo\n+                - Ground your answer in what the tools return; do not invent details\n+            \"\"\"),\n+            markdown=True,\n+        )\n+        await agent.aprint_response(input=message, stream=True)\n+\n+\n+# ---------------------------------------------------------------------------\n+# Run Agent\n+# ---------------------------------------------------------------------------\n+\n+if __name__ == \"__main__\":\n+    asyncio.run(\n+        run_agent(\"In one sentence, what does the facebook/react repository do?\")\n+    )"
+      },
+      {
+        "sha": "6a22bba9716b6f77abbf3b7fce89544c052015ec",
+        "filename": "libs/agno/agno/utils/mcp.py",
+        "status": "modified",
+        "additions": 15,
+        "deletions": 0,
+        "changes": 15,
+        "blob_url": "https://github.com/agno-agi/agno/blob/f1dbf196461557559c6299293c826c3915172d7e/libs%2Fagno%2Fagno%2Futils%2Fmcp.py",
+        "raw_url": "https://github.com/agno-agi/agno/raw/f1dbf196461557559c6299293c826c3915172d7e/libs%2Fagno%2Fagno%2Futils%2Fmcp.py",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/libs%2Fagno%2Fagno%2Futils%2Fmcp.py?ref=f1dbf196461557559c6299293c826c3915172d7e",
+        "patch": "@@ -206,6 +206,9 @@ async def _call_with_session(active_session: ClientSession) -> ToolResult:\n                     # Handle other content types\n                     response_str += f\"[Unsupported content type: {content_item.type}]\\n\"\n \n+            if not response_str.strip():\n+                response_str = _serialize_structured_content(result) or \"\"\n+\n             return ToolResult(\n                 content=response_str.strip(),\n                 metadata=_build_mcp_metadata(result),\n@@ -274,6 +277,18 @@ def _build_mcp_metadata(result: \"CallToolResult\") -> Optional[Dict[str, Any]]:\n     return metadata or None\n \n \n+def _serialize_structured_content(result: \"CallToolResult\") -> Optional[str]:\n+    \"\"\"Serialize structuredContent so structured-only MCP responses reach the model loop.\"\"\"\n+    structured_content = getattr(result, \"structuredContent\", None)\n+    if structured_content is None:\n+        return None\n+\n+    try:\n+        return json.dumps(structured_content, ensure_ascii=False, sort_keys=True, default=str)\n+    except (TypeError, ValueError):\n+        return str(structured_content)\n+\n+\n def prepare_command(command: str) -> list[str]:\n     \"\"\"Sanitize a command and split it into parts before using it to run a MCP server.\"\"\"\n     import os"
+      },
+      {
+        "sha": "c1a9035163d2137fb3779bcd232e275bf0250551",
+        "filename": "libs/agno/tests/unit/os/test_mcp_auth_builtin.py",
+        "status": "modified",
+        "additions": 3,
+        "deletions": 1,
+        "changes": 4,
+        "blob_url": "https://github.com/agno-agi/agno/blob/f1dbf196461557559c6299293c826c3915172d7e/libs%2Fagno%2Ftests%2Funit%2Fos%2Ftest_mcp_auth_builtin.py",
+        "raw_url": "https://github.com/agno-agi/agno/raw/f1dbf196461557559c6299293c826c3915172d7e/libs%2Fagno%2Ftests%2Funit%2Fos%2Ftest_mcp_auth_builtin.py",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/libs%2Fagno%2Ftests%2Funit%2Fos%2Ftest_mcp_auth_builtin.py?ref=f1dbf196461557559c6299293c826c3915172d7e",
+        "patch": "@@ -916,7 +916,9 @@ async def test_refresh_survives_access_token_expiry_across_replicas(tmp_path):\n     async with _http_client(_os(_provider(db, access_token_ttl=1), db=db)) as client:\n         tokens, client_id = await _full_flow(client)\n \n-    await asyncio.sleep(1.2)  # let the access token expire\n+    # Wait out the 1s TTL with margin. exp is int(mint) + ttl, so a token can carry up to a\n+    # full second of life, and the sleep (monotonic) can drift from expiry (wall clock) on CI.\n+    await asyncio.sleep(1.8)\n \n     replica = _os(_provider(db, access_token_ttl=1), db=db)\n     async with _http_client(replica) as client:"
+      },
+      {
+        "sha": "8d3d55a17b2ff2f0ba1bec29fdbb920fe2b0bbf0",
+        "filename": "libs/agno/tests/unit/tools/test_mcp.py",
+        "status": "modified",
+        "additions": 25,
+        "deletions": 0,
+        "changes": 25,
+        "blob_url": "https://github.com/agno-agi/agno/blob/f1dbf196461557559c6299293c826c3915172d7e/libs%2Fagno%2Ftests%2Funit%2Ftools%2Ftest_mcp.py",
+        "raw_url": "https://github.com/agno-agi/agno/raw/f1dbf196461557559c6299293c826c3915172d7e/libs%2Fagno%2Ftests%2Funit%2Ftools%2Ftest_mcp.py",
+        "contents_url": "https://api.github.com/repos/agno-agi/agno/contents/libs%2Fagno%2Ftests%2Funit%2Ftools%2Ftest_mcp.py?ref=f1dbf196461557559c6299293c826c3915172d7e",
+        "patch": "@@ -1,3 +1,4 @@\n+import json\n from unittest.mock import AsyncMock, MagicMock, patch\n \n import pytest\n@@ -1115,9 +1116,33 @@ async def test_mcp_tool_result_preserves_structured_content():\n     entrypoint = get_entrypoint_for_tool(mock_tool, session)\n     result = await entrypoint()\n \n+    assert result.content == \"hello\"\n     assert result.metadata[\"structured_content\"] == {\"id\": \"u1\", \"name\": \"Ada\"}\n \n \n+@pytest.mark.asyncio\n+async def test_mcp_tool_result_uses_structured_content_when_content_is_empty():\n+    mock_tool = MagicMock()\n+    mock_tool.name = \"get_data\"\n+    structured_content = {\"id\": \"u1\", \"name\": \"Ada\", \"role\": \"EMPLOYEE\"}\n+\n+    session = AsyncMock()\n+    session.send_ping = AsyncMock()\n+    session.call_tool = AsyncMock(\n+        return_value=CallToolResult(\n+            content=[],\n+            isError=False,\n+            structuredContent=structured_content,\n+        )\n+    )\n+\n+    entrypoint = get_entrypoint_for_tool(mock_tool, session)\n+    result = await entrypoint()\n+\n+    assert json.loads(result.content) == structured_content\n+    assert result.metadata[\"structured_content\"] == structured_content\n+\n+\n @pytest.mark.asyncio\n async def test_mcp_tool_error_result_preserves_structured_content():\n     mock_tool = MagicMock()"
+      }
+    ]
+  },
+  {
+    "path": "NousResearch/hermes-agent/pulls/5979/files",
+    "data": [
+      {
+        "sha": "65525d27d00b07ada5e0a4d098a66691b01587b7",
+        "filename": "hermes_cli/tools_config.py",
+        "status": "modified",
+        "additions": 9,
+        "deletions": 3,
+        "changes": 12,
+        "blob_url": "https://github.com/NousResearch/hermes-agent/blob/f2840711a1f4e8f942944226833cf99df6669081/hermes_cli%2Ftools_config.py",
+        "raw_url": "https://github.com/NousResearch/hermes-agent/raw/f2840711a1f4e8f942944226833cf99df6669081/hermes_cli%2Ftools_config.py",
+        "contents_url": "https://api.github.com/repos/NousResearch/hermes-agent/contents/hermes_cli%2Ftools_config.py?ref=f2840711a1f4e8f942944226833cf99df6669081",
+        "patch": "@@ -554,17 +554,23 @@ def _get_platform_tools(\n     # MCP servers are expected to be available on all platforms by default.\n     # If the platform explicitly lists one or more MCP server names, treat that\n     # as an allowlist. Otherwise include every globally enabled MCP server.\n+    # Special sentinel: \"no_mcp\" in the toolset list disables all MCP servers.\n     mcp_servers = config.get(\"mcp_servers\") or {}\n     enabled_mcp_servers = {\n         name\n         for name, server_cfg in mcp_servers.items()\n         if isinstance(server_cfg, dict)\n         and _parse_enabled_flag(server_cfg.get(\"enabled\", True), default=True)\n     }\n-    explicit_mcp_servers = explicit_passthrough & enabled_mcp_servers\n-    enabled_toolsets.update(explicit_passthrough - enabled_mcp_servers)\n+    # Allow \"no_mcp\" sentinel to opt out of all MCP servers for this platform\n+    if \"no_mcp\" in toolset_names:\n+        explicit_mcp_servers = set()\n+        enabled_toolsets.update(explicit_passthrough - enabled_mcp_servers - {\"no_mcp\"})\n+    else:\n+        explicit_mcp_servers = explicit_passthrough & enabled_mcp_servers\n+        enabled_toolsets.update(explicit_passthrough - enabled_mcp_servers)\n     if include_default_mcp_servers:\n-        if explicit_mcp_servers:\n+        if explicit_mcp_servers or \"no_mcp\" in toolset_names:\n             enabled_toolsets.update(explicit_mcp_servers)\n         else:\n             enabled_toolsets.update(enabled_mcp_servers)"
+      },
+      {
+        "sha": "7371c89df729dfdf1b68dcc5b9717f38635ffd7b",
+        "filename": "tests/hermes_cli/test_tools_config.py",
+        "status": "modified",
+        "additions": 39,
+        "deletions": 0,
+        "changes": 39,
+        "blob_url": "https://github.com/NousResearch/hermes-agent/blob/f2840711a1f4e8f942944226833cf99df6669081/tests%2Fhermes_cli%2Ftest_tools_config.py",
+        "raw_url": "https://github.com/NousResearch/hermes-agent/raw/f2840711a1f4e8f942944226833cf99df6669081/tests%2Fhermes_cli%2Ftest_tools_config.py",
+        "contents_url": "https://api.github.com/repos/NousResearch/hermes-agent/contents/tests%2Fhermes_cli%2Ftest_tools_config.py?ref=f2840711a1f4e8f942944226833cf99df6669081",
+        "patch": "@@ -72,6 +72,45 @@ def test_get_platform_tools_keeps_enabled_mcp_servers_with_explicit_builtin_sele\n     assert \"web-search-prime\" in enabled\n \n \n+def test_get_platform_tools_no_mcp_sentinel_excludes_all_mcp_servers():\n+    \"\"\"The 'no_mcp' sentinel in platform_toolsets excludes all MCP servers.\"\"\"\n+    config = {\n+        \"platform_toolsets\": {\"cli\": [\"web\", \"terminal\", \"no_mcp\"]},\n+        \"mcp_servers\": {\n+            \"exa\": {\"url\": \"https://mcp.exa.ai/mcp\"},\n+            \"web-search-prime\": {\"url\": \"https://api.z.ai/api/mcp/web_search_prime/mcp\"},\n+        },\n+    }\n+\n+    enabled = _get_platform_tools(config, \"cli\")\n+\n+    assert \"web\" in enabled\n+    assert \"terminal\" in enabled\n+    assert \"exa\" not in enabled\n+    assert \"web-search-prime\" not in enabled\n+    assert \"no_mcp\" not in enabled\n+\n+\n+def test_get_platform_tools_no_mcp_sentinel_does_not_affect_other_platforms():\n+    \"\"\"The 'no_mcp' sentinel only affects the platform it's configured on.\"\"\"\n+    config = {\n+        \"platform_toolsets\": {\n+            \"api_server\": [\"web\", \"terminal\", \"no_mcp\"],\n+        },\n+        \"mcp_servers\": {\n+            \"exa\": {\"url\": \"https://mcp.exa.ai/mcp\"},\n+        },\n+    }\n+\n+    # api_server should exclude MCP\n+    api_enabled = _get_platform_tools(config, \"api_server\")\n+    assert \"exa\" not in api_enabled\n+\n+    # cli (not configured with no_mcp) should include MCP\n+    cli_enabled = _get_platform_tools(config, \"cli\")\n+    assert \"exa\" in cli_enabled\n+\n+\n def test_toolset_has_keys_for_vision_accepts_codex_auth(tmp_path, monkeypatch):\n     monkeypatch.setenv(\"HERMES_HOME\", str(tmp_path))\n     (tmp_path / \"auth.json\").write_text("
+      },
+      {
+        "sha": "fa10f8d5b8075582ee476d328b0b3d4838df28d3",
+        "filename": "tests/tools/test_mcp_structured_content.py",
+        "status": "added",
+        "additions": 111,
+        "deletions": 0,
+        "changes": 111,
+        "blob_url": "https://github.com/NousResearch/hermes-agent/blob/f2840711a1f4e8f942944226833cf99df6669081/tests%2Ftools%2Ftest_mcp_structured_content.py",
+        "raw_url": "https://github.com/NousResearch/hermes-agent/raw/f2840711a1f4e8f942944226833cf99df6669081/tests%2Ftools%2Ftest_mcp_structured_content.py",
+        "contents_url": "https://api.github.com/repos/NousResearch/hermes-agent/contents/tests%2Ftools%2Ftest_mcp_structured_content.py?ref=f2840711a1f4e8f942944226833cf99df6669081",
+        "patch": "@@ -0,0 +1,111 @@\n+\"\"\"Tests for MCP tool structuredContent preservation.\"\"\"\n+\n+import asyncio\n+import json\n+from types import SimpleNamespace\n+from unittest.mock import AsyncMock, MagicMock, patch\n+\n+import pytest\n+\n+from tools import mcp_tool\n+\n+\n+class _FakeContentBlock:\n+    \"\"\"Minimal content block with .text and .type attributes.\"\"\"\n+\n+    def __init__(self, text: str, block_type: str = \"text\"):\n+        self.text = text\n+        self.type = block_type\n+\n+\n+class _FakeCallToolResult:\n+    \"\"\"Minimal CallToolResult stand-in.\n+\n+    Uses camelCase ``structuredContent`` / ``isError`` to match the real\n+    MCP SDK Pydantic model (``mcp.types.CallToolResult``).\n+    \"\"\"\n+\n+    def __init__(self, content, is_error=False, structuredContent=None):\n+        self.content = content\n+        self.isError = is_error\n+        self.structuredContent = structuredContent\n+\n+\n+def _fake_run_on_mcp_loop(coro, timeout=30):\n+    \"\"\"Run an MCP coroutine directly in a fresh event loop.\"\"\"\n+    loop = asyncio.new_event_loop()\n+    try:\n+        return loop.run_until_complete(coro)\n+    finally:\n+        loop.close()\n+\n+\n+@pytest.fixture\n+def _patch_mcp_server():\n+    \"\"\"Patch _servers and the MCP event loop so _make_tool_handler can run.\"\"\"\n+    fake_session = MagicMock()\n+    fake_server = SimpleNamespace(session=fake_session)\n+    with patch.dict(mcp_tool._servers, {\"test-server\": fake_server}), \\\n+         patch(\"tools.mcp_tool._run_on_mcp_loop\", side_effect=_fake_run_on_mcp_loop):\n+        yield fake_session\n+\n+\n+class TestStructuredContentPreservation:\n+    \"\"\"Ensure structuredContent from CallToolResult is forwarded.\"\"\"\n+\n+    def test_text_only_result(self, _patch_mcp_server):\n+        \"\"\"When no structuredContent, result is text-only (existing behaviour).\"\"\"\n+        session = _patch_mcp_server\n+        session.call_tool = AsyncMock(\n+            return_value=_FakeCallToolResult(\n+                content=[_FakeContentBlock(\"hello\")],\n+            )\n+        )\n+        handler = mcp_tool._make_tool_handler(\"test-server\", \"my-tool\", 30.0)\n+        raw = handler({})\n+        data = json.loads(raw)\n+        assert data == {\"result\": \"hello\"}\n+\n+    def test_structured_content_is_the_result(self, _patch_mcp_server):\n+        \"\"\"When structuredContent is present, it becomes the result directly.\"\"\"\n+        session = _patch_mcp_server\n+        payload = {\"value\": \"secret-123\", \"revealed\": True}\n+        session.call_tool = AsyncMock(\n+            return_value=_FakeCallToolResult(\n+                content=[_FakeContentBlock(\"OK\")],\n+                structuredContent=payload,\n+            )\n+        )\n+        handler = mcp_tool._make_tool_handler(\"test-server\", \"my-tool\", 30.0)\n+        raw = handler({})\n+        data = json.loads(raw)\n+        assert data[\"result\"] == payload\n+\n+    def test_structured_content_none_falls_back_to_text(self, _patch_mcp_server):\n+        \"\"\"When structuredContent is explicitly None, fall back to text.\"\"\"\n+        session = _patch_mcp_server\n+        session.call_tool = AsyncMock(\n+            return_value=_FakeCallToolResult(\n+                content=[_FakeContentBlock(\"done\")],\n+                structuredContent=None,\n+            )\n+        )\n+        handler = mcp_tool._make_tool_handler(\"test-server\", \"my-tool\", 30.0)\n+        raw = handler({})\n+        data = json.loads(raw)\n+        assert data == {\"result\": \"done\"}\n+\n+    def test_empty_text_with_structured_content(self, _patch_mcp_server):\n+        \"\"\"When content blocks are empty but structuredContent exists.\"\"\"\n+        session = _patch_mcp_server\n+        payload = {\"status\": \"ok\", \"data\": [1, 2, 3]}\n+        session.call_tool = AsyncMock(\n+            return_value=_FakeCallToolResult(\n+                content=[],\n+                structuredContent=payload,\n+            )\n+        )\n+        handler = mcp_tool._make_tool_handler(\"test-server\", \"my-tool\", 30.0)\n+        raw = handler({})\n+        data = json.loads(raw)\n+        assert data[\"result\"] == payload"
+      },
+      {
+        "sha": "d0b3263b18bb480c163c3922180f1699e97e5e61",
+        "filename": "tools/mcp_tool.py",
+        "status": "modified",
+        "additions": 7,
+        "deletions": 1,
+        "changes": 8,
+        "blob_url": "https://github.com/NousResearch/hermes-agent/blob/f2840711a1f4e8f942944226833cf99df6669081/tools%2Fmcp_tool.py",
+        "raw_url": "https://github.com/NousResearch/hermes-agent/raw/f2840711a1f4e8f942944226833cf99df6669081/tools%2Fmcp_tool.py",
+        "contents_url": "https://api.github.com/repos/NousResearch/hermes-agent/contents/tools%2Fmcp_tool.py?ref=f2840711a1f4e8f942944226833cf99df6669081",
+        "patch": "@@ -1253,7 +1253,13 @@ async def _call():\n             for block in (result.content or []):\n                 if hasattr(block, \"text\"):\n                     parts.append(block.text)\n-            return json.dumps({\"result\": \"\\n\".join(parts) if parts else \"\"})\n+            text_result = \"\\n\".join(parts) if parts else \"\"\n+\n+            # Prefer structuredContent (machine-readable JSON) over plain text\n+            structured = getattr(result, \"structuredContent\", None)\n+            if structured is not None:\n+                return json.dumps({\"result\": structured})\n+            return json.dumps({\"result\": text_result})\n \n         try:\n             return _run_on_mcp_loop(_call(), timeout=tool_timeout)"
+      }
+    ]
+  },
+  {
+    "path": "NousResearch/hermes-agent/pulls/7118/files",
+    "data": [
+      {
+        "sha": "520872e8a542739ac2da8a8b52f8b0c2cf7dcd34",
+        "filename": "tests/tools/test_mcp_structured_content.py",
+        "status": "modified",
+        "additions": 23,
+        "deletions": 3,
+        "changes": 26,
+        "blob_url": "https://github.com/NousResearch/hermes-agent/blob/eb8fc0e07cb29921bac8be7f1e09614ce568e0ec/tests%2Ftools%2Ftest_mcp_structured_content.py",
+        "raw_url": "https://github.com/NousResearch/hermes-agent/raw/eb8fc0e07cb29921bac8be7f1e09614ce568e0ec/tests%2Ftools%2Ftest_mcp_structured_content.py",
+        "contents_url": "https://api.github.com/repos/NousResearch/hermes-agent/contents/tests%2Ftools%2Ftest_mcp_structured_content.py?ref=eb8fc0e07cb29921bac8be7f1e09614ce568e0ec",
+        "patch": "@@ -66,8 +66,8 @@ def test_text_only_result(self, _patch_mcp_server):\n         data = json.loads(raw)\n         assert data == {\"result\": \"hello\"}\n \n-    def test_structured_content_is_the_result(self, _patch_mcp_server):\n-        \"\"\"When structuredContent is present, it becomes the result directly.\"\"\"\n+    def test_both_content_and_structured(self, _patch_mcp_server):\n+        \"\"\"When both content and structuredContent are present, combine them.\"\"\"\n         session = _patch_mcp_server\n         payload = {\"value\": \"secret-123\", \"revealed\": True}\n         session.call_tool = AsyncMock(\n@@ -79,7 +79,27 @@ def test_structured_content_is_the_result(self, _patch_mcp_server):\n         handler = mcp_tool._make_tool_handler(\"test-server\", \"my-tool\", 30.0)\n         raw = handler({})\n         data = json.loads(raw)\n-        assert data[\"result\"] == payload\n+        # content is the primary result, structuredContent is supplementary\n+        assert data[\"result\"] == \"OK\"\n+        assert data[\"structuredContent\"] == payload\n+\n+    def test_both_content_and_structured_desktop_commander(self, _patch_mcp_server):\n+        \"\"\"Real-world case: Desktop Commander returns file text in content,\n+        metadata in structuredContent.  Agent must see file contents.\"\"\"\n+        session = _patch_mcp_server\n+        file_text = \"import os\\nprint('hello')\\n\"\n+        metadata = {\"fileName\": \"main.py\", \"filePath\": \"/tmp/main.py\", \"fileType\": \"python\"}\n+        session.call_tool = AsyncMock(\n+            return_value=_FakeCallToolResult(\n+                content=[_FakeContentBlock(file_text)],\n+                structuredContent=metadata,\n+            )\n+        )\n+        handler = mcp_tool._make_tool_handler(\"test-server\", \"my-tool\", 30.0)\n+        raw = handler({})\n+        data = json.loads(raw)\n+        assert data[\"result\"] == file_text\n+        assert data[\"structuredContent\"] == metadata\n \n     def test_structured_content_none_falls_back_to_text(self, _patch_mcp_server):\n         \"\"\"When structuredContent is explicitly None, fall back to text.\"\"\""
+      },
+      {
+        "sha": "4040ed74e351506368353a01fe75b43cadd8a7e7",
+        "filename": "tools/mcp_tool.py",
+        "status": "modified",
+        "additions": 9,
+        "deletions": 1,
+        "changes": 10,
+        "blob_url": "https://github.com/NousResearch/hermes-agent/blob/eb8fc0e07cb29921bac8be7f1e09614ce568e0ec/tools%2Fmcp_tool.py",
+        "raw_url": "https://github.com/NousResearch/hermes-agent/raw/eb8fc0e07cb29921bac8be7f1e09614ce568e0ec/tools%2Fmcp_tool.py",
+        "contents_url": "https://api.github.com/repos/NousResearch/hermes-agent/contents/tools%2Fmcp_tool.py?ref=eb8fc0e07cb29921bac8be7f1e09614ce568e0ec",
+        "patch": "@@ -1255,9 +1255,17 @@ async def _call():\n                     parts.append(block.text)\n             text_result = \"\\n\".join(parts) if parts else \"\"\n \n-            # Prefer structuredContent (machine-readable JSON) over plain text\n+            # Combine content + structuredContent when both are present.\n+            # MCP spec: content is model-oriented (text), structuredContent\n+            # is machine-oriented (JSON metadata).  For an AI agent, content\n+            # is the primary payload; structuredContent supplements it.\n             structured = getattr(result, \"structuredContent\", None)\n             if structured is not None:\n+                if text_result:\n+                    return json.dumps({\n+                        \"result\": text_result,\n+                        \"structuredContent\": structured,\n+                    })\n                 return json.dumps({\"result\": structured})\n             return json.dumps({\"result\": text_result})\n "
+      }
+    ]
+  },
+  {
+    "path": "open-webui/open-webui/pulls/30358/files",
+    "data": [
+      {
+        "sha": "0cb0f2b6d9854b500bb09d56101d2f496234436b",
+        "filename": "backend/open_webui/utils/middleware.py",
+        "status": "modified",
+        "additions": 6,
+        "deletions": 4,
+        "changes": 10,
+        "blob_url": "https://github.com/open-webui/open-webui/blob/b7aa61e0f0dcded4bb52e0e462c2ff4f998453aa/backend%2Fopen_webui%2Futils%2Fmiddleware.py",
+        "raw_url": "https://github.com/open-webui/open-webui/raw/b7aa61e0f0dcded4bb52e0e462c2ff4f998453aa/backend%2Fopen_webui%2Futils%2Fmiddleware.py",
+        "contents_url": "https://api.github.com/repos/open-webui/open-webui/contents/backend%2Fopen_webui%2Futils%2Fmiddleware.py?ref=b7aa61e0f0dcded4bb52e0e462c2ff4f998453aa",
+        "patch": "@@ -3487,6 +3487,8 @@ async def drain_approved_tool_calls(request, form_data, user, model, metadata) -\n                 output_parts.append({'type': 'input_image', 'image_url': image_url})\n             else:\n                 display_files.append(file_item)\n+                if file_item.get('type') == 'image' and file_item.get('url'):\n+                    output_parts.append({'type': 'input_image', 'image_url': file_item['url']})\n \n         output.append(\n             {\n@@ -5858,7 +5860,7 @@ async def emit_output():\n                     frontend_output = []\n                     for item in full_output() if snapshot else full_output()[output_start:]:\n                         if item.get('type') == 'function_call_output':\n-                            # input_image parts are base64 data URIs only for the LLM, via convert_output_to_messages\n+                            # input_image parts are for the LLM only, via convert_output_to_messages\n                             item = {\n                                 **item,\n                                 'output': [\n@@ -6127,17 +6129,17 @@ async def execute_tool_call(tool_call):\n                         )\n                         result_status_by_call_id[result.get('tool_call_id', '')] = local_output_status\n \n-                        # Separate image data URIs (for LLM via input_image) from\n-                        # other files (for frontend display via files attribute).\n+                        # Data-URI images: LLM only. File-URL images: LLM and frontend. Other files: frontend.\n                         display_files = []\n                         for file_item in result.get('files', []):\n                             if file_item.get('type') == 'image' and file_item.get('url', '').startswith('data:'):\n                                 # LLM-only: add as input_image part, not frontend display output.\n                                 image_url = await store_tool_result_image(request, file_item['url'], metadata, user)\n                                 output_parts.append({'type': 'input_image', 'image_url': image_url})\n                             else:\n-                                # Frontend display (MCP images, audio, etc.)\n                                 display_files.append(file_item)\n+                                if file_item.get('type') == 'image' and file_item.get('url'):\n+                                    output_parts.append({'type': 'input_image', 'image_url': file_item['url']})\n \n                         output.append(\n                             {"
+      }
+    ]
+  },
+  {
+    "path": "apache/superset/pulls/43374/files",
+    "data": [
+      {
+        "sha": "1d8ff5502ef7b9c41b41219fc13c3592fa999416",
+        "filename": "superset/mcp_service/middleware.py",
+        "status": "modified",
+        "additions": 8,
+        "deletions": 0,
+        "changes": 8,
+        "blob_url": "https://github.com/apache/superset/blob/dcac9fe32944e1fd2bcc4d61e57cb4b5aaf25031/superset%2Fmcp_service%2Fmiddleware.py",
+        "raw_url": "https://github.com/apache/superset/raw/dcac9fe32944e1fd2bcc4d61e57cb4b5aaf25031/superset%2Fmcp_service%2Fmiddleware.py",
+        "contents_url": "https://api.github.com/repos/apache/superset/contents/superset%2Fmcp_service%2Fmiddleware.py?ref=dcac9fe32944e1fd2bcc4d61e57cb4b5aaf25031",
+        "patch": "@@ -815,9 +815,17 @@ async def on_call_tool(\n                         \"duration_ms\": None,\n                     },\n                 )\n+            # Flag the failure so clients can distinguish it from a\n+            # successful call. This still serializes to\n+            # CallToolResult(isError=True) (see ToolResult.to_mcp_result);\n+            # what keeps it encodable is that structured_content stays None\n+            # and only the boolean flips false->true, not the structured\n+            # payload implicated in the bridge failure above. That leg is\n+            # unverified against the live Claude.ai bridge.\n             return ToolResult(\n                 content=[mt.TextContent(type=\"text\", text=error_text)],\n                 meta={\"mcp_call_id\": mcp_call_id} if mcp_call_id else None,\n+                is_error=True,\n             )\n         if isinstance(result, ToolResult) and result.structured_content is not None:\n             result = ToolResult(content=result.content, meta=result.meta)"
+      },
+      {
+        "sha": "5d3cc51d7ecedde3a086a7d70b6869cb8709a9cf",
+        "filename": "tests/unit_tests/mcp_service/test_mcp_e2e_smoke.py",
+        "status": "modified",
+        "additions": 18,
+        "deletions": 0,
+        "changes": 18,
+        "blob_url": "https://github.com/apache/superset/blob/dcac9fe32944e1fd2bcc4d61e57cb4b5aaf25031/tests%2Funit_tests%2Fmcp_service%2Ftest_mcp_e2e_smoke.py",
+        "raw_url": "https://github.com/apache/superset/raw/dcac9fe32944e1fd2bcc4d61e57cb4b5aaf25031/tests%2Funit_tests%2Fmcp_service%2Ftest_mcp_e2e_smoke.py",
+        "contents_url": "https://api.github.com/repos/apache/superset/contents/tests%2Funit_tests%2Fmcp_service%2Ftest_mcp_e2e_smoke.py?ref=dcac9fe32944e1fd2bcc4d61e57cb4b5aaf25031",
+        "patch": "@@ -232,3 +232,21 @@ async def test_tools_call_health_check_over_real_asgi_transport() -> None:\n     data = json.loads(result.content[0].text)\n     assert data[\"status\"] == \"healthy\"\n     assert data[\"service\"] == \"Superset MCP Service\"\n+\n+\n+@pytest.mark.asyncio\n+async def test_tools_call_failure_sets_is_error_over_real_asgi_transport() -> None:\n+    \"\"\"A failed ``tools/call`` reaches the client with ``isError: true``.\n+\n+    An unknown tool name raises inside the middleware chain, so this exercises\n+    the real path a permission denial takes: the exception propagates to the\n+    outermost ``StructuredContentStripperMiddleware`` catch-all, whose result\n+    then crosses the real JSON-RPC wire. Isolated middleware tests with a mocked\n+    ``call_next`` cannot prove this -- inner middlewares rebuild the result and\n+    can drop the flag -- which is why this runs over the full chain.\n+    \"\"\"\n+    async with _real_asgi_client() as client:\n+        result = await client.call_tool(\"no_such_tool\", {}, raise_on_error=False)\n+\n+    assert result.is_error is True\n+    assert result.content[0].text.startswith(\"Error:\")"
+      },
+      {
+        "sha": "8c2d93cd7ab683bdc944efbb4ff2e5e883ada1dc",
+        "filename": "tests/unit_tests/mcp_service/test_middleware.py",
+        "status": "modified",
+        "additions": 65,
+        "deletions": 0,
+        "changes": 65,
+        "blob_url": "https://github.com/apache/superset/blob/dcac9fe32944e1fd2bcc4d61e57cb4b5aaf25031/tests%2Funit_tests%2Fmcp_service%2Ftest_middleware.py",
+        "raw_url": "https://github.com/apache/superset/raw/dcac9fe32944e1fd2bcc4d61e57cb4b5aaf25031/tests%2Funit_tests%2Fmcp_service%2Ftest_middleware.py",
+        "contents_url": "https://api.github.com/repos/apache/superset/contents/tests%2Funit_tests%2Fmcp_service%2Ftest_middleware.py?ref=dcac9fe32944e1fd2bcc4d61e57cb4b5aaf25031",
+        "patch": "@@ -2089,3 +2089,68 @@ async def test_client_facing_text_is_sanitized(self) -> None:\n         assert \"s3cret\" not in text\n         assert \"db.internal\" not in text\n         assert \"[REDACTED]\" in text\n+\n+\n+class TestStructuredContentStripperIsErrorFlag:\n+    \"\"\"Failures caught by StructuredContentStripperMiddleware must still be\n+    reported as errors on the wire — a client that only inspects isError\n+    would otherwise read a denial or a crash as a successful call.\"\"\"\n+\n+    @pytest.mark.asyncio\n+    async def test_tool_error_is_flagged_as_error(self) -> None:\n+        \"\"\"A permission denial surfaces as ToolError; it must not come back\n+        looking like a successful tool call.\"\"\"\n+        middleware = StructuredContentStripperMiddleware()\n+        context = MagicMock()\n+        context.message.name = \"save_sql_query\"\n+        call_next = AsyncMock(\n+            side_effect=ToolError(\"Permission denied: can_write on SavedQuery\")\n+        )\n+        mock_flask_app = MagicMock()\n+        mock_flask_app.config.get.return_value = None\n+\n+        with patch(\n+            \"superset.mcp_service.flask_singleton.get_flask_app\",\n+            return_value=mock_flask_app,\n+        ):\n+            result = await middleware.on_call_tool(context, call_next)\n+\n+        assert result.is_error is True\n+        assert result.content[0].text.startswith(\"Error:\")\n+\n+    @pytest.mark.asyncio\n+    async def test_unexpected_exception_is_flagged_as_error(self) -> None:\n+        \"\"\"The same holds for exceptions that bypass\n+        GlobalErrorHandlerMiddleware and reach the last-resort catch.\"\"\"\n+        middleware = StructuredContentStripperMiddleware()\n+        context = MagicMock()\n+        context.message.name = \"list_charts\"\n+        call_next = AsyncMock(side_effect=RuntimeError(\"boom\"))\n+        mock_flask_app = MagicMock()\n+        mock_flask_app.config.get.return_value = None\n+\n+        with patch(\n+            \"superset.mcp_service.flask_singleton.get_flask_app\",\n+            return_value=mock_flask_app,\n+        ):\n+            result = await middleware.on_call_tool(context, call_next)\n+\n+        assert result.is_error is True\n+\n+    @pytest.mark.asyncio\n+    async def test_successful_result_is_not_flagged(self) -> None:\n+        \"\"\"The success path must stay untouched.\"\"\"\n+        from fastmcp.tools.tool import ToolResult\n+        from mcp.types import TextContent\n+\n+        middleware = StructuredContentStripperMiddleware()\n+        context = MagicMock()\n+        context.message.name = \"list_charts\"\n+        call_next = AsyncMock(\n+            return_value=ToolResult(content=[TextContent(type=\"text\", text=\"ok\")])\n+        )\n+\n+        result = await middleware.on_call_tool(context, call_next)\n+\n+        assert result.is_error is False\n+        assert result.content[0].text == \"ok\""
+      }
+    ]
+  }
+]

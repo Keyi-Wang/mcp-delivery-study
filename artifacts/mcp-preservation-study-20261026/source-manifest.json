@@ -1,0 +1,62 @@
+[
+  {
+    "label": "hermes-before",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "cbf1f15cfedfca3fd5130b5532fb9b7f8421946b",
+    "path": "tools/mcp_tool.py",
+    "local": "sources/hermes-before/tools/mcp_tool.py",
+    "sha256": "c87dc8abacbb856ea783b771315284019401a434de9b7a7c470b627a379c2f18",
+    "bytes": 83592,
+    "github_blob_verified": false
+  },
+  {
+    "label": "hermes-structured-first",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "7fe6782a25f4aeb6b792162c946cba825813beef",
+    "path": "tools/mcp_tool.py",
+    "local": "sources/hermes-structured-first/tools/mcp_tool.py",
+    "sha256": "b5c2bd1cdf92f85e84ef921236d0e79a7de31a5ed0bb3554aa24eb04d3a6c9e1",
+    "bytes": 83875,
+    "github_blob_verified": false
+  },
+  {
+    "label": "hermes-combined",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "04baab54228ef380eb4acf6831b68a4190748118",
+    "path": "tools/mcp_tool.py",
+    "local": "sources/hermes-combined/tools/mcp_tool.py",
+    "sha256": "d4dbff27c448897b12dbbe4ce23be17c1fa81e31d5dbcf6adb3d6c8908dc0791",
+    "bytes": 84293,
+    "github_blob_verified": false
+  },
+  {
+    "label": "hermes-september",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "path": "tools/mcp_tool_handlers.py",
+    "local": "sources/hermes-september/tools/mcp_tool_handlers.py",
+    "sha256": "ad152084f1b6a24c44c04c69315d11567e02bae0de5a26d7440dc5e2921ca743",
+    "bytes": 38358,
+    "github_blob_verified": false
+  },
+  {
+    "label": "superset-before",
+    "repo": "apache/superset",
+    "ref": "c3ed8b312d5428d9577ecc5d026c611874e2b4a5",
+    "path": "superset/mcp_service/middleware.py",
+    "local": "sources/superset-before/superset/mcp_service/middleware.py",
+    "sha256": "5733b2200ed145996e1ffff1cbcf9a2ef1d7570fd5155b0d6b1065b5065d92dc",
+    "bytes": 60095,
+    "github_blob_verified": false
+  },
+  {
+    "label": "superset-after",
+    "repo": "apache/superset",
+    "ref": "e1c7a516745585b0a8db82040a411ff619689035",
+    "path": "superset/mcp_service/middleware.py",
+    "local": "sources/superset-after/superset/mcp_service/middleware.py",
+    "sha256": "9e8e1d4fde2d4ba3d72e9a43043dd0dd425331f63eb84028fa371de8886b5cec",
+    "bytes": 61104,
+    "github_blob_verified": false
+  }
+]

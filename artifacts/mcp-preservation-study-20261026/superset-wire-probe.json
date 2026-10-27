@@ -1,0 +1,149 @@
+{
+  "kind": "extracted_native_middleware_with_real_asgi_mcp_transport",
+  "rows": [
+    {
+      "version": "superset-before",
+      "tool": "health_check",
+      "client_is_error": false,
+      "client_content": [
+        {
+          "type": "text",
+          "text": "OK_PROBE"
+        }
+      ],
+      "wire_result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "OK_PROBE"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "version": "superset-before",
+      "tool": "denied",
+      "client_is_error": false,
+      "client_content": [
+        {
+          "type": "text",
+          "text": "Error: DENIED_PROBE"
+        }
+      ],
+      "wire_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error: DENIED_PROBE"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "version": "superset-before",
+      "tool": "no_such_tool",
+      "client_is_error": false,
+      "client_content": [
+        {
+          "type": "text",
+          "text": "Error: Unknown tool: 'no_such_tool'"
+        }
+      ],
+      "wire_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error: Unknown tool: 'no_such_tool'"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "version": "superset-after",
+      "tool": "health_check",
+      "client_is_error": false,
+      "client_content": [
+        {
+          "type": "text",
+          "text": "OK_PROBE"
+        }
+      ],
+      "wire_result": {
+        "_meta": {
+          "fastmcp": {
+            "wrap_result": true
+          }
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "OK_PROBE"
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "version": "superset-after",
+      "tool": "denied",
+      "client_is_error": true,
+      "client_content": [
+        {
+          "type": "text",
+          "text": "Error: DENIED_PROBE"
+        }
+      ],
+      "wire_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error: DENIED_PROBE"
+          }
+        ],
+        "isError": true
+      }
+    },
+    {
+      "version": "superset-after",
+      "tool": "no_such_tool",
+      "client_is_error": true,
+      "client_content": [
+        {
+          "type": "text",
+          "text": "Error: Unknown tool: 'no_such_tool'"
+        }
+      ],
+      "wire_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error: Unknown tool: 'no_such_tool'"
+          }
+        ],
+        "isError": true
+      }
+    }
+  ],
+  "versions": {
+    "fastmcp": "3.4.7",
+    "mcp": "1.30.0",
+    "httpx": "0.28.1"
+  },
+  "paid_api_calls": 0,
+  "external_server_calls": 0,
+  "limits": [
+    "Original middleware class extracted unchanged from pinned source; application sanitizer replaced by str for fixed non-sensitive fixture messages and optional application error hook disabled.",
+    "Minimal FastMCP stack, not the full Superset middleware list, database, authorization system or Claude bridge.",
+    "Actual initialize/list/call HTTP JSON-RPC serialized through ASGITransport; no TCP sockets.",
+    "Stateless JSON transport is a controlled test configuration, not a claim about every production transport.",
+    "No downstream model behavior or new residual production defect claimed."
+  ]
+}

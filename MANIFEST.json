@@ -1,0 +1,1547 @@
+{
+  "format_version": 1,
+  "hash": "SHA-256",
+  "scope": "All release files except MANIFEST.json and Git metadata; verify before reproduction overwrites generated reports.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 170,
+      "sha256": "1143282d85c56c185a3c9f0cceb2edfe1cc9cab1c3e9def90c6f9158c4305eec"
+    },
+    {
+      "path": "NOTICE.txt",
+      "bytes": 1173,
+      "sha256": "b062b3107e8b485d1fd46b5d99010f577b54e124feb428946b0cf34f57f4dff8"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 6918,
+      "sha256": "36b5361cedc5e663e13286b7891943e825197a2abbffd1fa1e0d5a9fe6366cf0"
+    },
+    {
+      "path": "artifacts/empirical-directions-20261026/source-manifest.json",
+      "bytes": 1148,
+      "sha256": "1b8ff53142b42a95dc82cc71e65289002412b34a66a1b68dbbd7ec7afbe70a1e"
+    },
+    {
+      "path": "artifacts/empirical-directions-20261026/sources/after/mcp.py",
+      "bytes": 14606,
+      "sha256": "f7372053ad27773b2220947a71d7f8c75436d40b1273f7f7d4da79b47d066958"
+    },
+    {
+      "path": "artifacts/empirical-directions-20261026/sources/before/mcp.py",
+      "bytes": 11648,
+      "sha256": "3069f8c14d6d4a61553a1c7176a46f436b8ab8cf278cea817e410996d9d9fa06"
+    },
+    {
+      "path": "artifacts/empirical-directions-20261026/sources/libs/agno/agno/models/base.py",
+      "bytes": 146956,
+      "sha256": "892e7d6e51045364f68069b1773a99876e4c12b0f021dfd848f7e06c027a1f7f"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/LICENSE-adcp.txt",
+      "bytes": 10768,
+      "sha256": "7afa3b8b1e0cc5a7e4efe5db5a61db7798e19074a8ff6e519bb0849b3911257a"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/LICENSE-langchain.txt",
+      "bytes": 1073,
+      "sha256": "443c221bd2558bec654d76856a0ea97fb660937375b656d062a26e5ae7868fbf"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/adcp-original-steps.json",
+      "bytes": 3032,
+      "sha256": "120268054853995ddb9fd246391d2a6e93da4693565a902f86bf7b0221e3e652"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/adcp-reconstruction.json",
+      "bytes": 50210,
+      "sha256": "e7529fb4f9ec3550fa48929ae99238b141580cd6a56c89d4c66ec99524b5258b"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/completed-screening.json",
+      "bytes": 51501,
+      "sha256": "65f63b7ac6ef6cf13ac7521c88bf8944573031fb86402a04ef69083f771ef330"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/langchain-contrast.json",
+      "bytes": 28102,
+      "sha256": "62973ec1ee2528eb73d80fbbace3830ba725c4be4accdb3eed57ab22527ab665"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/langchain-requirements-freeze.txt",
+      "bytes": 1079,
+      "sha256": "434f9b1c062235eda402f7315a806ced471cfd7688c283e32288f97bf93aa6b9"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/selection-and-execution-audit.json",
+      "bytes": 21231,
+      "sha256": "8a880ffa11e8bd1d227fcb5638e98b27e98a4f33a66b1409a262525eb206c041"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/source-manifest.json",
+      "bytes": 8995,
+      "sha256": "48d86530212278ec381d90021e8e77de36fb56e35c3ea40c3915004dd7c22b96"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-after/client.ts",
+      "bytes": 16796,
+      "sha256": "ae23dbaf4c722010bbf7472dd4cf0dfe05974653260d4ff2ced83e01444e7302"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-after/context.ts",
+      "bytes": 9991,
+      "sha256": "b67ea9ea40b71aea404bcc31e99f084b79d1af9e31895999cad7a9e62c37c174"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-after/deterministic_testing.yaml",
+      "bytes": 32347,
+      "sha256": "5840724534d6dc2f8232c113a37da562005c0d8f4c6bb91a4b55d90da0a981f6"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-after/mcp.ts",
+      "bytes": 20690,
+      "sha256": "f87f0605f79052af4e2dd20edf8bf66bfef552c641cc238921382d34d901625e"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-after/path.ts",
+      "bytes": 3496,
+      "sha256": "2410029b21d56fd1f18bd0b2c029e3c7272a1a4af515bbd06888c5bd87e6bd07"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-after/responses.ts",
+      "bytes": 3513,
+      "sha256": "907b6518b297c42782c2aded8a1e144d976d0a1e626c18367ead3844b9b1df3f"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-after/runner.ts",
+      "bytes": 14532,
+      "sha256": "6677dc4b89011caa5b888370c41bd486ebd89af67425893f5e91dde4fe4bdbd9"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-after/task-map.ts",
+      "bytes": 3852,
+      "sha256": "c2ae2a1dc784561934ca2876226ded9ae9aff7e3ed9f43756079f426e5c5e304"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-after/test-controller.ts",
+      "bytes": 13857,
+      "sha256": "82f7f263c78645b00eb9e4cfa43a42d36b5914c4f60c28ceba85baeac591d1f0"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-after/validations.ts",
+      "bytes": 8093,
+      "sha256": "2ab8264f87d0b51f4b2e772d62cc5f6083b08769f3566e82dcf80f18aa03c219"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-before/mcp.ts",
+      "bytes": 20690,
+      "sha256": "f87f0605f79052af4e2dd20edf8bf66bfef552c641cc238921382d34d901625e"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-before/runner.ts",
+      "bytes": 13428,
+      "sha256": "2ecc6ccf782ce4d84bbe79cf66e82b32cc789e4ad53d67d1aabc5cb3144c7620"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/adcp-before/validations.ts",
+      "bytes": 7556,
+      "sha256": "5b66eacc505c5a12457638a519bb112f24d1b051d37a96fd38f83980f7200265"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/langchain-after/langchain_mcp_adapters/tools.py",
+      "bytes": 20128,
+      "sha256": "935f4dac081578287d52e985e41e1f9c873c4ac6bc605717fc0816cc3b02f4b9"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/langchain-after/pyproject.toml",
+      "bytes": 4266,
+      "sha256": "10706393dcad22594ca63415840710befca271fab53e18427d3f67ed3c87f6e6"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/langchain-after/tests/test_tools.py",
+      "bytes": 29111,
+      "sha256": "3d9e723ff7866911115641907f56ab38e49469b5bdc43ea4b0b9a9022a8527e7"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/langchain-after/tests/utils.py",
+      "bytes": 2861,
+      "sha256": "1f7ad5d88a72c6a79a2e9a2b5b643dc94a20a77a7861ab6afefa340fe2fab0dc"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/langchain-before/langchain_mcp_adapters/tools.py",
+      "bytes": 16424,
+      "sha256": "ea172febbbfd5e2d7b5cb340a1c4446b6e8b2a7a6623e6d6f9a2ff7e116441aa"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/langchain-before/pyproject.toml",
+      "bytes": 4239,
+      "sha256": "5474a21d183bd5150822ee54c2386b7d6d8bb008ae5ff1e6e863a4f0dca35424"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/sources/langchain-before/tests/test_tools.py",
+      "bytes": 20478,
+      "sha256": "c335701c4c7f0e099ca9c87c87430dcbfd077530e46e5257f391976d67ff7293"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/typescript-package-lock.json",
+      "bytes": 856,
+      "sha256": "1e0ca3d4694a5f24abb6af60c27b8657562041b6de443a6fc35ea20fe2f8876c"
+    },
+    {
+      "path": "artifacts/mcp-acceptance-study-20261026/typescript-package.json",
+      "bytes": 55,
+      "sha256": "66cf4db4ce37e2e2de0922c75bbea0710a1e5332502e6dbe67fd14e13c859298"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/branch-removal.diff",
+      "bytes": 545,
+      "sha256": "263b9b08c6bc3427e17a2c827cfd4f254a0a69d74ec1d72913c42464635f3aa1"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/dedup-ancestry.json",
+      "bytes": 347,
+      "sha256": "300c79a3c0feb9096795a60d3da59bc652f6a8e6552454fb58485dc89fbf655e"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/dedup-commit.json",
+      "bytes": 18497,
+      "sha256": "2700a971b3788f926f89673e47426ecece266c2a558a8a61641c045e3c541f60"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/later-ancestry.json",
+      "bytes": 345,
+      "sha256": "e8342450d261198a2cafc7b3001c5fc58c0b8caf57f353f12ea73911173d6d55"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/native-producer-results.json",
+      "bytes": 11775,
+      "sha256": "6e7914eeca7a9acef47bf5ebef0d716c77afdd294f9b02576e671ff6cf60712a"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/obligation-results.json",
+      "bytes": 63226,
+      "sha256": "47c62a11da927c4a03a90fcb93b2d432b8d98d49515953e3056878b13fbf66d4"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/source-manifest.json",
+      "bytes": 5949,
+      "sha256": "d304fde63338072b16fc514fb14783b89c9ad17628ce66199a2c883939aba4d7"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/after-prune/tests/tools/test_mcp_structured_content.py",
+      "bytes": 4082,
+      "sha256": "2e3ffef7c36c535160429e9a5c850019a44913ec6f201799dcbce2474d20f979"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/before-prune/tests/tools/test_mcp_structured_content.py",
+      "bytes": 5684,
+      "sha256": "fd02095865f154bf09f794aac738d5fee1fe98d8630f312a5eb05987379e9ec0"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/dedup/tests/tools/test_mcp_structured_content.py",
+      "bytes": 13057,
+      "sha256": "e90a8babf40e69f92ea0e0328b4e2dd6f6544a853d9b0431d878e940dd874a14"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/september/tests/tools/test_mcp_structured_content.py",
+      "bytes": 13273,
+      "sha256": "60884e9110cb6353db1cf76b3288e2c278a73a8f94e80f68116292ea4d7f6bc3"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/september/tools/ansi_strip.py",
+      "bytes": 4341,
+      "sha256": "71f339d1be720c24f407565b4a90cb55164dead2e860cf438258104fd96c1922"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/september/tools/mcp_tool_common.py",
+      "bytes": 5746,
+      "sha256": "ad1432cfc0d6ede806b64fab5f77945dbc2694786890b893169e56823c67d61e"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/september/tools/mcp_tool_content.py",
+      "bytes": 11131,
+      "sha256": "980a73c4d045e029b39e690fd2cf24dfc7df59a233a5fe6f99862cb88a686810"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/september/tools/registry.py",
+      "bytes": 47587,
+      "sha256": "fc1337a40ef7aaa3a598378e53e7ade76e8982a4e0055526961c3e59d8b3f400"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/september/tools/tool_output_truncate.py",
+      "bytes": 1448,
+      "sha256": "c008f5f4dab87a9607e1d79ee5536207cededd574eb37a47e79c9587d59c3db1"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/unifi/LICENSE",
+      "bytes": 1070,
+      "sha256": "e0367bdcf6bf23dde6d9982e69d74caafae6082ab70567c627a37a6fef9350e2"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/unifi/pyproject.toml",
+      "bytes": 4529,
+      "sha256": "362da8fbd450aec60967b17ab1721a26018e2a35902c3756f8c5fc2a4b584dd0"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/unifi/src/mcp_unifi/responses.py",
+      "bytes": 11414,
+      "sha256": "468653f23e14ef7d455b49a24210b8609529f838e2bf168e5b97cf73a5d5f77f"
+    },
+    {
+      "path": "artifacts/mcp-obligation-study-20261026/sources/unifi/tests/test_adaptive_responses.py",
+      "bytes": 10045,
+      "sha256": "fd60a9f2237b24b2b867bb4b00b65c8efe48b5ee9d44f2b3ff074369d1041242"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/agno-stdio-http-capture.json",
+      "bytes": 58931,
+      "sha256": "ae9c8f5067fa1b52b7183b45067bc517704f7bfe22fa94b912cbf39b4927a1f0"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/guidance-fixtures.json",
+      "bytes": 6214,
+      "sha256": "58148edc5f21ec4b44de9786e6eae1e3473993272e8d4f375b0886d12421f383"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/guidance-matrix.csv",
+      "bytes": 4354,
+      "sha256": "357bbbd3390bc3104afb2a0d13308bb819ca0bcaf7cd93e516488e27bf1727e0"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/guidance-matrix.json",
+      "bytes": 48068,
+      "sha256": "0b4fd14ce43c7f4b8d2874661db4cdab2b00680328ef9ecfa392eeddf1d10250"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/handler-requirements-freeze.txt",
+      "bytes": 1012,
+      "sha256": "c88469e05b236edc7dea71360b6d09a998326b7c4b821befb2373cec850f9cde"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/license-provenance.json",
+      "bytes": 1410,
+      "sha256": "cffb11b8f847703308ef2a3c2283f29fd8fef13bc57cccd0da463a9ba85a6fee"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/licenses/agno.txt",
+      "bytes": 11344,
+      "sha256": "ced3370bfb5fecbf9f0f0d60644b2579869bc786a8fafb75bdf8a58d31cad69c"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/licenses/hermes.txt",
+      "bytes": 1071,
+      "sha256": "dcd3033e4a5a5a6cfaa9df33892f0d5b42247988edd7fda918ac704c8cf392b9"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/licenses/openwebui.txt",
+      "bytes": 2820,
+      "sha256": "53743046c7807b141d0a20c5af57a7ef42cfb6f52199a3db9182ee3337f6e7d3"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/licenses/superset.txt",
+      "bytes": 11586,
+      "sha256": "661e0063e19b81e9dfc6e8f02dba65f2c2a2508eb834be41c4f95cae3ea5cd41"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/patch-attribution.json",
+      "bytes": 59119,
+      "sha256": "a6ea008d7d43869d0180cd4148cbc9483696b4f5411d7a20ca341a4d651fe1f2"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/patch-interventions/after_minus_fallback.diff",
+      "bytes": 1176,
+      "sha256": "1ad3f572362e9936f19f8e070e929bce9006f497695537cd346683c38a578b31"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/patch-interventions/after_minus_fallback.py",
+      "bytes": 14013,
+      "sha256": "5000ac00eea66a46cfb952d0d4e4584f02185c4bcbbfba8b3def53aa382ef62a"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/patch-interventions/before_plus_fallback.diff",
+      "bytes": 1089,
+      "sha256": "4ad06d2f5442ca5e1e47b834ca91bdf9e2762627881db9c2c5776bfc56ffdaf9"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/patch-interventions/before_plus_fallback.py",
+      "bytes": 12241,
+      "sha256": "cf42aa315791264932006c870103dd685de38cba99018859bbdadbf73b4342c0"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/repair-metadata.json",
+      "bytes": 3485,
+      "sha256": "e015949e5dbbbec1e42e7059317c9049ad38615aeaf58a88002ada8b7bcc2e9e"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/request-collision-matrix.csv",
+      "bytes": 429,
+      "sha256": "8a48005a140981434c1c4e71a370e1c0516303b3f8275896ec547f0302aa8ec6"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/sources/agno-after-tests.py",
+      "bytes": 58941,
+      "sha256": "1bd4d2ace9489cb7c948757bac7d1263aaea7fb78421fd514084893a509917bc"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/sources/agno-before-tests.py",
+      "bytes": 48327,
+      "sha256": "6f0676280f2bee92d81b525d8b80217dff39e41e6e44105d6147655b0cd97ef7"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/sources/hermes-combined-tests.py",
+      "bytes": 4854,
+      "sha256": "025eb22359463b077326741a04e693b8aebc84e0d2432980cbea78338ba16e9a"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/sources/hermes-first-tests.py",
+      "bytes": 3880,
+      "sha256": "38a6cfc6b9b646c5a3c62093b36ca6d754e65e85cc23e47f37d56bd53cc1e5c9"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/test-source-provenance.json",
+      "bytes": 1391,
+      "sha256": "9280fbd5108009138b9f1e53b70b9eda7868165cd0beee96a383709b631e8e3a"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/test-version-matrix.csv",
+      "bytes": 562,
+      "sha256": "70afd2782507610f73d30050b2f7b4ab2cdfeef0bc042bdf5e0b06e527421c56"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/upstream-test-diffs.json",
+      "bytes": 55032,
+      "sha256": "a7b884a0f75cc83466105ba10bd9de3f0a0751d82044fd354cca2012ce4ebb95"
+    },
+    {
+      "path": "artifacts/mcp-paper-evidence-20261026/upstream-test-execution.json",
+      "bytes": 21336,
+      "sha256": "4fee30ce4f392e3977ddc9ef69e761d3c054e8bec271ee1f9723c0a83bfdb4b0"
+    },
+    {
+      "path": "artifacts/mcp-preservation-followup-20261026/requirements-freeze.txt",
+      "bytes": 1384,
+      "sha256": "7097f73d679467ab19a9401f5ad9315f27693b7b3bd4f1e698aea9178417245e"
+    },
+    {
+      "path": "artifacts/mcp-preservation-followup-20261026/source-content-verification.json",
+      "bytes": 1637,
+      "sha256": "109a61af309ff004e13bd36df5403579ab7d582b686e61c02472b712e175fa29"
+    },
+    {
+      "path": "artifacts/mcp-preservation-followup-20261026/sources/json_codec.py",
+      "bytes": 3820,
+      "sha256": "b80b96cb2d5f00fe738ad9ba86ff4bcdbddb8f603741c5308461e0213af2d0f9"
+    },
+    {
+      "path": "artifacts/mcp-preservation-followup-20261026/sources/webui-media-after/middleware.py",
+      "bytes": 304896,
+      "sha256": "7a534b9003bec4db476d50bc71cd7ee54443b04d6e208ab5e6f86b48fc8e3a42"
+    },
+    {
+      "path": "artifacts/mcp-preservation-followup-20261026/sources/webui-media-after/misc.py",
+      "bytes": 46746,
+      "sha256": "d41212c582e04a41849f0db988385cf0c90d0daa06efee41b8cd9befc3f6d707"
+    },
+    {
+      "path": "artifacts/mcp-preservation-followup-20261026/sources/webui-media-before/middleware.py",
+      "bytes": 304663,
+      "sha256": "019632dbc6accafa2927da55a203b752752c5a5bb5f43a7a05fa6afd2ac2ba06"
+    },
+    {
+      "path": "artifacts/mcp-preservation-followup-20261026/sources/webui-media-before/misc.py",
+      "bytes": 46746,
+      "sha256": "d41212c582e04a41849f0db988385cf0c90d0daa06efee41b8cd9befc3f6d707"
+    },
+    {
+      "path": "artifacts/mcp-preservation-followup-20261026/webui-media-probe.json",
+      "bytes": 87906,
+      "sha256": "e7d549d0ddf5866e4aec1f2589eb975b0f9334261080aba83f0f5a540d696b21"
+    },
+    {
+      "path": "artifacts/mcp-preservation-study-20261026/hermes-repair-chain.json",
+      "bytes": 20107,
+      "sha256": "5244abb4d5fb411bd8af0188238fe6d39f8c447dd603384bbbd3726e53b25095"
+    },
+    {
+      "path": "artifacts/mcp-preservation-study-20261026/search-round1.json",
+      "bytes": 1321965,
+      "sha256": "fc67b0a946ed64c7e02077767bd2126c9851d34fccbc35933baf10627f2a97dc"
+    },
+    {
+      "path": "artifacts/mcp-preservation-study-20261026/source-manifest.json",
+      "bytes": 2265,
+      "sha256": "9428e8f55ec4777c9240a60d224a470fa63e8f4253e688569b0a017b0dce59a7"
+    },
+    {
+      "path": "artifacts/mcp-preservation-study-20261026/sources/hermes-before/tools/mcp_tool.py",
+      "bytes": 83592,
+      "sha256": "c87dc8abacbb856ea783b771315284019401a434de9b7a7c470b627a379c2f18"
+    },
+    {
+      "path": "artifacts/mcp-preservation-study-20261026/sources/hermes-combined/tools/mcp_tool.py",
+      "bytes": 84293,
+      "sha256": "d4dbff27c448897b12dbbe4ce23be17c1fa81e31d5dbcf6adb3d6c8908dc0791"
+    },
+    {
+      "path": "artifacts/mcp-preservation-study-20261026/sources/hermes-september/tools/mcp_tool_handlers.py",
+      "bytes": 38358,
+      "sha256": "ad152084f1b6a24c44c04c69315d11567e02bae0de5a26d7440dc5e2921ca743"
+    },
+    {
+      "path": "artifacts/mcp-preservation-study-20261026/sources/hermes-structured-first/tools/mcp_tool.py",
+      "bytes": 83875,
+      "sha256": "b5c2bd1cdf92f85e84ef921236d0e79a7de31a5ed0bb3554aa24eb04d3a6c9e1"
+    },
+    {
+      "path": "artifacts/mcp-preservation-study-20261026/sources/superset-after/superset/mcp_service/middleware.py",
+      "bytes": 61104,
+      "sha256": "9e8e1d4fde2d4ba3d72e9a43043dd0dd425331f63eb84028fa371de8886b5cec"
+    },
+    {
+      "path": "artifacts/mcp-preservation-study-20261026/sources/superset-before/superset/mcp_service/middleware.py",
+      "bytes": 60095,
+      "sha256": "5733b2200ed145996e1ffff1cbcf9a2ef1d7570fd5155b0d6b1065b5065d92dc"
+    },
+    {
+      "path": "artifacts/mcp-preservation-study-20261026/superset-wire-probe.json",
+      "bytes": 3535,
+      "sha256": "15fbb6d9d108c04106f6d9028d91ef6b5ef5a03343a86f7309249b1b266bb524"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/combination-intervention.py.txt",
+      "bytes": 1572,
+      "sha256": "72a58b436b49c8b2708e86dee7b36069e87a8a783377dd1a7285fd1502a0c74e"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/confirmation-results.json",
+      "bytes": 1273,
+      "sha256": "b10211a0c03e74e10b9a2370ff5b418831d46150570585d62b332ddd3d999f44"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/consumer-requirements-freeze.txt",
+      "bytes": 629,
+      "sha256": "3f682c9dd77681116aeab0ff86d9dece13b9fa0cc19305523dcda6f48868a2a8"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/continuous-results.json",
+      "bytes": 17722,
+      "sha256": "2547e3b1bab0a604931160d4a54b6198824937066a780a67ffa3e2d7a1b290f2"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/execution-inventory.json",
+      "bytes": 2744,
+      "sha256": "806a572ebd423f6a09c60f5d15994073c6a16c670c8d4953e936af780f4ef8dd"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/git-package-metadata.json",
+      "bytes": 2283,
+      "sha256": "34a9d8285cf3305ba09e02a4b459a0915dc7965a4c7aeb46d27689b798e3a8c9"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/git-package-source-manifest.json",
+      "bytes": 1541,
+      "sha256": "37a89b4d8bc6b265d060b6379b7d8f38e15e9a5d4822f0b38e85e3fed3941d2c"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/git-requirements-freeze.txt",
+      "bytes": 590,
+      "sha256": "631d3c9ed31fdfce41d2ce7ca9a69674bd3affda62b3d19daed34c056ebb9aff"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/harness-corrections.json",
+      "bytes": 1453,
+      "sha256": "863c079203cfcba6f9554d32ae07ebd42ee0f6eb2d4ff2c5127eeec9c3fd5f90"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/hermes-native-tests.xml",
+      "bytes": 1732,
+      "sha256": "ff7e9c2820edd92be5e84aba816c105e2f0d8cf3a93d30f75db8cb39f9be3696"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/hermes-upstream-tree.json",
+      "bytes": 7566,
+      "sha256": "c151a3f7dabf72d85c9bad527bab2cc413a370d33285826bb06dcc00d2655e75"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/one-command-reproduction.json",
+      "bytes": 2027,
+      "sha256": "85f2abf234024fb0118d2c63ac9a25a4ddf56516025f09e9b7066f86469d6d8a"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/producer-requirements-freeze.txt",
+      "bytes": 1381,
+      "sha256": "18616d1be1048cb9cbb0a94e5fdf0f3a281eb594da04e31387308041cf3b4d85"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/replay-agreement.json",
+      "bytes": 3632,
+      "sha256": "3874133fd0108bbecbc0e236f5d450119f51e9732e3bb429307cbb33770bed4d"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/revision-summary.json",
+      "bytes": 874,
+      "sha256": "22a6cbca459acc255f36c18d3d7217a8771fcfd9af9a249ad9862fae46e2684a"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/source-manifest.json",
+      "bytes": 59434,
+      "sha256": "8234036c6d41f313899b4e0ce9e2f9c7f55dce7958cbf008c1e1627141edfb44"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/git-package/LICENSE",
+      "bytes": 1059,
+      "sha256": "8cc7c6e33b24ed4ee8fcccc33eccf102549d04fa4cb9737cecc9770dad1080ff"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/git-package/PACKAGE-METADATA.txt",
+      "bytes": 15142,
+      "sha256": "08c0fe9c5041ef4611cdffdc55c8723217b9ef7a9c7347ff76d562592ed14167"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/git-package/__init__.py",
+      "bytes": 769,
+      "sha256": "c818b6a458dd4b8382ee9856d8f2a1923ee2a2fda2fa4084b6ec41b3cc990603"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/git-package/__main__.py",
+      "bytes": 55,
+      "sha256": "86c286117b9b580820e25077f04d6d289dd9669f053852bc5b5093d3e8bc491f"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/git-package/server.py",
+      "bytes": 27623,
+      "sha256": "1756064c0bd498f0fa5065891b16f4203a54b210eec813f5d1948ac78780316a"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/LICENSE",
+      "bytes": 1070,
+      "sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/agent/__init__.py",
+      "bytes": 143,
+      "sha256": "4b8495cff6ef2502e6cf2f42e384670d5da7a9cfe7d155e4b52fe971afc4c362"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/agent/async_utils.py",
+      "bytes": 2049,
+      "sha256": "9e2dc6964bd826c1cd0a5b756e2031761933d96da76fc4804064121925f04ee7"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/agent/conversation_compression.py",
+      "bytes": 221282,
+      "sha256": "dc5522b1f9582111cc139176e1a4ce0b3c1cebe2c72140f280aa0d5f033fdad8"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/agent/delegation_context.py",
+      "bytes": 6746,
+      "sha256": "5644ad3f644ac33a7febf47d0b949d69bb210a55ca8e77197e447636b0f4deac"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/agent/jiter_preload.py",
+      "bytes": 929,
+      "sha256": "98e6b8131e74255f21000f55f4d77709e8c34200374819654dbea763cdbf6d1a"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/agent/secret_scope.py",
+      "bytes": 11233,
+      "sha256": "6c43c265387340edc4095c0e9f3753302701e7444372f5bd8a68ddac14c66133"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/agent/turn_context.py",
+      "bytes": 58532,
+      "sha256": "46ed030ee35a13f75994bf8e28cde3633db14969d1fb5c859fc0ff6964cbb0bd"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/__init__.py",
+      "bytes": 574,
+      "sha256": "8920ead12b3b78cc727b2c6257192e954bc790717676484ad66b3238e511b95e"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/config.py",
+      "bytes": 41995,
+      "sha256": "72ecc152d060f0e08206f39857c5dbe7d73b258757d7cb1e74abeea9beb91db0"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/dead_targets.py",
+      "bytes": 4929,
+      "sha256": "f6944dfbba75236ef79925c7c24c441c8c9307ebd7df31de06ba765f3d0c8e9b"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/delivery.py",
+      "bytes": 18378,
+      "sha256": "25f6c3f942faad47c7552521453c86bc1562cfa36ebb4292bff9e645badbdbf6"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/restart.py",
+      "bytes": 8247,
+      "sha256": "786ef1a6473bb9f1fbb8dcf4854aea802193782e430fe957f9e35076a25dee9a"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/session.py",
+      "bytes": 60696,
+      "sha256": "d466283707e7a9a451771abd0572187390314dabcdfc4a199f25a5403e6c4c81"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/session_lifecycle.py",
+      "bytes": 12136,
+      "sha256": "51e4ce1524efe87702cb4e28a243bb1f33555f6ebdc32dd2cc0960fef8525c88"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/session_persistence.py",
+      "bytes": 27776,
+      "sha256": "ca6776c527b3d61f647b384d9028640b5480ada20b0b8da391772b73ac1fc7b2"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/session_recovery.py",
+      "bytes": 20156,
+      "sha256": "a836dbf860ee9bd07ae83fdb95d4dcd1366a9ac1bccd7483f0e96380b3aa760b"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/session_transcript.py",
+      "bytes": 28407,
+      "sha256": "41d738216547fa76901f7ad1d871e30f502fdd3b28594c524e2d6abd5d04ea5d"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/shutdown_watchdog.py",
+      "bytes": 18547,
+      "sha256": "507b42c41eb280fd854b3764ea03d4d8653fce2881432f4b0985461a2b69c024"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/status.py",
+      "bytes": 81333,
+      "sha256": "aaedf320b02db76f1f48f28f5dcf42166dc29843ac6e24535a7f25c03188f0ab"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/gateway/whatsapp_identity.py",
+      "bytes": 4354,
+      "sha256": "bcd593d3f0bc9374984ef71061ca255998dd9cbe0b7adb02e5c8b525910a54d8"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/__init__.py",
+      "bytes": 1843,
+      "sha256": "0d78a58a9f27f32adfdac959e89767cecde93a424bcfbd39d64fb95f6cf13e6c"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/cli_output.py",
+      "bytes": 2465,
+      "sha256": "bc3b749d61c01ae4454211d20ecafc8acde0ed883937fcf8c13e66def94bf2b9"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/colors.py",
+      "bytes": 744,
+      "sha256": "12d4cd7deaa3832a73b7758609cc9607871a9aa222c5423ca6c0f3e3d4cc2ee6"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/config.py",
+      "bytes": 178901,
+      "sha256": "ecf1b2ef043c72033f4e21bdf3cdce6fb242e2d260cfdbf44bb8cc3acb785c1c"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/config_defaults.py",
+      "bytes": 192701,
+      "sha256": "69c33c7d0a46e0d699874d337fa99fa37b0cdceb98ca5be1a9bce5bc84829720"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/config_providers.py",
+      "bytes": 23685,
+      "sha256": "241c1b75e6ad0f56dc87b9fd567565d6437b2499227b21ca76558a772cf5929d"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/default_soul.py",
+      "bytes": 4456,
+      "sha256": "b65192a631f0011fcef245c94d9741e0c716defe605d3edfd0e59f26da211d2d"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/env_loader.py",
+      "bytes": 28693,
+      "sha256": "4bdeccecea814299627f0e1a4fb54f9e93ba48a01f35b966337f7ad9a826f798"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/managed_scope.py",
+      "bytes": 6585,
+      "sha256": "1ef50ab8787f4a1c9fb3cbe562de426eb9b58a4bb16fe3960427921cd22773b6"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/personality.py",
+      "bytes": 8056,
+      "sha256": "b220d176cab97f79adbcd4da151c522792d9fde10489ba38a087d919ee13b260"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/route_identity.py",
+      "bytes": 2751,
+      "sha256": "451b936f17182121a251a0f44182d3daaa04e0f5bb4c0ec45c9b722de0b2a284"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_cli/secret_prompt.py",
+      "bytes": 2761,
+      "sha256": "d523702f8899ee5b42eed38e45883c871bde991a070cd40304f8c82186966356"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_constants.py",
+      "bytes": 54131,
+      "sha256": "e5f72a309b3689f5fa2e85065e8051f8e6f7686d1ec1741e7543cc5e56bea162"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/hermes_state_ids.py",
+      "bytes": 1265,
+      "sha256": "c2b4531690fedd0f4d37c3f6c44f5478b4e87c1883b102c22a86340f3a4bdeb1"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/pyproject.toml",
+      "bytes": 34964,
+      "sha256": "a674c321c63c3bfd9fa099fab5957a64092416f7771680b370a4d77e992744ba"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/__init__.py",
+      "bytes": 457,
+      "sha256": "7bca460f476ac9ace706c8cfd07e98f8aae34d839862f0f68abafc3a8397cf35"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/ansi_strip.py",
+      "bytes": 4341,
+      "sha256": "71f339d1be720c24f407565b4a90cb55164dead2e860cf438258104fd96c1922"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/interrupt.py",
+      "bytes": 4884,
+      "sha256": "513945569eb46a6a253afc851a81e1157b66d7dbdff52a73c676c4fbce17247b"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_dashboard_oauth.py",
+      "bytes": 5665,
+      "sha256": "05548fd6d904b7f43e8dd208d44733a53abbaa43682aa163fafee6153a61b061"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_death_supervisor.py",
+      "bytes": 9341,
+      "sha256": "0ee964204f162dc1d0f1358dd33431f603b7f4ebcd53cda844fc704f02e36600"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_oauth.py",
+      "bytes": 62236,
+      "sha256": "2d339b93aa2163dee7ec8276fd137fa56a332104305582659d6d0c91d651ccfc"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_oauth_device.py",
+      "bytes": 9489,
+      "sha256": "9627f881dae8d93554f8243e1ad0b2f55e61470cb605f79718f6f5bfa0e6084d"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_oauth_manager.py",
+      "bytes": 23788,
+      "sha256": "2def464dd3fe0b1ce99e0aa118b28819f5ba38cf92e101903c9ffdf37b5c8ee8"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_oauth_provider.py",
+      "bytes": 22056,
+      "sha256": "36b9ea651cc205bba29014bf343b17359b83c6bbbf125ed3d325069962e84de3"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_schema_cache.py",
+      "bytes": 5175,
+      "sha256": "a3554591068d94347107d0ec887a8c8a528f283ff8dcec22871c349db31aea2c"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool.py",
+      "bytes": 40047,
+      "sha256": "0eb6e0a592722d2af4814fa4a9f00d2d260b4bd8bf71392c14116e8fcfcce7cb"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_agent.py",
+      "bytes": 14029,
+      "sha256": "05a96e1dc3051339404d058c75d586bc0f6b67df09bf9cf48bae825b51f80963"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_common.py",
+      "bytes": 5746,
+      "sha256": "ad1432cfc0d6ede806b64fab5f77945dbc2694786890b893169e56823c67d61e"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_config.py",
+      "bytes": 16312,
+      "sha256": "f8002c2d65a1213250818912108df126f92c93f8a874a2cd4cb6cc63c0736d2d"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_content.py",
+      "bytes": 11131,
+      "sha256": "980a73c4d045e029b39e690fd2cf24dfc7df59a233a5fe6f99862cb88a686810"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_discovery.py",
+      "bytes": 31315,
+      "sha256": "b2aca5ad925f169ea9edbdc30894babe701cd51655823eb965aa5c5412552c58"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_errors.py",
+      "bytes": 22003,
+      "sha256": "87e9d55837145f120c5e5d889bcb6ee2f9fd2f803f5c905e1993904d8e56e16f"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_handlers.py",
+      "bytes": 38358,
+      "sha256": "ad152084f1b6a24c44c04c69315d11567e02bae0de5a26d7440dc5e2921ca743"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_health.py",
+      "bytes": 15879,
+      "sha256": "ccef7fb0ea44753b5f728dd6ebc84e4daa7ad930fa71421d4bc81fee6100736e"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_lifecycle.py",
+      "bytes": 16968,
+      "sha256": "cd464c59cb66abbda1126d3ae6c4977090ce762c40873754a6cd57f6922d4f55"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_loop.py",
+      "bytes": 13304,
+      "sha256": "ac176bdb5084871fa3040510045f68f87ba5348328251c28389f60f3bac7d272"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_registration.py",
+      "bytes": 29181,
+      "sha256": "4a35f71f174e1dd22ed1fa2f4ad48a73794c80be29cb4f0908974fed2a066448"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_sampling.py",
+      "bytes": 18431,
+      "sha256": "595de91fbaea40378d59787b27fad763a42caa067a93685072f0e834a742dd21"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_schema.py",
+      "bytes": 12595,
+      "sha256": "7fabc9d461c540121d06a82facd69e272bdabf99357bc7a3889915ad8747b4a5"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_scope.py",
+      "bytes": 3012,
+      "sha256": "8ad76c51cb945c0788f83a3e876c527475373a1ace446a212ccbdef219bec825"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_server_run.py",
+      "bytes": 25071,
+      "sha256": "6634add56acde1d241a303aeb8813dee027b4e65d83dad9ef48c3dbdaf628cbb"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/mcp_tool_transport.py",
+      "bytes": 33093,
+      "sha256": "691901e3bee4c8f49975b77a802a146d28c3970963753fbc539bb1a30809b3a2"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/osv_check.py",
+      "bytes": 10589,
+      "sha256": "d5a60a878b94a595ead77127e4bb671f498c7227fc4bd53742753fc63e92c7e2"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/registry.py",
+      "bytes": 47587,
+      "sha256": "fc1337a40ef7aaa3a598378e53e7ade76e8982a4e0055526961c3e59d8b3f400"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/tools/tool_output_truncate.py",
+      "bytes": 1448,
+      "sha256": "c008f5f4dab87a9607e1d79ee5536207cededd574eb37a47e79c9587d59c3db1"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/hermes/utils.py",
+      "bytes": 27295,
+      "sha256": "2aaf522b09fd913e411213ebcd5e5e59c1f484b699087bb68199a6a2933998a0"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/LICENSE",
+      "bytes": 1070,
+      "sha256": "e0367bdcf6bf23dde6d9982e69d74caafae6082ab70567c627a37a6fef9350e2"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/README.md",
+      "bytes": 15966,
+      "sha256": "cdbfa4c69c60cbb97957608a020c760ebdda8fa0c166aed8fce8509e1e7b8f5e"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/docs/site/src/content/docs/tools/get_wan_status/index.md",
+      "bytes": 788,
+      "sha256": "4ef347c2bada36ad3b60ce7849d9c8ca3ab80a8067ec33bc7d21685a0c0fd86c"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/docs/site/src/content/docs/tools/list_wlans/index.md",
+      "bytes": 1040,
+      "sha256": "99758cb7dfcc76dc73ff8bca6290ceaca7021196510c3fcd68898b0b4b69f28c"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/evals/cases/tool_selection.yaml",
+      "bytes": 4573,
+      "sha256": "9cd529e0598f0434b2ca9374052afc8bb51c2ae5a7942e4014501179a1097a2d"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/pyproject.toml",
+      "bytes": 4529,
+      "sha256": "362da8fbd450aec60967b17ab1721a26018e2a35902c3756f8c5fc2a4b584dd0"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/__init__.py",
+      "bytes": 1040,
+      "sha256": "e203fea5f1e2fd2a3a126489703e0fa728d8a8b8359c4e62a74c67c82872bbd0"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/annotations.py",
+      "bytes": 3591,
+      "sha256": "15550a01fcbc3cf4ac5bde0b3a9f98f8a8e0f261c8cb5bc42dae9799a7e111b1"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/audit.py",
+      "bytes": 13870,
+      "sha256": "d337ca833bcde4ad56082924d764729d1e960e965f51e7548ebb7bd0c0714281"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/backends.py",
+      "bytes": 45187,
+      "sha256": "51f9206bc0e29073e4fe7a2e6637f656b2977a86eafc42e7bd32cf4dbdde31fe"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/cli/__init__.py",
+      "bytes": 47,
+      "sha256": "d4165476845d762345943ba085a9ac3c42a27db1fc40a2edd615da015096cd68"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/cli/replay.py",
+      "bytes": 10324,
+      "sha256": "90fcc5a10b34e957ec71189fc72f9cf7c46db3efdab4a9953c628760cb90c7de"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/__init__.py",
+      "bytes": 255,
+      "sha256": "4ff0744204b4cafc3d74d5cce9566b7f54f90b0fa3548de931a21922fac74074"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/access.py",
+      "bytes": 8333,
+      "sha256": "1b1a5befc89e541133096f8f01d031ec61dcc2d24cf88d0570978e85273d7b94"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/access_stubs.py",
+      "bytes": 14731,
+      "sha256": "23f8827a56f18e17ebdcdcd135ad527fc1f8fedd7c48babf0bace074d2b77ee6"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/errors.py",
+      "bytes": 976,
+      "sha256": "f97804fd6feac809bdfa022a734a091182b82655a451479a7f65b9e0be8794bf"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/ids.py",
+      "bytes": 3433,
+      "sha256": "a86f6d4fbb612141fc2d407ed85273a8bdfe2f8796f89eed7511ef9f0c6e7726"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/protect.py",
+      "bytes": 8939,
+      "sha256": "b30f73c142694d17c011bf71f4f3e5ee7a1eeced08daef4d0b7bb31e95768e14"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/protect_stubs.py",
+      "bytes": 9804,
+      "sha256": "1ed149994cc91f56de1c776f20faee680b837335be4458125ed75a04aa50a62d"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/retry.py",
+      "bytes": 5896,
+      "sha256": "f2b1a335768779f65537b6856ab499367a90dd842b71140fb4e1506f8cab868c"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/stats_shape.py",
+      "bytes": 6213,
+      "sha256": "817f2403fc398b0268ea483472fe70872cb75c34608f859a7b16bcef363c4a79"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/stubs.py",
+      "bytes": 51262,
+      "sha256": "fc670c97b1b85ab342ed6cb42a79fe0985edb8149b9c43e7bf1f7457a2bd525c"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/unifi.py",
+      "bytes": 42075,
+      "sha256": "c8493d804ee3f915b133903fbf1e6227df184bd9efa39d6a35a5240b5064b6f5"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/clients/unifi_os.py",
+      "bytes": 14809,
+      "sha256": "be4b233221a96cf91d65034e3e5810e97c70ecb2c9e602c62c6443a6b6fba599"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/config.py",
+      "bytes": 39356,
+      "sha256": "461f5b5fcd4a2eb7b893cdf74ac9b8c49cecc2be811ad21614ef1ea9fb32763d"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/dispatcher.py",
+      "bytes": 22273,
+      "sha256": "9462b9c73725698be47dc70602325d67364811dbf9c04927be6c14d9288f64fe"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/healthcheck.py",
+      "bytes": 1070,
+      "sha256": "43d7a508bee936de25a492cf204169e21d7b63ba0f0295d6939b894f44206e0e"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/logging_setup.py",
+      "bytes": 4430,
+      "sha256": "aa1159d2642cc12cdf6bae4f9b9f0393c8b061e37ce2d40da9083c516bb55b96"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/models.py",
+      "bytes": 660,
+      "sha256": "722ba4561e64b8a4115739bc001448112ec1181988f72ec190f5bab14b9797e7"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/__init__.py",
+      "bytes": 192,
+      "sha256": "10a7c7a199896dc2c87b73fc3f225b2ccb9df1a40b0627756630d66fea955af2"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/_audit.py",
+      "bytes": 12004,
+      "sha256": "1444f93adb79aff4c9c82d2608d36210cb3efaed4a2e45b3547e6f494762523a"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/_params.py",
+      "bytes": 2304,
+      "sha256": "5faa9c11310dde45334472060d5fe55dd4f3c740c28e53d3a3abf43dc8d1fb9f"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/access/__init__.py",
+      "bytes": 26908,
+      "sha256": "0471dca5b104f25adaaf91f1de4002d0a178a85a0a4a37c26dadc63d1fb2f251"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/__init__.py",
+      "bytes": 3053,
+      "sha256": "b26ccfb3d36fbcc0d693bfef37ee54f84e7f6f7cf755bdb06ca55407263b5f84"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/_common.py",
+      "bytes": 9192,
+      "sha256": "be46a6337347cf6670989bf2795d2db5266f5e675469a96328b76b0d47a89d78"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/_pending.py",
+      "bytes": 9102,
+      "sha256": "6b1856bf439065acee51ebce04f513cecd99f772ddc7f2b721ef2848561cb1ca"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/_verify.py",
+      "bytes": 3896,
+      "sha256": "ef0c900613a4c1d5a493cf37f04b11f0f02da3e1a62c58e2b8ff0b76fdead2f9"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/backup.py",
+      "bytes": 35913,
+      "sha256": "ac7a89a01cfffad59d45dbee8d38d1210b9e77c737b9cd140a0e59d585ea4488"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/clients.py",
+      "bytes": 6843,
+      "sha256": "71609234d800895a6b691c16662f2d41b828c7b77ea8c2459eba689417e71b9e"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/composites.py",
+      "bytes": 40321,
+      "sha256": "318f867341c7b4ab95544ae8ea91b1bc28e905c541ae76580aa31ce506395719"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/confirm.py",
+      "bytes": 4079,
+      "sha256": "5d69fb3a54c95d11ebfd0e4b45d44fb1ee79a6a0c294c70e99d2d13d74415299"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/console.py",
+      "bytes": 25923,
+      "sha256": "dd12d94bc4907f07d74fcc8577795ce9163ae409e940254803cace7304bad18f"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/content_filtering.py",
+      "bytes": 11162,
+      "sha256": "91c12900f9fd414f6a877e6cf8d362fb504b406be5715f4232b902025ab8dfea"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/devices.py",
+      "bytes": 30767,
+      "sha256": "c2c95b81a2875758bc67bb5a886a4cb8ea8783dbbaf1dbad471d41bb40d4cafb"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/dhcp.py",
+      "bytes": 11167,
+      "sha256": "4a6d49ce9830a20bf6a9f124030b4209950683d05f9a1a71df092153c4e57914"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/drift.py",
+      "bytes": 21222,
+      "sha256": "d1a99a0e81fcf66e3c7672594a7a9c625a275ff85214f995ac52e5812ebc5799"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/dynamic_dns.py",
+      "bytes": 12920,
+      "sha256": "3e237450464e02d9c208aef785dc8618d899ba88c4c63b842f652611f7e5e005"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/firewall.py",
+      "bytes": 29936,
+      "sha256": "f8e8857cde4acab5022d5ffb6f8b1bad1bc7b9572c28910108a15dab9a12c1f5"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/guest_portal.py",
+      "bytes": 14723,
+      "sha256": "9f82e3f5786ae9be68b23cc3341d11eac698cf984d0afcac57ead1af2c44b5b4"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/honeypot.py",
+      "bytes": 11225,
+      "sha256": "7f2fe2ee3725aa77d7ba4aaaea2cba511112a73db5f60d8c255276df2d06903b"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/ipv6.py",
+      "bytes": 33838,
+      "sha256": "8658bbe8917efd7e4170290958ea70a144c22ff6856f9423ecdae2687fc8dd32"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/observability.py",
+      "bytes": 8729,
+      "sha256": "68fe6575d74696a324f6264db544193c28a68ece60c5d6aada0e95430c0b73cb"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/port_forwards.py",
+      "bytes": 10810,
+      "sha256": "5f2852d8107ea7c944268f0f80e1071c4c613e4eb81f8ddc4758c5e7a8ca8f6e"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/port_profiles.py",
+      "bytes": 9795,
+      "sha256": "739fecb07e80edd191dc03ee13b45cd097bd57d8bed63914a5c9d71ff8fe594f"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/routing.py",
+      "bytes": 11961,
+      "sha256": "779bda595e61d86a6eca4a6a75e3bf39e81375b62d1e4c8f7a0245f7da0adccf"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/stats.py",
+      "bytes": 9811,
+      "sha256": "c6a6e81f07ab00626381a85187f26f38f45b130ad34b01ec4973c8e5ed71e3eb"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/teleport.py",
+      "bytes": 7025,
+      "sha256": "c537e070829d7ff25dec017d69150ff59e7029d2f5d725278d8336fbf83e6aa1"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/threat_management.py",
+      "bytes": 7530,
+      "sha256": "af8333303eaf43adaf1a59beec8e7de0c8539ce7d899d6ec6afc737a81ae9fb7"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/traffic.py",
+      "bytes": 20780,
+      "sha256": "e9a3838b9197b9c86d44dc1cc0bf9d013e09de08195afcd1662c95bebbfbebed"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/vlans.py",
+      "bytes": 19726,
+      "sha256": "dd5d0f9d25d218ec97d946d804e93a5b38e224dbefcc4eae4ada86609cb1e0b0"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/network/wlans.py",
+      "bytes": 14061,
+      "sha256": "ecc24f353a95cd0f6bdf4db4ce309295db0974a804d8e05e0c87c9d81892422f"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/modules/protect/__init__.py",
+      "bytes": 28157,
+      "sha256": "544fb9b2b252b1b92d539a85fa1abd84db2b408ea52297ce978b2f63fa7855f3"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/redaction.py",
+      "bytes": 11384,
+      "sha256": "d1b8907e819ba6ac1f690271ee90bd4b86065fde86264fb661380288e7c32ad3"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/responses.py",
+      "bytes": 11414,
+      "sha256": "468653f23e14ef7d455b49a24210b8609529f838e2bf168e5b97cf73a5d5f77f"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/scoping.py",
+      "bytes": 15856,
+      "sha256": "49bfb531a32beca1f919b5c50768c12f609ad94dc88ff38e16fce8e706a2b994"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/server.py",
+      "bytes": 12142,
+      "sha256": "83af9805764d728cadb6b2d0c9a1ddb8c66a686a7d72dc0c82586ad162ab4f0e"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/telemetry.py",
+      "bytes": 17575,
+      "sha256": "3ba5bde72e27599b78d56bbe1a1240c565804823360f3710d9aa4b551b12f168"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/src/mcp_unifi/verification.py",
+      "bytes": 9641,
+      "sha256": "0888f9d1091c9aaa9efe1dbf26efbb7f3776cedf020a5c6375ba98c350d2c935"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/tests/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/tests/conftest.py",
+      "bytes": 4155,
+      "sha256": "636d1a9e17aac08089e764aa52757f11ddab88cd714f8c123dc02f60e41a09bb"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/tests/network/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/tests/network/conftest.py",
+      "bytes": 4348,
+      "sha256": "0569635786fcb158cbde248bcf450b9f9eb5b72cabc9a27f37192feb1dd2961f"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/tests/network/test_wlans.py",
+      "bytes": 14191,
+      "sha256": "08dfe5a9c5aa60d16feac17ecc86ef1cb37056975c5b15243e6df4e98bfcb02e"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/sources/unifi/tests/test_adaptive_responses.py",
+      "bytes": 10045,
+      "sha256": "fd60a9f2237b24b2b867bb4b00b65c8efe48b5ee9d44f2b3ff074369d1041242"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/table-traceability.json",
+      "bytes": 1284,
+      "sha256": "9bef1e36c6a2507bdbbd5d7d50764c4a016d99dc03cb9d612d95e855d674d584"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/task-contract-results.json",
+      "bytes": 20988,
+      "sha256": "f1ad418d9b6d44e3431065cadd66727bb4a5df35803acc5e88b833021e202011"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/unifi-native-tests.xml",
+      "bytes": 5979,
+      "sha256": "656f0532b33d8be88850dace620f62a4509194c593b3b368e643b3a4b3173a70"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/unifi-upstream-tree.json",
+      "bytes": 9102,
+      "sha256": "d08fe9dbcaf214f54eae8c150eab876e27baef896acf3a0bb11f3a2fab0656e7"
+    },
+    {
+      "path": "artifacts/mcp-review-revision-20261026/upstream-seed-snapshot.json",
+      "bytes": 1194,
+      "sha256": "1667481fa7873bbc352427aff09fa8c316e942fa4e0e1d4cff21e167f5d4871f"
+    },
+    {
+      "path": "research/mcp-acceptance-strengthening-protocol-20261026.json",
+      "bytes": 2702,
+      "sha256": "a7d93aa6f21be0616f2b3e79e3a54e4f77a9729c3caac7a6c66efbe7555e6170"
+    },
+    {
+      "path": "research/mcp-adcp-reconstruction-amendment-20261026.json",
+      "bytes": 1492,
+      "sha256": "d92e3936b6e0e7f970830e9b027db62a2b20ce0a8f407af1fd73c9707af860fe"
+    },
+    {
+      "path": "research/mcp-guidance-amendment-20261026.json",
+      "bytes": 2808,
+      "sha256": "7e7948a0a6c2a11f002491435eb5b495b272837b74aee1bac07af5309af00623"
+    },
+    {
+      "path": "research/mcp-guidance-fixture-provenance-20261026.json",
+      "bytes": 2821,
+      "sha256": "e28ed469b0211fb72f04eeed6e277558f848e44082038429f906d108de57e17c"
+    },
+    {
+      "path": "research/mcp-native-transport-amendment-20261026.json",
+      "bytes": 944,
+      "sha256": "51be763de0b67c4b554b700b29e617e53c3a6c7a080cfd856c804a4510d88543"
+    },
+    {
+      "path": "research/mcp-paper-evidence-protocol-20261026.json",
+      "bytes": 2213,
+      "sha256": "8db1554a9e508bd0f31601239fecd56756154df039e5c648c02328e7d95da19b"
+    },
+    {
+      "path": "research/mcp-preservation-followup-protocol-20261026.json",
+      "bytes": 2640,
+      "sha256": "be00cc9f2ccf87f2be78954bf32e9e5a80f1a37393b060410df9cf2416603112"
+    },
+    {
+      "path": "research/mcp-preservation-protocol-20261026.json",
+      "bytes": 4320,
+      "sha256": "592cd84a402ad9a513c241d76231f8ef61ba52cb89178275c1f9f883d17c8696"
+    },
+    {
+      "path": "research/mcp-repair-obligation-extension-20261026.json",
+      "bytes": 1817,
+      "sha256": "f2b2f5c9a1b648ea8aafa467f1d5d936ba14a21eea29df9865d77a207f3fe5a9"
+    },
+    {
+      "path": "research/mcp-review-contracts-20261026.json",
+      "bytes": 4533,
+      "sha256": "ed996a12ec78ce6eb05c02bc1db315062b03bfac8382d1547b376b074a461c62"
+    },
+    {
+      "path": "scripts/build_mcp_evidence_tables.py",
+      "bytes": 14008,
+      "sha256": "79d75bb12192fcec197983069ffe980a7268568b770255f5ad670256eadf576c"
+    },
+    {
+      "path": "scripts/mcp_adcp_reconstruction.cjs",
+      "bytes": 8424,
+      "sha256": "43d5c0d429be4601c51111f03f853a964058e1733d1722cec3353bb9eb0dabea"
+    },
+    {
+      "path": "scripts/mcp_agno_http_capture.py",
+      "bytes": 9864,
+      "sha256": "6459bd1d1f7f354008d3fa0b88e1b0374bff311f8a465f2d9098f193569bb07b"
+    },
+    {
+      "path": "scripts/mcp_guidance_matrix.py",
+      "bytes": 10261,
+      "sha256": "ae39f7a7e70b091d0a524ad87e12a7935553a37b13a0ef68b482b580fd87b1bf"
+    },
+    {
+      "path": "scripts/mcp_langchain_contrast.py",
+      "bytes": 9556,
+      "sha256": "8262ad228450a4233b4790e22549d3dfd59e795bea72bbfbd8021f425c8ef586"
+    },
+    {
+      "path": "scripts/mcp_native_producer_probe.py",
+      "bytes": 5862,
+      "sha256": "d137de3b4b91787bb3f79b72f5370f72dd617e967301e071b7e2314dfbf199ba"
+    },
+    {
+      "path": "scripts/mcp_obligation_probe.py",
+      "bytes": 11323,
+      "sha256": "35a9dca591ce245e83be21b1485ff0ae88c31532cc197cc2c4b03dd55ad16796"
+    },
+    {
+      "path": "scripts/mcp_patch_attribution.py",
+      "bytes": 4737,
+      "sha256": "a1dc2e00dcadf5e96acd05adacd3297744c03f5cb552e58a71c75e53b94fd65a"
+    },
+    {
+      "path": "scripts/mcp_repair_chain_probe.py",
+      "bytes": 7144,
+      "sha256": "35ecbd59ec8f671d2ccf73dd42e8af5596b91ee88b553239adc8b9a653923e9e"
+    },
+    {
+      "path": "scripts/mcp_result_fixture_server.py",
+      "bytes": 1283,
+      "sha256": "9d414f48693d0011da1d3b5ee1dcded541489c0074b00a87b04969c9b8af86cd"
+    },
+    {
+      "path": "scripts/mcp_review_analysis.py",
+      "bytes": 9110,
+      "sha256": "0b887e009a4f724a957777dae92656b387a20efcb4f7ebffce8b4da91a2b2daa"
+    },
+    {
+      "path": "scripts/mcp_review_artifact_audit.py",
+      "bytes": 5922,
+      "sha256": "9b6d404834a93a844e8356ebbc772fa338b438a1f85f2b1f1bf8e3867c064c1b"
+    },
+    {
+      "path": "scripts/mcp_review_confirmation.py",
+      "bytes": 4018,
+      "sha256": "f28ddefe780f1548dd97ab9466d514c2368ad1144eb1a32d5415e14438d149fd"
+    },
+    {
+      "path": "scripts/mcp_review_continuous.py",
+      "bytes": 5104,
+      "sha256": "45f57171fe80560e194f93feec9daa2947e053a541f58dc4ba62de31b4c62961"
+    },
+    {
+      "path": "scripts/mcp_review_replay_agreement.py",
+      "bytes": 1333,
+      "sha256": "a8a9a954fad7e2b601a97a678e81cb4502c55c684787de1f7b46739004805933"
+    },
+    {
+      "path": "scripts/mcp_review_reproduce.py",
+      "bytes": 7163,
+      "sha256": "82fc219ca0c2b4b858063a4219b3c7d912e4b625c2cfff8905f6b1558e529f6a"
+    },
+    {
+      "path": "scripts/mcp_review_unifi_server.py",
+      "bytes": 1758,
+      "sha256": "b90cd74de186ee5eac0eac37ec4b78fad9e443c2cc913094e4df5762ba3881e8"
+    },
+    {
+      "path": "scripts/mcp_superset_wire_probe.py",
+      "bytes": 4936,
+      "sha256": "6328894c7814ef9d8dd357316f74655751db7ad6d6323300078a451b1a139fc8"
+    },
+    {
+      "path": "scripts/mcp_upstream_oracle_audit.py",
+      "bytes": 6238,
+      "sha256": "9d3c1a009cc33e573fc651e89febac8ed94803263074a0f29dc172280688d6d2"
+    },
+    {
+      "path": "scripts/mcp_visibility_probe.py",
+      "bytes": 6583,
+      "sha256": "f2fc75de9c761c2ee141ae19ff20d718e7fd1a003424358791dc17c3e8fe125e"
+    },
+    {
+      "path": "scripts/mcp_webui_media_probe.py",
+      "bytes": 12204,
+      "sha256": "744ce3dc215e69b154d09e2a6eb5b9bf6a39110f9529f767cc85a12ef6d1a0e1"
+    },
+    {
+      "path": "scripts/normalize_report_paths.py",
+      "bytes": 957,
+      "sha256": "dee0c8e7c79346f7d18cf7a40050e1fa6a1183309fabe5f65ab8dc606f336fcf"
+    },
+    {
+      "path": "scripts/verify_artifact.py",
+      "bytes": 721,
+      "sha256": "2d2cbf53b69c59113b7ea63457d6745e4731030cb6a01834472cf0fbe84df830"
+    },
+    {
+      "path": "tables/evidence.json",
+      "bytes": 8417,
+      "sha256": "75c9b1a13fe2951532d7a698ea0c13087ec1014d76c864f8dd28cbd3386c39da"
+    },
+    {
+      "path": "tables/guidance-rows.tex",
+      "bytes": 252,
+      "sha256": "c4c239e3b89131fd448a8088c1b142ebdc4509a06ccee00d460ff4dbe34fc7b9"
+    },
+    {
+      "path": "tables/hermes-rows.tex",
+      "bytes": 218,
+      "sha256": "8b15cd50843e91ba27b5f8b44ec59f9ab0db4334486a3bb2f24a33a229530329"
+    },
+    {
+      "path": "tables/obligation-rows.tex",
+      "bytes": 180,
+      "sha256": "ef5d8228829f8c22f0bce5c7d544c0d8aceca5cf8cb379dba5537970a3406826"
+    },
+    {
+      "path": "tables/request-rows.tex",
+      "bytes": 192,
+      "sha256": "fd1403e8597379ff9f4c9c78df15bd5b30524b5a9f6ede63c570c42b592dae20"
+    },
+    {
+      "path": "tables/review-policy-rows.tex",
+      "bytes": 180,
+      "sha256": "7652a9f823057513b05c8f45ced88d032302533c83951b13bd1fffd8e34302b5"
+    },
+    {
+      "path": "tables/test-rows.tex",
+      "bytes": 375,
+      "sha256": "dfde59f1527bfce6d8b6187f8fd57da3d21601cda8ae557d7873afeb6cd96847"
+    }
+  ]
+}

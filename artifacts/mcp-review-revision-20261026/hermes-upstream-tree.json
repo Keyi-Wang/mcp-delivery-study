@@ -1,0 +1,275 @@
+{
+  "repo": "NousResearch/hermes-agent",
+  "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha": "75410e73319c72cd3e991a501c5455eb78f38375"
+    },
+    {
+      "path": "agent/__init__.py",
+      "sha": "77f1cad846cb6838015a69a6fe1052262209dae4"
+    },
+    {
+      "path": "agent/async_utils.py",
+      "sha": "2bc558fad21eeec736c0283cb7df86304349f222"
+    },
+    {
+      "path": "agent/conversation_compression.py",
+      "sha": "52778a4e3f66f67590c99ae5dd3d70a729b48168"
+    },
+    {
+      "path": "agent/delegation_context.py",
+      "sha": "4ea7f895f0e7b0b50dad203e7cecf05455669076"
+    },
+    {
+      "path": "agent/jiter_preload.py",
+      "sha": "6a69352a7803f743a1d06d969ee2666b2fcaf2bb"
+    },
+    {
+      "path": "agent/secret_scope.py",
+      "sha": "8446cdec5a5ba12a3715147cff3cfbc3289b1030"
+    },
+    {
+      "path": "agent/turn_context.py",
+      "sha": "27fe703a9b8105599186434082bbc19109c83b59"
+    },
+    {
+      "path": "gateway/__init__.py",
+      "sha": "7bf895717c9a668f19a969ac6060d05d1e527c45"
+    },
+    {
+      "path": "gateway/config.py",
+      "sha": "2437f539b9281889102b37193431bb52e15b6af0"
+    },
+    {
+      "path": "gateway/dead_targets.py",
+      "sha": "2b47b3083bedaa7a3ccc5a193e8ac8c24d61705a"
+    },
+    {
+      "path": "gateway/delivery.py",
+      "sha": "6585cfbe1e87eac2283ec91e7d597ba1afc296aa"
+    },
+    {
+      "path": "gateway/restart.py",
+      "sha": "db149b966502c8876b2ac8dc9ff10339f75dff9f"
+    },
+    {
+      "path": "gateway/session.py",
+      "sha": "fb074d0cc6b2f07a79062d5f81433aef60e1376f"
+    },
+    {
+      "path": "gateway/session_lifecycle.py",
+      "sha": "47b3a95489f8da9280eae795eab75dceee0adadc"
+    },
+    {
+      "path": "gateway/session_persistence.py",
+      "sha": "c9df2f9091880fec63480f4cf0d548bbb7eba71b"
+    },
+    {
+      "path": "gateway/session_recovery.py",
+      "sha": "cfe0a99cb4c4cb63212ca316720ae5318c180db6"
+    },
+    {
+      "path": "gateway/session_transcript.py",
+      "sha": "e24fe43a48fe343a3dc96615405297a5235f7850"
+    },
+    {
+      "path": "gateway/shutdown_watchdog.py",
+      "sha": "528c8e8a01ec8d8b009fd160c8831f33d22b1290"
+    },
+    {
+      "path": "gateway/status.py",
+      "sha": "0e131a3e872fbd7b4b90216b11dfb35755d07b6a"
+    },
+    {
+      "path": "gateway/whatsapp_identity.py",
+      "sha": "f8ea45377c67889faa857c3f66b43132e6bc1354"
+    },
+    {
+      "path": "hermes_cli/__init__.py",
+      "sha": "fc44bc9995db27e575ae7772fbcbae657e922f50"
+    },
+    {
+      "path": "hermes_cli/cli_output.py",
+      "sha": "6c85046f24ab357c9d2b15dd6f7354186bd215d9"
+    },
+    {
+      "path": "hermes_cli/colors.py",
+      "sha": "51186e37fea2eb354e6206f6969a4ff1bd09c566"
+    },
+    {
+      "path": "hermes_cli/config.py",
+      "sha": "8db76528c960be49e9b2485902e60d5ea4909fc2"
+    },
+    {
+      "path": "hermes_cli/config_defaults.py",
+      "sha": "22a09277caf4f3f9c6d16c13878d7e42e0b64698"
+    },
+    {
+      "path": "hermes_cli/config_providers.py",
+      "sha": "80f07823e436e76f35815909b17c2ed5fc4905e4"
+    },
+    {
+      "path": "hermes_cli/default_soul.py",
+      "sha": "3a194050217571f6b93cb29c6e852ffbcf31d5a5"
+    },
+    {
+      "path": "hermes_cli/env_loader.py",
+      "sha": "2f2f895eb5497fbc5c7ecbc3fd7430060ef42457"
+    },
+    {
+      "path": "hermes_cli/managed_scope.py",
+      "sha": "ef954fb86a29dfc21b0752d8c7402d14af70bb1e"
+    },
+    {
+      "path": "hermes_cli/personality.py",
+      "sha": "e2dc16312558dc4f204eb893e83b6df6e94a38c4"
+    },
+    {
+      "path": "hermes_cli/route_identity.py",
+      "sha": "6ada71c1d03fed73e262a9498ad8579304c00366"
+    },
+    {
+      "path": "hermes_cli/secret_prompt.py",
+      "sha": "62191dea361ab59b4fb396d168c4a72d67e6ddae"
+    },
+    {
+      "path": "hermes_constants.py",
+      "sha": "dced36c03e9a098e914968bde66a571b63dc44f0"
+    },
+    {
+      "path": "hermes_state_ids.py",
+      "sha": "4f38a4f2c973332d1aff09654ac91628090789d8"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha": "4ddeea131d7f37af5416fdbb9463380ef5f88add"
+    },
+    {
+      "path": "tools/__init__.py",
+      "sha": "db946d0e2bc62d468804968c074f844b5fa0cbb3"
+    },
+    {
+      "path": "tools/ansi_strip.py",
+      "sha": "f389962416e6b0f8116d6d19ec10320173d0f482"
+    },
+    {
+      "path": "tools/interrupt.py",
+      "sha": "e9ca0b994e9f8c84a80f6df7f32e295fb305b9af"
+    },
+    {
+      "path": "tools/mcp_dashboard_oauth.py",
+      "sha": "782cb70eb108087ad5b4288019a752cc77b6e5ca"
+    },
+    {
+      "path": "tools/mcp_death_supervisor.py",
+      "sha": "87302ae6858c658226b3906b719d39ce834dddbd"
+    },
+    {
+      "path": "tools/mcp_oauth.py",
+      "sha": "6e17a8e821d561dbd2f0b30d045ff46e3cb43f16"
+    },
+    {
+      "path": "tools/mcp_oauth_device.py",
+      "sha": "0acb847d18292aca38a997da40439474a197355a"
+    },
+    {
+      "path": "tools/mcp_oauth_manager.py",
+      "sha": "f88ab41a5e60180d41f7739c1fdff9a5d4cf460c"
+    },
+    {
+      "path": "tools/mcp_oauth_provider.py",
+      "sha": "3db0f5fb4dd81b1db2ca4d376ea8d22187409c48"
+    },
+    {
+      "path": "tools/mcp_schema_cache.py",
+      "sha": "98e150edb17d9d07f30df65242a49aae1ef0d1bf"
+    },
+    {
+      "path": "tools/mcp_tool.py",
+      "sha": "0703f8b496679f516cb5f028a1c95bd332c1c5e3"
+    },
+    {
+      "path": "tools/mcp_tool_agent.py",
+      "sha": "5e8af44da0be15a5642e77c244bd1fdc2bf695f5"
+    },
+    {
+      "path": "tools/mcp_tool_common.py",
+      "sha": "37f57d707cce2f2c3b5752c4efa538a6cc8d693d"
+    },
+    {
+      "path": "tools/mcp_tool_config.py",
+      "sha": "c7064ab32a9f0b17df8ea03265e35a6c9e5cd187"
+    },
+    {
+      "path": "tools/mcp_tool_content.py",
+      "sha": "9def98193e8424d6b86e536b917f3d8bf53390f5"
+    },
+    {
+      "path": "tools/mcp_tool_discovery.py",
+      "sha": "8a0429c2a7d4b6447a4dc74a616cb88da2799aca"
+    },
+    {
+      "path": "tools/mcp_tool_errors.py",
+      "sha": "13167317e552260bd774f833406ef72aeb244239"
+    },
+    {
+      "path": "tools/mcp_tool_handlers.py",
+      "sha": "78025d290977b394ffdaafb6001360fbd55e5db9"
+    },
+    {
+      "path": "tools/mcp_tool_health.py",
+      "sha": "fa39a6d0b8f069e58a87b095cd2f6c189ad1bf6e"
+    },
+    {
+      "path": "tools/mcp_tool_lifecycle.py",
+      "sha": "cbff4e77b5a53e1e24277eeb123b1986de00a545"
+    },
+    {
+      "path": "tools/mcp_tool_loop.py",
+      "sha": "831ea81bb6db750b5cd37c1e1950c63d5b6d601f"
+    },
+    {
+      "path": "tools/mcp_tool_registration.py",
+      "sha": "a01d24c2c53287e8c4aa446e286fd24789f0b694"
+    },
+    {
+      "path": "tools/mcp_tool_sampling.py",
+      "sha": "89a5276d411c66ac5a2266c1775bbe9795eaa067"
+    },
+    {
+      "path": "tools/mcp_tool_schema.py",
+      "sha": "e0967b01267c52e347857b89978d75fa679052fc"
+    },
+    {
+      "path": "tools/mcp_tool_scope.py",
+      "sha": "7e6904b87235fe8fad888e5da4cf5c016e203ff4"
+    },
+    {
+      "path": "tools/mcp_tool_server_run.py",
+      "sha": "6767526ac22063b96239a319f4a38625f27c73ef"
+    },
+    {
+      "path": "tools/mcp_tool_transport.py",
+      "sha": "d6d6751cb0b6b6f36a1e26a7849d02154065e93b"
+    },
+    {
+      "path": "tools/osv_check.py",
+      "sha": "49508e49d12f231b625e9ff22b15aa3b0462b6b5"
+    },
+    {
+      "path": "tools/registry.py",
+      "sha": "26257fccc25aaf04707b8f6d46ac83fd1e8704ab"
+    },
+    {
+      "path": "tools/tool_output_truncate.py",
+      "sha": "99441aaaae4d9d52a5a454c53ccebe6af409d072"
+    },
+    {
+      "path": "utils.py",
+      "sha": "6de0be3312f7117dd3d0b75aeea5219e22186d94"
+    }
+  ],
+  "scope": "Subset of upstream tree corresponding to retained source files"
+}

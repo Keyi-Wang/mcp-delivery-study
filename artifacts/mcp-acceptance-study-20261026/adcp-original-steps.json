@@ -1,0 +1,104 @@
+[
+  {
+    "id": "unknown_scenario",
+    "title": "Unknown scenario returns error",
+    "requires_tool": "comply_test_controller",
+    "narrative": "Send a nonexistent scenario name. The controller should return\nUNKNOWN_SCENARIO error code.\n",
+    "task": "comply_test_controller",
+    "comply_scenario": "controller_validation",
+    "stateful": false,
+    "expect_error": true,
+    "expected": "Return an error response with:\n- success: false\n- error: UNKNOWN_SCENARIO\n",
+    "sample_request": {
+      "scenario": "nonexistent_scenario",
+      "params": {}
+    },
+    "validations": [
+      {
+        "check": "field_value",
+        "path": "success",
+        "allowed_values": [
+          false
+        ],
+        "description": "Unknown scenario fails"
+      },
+      {
+        "check": "field_value",
+        "path": "error",
+        "allowed_values": [
+          "UNKNOWN_SCENARIO"
+        ],
+        "description": "Error code is UNKNOWN_SCENARIO"
+      }
+    ]
+  },
+  {
+    "id": "missing_params",
+    "title": "Missing params returns error",
+    "requires_tool": "comply_test_controller",
+    "narrative": "Call force_creative_status with empty params. The controller should\nreturn INVALID_PARAMS error code.\n",
+    "task": "comply_test_controller",
+    "comply_scenario": "controller_validation",
+    "stateful": false,
+    "expect_error": true,
+    "expected": "Return an error response with:\n- success: false\n- error: INVALID_PARAMS\n",
+    "sample_request": {
+      "scenario": "force_creative_status",
+      "params": {}
+    },
+    "validations": [
+      {
+        "check": "field_value",
+        "path": "success",
+        "allowed_values": [
+          false
+        ],
+        "description": "Missing params fails"
+      },
+      {
+        "check": "field_value",
+        "path": "error",
+        "allowed_values": [
+          "INVALID_PARAMS"
+        ],
+        "description": "Error code is INVALID_PARAMS"
+      }
+    ]
+  },
+  {
+    "id": "not_found_entity",
+    "title": "Nonexistent entity returns NOT_FOUND",
+    "requires_tool": "comply_test_controller",
+    "narrative": "Call force_creative_status with a nonexistent creative_id. The controller\nshould return NOT_FOUND error code.\n",
+    "task": "comply_test_controller",
+    "comply_scenario": "controller_validation",
+    "stateful": false,
+    "expect_error": true,
+    "expected": "Return an error response with:\n- success: false\n- error: NOT_FOUND\n",
+    "sample_request": {
+      "scenario": "force_creative_status",
+      "params": {
+        "creative_id": "comply-test-nonexistent-000000000000",
+        "status": "approved"
+      }
+    },
+    "validations": [
+      {
+        "check": "field_value",
+        "path": "success",
+        "allowed_values": [
+          false
+        ],
+        "description": "Nonexistent entity fails"
+      },
+      {
+        "check": "field_value",
+        "path": "error",
+        "allowed_values": [
+          "NOT_FOUND"
+        ],
+        "description": "Error code is NOT_FOUND"
+      }
+    ]
+  }
+]

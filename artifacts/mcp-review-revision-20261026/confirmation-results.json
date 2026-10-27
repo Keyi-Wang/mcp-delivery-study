@@ -1,0 +1,22 @@
+{
+  "source": "modelcontextprotocol/servers; PyPI mcp-server-git==2026.10.19",
+  "selection": "First available package version after the confirmation rule was frozen",
+  "protocol_sha256": "ed996a12ec78ce6eb05c02bc1db315062b03bfac8382d1547b376b074a461c62",
+  "producer_mode": "Native packaged server, real local Git repository, real stdio connection to native Hermes handler",
+  "prediction": "Plain-text commit message remains available through text priority",
+  "received": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Commit history:\nCommit: 82302ad86c72cb52540c1024b7d09ad91f34d8ea\nAuthor: Research Fixture\nDate: 2026-10-26 00:00:00+00:00\nMessage: review-confirmation-20261026\n\n"
+      }
+    ],
+    "isError": false,
+    "resultType": "complete"
+  },
+  "output": "{\"result\": \"Commit history:\\nCommit: 82302ad86c72cb52540c1024b7d09ad91f34d8ea\\nAuthor: Research Fixture\\nDate: 2026-10-26 00:00:00+00:00\\nMessage: review-confirmation-20261026\\n\\n\"}",
+  "required_message_retained": true,
+  "structured_channel_present": false,
+  "native_render_equal": true,
+  "qualification": "Independent producer contrast only, not a second loss/reversal family; native gateway package initializer bypass as inventoried for the main experiment"
+}

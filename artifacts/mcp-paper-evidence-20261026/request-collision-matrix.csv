@@ -1,0 +1,9 @@
+adapter,fixture,full_followup_request_collision,required_answers_differ,both_required_answers_present
+before,structured_only,True,True,False
+before,summary_plus_data,True,True,False
+before,file_plus_metadata,False,True,True
+before,equivalent_dual,False,True,True
+after,structured_only,False,True,True
+after,summary_plus_data,True,True,False
+after,file_plus_metadata,False,True,True
+after,equivalent_dual,False,True,True

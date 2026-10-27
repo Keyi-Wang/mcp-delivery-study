@@ -1,0 +1,62 @@
+{
+  "rows": [
+    {
+      "state": "upstream_seed",
+      "mode": "adaptive",
+      "tool": "get_wan_status",
+      "replay_output": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\"}",
+      "equal_to_live_native": true
+    },
+    {
+      "state": "upstream_seed",
+      "mode": "adaptive",
+      "tool": "list_wlans",
+      "replay_output": "{\"result\": \"list_wlans returned 1 record(s). Full result is in structuredContent.\"}",
+      "equal_to_live_native": true
+    },
+    {
+      "state": "upstream_seed",
+      "mode": "full_text",
+      "tool": "get_wan_status",
+      "replay_output": "{\"result\": \"{\\n  \\\"subsystem\\\": \\\"wan\\\",\\n  \\\"status\\\": \\\"ok\\\",\\n  \\\"gw_name\\\": \\\"Gateway\\\",\\n  \\\"gw_mac\\\": \\\"f4:e2:c6:00:00:01\\\",\\n  \\\"wan_ip\\\": \\\"203.0.113.42\\\",\\n  \\\"isp_name\\\": \\\"Empire Internet Access\\\",\\n  \\\"speedtest_status\\\": \\\"Idle\\\",\\n  \\\"uptime\\\": 482311,\\n  \\\"latency\\\": 8,\\n  \\\"xput_up\\\": 1820.5,\\n  \\\"xput_down\\\": 1985.2\\n}\", \"_meta\": {\"fastmcp\": {\"wrap_result\": true}}}",
+      "equal_to_live_native": true
+    },
+    {
+      "state": "upstream_seed",
+      "mode": "full_text",
+      "tool": "list_wlans",
+      "replay_output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"78a36809d9f24a819a05aab5\\\",\\n    \\\"name\\\": \\\"Home\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpapsk\\\",\\n    \\\"wpa_mode\\\": \\\"wpa2\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\",\\n    \\\"networkconf_id\\\": \\\"8542be8e3b5c4e11bc87afff\\\",\\n    \\\"is_guest\\\": false,\\n    \\\"hide_ssid\\\": false,\\n    \\\"wlan_band\\\": \\\"both\\\"\\n  }\\n]\", \"_meta\": {\"fastmcp\": {\"wrap_result\": true}}}",
+      "equal_to_live_native": true
+    },
+    {
+      "state": "perturbed",
+      "mode": "adaptive",
+      "tool": "get_wan_status",
+      "replay_output": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\"}",
+      "equal_to_live_native": true
+    },
+    {
+      "state": "perturbed",
+      "mode": "adaptive",
+      "tool": "list_wlans",
+      "replay_output": "{\"result\": \"list_wlans returned 1 record(s). Full result is in structuredContent.\"}",
+      "equal_to_live_native": true
+    },
+    {
+      "state": "perturbed",
+      "mode": "full_text",
+      "tool": "get_wan_status",
+      "replay_output": "{\"result\": \"{\\n  \\\"subsystem\\\": \\\"wan\\\",\\n  \\\"status\\\": \\\"warning\\\",\\n  \\\"gw_name\\\": \\\"Gateway\\\",\\n  \\\"gw_mac\\\": \\\"f4:e2:c6:00:00:01\\\",\\n  \\\"wan_ip\\\": \\\"203.0.113.99\\\",\\n  \\\"isp_name\\\": \\\"Empire Internet Access\\\",\\n  \\\"speedtest_status\\\": \\\"Idle\\\",\\n  \\\"uptime\\\": 482311,\\n  \\\"latency\\\": 8,\\n  \\\"xput_up\\\": 1820.5,\\n  \\\"xput_down\\\": 1985.2\\n}\", \"_meta\": {\"fastmcp\": {\"wrap_result\": true}}}",
+      "equal_to_live_native": true
+    },
+    {
+      "state": "perturbed",
+      "mode": "full_text",
+      "tool": "list_wlans",
+      "replay_output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"78a36809d9f24a819a05aab5\\\",\\n    \\\"name\\\": \\\"Office-Review\\\",\\n    \\\"enabled\\\": false,\\n    \\\"security\\\": \\\"wpapsk\\\",\\n    \\\"wpa_mode\\\": \\\"wpa2\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\",\\n    \\\"networkconf_id\\\": \\\"8542be8e3b5c4e11bc87afff\\\",\\n    \\\"is_guest\\\": false,\\n    \\\"hide_ssid\\\": false,\\n    \\\"wlan_band\\\": \\\"both\\\"\\n  }\\n]\", \"_meta\": {\"fastmcp\": {\"wrap_result\": true}}}",
+      "equal_to_live_native": true
+    }
+  ],
+  "matches": 8,
+  "total": 8
+}

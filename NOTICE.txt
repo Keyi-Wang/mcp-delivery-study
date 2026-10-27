@@ -1,0 +1,25 @@
+Source attribution and license scope
+===================================
+
+Study scripts and observations: Keyi Wang, East China Normal University, 2026.
+No additional blanket license is assigned by this artifact publication.
+
+Third-party source snapshots retain their upstream licenses and copyright notices.
+Commit identifiers, original paths and hashes are recorded in source manifests.
+
+Agno, Hermes, Open WebUI, Superset:
+  artifacts/mcp-paper-evidence-20261026/licenses/
+  artifacts/mcp-paper-evidence-20261026/license-provenance.json
+LangChain:
+  artifacts/mcp-acceptance-study-20261026/LICENSE-langchain.txt
+AdCP:
+  artifacts/mcp-acceptance-study-20261026/LICENSE-adcp.txt
+Main Hermes and UniFi snapshots:
+  artifacts/mcp-review-revision-20261026/sources/hermes/LICENSE
+  artifacts/mcp-review-revision-20261026/sources/unifi/LICENSE
+Official Git MCP package:
+  artifacts/mcp-review-revision-20261026/sources/git-package/LICENSE
+
+Experimental patch variants are identified as interventions. They must not be
+confused with upstream releases. Upstream source files retain their original
+bytes; authoring and product names within those files belong to their provenance.

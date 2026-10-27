@@ -1,0 +1,25 @@
+{
+  "status": "Prospective amendment for new executions; screening completion is explicitly post hoc because the candidate search and earlier cases already exist.",
+  "objectives": [
+    "Account for every one of the 87 unique records in the frozen six-search retrieval, without relabeling it an exhaustive literature or ecosystem search.",
+    "Execute a source-backed contrasting case in which retaining data for an application artifact is the intended and successful repair, not automatically a model-delivery failure.",
+    "Reassess whether the claimed empirical increment survives the completed screening and negative/qualified evidence."
+  ],
+  "screening": {
+    "corpus": "artifacts/mcp-preservation-study-20261026/search-round1.json",
+    "unit": "Unique public issue URL; duplicate search hits retain all query memberships.",
+    "first_stage": "Inspect title, project and creation date. Clearly non-Model-Context-Protocol software and feature/protocol proposals with no result-transformation incident can be excluded here; do not claim full-body reading for those records.",
+    "second_stage": "Read full retained issue body for uncertain or directly relevant records. Retain unclear recipient, unresolved report and intended policy as separate statuses; a reporter's allegation is not verification.",
+    "deepening": "Fetch discussion/linked merged repair only for relevant records. Report coverage separately from title/body screening. Do not label all retained candidates confirmed defects.",
+    "source_of_bias": "Original query terms, chronological first-page cap, comment-inclusive GitHub matching, Python executability and researcher judgment. Completing screening does not fix retrieval bias.",
+    "coding": "Independent human case review has not been completed."
+  },
+  "contrasting_execution": {
+    "case": "langchain-ai/langchain-mcp-adapters issue283 and merged PR379",
+    "requirement": "Structured data available to the application artifact; distinguish that requirement from model-bound text. Original tests and public documentation establish intended recipient.",
+    "design": "Pin parent and merged revision. Run unchanged conversion/tool code with native MCP and LangChain message types as feasible, and retain exact substitutions and observation boundary. Check structured-only, complementary summary, full serialized fallback and unsupported representation handling.",
+    "failure_rule": "If imports or dependency matching fail, retain source-only evidence; do not silently replace the converter with a reimplementation.",
+    "not_claimed": "No production frequency, whole-application replay, new defect or LLM accuracy."
+  },
+  "paid_model_calls_planned": 0
+}

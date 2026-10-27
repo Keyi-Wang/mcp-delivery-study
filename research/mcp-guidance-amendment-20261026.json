@@ -1,0 +1,54 @@
+{
+  "recorded_before_execution": true,
+  "purpose": "Strengthen attribution and turn maintenance advice into bounded, executable evidence; do not expand to LLM task accuracy.",
+  "causal_intervention": {
+    "project": "Agno",
+    "arms": [
+      "historical before",
+      "before plus only upstream fallback block and serializer",
+      "historical after",
+      "after minus only fallback block and serializer"
+    ],
+    "fixtures": [
+      "structured_only",
+      "summary_plus_data",
+      "file_plus_metadata",
+      "equivalent_dual"
+    ],
+    "boundary": "Actual local MCP stdio, native Agent and actual loopback provider HTTP request",
+    "comparison": "For each fixed input compare the entire follow-up request: before+patch versus after, and after-patch versus before. A switch in the structured-only arm is sufficient/necessary only within this fixed environment and these fixtures.",
+    "nonhistorical_arms": "Patch-only and reverted arms are experimental interventions, not released versions."
+  },
+  "guidance_matrix": {
+    "implementations": [
+      "Agno before",
+      "Agno fallback",
+      "Hermes before",
+      "Hermes priority",
+      "Hermes combined"
+    ],
+    "fixtures": [
+      "structured_only",
+      "summary_plus_data",
+      "file_plus_metadata",
+      "equivalent_dual",
+      "reordered_equivalent",
+      "split_complementary_text",
+      "whitespace_plus_data",
+      "empty_object",
+      "typed_nested_values",
+      "application_private_meta",
+      "conflicting_channels",
+      "structured_error"
+    ],
+    "boundary": "Native Agno tool message or native Hermes handler output; no stronger transport claim for this matrix",
+    "oracle": "Declared exact text facts or recursively decoded JSON subsets with type-sensitive values; private application metadata must be absent. Empty-object check distinguishes explicit {} from missing data. Conflicting-channel retention is not conflict resolution or answer correctness.",
+    "cost": "UTF-8 output bytes and duplicate answer occurrences only; not model token cost, latency or model harm.",
+    "validation": "Oracle negative controls for wrong keys, bool/int coercion, string/number coercion, missing object and private metadata leakage; positive controls for wrapper changes and key reordering.",
+    "scope": "Authored diagnostic stress cases, not independent incidents, random samples or an effectiveness benchmark. No aggregate pass-rate ranking across different recipient boundaries."
+  },
+  "guidance_policy": "Each recommendation must name supporting observations, the boundary, a concrete regression input/assertion, and conditions under which the recommendation is inappropriate. New synthetic edge cases are not labeled newly confirmed production defects.",
+  "cost": {
+    "paid_api_calls": 0
+  }
+}

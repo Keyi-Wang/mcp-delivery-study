@@ -1,0 +1,28 @@
+--- before_plus_fallback:base
++++ before_plus_fallback:intervention
+@@ -145,6 +145,9 @@
+                 else:
+                     # Handle other content types
+                     response_str += f"[Unsupported content type: {content_item.type}]\n"
++
++            if not response_str.strip():
++                response_str = _serialize_structured_content(result) or ""
+ 
+             return ToolResult(
+                 content=response_str.strip(),
+@@ -298,3 +301,15 @@
+         return parts
+ 
+     raise ValueError(f"MCP command needs to use one of the following executables: {ALLOWED_COMMANDS}")
++
++
++def _serialize_structured_content(result: "CallToolResult") -> Optional[str]:
++    """Serialize structuredContent so structured-only MCP responses reach the model loop."""
++    structured_content = getattr(result, "structuredContent", None)
++    if structured_content is None:
++        return None
++
++    try:
++        return json.dumps(structured_content, ensure_ascii=False, sort_keys=True, default=str)
++    except (TypeError, ValueError):
++        return str(structured_content)

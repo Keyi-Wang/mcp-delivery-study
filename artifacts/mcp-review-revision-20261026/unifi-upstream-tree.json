@@ -1,0 +1,303 @@
+{
+  "repo": "pete-builds/mcp-unifi",
+  "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha": "f333814de2f98d642d87eed693cb2e10f3dadd3f"
+    },
+    {
+      "path": "README.md",
+      "sha": "fdd7cecdb44bf563668a3f44d6b462bcb3c7de8f"
+    },
+    {
+      "path": "docs/site/src/content/docs/tools/get_wan_status/index.md",
+      "sha": "c31c58311e44efe70c0428705880573a3137dfc6"
+    },
+    {
+      "path": "docs/site/src/content/docs/tools/list_wlans/index.md",
+      "sha": "9d4f7910b9b7b0419376ff8c27a805321818efff"
+    },
+    {
+      "path": "evals/cases/tool_selection.yaml",
+      "sha": "7157bdfdf53e411bd2aa023db6dff29ac25f5039"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha": "84f10ba64c1cb6e78c208cf2d7bbe2701821b4cf"
+    },
+    {
+      "path": "src/mcp_unifi/__init__.py",
+      "sha": "81a7dcc98fd9056a431aeb1041c919a7c9053a5f"
+    },
+    {
+      "path": "src/mcp_unifi/annotations.py",
+      "sha": "576c3fa722f00bad138b0ca5d7d02ed98eba3499"
+    },
+    {
+      "path": "src/mcp_unifi/audit.py",
+      "sha": "568457f9ef42f3319048a64535a84387def8a1fa"
+    },
+    {
+      "path": "src/mcp_unifi/backends.py",
+      "sha": "0d42ce1939320996851b1f118c49e56fb362795c"
+    },
+    {
+      "path": "src/mcp_unifi/cli/__init__.py",
+      "sha": "80599f3e5510f41587d18182336da29cc1c8431d"
+    },
+    {
+      "path": "src/mcp_unifi/cli/replay.py",
+      "sha": "ee1d21f36ed0dff56d76b16e2cfb666efc4fe13f"
+    },
+    {
+      "path": "src/mcp_unifi/clients/__init__.py",
+      "sha": "9c3bfe3a853cc67a6b887c700bc1f12a4aaf7dfd"
+    },
+    {
+      "path": "src/mcp_unifi/clients/access.py",
+      "sha": "b1049c8c9a51cb22aeeb0c4abbc686c649f751e8"
+    },
+    {
+      "path": "src/mcp_unifi/clients/access_stubs.py",
+      "sha": "b1306826cbc2617ac9b2d5072d1cedff1184b55e"
+    },
+    {
+      "path": "src/mcp_unifi/clients/errors.py",
+      "sha": "63b8909f676e11234dafb6e26495839f592a4a60"
+    },
+    {
+      "path": "src/mcp_unifi/clients/ids.py",
+      "sha": "fd2b9bc3068d34ed0736a198053f8d11d9a01d96"
+    },
+    {
+      "path": "src/mcp_unifi/clients/protect.py",
+      "sha": "7aa52e0682852c8f9e84562eacb497e36a74f2b9"
+    },
+    {
+      "path": "src/mcp_unifi/clients/protect_stubs.py",
+      "sha": "4c92cf9166bf968bafdfcbf35c53a9157a559004"
+    },
+    {
+      "path": "src/mcp_unifi/clients/retry.py",
+      "sha": "fef37a987b3ff830103cd3e2678bf44d4686d2b7"
+    },
+    {
+      "path": "src/mcp_unifi/clients/stats_shape.py",
+      "sha": "f26e90d532b0c069e5f8e2877cae5042842afe74"
+    },
+    {
+      "path": "src/mcp_unifi/clients/stubs.py",
+      "sha": "fadef637ecc2b6626dd38b672d32beb8b628c58b"
+    },
+    {
+      "path": "src/mcp_unifi/clients/unifi.py",
+      "sha": "8669c99981420b12d3a5a9f16ec4d3725430eb3a"
+    },
+    {
+      "path": "src/mcp_unifi/clients/unifi_os.py",
+      "sha": "acfe841a37861ebdcbc6be48c960c80cabf3df7e"
+    },
+    {
+      "path": "src/mcp_unifi/config.py",
+      "sha": "d78de2398c411bd86c6ea7db6e2aabbeaa19b9bb"
+    },
+    {
+      "path": "src/mcp_unifi/dispatcher.py",
+      "sha": "89cb8c24d016f5703fd5aba6ef0d2b8430c7e832"
+    },
+    {
+      "path": "src/mcp_unifi/healthcheck.py",
+      "sha": "1adbdd9d12b47aae72cfb42c9ac3c3d40ba4f60a"
+    },
+    {
+      "path": "src/mcp_unifi/logging_setup.py",
+      "sha": "99ee2c8dd48f7f09a0f6746e694b018a7c111230"
+    },
+    {
+      "path": "src/mcp_unifi/models.py",
+      "sha": "89e0ba63a4271e28ef2989b26ca582b0f48ca0e3"
+    },
+    {
+      "path": "src/mcp_unifi/modules/__init__.py",
+      "sha": "182092d91c353b4596d34b542111229de0c8acc1"
+    },
+    {
+      "path": "src/mcp_unifi/modules/_audit.py",
+      "sha": "1cb9c61d97ecbb93d880ced1b9524f31c82d4a58"
+    },
+    {
+      "path": "src/mcp_unifi/modules/_params.py",
+      "sha": "8d43668f58057793438ca9e1e1b1d64d98718419"
+    },
+    {
+      "path": "src/mcp_unifi/modules/access/__init__.py",
+      "sha": "f2602402f858790977a945bd240237aec563ad8b"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/__init__.py",
+      "sha": "2ee83f012428ef849ab721694271727c4ea15b93"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/_common.py",
+      "sha": "00ce5e4971995c2a71846fbf98a2887db645ceed"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/_pending.py",
+      "sha": "c25deb0315862eb612cedc2778baaddb0799fce0"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/_verify.py",
+      "sha": "857f511422ae715999f802ae94983a7abab2868c"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/backup.py",
+      "sha": "1d0e2aae2fd65a916b47ede715e6d2e1be5a2765"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/clients.py",
+      "sha": "4cabf99109cca87f8a4ef6493d151d2feb38796a"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/composites.py",
+      "sha": "ab1e2c9684bbfab14abf3d49a2e9569f8088f5cc"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/confirm.py",
+      "sha": "748dad775502cccef2be3459ec15d780f4c0feab"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/console.py",
+      "sha": "03a50fe3b671b73f81920181b21d421f30b7c5b1"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/content_filtering.py",
+      "sha": "33eb32b245245a7d2504fabd9fb8d2b0d109d3da"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/devices.py",
+      "sha": "097b92aff3bd6f09ae154a1cb8526da5091a4c1b"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/dhcp.py",
+      "sha": "19453bc68e9dbfd510e44ee9ad318ac7d175309f"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/drift.py",
+      "sha": "539a63ff33849ad191c89311e51a95cba18c10b2"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/dynamic_dns.py",
+      "sha": "df53023c877bfd685a3e613d979e56c5f22eb3ba"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/firewall.py",
+      "sha": "c218d04f219c14d05371d713274c11b51e765b2b"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/guest_portal.py",
+      "sha": "eeabb0321a5c5ce79a286c9f41a61f4e3cafe35d"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/honeypot.py",
+      "sha": "3fecbd6baa5a074dc581e665a5eeb6f11004e04f"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/ipv6.py",
+      "sha": "3beab98bd75fed9780fa54605885f160b072c9cc"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/observability.py",
+      "sha": "2e543cfaaff118d266bbd1595c094318470bfc63"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/port_forwards.py",
+      "sha": "5ec9b238f15f2cf916e0aa45baaf3848d75d5ce5"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/port_profiles.py",
+      "sha": "bf52313f36cf8fe79f6cf8abaccd669358a981bf"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/routing.py",
+      "sha": "7121fffbb0afa42a37b799cad2c49be8fcac45f2"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/stats.py",
+      "sha": "82fcca181c39fc89982aba38b81a35abee10f8a2"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/teleport.py",
+      "sha": "f75e67e24ab51186c7c917b9e306775d214fef6b"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/threat_management.py",
+      "sha": "b00a5e670830bffa660c5cf40a91975700309f03"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/traffic.py",
+      "sha": "09956db729f0148dbdb113bce7a23a0af55a21da"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/vlans.py",
+      "sha": "cf169a661587e4b03c360ad90ee67560e3b1d506"
+    },
+    {
+      "path": "src/mcp_unifi/modules/network/wlans.py",
+      "sha": "a40b3aedb4ec9229974038f06ab86cbc4fbb7d1c"
+    },
+    {
+      "path": "src/mcp_unifi/modules/protect/__init__.py",
+      "sha": "b4070b58dd94898b5a09632379eea31dc6848483"
+    },
+    {
+      "path": "src/mcp_unifi/redaction.py",
+      "sha": "0ce5db639b1e7d59943ac9b87b76c1e4209b0967"
+    },
+    {
+      "path": "src/mcp_unifi/responses.py",
+      "sha": "0299a70c49d0a913911601f34654955fbbc3d19b"
+    },
+    {
+      "path": "src/mcp_unifi/scoping.py",
+      "sha": "223a4e23be91a166c7adf011be11d5a76b0c6c39"
+    },
+    {
+      "path": "src/mcp_unifi/server.py",
+      "sha": "4654ce8ba4b2d069442d53a81584c93791cefd34"
+    },
+    {
+      "path": "src/mcp_unifi/telemetry.py",
+      "sha": "6ea7bae37181371c537088f7754e58eb6f0aa531"
+    },
+    {
+      "path": "src/mcp_unifi/verification.py",
+      "sha": "042252794903cae3d4a81857676577011a2ff45d"
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha": "fe3faaddf8d5e972feff9bf72723c700aa8df3c0"
+    },
+    {
+      "path": "tests/network/__init__.py",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/network/conftest.py",
+      "sha": "e86e5a0c81a69bb868c80b4b2a3423b752e5ef38"
+    },
+    {
+      "path": "tests/network/test_wlans.py",
+      "sha": "ad5303e4f2fe55895efeb0cb581d8c6b67f7f30d"
+    },
+    {
+      "path": "tests/test_adaptive_responses.py",
+      "sha": "0e423293ca8f61ef38fd81762834f383080191e0"
+    }
+  ],
+  "scope": "Subset of upstream tree corresponding to retained source files"
+}

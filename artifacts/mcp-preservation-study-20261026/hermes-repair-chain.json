@@ -1,0 +1,763 @@
+{
+  "kind": "native_handler_historical_repair_chain",
+  "dependency_versions": {
+    "mcp": "1.28.0"
+  },
+  "source_issues": [
+    "https://github.com/NousResearch/hermes-agent/issues/5874",
+    "https://github.com/NousResearch/hermes-agent/issues/7043"
+  ],
+  "source_fixes": [
+    "https://github.com/NousResearch/hermes-agent/pull/5979",
+    "https://github.com/NousResearch/hermes-agent/pull/7118"
+  ],
+  "rows": [
+    {
+      "version": "hermes-before",
+      "case": "text_only",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\""
+          }
+        ],
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\""
+      },
+      "required_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "preserved_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-before",
+      "case": "structured_only",
+      "sdk_input": {
+        "content": [],
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": ""
+      },
+      "required_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "preserved_atoms": [],
+      "all_required_atoms_preserved": false
+    },
+    {
+      "version": "hermes-before",
+      "case": "summary_plus_data",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "get_wan_status completed. Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": "get_wan_status completed. Full result is in structuredContent."
+      },
+      "required_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "preserved_atoms": [],
+      "all_required_atoms_preserved": false
+    },
+    {
+      "version": "hermes-before",
+      "case": "file_plus_metadata",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\""
+          }
+        ],
+        "structuredContent": {
+          "fileName": "os-release",
+          "fileType": "text"
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\""
+      },
+      "required_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "preserved_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-before",
+      "case": "equivalent_dual",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"wan2\": {\"state\": \"WAN2_DOWN_PROBE\"}}"
+          }
+        ],
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": "{\"wan2\": {\"state\": \"WAN2_DOWN_PROBE\"}}"
+      },
+      "required_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "preserved_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-before",
+      "case": "text_error",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Record not found"
+          }
+        ],
+        "isError": true
+      },
+      "native_handler_output": {
+        "error": "Record not found"
+      },
+      "required_atoms": [
+        "Record not found"
+      ],
+      "preserved_atoms": [
+        "Record not found"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-structured-first",
+      "case": "text_only",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\""
+          }
+        ],
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\""
+      },
+      "required_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "preserved_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-structured-first",
+      "case": "structured_only",
+      "sdk_input": {
+        "content": [],
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        }
+      },
+      "required_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "preserved_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-structured-first",
+      "case": "summary_plus_data",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "get_wan_status completed. Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        }
+      },
+      "required_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "preserved_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-structured-first",
+      "case": "file_plus_metadata",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\""
+          }
+        ],
+        "structuredContent": {
+          "fileName": "os-release",
+          "fileType": "text"
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": {
+          "fileName": "os-release",
+          "fileType": "text"
+        }
+      },
+      "required_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "preserved_atoms": [],
+      "all_required_atoms_preserved": false
+    },
+    {
+      "version": "hermes-structured-first",
+      "case": "equivalent_dual",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"wan2\": {\"state\": \"WAN2_DOWN_PROBE\"}}"
+          }
+        ],
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        }
+      },
+      "required_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "preserved_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-structured-first",
+      "case": "text_error",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Record not found"
+          }
+        ],
+        "isError": true
+      },
+      "native_handler_output": {
+        "error": "Record not found"
+      },
+      "required_atoms": [
+        "Record not found"
+      ],
+      "preserved_atoms": [
+        "Record not found"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-combined",
+      "case": "text_only",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\""
+          }
+        ],
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\""
+      },
+      "required_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "preserved_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-combined",
+      "case": "structured_only",
+      "sdk_input": {
+        "content": [],
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        }
+      },
+      "required_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "preserved_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-combined",
+      "case": "summary_plus_data",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "get_wan_status completed. Full result is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": "get_wan_status completed. Full result is in structuredContent.",
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        }
+      },
+      "required_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "preserved_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-combined",
+      "case": "file_plus_metadata",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\""
+          }
+        ],
+        "structuredContent": {
+          "fileName": "os-release",
+          "fileType": "text"
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": "NAME=\"ResearchFixtureOS\"\nVERSION=\"1.0\"",
+        "structuredContent": {
+          "fileName": "os-release",
+          "fileType": "text"
+        }
+      },
+      "required_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "preserved_atoms": [
+        "ResearchFixtureOS"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-combined",
+      "case": "equivalent_dual",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"wan2\": {\"state\": \"WAN2_DOWN_PROBE\"}}"
+          }
+        ],
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        },
+        "isError": false
+      },
+      "native_handler_output": {
+        "result": "{\"wan2\": {\"state\": \"WAN2_DOWN_PROBE\"}}",
+        "structuredContent": {
+          "wan2": {
+            "state": "WAN2_DOWN_PROBE"
+          }
+        }
+      },
+      "required_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "preserved_atoms": [
+        "WAN2_DOWN_PROBE"
+      ],
+      "all_required_atoms_preserved": true
+    },
+    {
+      "version": "hermes-combined",
+      "case": "text_error",
+      "sdk_input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Record not found"
+          }
+        ],
+        "isError": true
+      },
+      "native_handler_output": {
+        "error": "Record not found"
+      },
+      "required_atoms": [
+        "Record not found"
+      ],
+      "preserved_atoms": [
+        "Record not found"
+      ],
+      "all_required_atoms_preserved": true
+    }
+  ],
+  "paid_api_calls": 0,
+  "limits": [
+    "Whole pinned handler modules imported; session and loop scheduling replaced by controlled stand-ins.",
+    "Real MCP CallToolResult types used; values are authored, not production recordings.",
+    "Observed handler output, not final provider request or downstream model answer.",
+    "Three historical source versions share one dependency environment; not complete historical installations.",
+    "Six inputs are controls, not six independent bug incidents.",
+    "September regression is source-reviewed separately and is not executed here."
+  ],
+  "counterfactual_collision_controls": [
+    {
+      "version": "hermes-before",
+      "task": "wan_status",
+      "observations": [
+        {
+          "answer": "ALPHA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "get_wan_status completed. Full result is in structuredContent."
+              }
+            ],
+            "structuredContent": {
+              "wan2": {
+                "state": "ALPHA_PROBE"
+              }
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\"}"
+        },
+        {
+          "answer": "BETA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "get_wan_status completed. Full result is in structuredContent."
+              }
+            ],
+            "structuredContent": {
+              "wan2": {
+                "state": "BETA_PROBE"
+              }
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\"}"
+        }
+      ],
+      "different_answers_same_observation": true
+    },
+    {
+      "version": "hermes-before",
+      "task": "file_value",
+      "observations": [
+        {
+          "answer": "ALPHA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "NAME=\"ALPHA_PROBE\""
+              }
+            ],
+            "structuredContent": {
+              "fileName": "os-release",
+              "fileType": "text"
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": \"NAME=\\\"ALPHA_PROBE\\\"\"}"
+        },
+        {
+          "answer": "BETA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "NAME=\"BETA_PROBE\""
+              }
+            ],
+            "structuredContent": {
+              "fileName": "os-release",
+              "fileType": "text"
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": \"NAME=\\\"BETA_PROBE\\\"\"}"
+        }
+      ],
+      "different_answers_same_observation": false
+    },
+    {
+      "version": "hermes-structured-first",
+      "task": "wan_status",
+      "observations": [
+        {
+          "answer": "ALPHA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "get_wan_status completed. Full result is in structuredContent."
+              }
+            ],
+            "structuredContent": {
+              "wan2": {
+                "state": "ALPHA_PROBE"
+              }
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": {\"wan2\": {\"state\": \"ALPHA_PROBE\"}}}"
+        },
+        {
+          "answer": "BETA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "get_wan_status completed. Full result is in structuredContent."
+              }
+            ],
+            "structuredContent": {
+              "wan2": {
+                "state": "BETA_PROBE"
+              }
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": {\"wan2\": {\"state\": \"BETA_PROBE\"}}}"
+        }
+      ],
+      "different_answers_same_observation": false
+    },
+    {
+      "version": "hermes-structured-first",
+      "task": "file_value",
+      "observations": [
+        {
+          "answer": "ALPHA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "NAME=\"ALPHA_PROBE\""
+              }
+            ],
+            "structuredContent": {
+              "fileName": "os-release",
+              "fileType": "text"
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": {\"fileName\": \"os-release\", \"fileType\": \"text\"}}"
+        },
+        {
+          "answer": "BETA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "NAME=\"BETA_PROBE\""
+              }
+            ],
+            "structuredContent": {
+              "fileName": "os-release",
+              "fileType": "text"
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": {\"fileName\": \"os-release\", \"fileType\": \"text\"}}"
+        }
+      ],
+      "different_answers_same_observation": true
+    },
+    {
+      "version": "hermes-combined",
+      "task": "wan_status",
+      "observations": [
+        {
+          "answer": "ALPHA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "get_wan_status completed. Full result is in structuredContent."
+              }
+            ],
+            "structuredContent": {
+              "wan2": {
+                "state": "ALPHA_PROBE"
+              }
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\", \"structuredContent\": {\"wan2\": {\"state\": \"ALPHA_PROBE\"}}}"
+        },
+        {
+          "answer": "BETA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "get_wan_status completed. Full result is in structuredContent."
+              }
+            ],
+            "structuredContent": {
+              "wan2": {
+                "state": "BETA_PROBE"
+              }
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\", \"structuredContent\": {\"wan2\": {\"state\": \"BETA_PROBE\"}}}"
+        }
+      ],
+      "different_answers_same_observation": false
+    },
+    {
+      "version": "hermes-combined",
+      "task": "file_value",
+      "observations": [
+        {
+          "answer": "ALPHA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "NAME=\"ALPHA_PROBE\""
+              }
+            ],
+            "structuredContent": {
+              "fileName": "os-release",
+              "fileType": "text"
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": \"NAME=\\\"ALPHA_PROBE\\\"\", \"structuredContent\": {\"fileName\": \"os-release\", \"fileType\": \"text\"}}"
+        },
+        {
+          "answer": "BETA_PROBE",
+          "source_result": {
+            "content": [
+              {
+                "type": "text",
+                "text": "NAME=\"BETA_PROBE\""
+              }
+            ],
+            "structuredContent": {
+              "fileName": "os-release",
+              "fileType": "text"
+            },
+            "isError": false
+          },
+          "observed": "{\"result\": \"NAME=\\\"BETA_PROBE\\\"\", \"structuredContent\": {\"fileName\": \"os-release\", \"fileType\": \"text\"}}"
+        }
+      ],
+      "different_answers_same_observation": false
+    }
+  ],
+  "collision_interpretation": "Constructed same-question pairs differ only in the answer-bearing source value. Equal observed handler output cannot distinguish those values without another information source. This is an observation-boundary result, not measured LLM accuracy or a natural task distribution."
+}

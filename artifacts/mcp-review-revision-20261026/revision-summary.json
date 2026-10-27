@@ -1,0 +1,43 @@
+{
+  "verified_source_files": 141,
+  "native_tests": {
+    "unifi": {
+      "passed": 50,
+      "total": 50
+    },
+    "hermes": {
+      "passed": 7,
+      "total": 7
+    }
+  },
+  "continuous_calls": 8,
+  "replay_matches": 8,
+  "policies": {
+    "text_priority": {
+      "required_facts": 0,
+      "full_objects": 0,
+      "count_only": 2,
+      "total_utf8_bytes": 318
+    },
+    "structured_priority": {
+      "required_facts": 4,
+      "full_objects": 4,
+      "count_only": 2,
+      "total_utf8_bytes": 1089
+    },
+    "combination": {
+      "required_facts": 4,
+      "full_objects": 4,
+      "count_only": 2,
+      "total_utf8_bytes": 1451
+    },
+    "full_text_fallback": {
+      "required_facts": 4,
+      "full_objects": 4,
+      "count_only": 2,
+      "total_utf8_bytes": 1587
+    }
+  },
+  "independent_producer_contrast": true,
+  "human_review_completed": false
+}

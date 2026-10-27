@@ -1,0 +1,46 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "label": "agno",
+      "repo": "agno-agi/agno",
+      "sha": "b07d573422de7dd33b3b6db25fb06281a54e47f3",
+      "path": "LICENSE",
+      "url": "https://api.github.com/repos/agno-agi/agno/contents/LICENSE?ref=b07d573422de7dd33b3b6db25fb06281a54e47f3",
+      "success": true
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "label": "hermes",
+      "repo": "NousResearch/hermes-agent",
+      "sha": "04baab54228ef380eb4acf6831b68a4190748118",
+      "path": "LICENSE",
+      "url": "https://api.github.com/repos/NousResearch/hermes-agent/contents/LICENSE?ref=04baab54228ef380eb4acf6831b68a4190748118",
+      "success": true
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "label": "openwebui",
+      "repo": "open-webui/open-webui",
+      "sha": "6f6792d4848bd47be6abd6860f594e643f9de4ba",
+      "path": "LICENSE",
+      "url": "https://api.github.com/repos/open-webui/open-webui/contents/LICENSE?ref=6f6792d4848bd47be6abd6860f594e643f9de4ba",
+      "success": true
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "label": "superset",
+      "repo": "apache/superset",
+      "sha": "e1c7a516745585b0a8db82040a411ff619689035",
+      "path": "LICENSE.txt",
+      "url": "https://api.github.com/repos/apache/superset/contents/LICENSE.txt?ref=e1c7a516745585b0a8db82040a411ff619689035",
+      "success": true
+    }
+  }
+]

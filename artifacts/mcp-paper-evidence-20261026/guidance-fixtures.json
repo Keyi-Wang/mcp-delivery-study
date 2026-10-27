@@ -1,0 +1,311 @@
+[
+  {
+    "name": "structured_only",
+    "source": {
+      "content": [],
+      "isError": false,
+      "structuredContent": {
+        "record_id": "work-42",
+        "status": "STATUS_READY_7K"
+      }
+    },
+    "requirements": [
+      {
+        "kind": "json_subset",
+        "value": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      }
+    ],
+    "forbidden": []
+  },
+  {
+    "name": "summary_plus_data",
+    "source": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Query completed; details follow in structuredContent."
+        }
+      ],
+      "isError": false,
+      "structuredContent": {
+        "record_id": "work-42",
+        "status": "STATUS_READY_7K"
+      }
+    },
+    "requirements": [
+      {
+        "kind": "json_subset",
+        "value": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      }
+    ],
+    "forbidden": []
+  },
+  {
+    "name": "file_plus_metadata",
+    "source": {
+      "content": [
+        {
+          "type": "text",
+          "text": "FILE_ANSWER_19"
+        }
+      ],
+      "isError": false,
+      "structuredContent": {
+        "fileName": "shared.txt"
+      }
+    },
+    "requirements": [
+      {
+        "kind": "text",
+        "value": "FILE_ANSWER_19"
+      }
+    ],
+    "forbidden": []
+  },
+  {
+    "name": "equivalent_dual",
+    "source": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}"
+        }
+      ],
+      "isError": false,
+      "structuredContent": {
+        "record_id": "work-42",
+        "status": "STATUS_READY_7K"
+      }
+    },
+    "requirements": [
+      {
+        "kind": "json_subset",
+        "value": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      }
+    ],
+    "forbidden": []
+  },
+  {
+    "name": "reordered_equivalent",
+    "source": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"status\": \"STATUS_READY_7K\",\n  \"record_id\": \"work-42\"\n}"
+        }
+      ],
+      "isError": false,
+      "structuredContent": {
+        "record_id": "work-42",
+        "status": "STATUS_READY_7K"
+      }
+    },
+    "requirements": [
+      {
+        "kind": "json_subset",
+        "value": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      }
+    ],
+    "forbidden": []
+  },
+  {
+    "name": "split_complementary_text",
+    "source": {
+      "content": [
+        {
+          "type": "text",
+          "text": "FILE_ANSWER_19"
+        },
+        {
+          "type": "text",
+          "text": "SECOND_LINE_24"
+        }
+      ],
+      "isError": false,
+      "structuredContent": {
+        "fileName": "shared.txt"
+      }
+    },
+    "requirements": [
+      {
+        "kind": "text",
+        "value": "FILE_ANSWER_19"
+      },
+      {
+        "kind": "text",
+        "value": "SECOND_LINE_24"
+      }
+    ],
+    "forbidden": []
+  },
+  {
+    "name": "whitespace_plus_data",
+    "source": {
+      "content": [
+        {
+          "type": "text",
+          "text": " \n\t "
+        }
+      ],
+      "isError": false,
+      "structuredContent": {
+        "record_id": "work-42",
+        "status": "STATUS_READY_7K"
+      }
+    },
+    "requirements": [
+      {
+        "kind": "json_subset",
+        "value": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      }
+    ],
+    "forbidden": []
+  },
+  {
+    "name": "empty_object",
+    "source": {
+      "content": [],
+      "isError": false,
+      "structuredContent": {}
+    },
+    "requirements": [
+      {
+        "kind": "explicit_empty_object"
+      }
+    ],
+    "forbidden": []
+  },
+  {
+    "name": "typed_nested_values",
+    "source": {
+      "content": [],
+      "isError": false,
+      "structuredContent": {
+        "record": {
+          "count": 0,
+          "ready": false,
+          "note": null,
+          "labels": [
+            "研发",
+            "é"
+          ]
+        }
+      }
+    },
+    "requirements": [
+      {
+        "kind": "json_subset",
+        "value": {
+          "record": {
+            "count": 0,
+            "ready": false,
+            "note": null,
+            "labels": [
+              "研发",
+              "é"
+            ]
+          }
+        }
+      }
+    ],
+    "forbidden": []
+  },
+  {
+    "name": "application_private_meta",
+    "source": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}"
+        }
+      ],
+      "isError": false,
+      "structuredContent": {
+        "record_id": "work-42",
+        "status": "STATUS_READY_7K"
+      },
+      "_meta": {
+        "application_only": "PRIVATE_APP_88"
+      }
+    },
+    "requirements": [
+      {
+        "kind": "json_subset",
+        "value": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      }
+    ],
+    "forbidden": [
+      "PRIVATE_APP_88"
+    ]
+  },
+  {
+    "name": "conflicting_channels",
+    "source": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"status\": \"STATUS_BLOCKED_3Q\"}"
+        }
+      ],
+      "isError": false,
+      "structuredContent": {
+        "record_id": "work-42",
+        "status": "STATUS_READY_7K"
+      }
+    },
+    "requirements": [
+      {
+        "kind": "json_subset",
+        "value": {
+          "status": "STATUS_BLOCKED_3Q"
+        }
+      },
+      {
+        "kind": "json_subset",
+        "value": {
+          "status": "STATUS_READY_7K"
+        }
+      }
+    ],
+    "forbidden": [],
+    "interpretation": "Both source claims are required for a conflict review, NOT a correct resolved answer."
+  },
+  {
+    "name": "structured_error",
+    "source": {
+      "content": [],
+      "isError": true,
+      "structuredContent": {
+        "code": "DENIED_REASON_43"
+      }
+    },
+    "requirements": [
+      {
+        "kind": "json_subset",
+        "value": {
+          "code": "DENIED_REASON_43"
+        }
+      }
+    ],
+    "forbidden": [],
+    "interpretation": "Authored error-cause diagnostic, not a confirmed new production bug or success-path obligation."
+  }
+]

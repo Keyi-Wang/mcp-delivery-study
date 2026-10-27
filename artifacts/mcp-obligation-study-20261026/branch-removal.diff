@@ -1,0 +1,11 @@
+--- native-renderer
++++ branch-removal-control
+@@ -10,8 +10,6 @@
+     (text_result, usable_parts) = _render_content_blocks(result, server_name)
+     structured = _capped_structured_content(result)
+     meta = _strip_reserved_meta_keys(mcp_field(result, 'meta', 'meta'))
+-    if structured is not None and usable_parts > 0:
+-        structured = None
+     if structured is None and meta is None:
+         return json.dumps({'result': text_result}, ensure_ascii=False)
+     payload: Dict[str, Any] = {'result': text_result} if text_result else {}

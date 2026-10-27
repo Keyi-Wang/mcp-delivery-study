@@ -1,0 +1,16 @@
+{
+  "stage": "Prospective execution amendment after reading the already retained September Hermes report and source; not a preregistered or held-out discovery",
+  "question": "Does a later anti-duplication policy reintroduce the previously repaired complementary-data omission, and which original preservation and duplication requirements distinguish the versions?",
+  "source": "https://github.com/NousResearch/hermes-agent/issues/5874#issuecomment-5711089065",
+  "plans": [
+    "Identify the historical change introducing exclusive channel selection, verify ancestry/merged status where available, and retain its tests and rationale.",
+    "Execute unchanged native rendering functions from the retained September version with native pinned helpers. Reuse already frozen inputs without tuning markers or expected requirements.",
+    "Compare original and new historical tests where their interfaces can be faithfully bound; document unexecutable tests instead of silently adapting assertions.",
+    "Use a minimal branch-only removal control to attribute any changed output to arbitration, without calling the intervention a complete deployable repair.",
+    "If feasible, add native source-producing examples from the real server named by the public reports, with controlled external data and explicit source pins. Do not manufacture production recordings."
+  ],
+  "stop_rule": "If no additional source-backed acceptance conflict is established, retain the negative result and do not upgrade the recommendation on test volume alone.",
+  "interpretation": "A selected recurrence in one project is a longitudinal case, not a new independent project, a prevalence estimate, or proof that a documented policy violates MCP MUST requirements.",
+  "budget": {"paid_model_calls": 0},
+  "independent_human_review": false
+}

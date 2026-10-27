@@ -1,0 +1,93 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "agno-agi/agno/pulls/7715",
+      "title": "fix: preserve structuredContent from MCP CallToolResult",
+      "merged": true,
+      "merged_at": "2026-06-24T05:35:14Z",
+      "base": "e5af3ae64e1ef5704e84f58b1e0063abb67ff814",
+      "head": "d9b12e5bf6b6adb9618c7fb073d9e99b46983428",
+      "merge_commit_sha": "0d94dfdffb955ca121a82d7d182fa0d056ce0217",
+      "url": "https://github.com/agno-agi/agno/pull/7715"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "agno-agi/agno/pulls/8580",
+      "title": "refactor: consolidate MCP ToolResult metadata into a single field",
+      "merged": true,
+      "merged_at": "2026-06-26T09:41:46Z",
+      "base": "3f166214aa109b4ea30d851ca15592d4f2645a98",
+      "head": "cf081140c0f1ae31df73348daa5e4bb8fd77e5ad",
+      "merge_commit_sha": "6883a4b2fb1c0751f9d47328ea89e20823469e72",
+      "url": "https://github.com/agno-agi/agno/pull/8580"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "agno-agi/agno/pulls/8695",
+      "title": "fix: surface MCP structuredContent-only results",
+      "merged": true,
+      "merged_at": "2026-07-10T10:01:29Z",
+      "base": "0f265aa8007df21c340fcdb3a4f53e195bca8ca8",
+      "head": "f1dbf196461557559c6299293c826c3915172d7e",
+      "merge_commit_sha": "b07d573422de7dd33b3b6db25fb06281a54e47f3",
+      "url": "https://github.com/agno-agi/agno/pull/8695"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "NousResearch/hermes-agent/pulls/5979",
+      "title": "fix(mcp): prefer structuredContent over text + no_mcp sentinel (salvage #5898 + #5841)",
+      "merged": true,
+      "merged_at": "2026-04-08T01:00:01Z",
+      "base": "cbf1f15cfedfca3fd5130b5532fb9b7f8421946b",
+      "head": "f2840711a1f4e8f942944226833cf99df6669081",
+      "merge_commit_sha": "7fe6782a25f4aeb6b792162c946cba825813beef",
+      "url": "https://github.com/NousResearch/hermes-agent/pull/5979"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "NousResearch/hermes-agent/pulls/7118",
+      "title": "fix(mcp): combine content and structuredContent when both present",
+      "merged": true,
+      "merged_at": "2026-04-10T10:44:35Z",
+      "base": "9a0dfb5a6d4f783348bbcab63d272081e7b2ef20",
+      "head": "eb8fc0e07cb29921bac8be7f1e09614ce568e0ec",
+      "merge_commit_sha": "04baab54228ef380eb4acf6831b68a4190748118",
+      "url": "https://github.com/NousResearch/hermes-agent/pull/7118"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "open-webui/open-webui/pulls/30358",
+      "title": "fix: pass MCP tool images to the model, not only to the UI",
+      "merged": true,
+      "merged_at": "2026-09-22T15:34:57Z",
+      "base": "344ea530688684c83f4cf247a1ca08bce60c0ba2",
+      "head": "b7aa61e0f0dcded4bb52e0e462c2ff4f998453aa",
+      "merge_commit_sha": "6f6792d4848bd47be6abd6860f594e643f9de4ba",
+      "url": "https://github.com/open-webui/open-webui/pull/30358"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "apache/superset/pulls/43374",
+      "title": "fix(mcp): flag failed tool calls with isError",
+      "merged": true,
+      "merged_at": "2026-08-27T21:59:19Z",
+      "base": "c3ed8b312d5428d9577ecc5d026c611874e2b4a5",
+      "head": "dcac9fe32944e1fd2bcc4d61e57cb4b5aaf25031",
+      "merge_commit_sha": "e1c7a516745585b0a8db82040a411ff619689035",
+      "url": "https://github.com/apache/superset/pull/43374"
+    }
+  }
+]

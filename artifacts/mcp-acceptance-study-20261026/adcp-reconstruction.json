@@ -1,0 +1,1697 @@
+{
+  "protocol": "research/mcp-adcp-reconstruction-amendment-20261026.json",
+  "rows": [
+    {
+      "version": "before",
+      "route": "flattened_error",
+      "step_id": "unknown_scenario",
+      "code": "UNKNOWN_SCENARIO",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: UNKNOWN_SCENARIO"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "unknown_scenario",
+        "phase_id": "controller",
+        "title": "Unknown scenario returns error",
+        "task": "comply_test_controller",
+        "passed": false,
+        "expect_error": true,
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Unknown scenario fails",
+            "path": "success",
+            "error": "Expected one of [false], got undefined"
+          },
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Error code is UNKNOWN_SCENARIO",
+            "path": "error",
+            "error": "Expected one of [\"UNKNOWN_SCENARIO\"], got undefined"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": false,
+      "original_detail_retained": false,
+      "code_retained": false,
+      "detail_field_present": false
+    },
+    {
+      "version": "before",
+      "route": "flattened_error",
+      "step_id": "unknown_scenario",
+      "code": "UNKNOWN_SCENARIO",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: UNKNOWN_SCENARIO"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "unknown_scenario",
+        "phase_id": "controller",
+        "title": "Unknown scenario returns error",
+        "task": "comply_test_controller",
+        "passed": false,
+        "expect_error": true,
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Unknown scenario fails",
+            "path": "success",
+            "error": "Expected one of [false], got undefined"
+          },
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Error code is UNKNOWN_SCENARIO",
+            "path": "error",
+            "error": "Expected one of [\"UNKNOWN_SCENARIO\"], got undefined"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": false,
+      "original_detail_retained": false,
+      "code_retained": false,
+      "detail_field_present": false
+    },
+    {
+      "version": "before",
+      "route": "flattened_error",
+      "step_id": "missing_params",
+      "code": "INVALID_PARAMS",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: INVALID_PARAMS"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "missing_params",
+        "phase_id": "controller",
+        "title": "Missing params returns error",
+        "task": "comply_test_controller",
+        "passed": false,
+        "expect_error": true,
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Missing params fails",
+            "path": "success",
+            "error": "Expected one of [false], got undefined"
+          },
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Error code is INVALID_PARAMS",
+            "path": "error",
+            "error": "Expected one of [\"INVALID_PARAMS\"], got undefined"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": false,
+      "original_detail_retained": false,
+      "code_retained": false,
+      "detail_field_present": false
+    },
+    {
+      "version": "before",
+      "route": "flattened_error",
+      "step_id": "missing_params",
+      "code": "INVALID_PARAMS",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: INVALID_PARAMS"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "missing_params",
+        "phase_id": "controller",
+        "title": "Missing params returns error",
+        "task": "comply_test_controller",
+        "passed": false,
+        "expect_error": true,
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Missing params fails",
+            "path": "success",
+            "error": "Expected one of [false], got undefined"
+          },
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Error code is INVALID_PARAMS",
+            "path": "error",
+            "error": "Expected one of [\"INVALID_PARAMS\"], got undefined"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": false,
+      "original_detail_retained": false,
+      "code_retained": false,
+      "detail_field_present": false
+    },
+    {
+      "version": "before",
+      "route": "flattened_error",
+      "step_id": "not_found_entity",
+      "code": "NOT_FOUND",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: NOT_FOUND"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "not_found_entity",
+        "phase_id": "controller",
+        "title": "Nonexistent entity returns NOT_FOUND",
+        "task": "comply_test_controller",
+        "passed": false,
+        "expect_error": true,
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Nonexistent entity fails",
+            "path": "success",
+            "error": "Expected one of [false], got undefined"
+          },
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Error code is NOT_FOUND",
+            "path": "error",
+            "error": "Expected one of [\"NOT_FOUND\"], got undefined"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": false,
+      "original_detail_retained": false,
+      "code_retained": false,
+      "detail_field_present": false
+    },
+    {
+      "version": "before",
+      "route": "flattened_error",
+      "step_id": "not_found_entity",
+      "code": "NOT_FOUND",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: NOT_FOUND"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "not_found_entity",
+        "phase_id": "controller",
+        "title": "Nonexistent entity returns NOT_FOUND",
+        "task": "comply_test_controller",
+        "passed": false,
+        "expect_error": true,
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Nonexistent entity fails",
+            "path": "success",
+            "error": "Expected one of [false], got undefined"
+          },
+          {
+            "check": "field_value",
+            "passed": false,
+            "description": "Error code is NOT_FOUND",
+            "path": "error",
+            "error": "Expected one of [\"NOT_FOUND\"], got undefined"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": false,
+      "original_detail_retained": false,
+      "code_retained": false,
+      "detail_field_present": false
+    },
+    {
+      "version": "before",
+      "route": "flattened_error",
+      "step_id": "success_control",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Simulation complete: {\"spend_percentage\":25}"
+          }
+        ],
+        "structuredContent": {
+          "success": true,
+          "simulated": {
+            "spend_percentage": 25
+          }
+        }
+      },
+      "output": {
+        "step_id": "success_control",
+        "phase_id": "controller",
+        "title": "Success control",
+        "task": "comply_test_controller",
+        "passed": true,
+        "response": {
+          "success": true,
+          "simulated": {
+            "spend_percentage": 25
+          }
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Success remains true",
+            "path": "success"
+          }
+        ],
+        "context": {}
+      }
+    },
+    {
+      "version": "before",
+      "route": "raw_data_control",
+      "step_id": "unknown_scenario",
+      "code": "UNKNOWN_SCENARIO",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: UNKNOWN_SCENARIO"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "unknown_scenario",
+        "phase_id": "controller",
+        "title": "Unknown scenario returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Unknown scenario fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is UNKNOWN_SCENARIO",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "before",
+      "route": "raw_data_control",
+      "step_id": "unknown_scenario",
+      "code": "UNKNOWN_SCENARIO",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: UNKNOWN_SCENARIO"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "unknown_scenario",
+        "phase_id": "controller",
+        "title": "Unknown scenario returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Unknown scenario fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is UNKNOWN_SCENARIO",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "before",
+      "route": "raw_data_control",
+      "step_id": "missing_params",
+      "code": "INVALID_PARAMS",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: INVALID_PARAMS"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "missing_params",
+        "phase_id": "controller",
+        "title": "Missing params returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Missing params fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is INVALID_PARAMS",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "before",
+      "route": "raw_data_control",
+      "step_id": "missing_params",
+      "code": "INVALID_PARAMS",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: INVALID_PARAMS"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "missing_params",
+        "phase_id": "controller",
+        "title": "Missing params returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Missing params fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is INVALID_PARAMS",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "before",
+      "route": "raw_data_control",
+      "step_id": "not_found_entity",
+      "code": "NOT_FOUND",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: NOT_FOUND"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "not_found_entity",
+        "phase_id": "controller",
+        "title": "Nonexistent entity returns NOT_FOUND",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Nonexistent entity fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is NOT_FOUND",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "before",
+      "route": "raw_data_control",
+      "step_id": "not_found_entity",
+      "code": "NOT_FOUND",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: NOT_FOUND"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "not_found_entity",
+        "phase_id": "controller",
+        "title": "Nonexistent entity returns NOT_FOUND",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Nonexistent entity fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is NOT_FOUND",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "before",
+      "route": "raw_data_control",
+      "step_id": "success_control",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Simulation complete: {\"spend_percentage\":25}"
+          }
+        ],
+        "structuredContent": {
+          "success": true,
+          "simulated": {
+            "spend_percentage": 25
+          }
+        }
+      },
+      "output": {
+        "step_id": "success_control",
+        "phase_id": "controller",
+        "title": "Success control",
+        "task": "comply_test_controller",
+        "passed": true,
+        "response": {
+          "success": true,
+          "simulated": {
+            "spend_percentage": 25
+          }
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Success remains true",
+            "path": "success"
+          }
+        ],
+        "context": {}
+      }
+    },
+    {
+      "version": "after",
+      "route": "flattened_error",
+      "step_id": "unknown_scenario",
+      "code": "UNKNOWN_SCENARIO",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: UNKNOWN_SCENARIO"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "unknown_scenario",
+        "phase_id": "controller",
+        "title": "Unknown scenario returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Controller error: UNKNOWN_SCENARIO"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Unknown scenario fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is UNKNOWN_SCENARIO",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": false,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "flattened_error",
+      "step_id": "unknown_scenario",
+      "code": "UNKNOWN_SCENARIO",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: UNKNOWN_SCENARIO"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "unknown_scenario",
+        "phase_id": "controller",
+        "title": "Unknown scenario returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Controller error: UNKNOWN_SCENARIO"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Unknown scenario fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is UNKNOWN_SCENARIO",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": false,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "flattened_error",
+      "step_id": "missing_params",
+      "code": "INVALID_PARAMS",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: INVALID_PARAMS"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "missing_params",
+        "phase_id": "controller",
+        "title": "Missing params returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Controller error: INVALID_PARAMS"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Missing params fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is INVALID_PARAMS",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": false,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "flattened_error",
+      "step_id": "missing_params",
+      "code": "INVALID_PARAMS",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: INVALID_PARAMS"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "missing_params",
+        "phase_id": "controller",
+        "title": "Missing params returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Controller error: INVALID_PARAMS"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Missing params fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is INVALID_PARAMS",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": false,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "flattened_error",
+      "step_id": "not_found_entity",
+      "code": "NOT_FOUND",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: NOT_FOUND"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "not_found_entity",
+        "phase_id": "controller",
+        "title": "Nonexistent entity returns NOT_FOUND",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Controller error: NOT_FOUND"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Nonexistent entity fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is NOT_FOUND",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": false,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "flattened_error",
+      "step_id": "not_found_entity",
+      "code": "NOT_FOUND",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: NOT_FOUND"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "not_found_entity",
+        "phase_id": "controller",
+        "title": "Nonexistent entity returns NOT_FOUND",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Controller error: NOT_FOUND"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Nonexistent entity fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is NOT_FOUND",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": false,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "flattened_error",
+      "step_id": "success_control",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Simulation complete: {\"spend_percentage\":25}"
+          }
+        ],
+        "structuredContent": {
+          "success": true,
+          "simulated": {
+            "spend_percentage": 25
+          }
+        }
+      },
+      "output": {
+        "step_id": "success_control",
+        "phase_id": "controller",
+        "title": "Success control",
+        "task": "comply_test_controller",
+        "passed": true,
+        "response": {
+          "success": true,
+          "simulated": {
+            "spend_percentage": 25
+          }
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Success remains true",
+            "path": "success"
+          }
+        ],
+        "context": {}
+      }
+    },
+    {
+      "version": "after",
+      "route": "raw_data_control",
+      "step_id": "unknown_scenario",
+      "code": "UNKNOWN_SCENARIO",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: UNKNOWN_SCENARIO"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "unknown_scenario",
+        "phase_id": "controller",
+        "title": "Unknown scenario returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Unknown scenario fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is UNKNOWN_SCENARIO",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "raw_data_control",
+      "step_id": "unknown_scenario",
+      "code": "UNKNOWN_SCENARIO",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: UNKNOWN_SCENARIO"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "unknown_scenario",
+        "phase_id": "controller",
+        "title": "Unknown scenario returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "UNKNOWN_SCENARIO",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Unknown scenario fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is UNKNOWN_SCENARIO",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "raw_data_control",
+      "step_id": "missing_params",
+      "code": "INVALID_PARAMS",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: INVALID_PARAMS"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "missing_params",
+        "phase_id": "controller",
+        "title": "Missing params returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Missing params fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is INVALID_PARAMS",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "raw_data_control",
+      "step_id": "missing_params",
+      "code": "INVALID_PARAMS",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: INVALID_PARAMS"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "missing_params",
+        "phase_id": "controller",
+        "title": "Missing params returns error",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "INVALID_PARAMS",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Missing params fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is INVALID_PARAMS",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "raw_data_control",
+      "step_id": "not_found_entity",
+      "code": "NOT_FOUND",
+      "original_detail": "Original detail A: account alpha is unavailable",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: NOT_FOUND"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "not_found_entity",
+        "phase_id": "controller",
+        "title": "Nonexistent entity returns NOT_FOUND",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail A: account alpha is unavailable"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Nonexistent entity fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is NOT_FOUND",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "raw_data_control",
+      "step_id": "not_found_entity",
+      "code": "NOT_FOUND",
+      "original_detail": "Original detail B: creative beta was removed",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Controller error: NOT_FOUND"
+          }
+        ],
+        "structuredContent": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "isError": true
+      },
+      "output": {
+        "step_id": "not_found_entity",
+        "phase_id": "controller",
+        "title": "Nonexistent entity returns NOT_FOUND",
+        "task": "comply_test_controller",
+        "passed": true,
+        "expect_error": true,
+        "response": {
+          "success": false,
+          "error": "NOT_FOUND",
+          "error_detail": "Original detail B: creative beta was removed"
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Nonexistent entity fails",
+            "path": "success"
+          },
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Error code is NOT_FOUND",
+            "path": "error"
+          }
+        ],
+        "context": {}
+      },
+      "original_validations_pass": true,
+      "original_detail_retained": true,
+      "code_retained": true,
+      "detail_field_present": true
+    },
+    {
+      "version": "after",
+      "route": "raw_data_control",
+      "step_id": "success_control",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Simulation complete: {\"spend_percentage\":25}"
+          }
+        ],
+        "structuredContent": {
+          "success": true,
+          "simulated": {
+            "spend_percentage": 25
+          }
+        }
+      },
+      "output": {
+        "step_id": "success_control",
+        "phase_id": "controller",
+        "title": "Success control",
+        "task": "comply_test_controller",
+        "passed": true,
+        "response": {
+          "success": true,
+          "simulated": {
+            "spend_percentage": 25
+          }
+        },
+        "validations": [
+          {
+            "check": "field_value",
+            "passed": true,
+            "description": "Success remains true",
+            "path": "success"
+          }
+        ],
+        "context": {}
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "version": "before",
+      "route": "flattened_error",
+      "step_id": "unknown_scenario",
+      "paired_details_same_output": true
+    },
+    {
+      "version": "before",
+      "route": "flattened_error",
+      "step_id": "missing_params",
+      "paired_details_same_output": true
+    },
+    {
+      "version": "before",
+      "route": "flattened_error",
+      "step_id": "not_found_entity",
+      "paired_details_same_output": true
+    },
+    {
+      "version": "before",
+      "route": "raw_data_control",
+      "step_id": "unknown_scenario",
+      "paired_details_same_output": false
+    },
+    {
+      "version": "before",
+      "route": "raw_data_control",
+      "step_id": "missing_params",
+      "paired_details_same_output": false
+    },
+    {
+      "version": "before",
+      "route": "raw_data_control",
+      "step_id": "not_found_entity",
+      "paired_details_same_output": false
+    },
+    {
+      "version": "after",
+      "route": "flattened_error",
+      "step_id": "unknown_scenario",
+      "paired_details_same_output": true
+    },
+    {
+      "version": "after",
+      "route": "flattened_error",
+      "step_id": "missing_params",
+      "paired_details_same_output": true
+    },
+    {
+      "version": "after",
+      "route": "flattened_error",
+      "step_id": "not_found_entity",
+      "paired_details_same_output": true
+    },
+    {
+      "version": "after",
+      "route": "raw_data_control",
+      "step_id": "unknown_scenario",
+      "paired_details_same_output": false
+    },
+    {
+      "version": "after",
+      "route": "raw_data_control",
+      "step_id": "missing_params",
+      "paired_details_same_output": false
+    },
+    {
+      "version": "after",
+      "route": "raw_data_control",
+      "step_id": "not_found_entity",
+      "paired_details_same_output": false
+    }
+  ],
+  "source_selections": [
+    {
+      "version": "before",
+      "file": "runner.ts",
+      "names": [
+        "executeStep",
+        "extractErrorData",
+        "getNextStepPreview"
+      ],
+      "source_sha256": "2ecc6ccf782ce4d84bbe79cf66e82b32cc789e4ad53d67d1aabc5cb3144c7620",
+      "selected_sha256": "0d93bf0d35730fbdcfb578180b7b4a911b1500bbc15d7a58736e1faa6e15307f"
+    },
+    {
+      "version": "after",
+      "file": "mcp.ts",
+      "names": [
+        "callMCPToolImpl",
+        "callMCPToolRawImpl"
+      ],
+      "source_sha256": "f87f0605f79052af4e2dd20edf8bf66bfef552c641cc238921382d34d901625e",
+      "selected_sha256": "a331e06462e43bab243bed1abd171fe63f9f76e2b7f4b5dc2e0a55fb88f8a6d6"
+    },
+    {
+      "version": "after",
+      "file": "client.ts",
+      "names": [
+        "runStep"
+      ],
+      "source_sha256": "ae23dbaf4c722010bbf7472dd4cf0dfe05974653260d4ff2ced83e01444e7302",
+      "selected_sha256": "2806a6fb1916473b6fc47b0d179dacb44e5f2a1e6b10a9ba901b2812a11a5d55"
+    },
+    {
+      "version": "after",
+      "file": "task-map.ts",
+      "names": [
+        "executeStoryboardTask"
+      ],
+      "source_sha256": "c2ae2a1dc784561934ca2876226ded9ae9aff7e3ed9f43756079f426e5c5e304",
+      "selected_sha256": "0bed23c109d86ce5bdc55802248f8fa0919df4f669f8ae9e807374c907b18c0c"
+    },
+    {
+      "version": "after",
+      "file": "context.ts",
+      "names": [
+        "injectContext",
+        "deepReplace",
+        "extractContext"
+      ],
+      "source_sha256": "b67ea9ea40b71aea404bcc31e99f084b79d1af9e31895999cad7a9e62c37c174",
+      "selected_sha256": "986a3de897f113cf6e1d8dcb6034f82172917037753f931cefc25e5ecdeefcbe"
+    },
+    {
+      "version": "after",
+      "file": "path.ts",
+      "names": [
+        "parsePath",
+        "resolvePath"
+      ],
+      "source_sha256": "2410029b21d56fd1f18bd0b2c029e3c7272a1a4af515bbd06888c5bd87e6bd07",
+      "selected_sha256": "cead8759a9249cf3643f2d5a4bd203ec14f553532294bce29d5505148144fa6a"
+    },
+    {
+      "version": "after",
+      "file": "validations.ts",
+      "names": [
+        "runValidations",
+        "runValidation",
+        "validateFieldPresent",
+        "validateFieldValue",
+        "valuesMatch"
+      ],
+      "source_sha256": "2ab8264f87d0b51f4b2e772d62cc5f6083b08769f3566e82dcf80f18aa03c219",
+      "selected_sha256": "5ce20a95959ae065933bed150396ada555106ea87a5f5247956e4a1f680bf33f"
+    },
+    {
+      "version": "after",
+      "file": "test-controller.ts",
+      "names": [
+        "controllerError",
+        "summarize",
+        "toMcpResponse"
+      ],
+      "source_sha256": "82f7f263c78645b00eb9e4cfa43a42d36b5914c4f60c28ceba85baeac591d1f0",
+      "selected_sha256": "fdc12cdce93b7a53e0347d1129050a2a668237f252d0394a5ff2229958dfdb81"
+    },
+    {
+      "version": "after",
+      "file": "responses.ts",
+      "names": [
+        "toStructuredContent"
+      ],
+      "source_sha256": "907b6518b297c42782c2aded8a1e144d976d0a1e626c18367ead3844b9b1df3f",
+      "selected_sha256": "642cb01bc8804f6286e685eb1fdd0cef5d522b2917e772702a8a58fa71f5ab01"
+    },
+    {
+      "version": "after",
+      "file": "runner.ts",
+      "names": [
+        "executeStep",
+        "extractErrorData",
+        "getNextStepPreview"
+      ],
+      "source_sha256": "6677dc4b89011caa5b888370c41bd486ebd89af67425893f5e91dde4fe4bdbd9",
+      "selected_sha256": "b3e4cc210aeb10351453fc3c72e49bf2ad8b7bd810100f05ee7122be73ddb538"
+    },
+    {
+      "version": "after",
+      "file": "mcp.ts",
+      "names": [
+        "callMCPToolImpl",
+        "callMCPToolRawImpl"
+      ],
+      "source_sha256": "f87f0605f79052af4e2dd20edf8bf66bfef552c641cc238921382d34d901625e",
+      "selected_sha256": "a331e06462e43bab243bed1abd171fe63f9f76e2b7f4b5dc2e0a55fb88f8a6d6"
+    },
+    {
+      "version": "after",
+      "file": "client.ts",
+      "names": [
+        "runStep"
+      ],
+      "source_sha256": "ae23dbaf4c722010bbf7472dd4cf0dfe05974653260d4ff2ced83e01444e7302",
+      "selected_sha256": "2806a6fb1916473b6fc47b0d179dacb44e5f2a1e6b10a9ba901b2812a11a5d55"
+    },
+    {
+      "version": "after",
+      "file": "task-map.ts",
+      "names": [
+        "executeStoryboardTask"
+      ],
+      "source_sha256": "c2ae2a1dc784561934ca2876226ded9ae9aff7e3ed9f43756079f426e5c5e304",
+      "selected_sha256": "0bed23c109d86ce5bdc55802248f8fa0919df4f669f8ae9e807374c907b18c0c"
+    },
+    {
+      "version": "after",
+      "file": "context.ts",
+      "names": [
+        "injectContext",
+        "deepReplace",
+        "extractContext"
+      ],
+      "source_sha256": "b67ea9ea40b71aea404bcc31e99f084b79d1af9e31895999cad7a9e62c37c174",
+      "selected_sha256": "986a3de897f113cf6e1d8dcb6034f82172917037753f931cefc25e5ecdeefcbe"
+    },
+    {
+      "version": "after",
+      "file": "path.ts",
+      "names": [
+        "parsePath",
+        "resolvePath"
+      ],
+      "source_sha256": "2410029b21d56fd1f18bd0b2c029e3c7272a1a4af515bbd06888c5bd87e6bd07",
+      "selected_sha256": "cead8759a9249cf3643f2d5a4bd203ec14f553532294bce29d5505148144fa6a"
+    },
+    {
+      "version": "after",
+      "file": "validations.ts",
+      "names": [
+        "runValidations",
+        "runValidation",
+        "validateFieldPresent",
+        "validateFieldValue",
+        "valuesMatch"
+      ],
+      "source_sha256": "2ab8264f87d0b51f4b2e772d62cc5f6083b08769f3566e82dcf80f18aa03c219",
+      "selected_sha256": "5ce20a95959ae065933bed150396ada555106ea87a5f5247956e4a1f680bf33f"
+    },
+    {
+      "version": "after",
+      "file": "test-controller.ts",
+      "names": [
+        "controllerError",
+        "summarize",
+        "toMcpResponse"
+      ],
+      "source_sha256": "82f7f263c78645b00eb9e4cfa43a42d36b5914c4f60c28ceba85baeac591d1f0",
+      "selected_sha256": "fdc12cdce93b7a53e0347d1129050a2a668237f252d0394a5ff2229958dfdb81"
+    },
+    {
+      "version": "after",
+      "file": "responses.ts",
+      "names": [
+        "toStructuredContent"
+      ],
+      "source_sha256": "907b6518b297c42782c2aded8a1e144d976d0a1e626c18367ead3844b9b1df3f",
+      "selected_sha256": "642cb01bc8804f6286e685eb1fdd0cef5d522b2917e772702a8a58fa71f5ab01"
+    }
+  ],
+  "node": "v16.20.2",
+  "typescript": "5.7.3",
+  "boundary": "Unchanged native TS function bodies transpiled by TypeScript. Native server response construction, MCP error flattening, storyboard runner and field validators; controlled connection and TaskExecutor return shape. No HTTP transport or complete SDK deployment.",
+  "held_fixed": "After-version producer, MCP functions, task dispatcher, context helpers and validators are shared across the two runner versions. The before/after MCP files are byte-identical. This isolates runner reconstruction; not two complete historical releases.",
+  "limits": [
+    "Three original YAML error steps and their six field assertions are unchanged; paired error details and success control are authored.",
+    "The raw-data route is a diagnostic control with an authored TaskResult mapping, not a validated full-system patch.",
+    "The original assertions require success=false and the error code, not exact original detail. Passing after repair is correct for that narrower obligation.",
+    "Only duration_ms is excluded from deterministic output comparisons.",
+    "No claim of production frequency, new upstream defect, or model accuracy."
+  ],
+  "paid_calls": 0
+}

@@ -1,0 +1,1690 @@
+{
+  "protocol": "research/mcp-guidance-amendment-20261026.json",
+  "rows": [
+    {
+      "implementation": "before",
+      "fixture": "structured_only",
+      "boundary": "native_tool_message",
+      "output": "",
+      "utf8_bytes": 0,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "summary_plus_data",
+      "boundary": "native_tool_message",
+      "output": "Query completed; details follow in structuredContent.",
+      "utf8_bytes": 53,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "file_plus_metadata",
+      "boundary": "native_tool_message",
+      "output": "FILE_ANSWER_19",
+      "utf8_bytes": 14,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "fileName": "shared.txt"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "equivalent_dual",
+      "boundary": "native_tool_message",
+      "output": "{\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}",
+      "utf8_bytes": 53,
+      "ready_answer_occurrences": 1,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "reordered_equivalent",
+      "boundary": "native_tool_message",
+      "output": "{\n  \"status\": \"STATUS_READY_7K\",\n  \"record_id\": \"work-42\"\n}",
+      "utf8_bytes": 59,
+      "ready_answer_occurrences": 1,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "split_complementary_text",
+      "boundary": "native_tool_message",
+      "output": "FILE_ANSWER_19\nSECOND_LINE_24",
+      "utf8_bytes": 29,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "fileName": "shared.txt"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "SECOND_LINE_24"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "whitespace_plus_data",
+      "boundary": "native_tool_message",
+      "output": "",
+      "utf8_bytes": 0,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "empty_object",
+      "boundary": "native_tool_message",
+      "output": "",
+      "utf8_bytes": 0,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {}
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "explicit_empty_object"
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "typed_nested_values",
+      "boundary": "native_tool_message",
+      "output": "",
+      "utf8_bytes": 0,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "record": {
+            "count": 0,
+            "ready": false,
+            "note": null,
+            "labels": [
+              "研发",
+              "é"
+            ]
+          }
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record": {
+                "count": 0,
+                "ready": false,
+                "note": null,
+                "labels": [
+                  "研发",
+                  "é"
+                ]
+              }
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "application_private_meta",
+      "boundary": "native_tool_message",
+      "output": "{\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}",
+      "utf8_bytes": 53,
+      "ready_answer_occurrences": 1,
+      "application_metadata": {
+        "meta": {
+          "application_only": "PRIVATE_APP_88"
+        },
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "conflicting_channels",
+      "boundary": "native_tool_message",
+      "output": "{\"status\": \"STATUS_BLOCKED_3Q\"}",
+      "utf8_bytes": 31,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_BLOCKED_3Q"
+            }
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "structured_error",
+      "boundary": "native_tool_message",
+      "output": "Error from MCP tool 'get_record': []",
+      "utf8_bytes": 36,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "code": "DENIED_REASON_43"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "code": "DENIED_REASON_43"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "structured_only",
+      "boundary": "native_tool_message",
+      "output": "{\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}",
+      "utf8_bytes": 53,
+      "ready_answer_occurrences": 1,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "summary_plus_data",
+      "boundary": "native_tool_message",
+      "output": "Query completed; details follow in structuredContent.",
+      "utf8_bytes": 53,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "file_plus_metadata",
+      "boundary": "native_tool_message",
+      "output": "FILE_ANSWER_19",
+      "utf8_bytes": 14,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "fileName": "shared.txt"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "equivalent_dual",
+      "boundary": "native_tool_message",
+      "output": "{\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}",
+      "utf8_bytes": 53,
+      "ready_answer_occurrences": 1,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "reordered_equivalent",
+      "boundary": "native_tool_message",
+      "output": "{\n  \"status\": \"STATUS_READY_7K\",\n  \"record_id\": \"work-42\"\n}",
+      "utf8_bytes": 59,
+      "ready_answer_occurrences": 1,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "split_complementary_text",
+      "boundary": "native_tool_message",
+      "output": "FILE_ANSWER_19\nSECOND_LINE_24",
+      "utf8_bytes": 29,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "fileName": "shared.txt"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "SECOND_LINE_24"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "whitespace_plus_data",
+      "boundary": "native_tool_message",
+      "output": "{\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}",
+      "utf8_bytes": 53,
+      "ready_answer_occurrences": 1,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "empty_object",
+      "boundary": "native_tool_message",
+      "output": "{}",
+      "utf8_bytes": 2,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {}
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "explicit_empty_object"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "typed_nested_values",
+      "boundary": "native_tool_message",
+      "output": "{\"record\": {\"count\": 0, \"labels\": [\"研发\", \"é\"], \"note\": null, \"ready\": false}}",
+      "utf8_bytes": 82,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "record": {
+            "count": 0,
+            "ready": false,
+            "note": null,
+            "labels": [
+              "研发",
+              "é"
+            ]
+          }
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record": {
+                "count": 0,
+                "ready": false,
+                "note": null,
+                "labels": [
+                  "研发",
+                  "é"
+                ]
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "application_private_meta",
+      "boundary": "native_tool_message",
+      "output": "{\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}",
+      "utf8_bytes": 53,
+      "ready_answer_occurrences": 1,
+      "application_metadata": {
+        "meta": {
+          "application_only": "PRIVATE_APP_88"
+        },
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "conflicting_channels",
+      "boundary": "native_tool_message",
+      "output": "{\"status\": \"STATUS_BLOCKED_3Q\"}",
+      "utf8_bytes": 31,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "record_id": "work-42",
+          "status": "STATUS_READY_7K"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_BLOCKED_3Q"
+            }
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "after",
+      "fixture": "structured_error",
+      "boundary": "native_tool_message",
+      "output": "Error from MCP tool 'get_record': []",
+      "utf8_bytes": 36,
+      "ready_answer_occurrences": 0,
+      "application_metadata": {
+        "structured_content": {
+          "code": "DENIED_REASON_43"
+        }
+      },
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "code": "DENIED_REASON_43"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "structured_only",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"\"}",
+      "utf8_bytes": 14,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "summary_plus_data",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"Query completed; details follow in structuredContent.\"}",
+      "utf8_bytes": 67,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "file_plus_metadata",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"FILE_ANSWER_19\"}",
+      "utf8_bytes": 28,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "equivalent_dual",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\"}",
+      "utf8_bytes": 75,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "reordered_equivalent",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"{\\n  \\\"status\\\": \\\"STATUS_READY_7K\\\",\\n  \\\"record_id\\\": \\\"work-42\\\"\\n}\"}",
+      "utf8_bytes": 84,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "split_complementary_text",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"FILE_ANSWER_19\\nSECOND_LINE_24\"}",
+      "utf8_bytes": 44,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "SECOND_LINE_24"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "whitespace_plus_data",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \" \\n\\t \"}",
+      "utf8_bytes": 20,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "empty_object",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"\"}",
+      "utf8_bytes": 14,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "explicit_empty_object"
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "typed_nested_values",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"\"}",
+      "utf8_bytes": 14,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record": {
+                "count": 0,
+                "ready": false,
+                "note": null,
+                "labels": [
+                  "研发",
+                  "é"
+                ]
+              }
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "application_private_meta",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\"}",
+      "utf8_bytes": 75,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "conflicting_channels",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"{\\\"status\\\": \\\"STATUS_BLOCKED_3Q\\\"}\"}",
+      "utf8_bytes": 49,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_BLOCKED_3Q"
+            }
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-before",
+      "fixture": "structured_error",
+      "boundary": "native_handler_output",
+      "output": "{\"error\": \"MCP tool returned an error\"}",
+      "utf8_bytes": 39,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "code": "DENIED_REASON_43"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "structured_only",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "summary_plus_data",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "file_plus_metadata",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"fileName\": \"shared.txt\"}}",
+      "utf8_bytes": 38,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "equivalent_dual",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "reordered_equivalent",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "split_complementary_text",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"fileName\": \"shared.txt\"}}",
+      "utf8_bytes": 38,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": false
+        },
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "SECOND_LINE_24"
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "whitespace_plus_data",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "empty_object",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {}}",
+      "utf8_bytes": 14,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "explicit_empty_object"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "typed_nested_values",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"record\": {\"count\": 0, \"ready\": false, \"note\": null, \"labels\": [\"\\u7814\\u53d1\", \"\\u00e9\"]}}}",
+      "utf8_bytes": 104,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record": {
+                "count": 0,
+                "ready": false,
+                "note": null,
+                "labels": [
+                  "研发",
+                  "é"
+                ]
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "application_private_meta",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "conflicting_channels",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_BLOCKED_3Q"
+            }
+          },
+          "present": false
+        },
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-structured-first",
+      "fixture": "structured_error",
+      "boundary": "native_handler_output",
+      "output": "{\"error\": \"MCP tool returned an error\"}",
+      "utf8_bytes": 39,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "code": "DENIED_REASON_43"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "structured_only",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "summary_plus_data",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"Query completed; details follow in structuredContent.\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 143,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "file_plus_metadata",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"FILE_ANSWER_19\", \"structuredContent\": {\"fileName\": \"shared.txt\"}}",
+      "utf8_bytes": 77,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "equivalent_dual",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 151,
+      "ready_answer_occurrences": 2,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "reordered_equivalent",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"{\\n  \\\"status\\\": \\\"STATUS_READY_7K\\\",\\n  \\\"record_id\\\": \\\"work-42\\\"\\n}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 160,
+      "ready_answer_occurrences": 2,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "split_complementary_text",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"FILE_ANSWER_19\\nSECOND_LINE_24\", \"structuredContent\": {\"fileName\": \"shared.txt\"}}",
+      "utf8_bytes": 93,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "SECOND_LINE_24"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "whitespace_plus_data",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \" \\n\\t \", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 96,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "empty_object",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {}}",
+      "utf8_bytes": 14,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "explicit_empty_object"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "typed_nested_values",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": {\"record\": {\"count\": 0, \"ready\": false, \"note\": null, \"labels\": [\"\\u7814\\u53d1\", \"\\u00e9\"]}}}",
+      "utf8_bytes": 104,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record": {
+                "count": 0,
+                "ready": false,
+                "note": null,
+                "labels": [
+                  "研发",
+                  "é"
+                ]
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "application_private_meta",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 151,
+      "ready_answer_occurrences": 2,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "conflicting_channels",
+      "boundary": "native_handler_output",
+      "output": "{\"result\": \"{\\\"status\\\": \\\"STATUS_BLOCKED_3Q\\\"}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 125,
+      "ready_answer_occurrences": 1,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_BLOCKED_3Q"
+            }
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "hermes-combined",
+      "fixture": "structured_error",
+      "boundary": "native_handler_output",
+      "output": "{\"error\": \"MCP tool returned an error\"}",
+      "utf8_bytes": 39,
+      "ready_answer_occurrences": 0,
+      "application_metadata": null,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "code": "DENIED_REASON_43"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    }
+  ],
+  "oracle_selfchecks": [
+    {
+      "case": "correct_types",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "case": "bool_is_not_int",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "case": "string_is_not_int",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "case": "wrong_key",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "case": "envelope_is_allowed",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "case": "truncation",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "case": "missing_object",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "case": "empty_enveloped",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "case": "metadata_leak",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "case": "metadata_excluded",
+      "expected": true,
+      "observed": true
+    }
+  ],
+  "fixture_sha256": "58148edc5f21ec4b44de9786e6eae1e3473993272e8d4f375b0886d12421f383",
+  "paid_api_calls": 0,
+  "limits": [
+    "12 authored controls across five implementations; not 60 natural incidents.",
+    "Agno native message and Hermes handler boundaries differ; do not rank framework pass rates.",
+    "Typed JSON subset checks are fixture-specific, not a general semantic oracle.",
+    "Conflict retention does not resolve authority or identify the true answer.",
+    "Bytes/occurrences are not token costs or measured downstream model harm.",
+    "Structured error is a prospective diagnostic; no new real-world defect claim."
+  ]
+}

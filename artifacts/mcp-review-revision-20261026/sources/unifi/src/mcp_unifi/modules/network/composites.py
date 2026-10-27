@@ -1,0 +1,934 @@
+"""Composite tools that wrap multiple primitives with rollback on failure.
+
+- ``create_iot_network``: VLAN + WLAN + isolation rule, rolled back if any step fails.
+- ``create_guest_network``: like IoT but with ``is_guest=True``.
+- ``provision_homelab_service``: lease + firewall + (optional) port forwards.
+- ``quarantine_client``: block + structured log entry.
+- ``audit_open_ports``: read-only summary of WAN exposure.
+
+Every payload and record these tools emit goes through
+:func:`mcp_unifi.redaction.redact` on the way out, matching ``wlans``. The IoT
+and guest composites take a ``passphrase`` argument and build a WLAN payload
+around it, so all three emission points leak it otherwise: the ``dry_run``
+preview echoes the payload back verbatim, the success response carries the
+WLAN record the controller echoes back, and the rollback response carries the
+same record under ``partial``. The rollback path is the one that is easy to
+miss — it fires precisely when something went wrong, which is when the output
+is most likely to be pasted somewhere.
+"""
+
+from __future__ import annotations
+
+import logging
+from typing import TYPE_CHECKING, Any
+
+from mcp_unifi.annotations import CREATE, DESTRUCTIVE, READ_ONLY
+from mcp_unifi.backends import Backend
+from mcp_unifi.clients.unifi import UniFiError
+from mcp_unifi.dispatcher import resolve_backend
+from mcp_unifi.modules._audit import audited
+from mcp_unifi.modules._params import (
+    BoundedName,
+    BoundedSecret,
+    BoundedSsid,
+    BoundedText,
+)
+from mcp_unifi.modules.network._common import (
+    format_json,
+    make_err,
+    normalize_ip_subnet,
+    resolve_default_ap_group,
+    subnet_to_dhcp,
+    subnet_to_network_form,
+    upsert_dhcp_lease,
+    wan_zone_ids,
+    zone_names_by_id,
+)
+from mcp_unifi.redaction import redact
+
+if TYPE_CHECKING:
+    from fastmcp import FastMCP
+
+    from mcp_unifi.config import Settings
+    from mcp_unifi.dispatcher import ControllerRegistry
+
+logger = logging.getLogger("mcp_unifi.network.composites")
+
+# Composite dry-runs surface placeholder IDs so the predicted graph reads
+# as a complete shape. Real applies replace these with real ``_id`` strings
+# returned by the controller.
+DRY_RUN_NETWORK_ID = "<dry-run-network-id>"
+DRY_RUN_WLAN_ID = "<dry-run-wlan-id>"
+DRY_RUN_FIREWALL_ID = "<dry-run-firewall-rule-id>"
+DRY_RUN_LEASE_ID = "<dry-run-dhcp-lease-id>"
+DRY_RUN_PORT_FORWARD_ID = "<dry-run-port-forward-id>"
+
+
+async def _delete_resource(backend: Backend, kind: str, resource_id: str) -> bool:
+    """Best-effort cleanup helper shared by the composites."""
+    try:
+        if kind == "network":
+            return await backend.delete_network(resource_id)
+        if kind == "wlan":
+            return await backend.delete_wlan(resource_id)
+        if kind == "firewall_rule":
+            return await backend.delete_firewall_rule(resource_id)
+        if kind == "dhcp_lease":
+            return await backend.delete_dhcp_lease(resource_id)
+        if kind == "port_forward":
+            return await backend.delete_port_forward(resource_id)
+        return False
+    except UniFiError as exc:
+        logger.error(
+            "rollback delete failed",
+            extra={"kind": kind, "resource_id": resource_id, "error": str(exc)},
+        )
+        return False
+
+
+def register(mcp: FastMCP, settings: Settings, registry: ControllerRegistry) -> None:
+    err = make_err(settings)
+
+    @mcp.tool(annotations=CREATE)
+    @audited("create_iot_network", mutates=True)
+    async def create_iot_network(
+        name: BoundedName,
+        vlan_id: int,
+        passphrase: BoundedSecret,
+        main_lan_subnet: str = "192.168.1.0/24",
+        subnet: str = "",
+        isolate: bool = True,
+        hide_ssid: bool = False,
+        controller: str = "default",
+        dry_run: bool = False,
+    ) -> str:
+        """Provision an isolated IoT network end-to-end: VLAN + SSID + drop rule.
+
+        Side effects:
+        - Step 1: creates a VLAN-tagged network at the given ``subnet`` (or
+          ``10.0.<vlan_id>.0/24`` by default).
+        - Step 2: creates a WPA2 WiFi SSID bound to the new network. Access
+          points start broadcasting within seconds.
+        - Step 3 (when ``isolate=True``): creates a LAN_IN drop rule blocking
+          the IoT subnet from reaching ``main_lan_subnet``.
+        - Mutates controller state. Use dry_run=True to preview the change
+          without applying.
+        - Rollback: if any sub-step fails, all prior sub-steps are reverted
+          (firewall_rule → wlan → network) and the response includes
+          ``rolled_back`` and ``partial`` keys.
+
+        The ``passphrase`` is **redacted** to ``"[REDACTED]"`` everywhere this
+        tool emits it: the ``dry_run`` preview, the created WLAN record, and
+        the ``partial`` record on a rollback. There is no opt-in flag.
+
+        Example: create_iot_network(name="iot", vlan_id=50, passphrase="hunter2hunter2", main_lan_subnet="192.168.1.0/24")
+
+        Args:
+            name: Used for both the network name and the SSID (e.g. ``"iot"``).
+            vlan_id: 802.1Q VLAN ID, 2-4094. Also drives the default subnet.
+            passphrase: WPA2 PSK for the IoT SSID (8-63 chars).
+            main_lan_subnet: CIDR of the main/trusted LAN. The isolation rule
+                blocks IoT → this subnet. Defaults to ``"192.168.1.0/24"``.
+            subnet: Override the IoT subnet. Empty uses
+                ``IOT_SUBNET_TEMPLATE`` (default ``10.0.{vlan_id}.0/24``).
+            isolate: ``True`` (default) creates the LAN_IN drop rule. ``False``
+                lets IoT devices reach the main LAN (rare).
+            hide_ssid: ``True`` suppresses SSID broadcast.
+            controller: Name of the UniFi controller to target. Defaults to
+                ``"default"``.
+            dry_run: Preview the change without applying it. Returns the
+                predicted change set.
+        """
+        if not 2 <= vlan_id <= 4094:
+            return err(f"vlan_id {vlan_id} out of range (2-4094)")
+
+        iot_subnet = normalize_ip_subnet(
+            subnet or settings.iot_subnet_template.format(vlan_id=vlan_id)
+        )
+        _, dhcp_start, dhcp_stop = subnet_to_dhcp(
+            iot_subnet,
+            settings.iot_dhcp_start_offset,
+            settings.iot_dhcp_stop_offset,
+        )
+
+        net_payload: dict[str, Any] = {
+            "name": name,
+            "purpose": "corporate",
+            "vlan_enabled": True,
+            "vlan": vlan_id,
+            "ip_subnet": iot_subnet,
+            "dhcpd_enabled": True,
+            "dhcpd_start": dhcp_start,
+            "dhcpd_stop": dhcp_stop,
+            "enabled": True,
+        }
+        wlan_payload: dict[str, Any] = {
+            "name": name,
+            "enabled": True,
+            "security": "wpapsk",
+            "wpa_mode": "wpa2",
+            "x_passphrase": passphrase,
+            "networkconf_id": DRY_RUN_NETWORK_ID,
+            "is_guest": False,
+            "hide_ssid": hide_ssid,
+            "wlan_band": "both",
+            "ap_group_ids": ["<auto-resolve-default>"],
+            "ap_group_mode": "all",
+        }
+        fw_payload: dict[str, Any] | None = None
+        if isolate:
+            fw_payload = {
+                "name": f"Block {name} -> Main LAN",
+                "ruleset": "LAN_IN",
+                "rule_index": 20000 + vlan_id,
+                "action": "drop",
+                "protocol": "all",
+                "enabled": True,
+                "src_address": subnet_to_network_form(iot_subnet),
+                "dst_address": main_lan_subnet,
+            }
+
+        if dry_run:
+            would_create: dict[str, Any] = {
+                "network": net_payload,
+                "wlan": wlan_payload,
+            }
+            if fw_payload is not None:
+                would_create["firewall_rule"] = fw_payload
+            return format_json(
+                {
+                    "dry_run": True,
+                    "controller": controller,
+                    # The WLAN payload carries the caller's passphrase.
+                    "would_create": redact(would_create),
+                    "summary": (
+                        f"Would create IoT network '{name}' (VLAN {vlan_id}) "
+                        f"on {iot_subnet}"
+                        f"{', SSID, and isolation rule' if isolate else ' and SSID'}"
+                    ),
+                    "note": (
+                        "WLAN.networkconf_id and downstream IDs are placeholders; "
+                        "the real apply substitutes the controller-assigned _id."
+                    ),
+                }
+            )
+
+        try:
+            backend = resolve_backend(registry, controller)
+        except UniFiError as exc:
+            return err(str(exc))
+        created: dict[str, Any] = {
+            "network": None,
+            "wlan": None,
+            "firewall_rule": None,
+        }
+
+        async def _rollback(failed_step: str) -> list[dict[str, Any]]:
+            actions: list[dict[str, Any]] = []
+            if created["firewall_rule"] and (fw_id := created["firewall_rule"].get("_id")):
+                ok = await _delete_resource(backend, "firewall_rule", fw_id)
+                actions.append({"firewall_rule": fw_id, "deleted": ok})
+            if created["wlan"] and (wlan_id := created["wlan"].get("_id")):
+                ok = await _delete_resource(backend, "wlan", wlan_id)
+                actions.append({"wlan": wlan_id, "deleted": ok})
+            if created["network"] and (net_id := created["network"].get("_id")):
+                ok = await _delete_resource(backend, "network", net_id)
+                actions.append({"network": net_id, "deleted": ok})
+            logger.warning(
+                "create_iot_network rolled back",
+                extra={"failed_step": failed_step, "rolled_back": actions},
+            )
+            return actions
+
+        async def _fail(step: str, exc: Exception) -> str:
+            rolled_back = await _rollback(step)
+            return format_json(
+                {
+                    "error": f"create_iot_network failed at {step}: {exc}",
+                    "stub_mode": settings.stub_mode,
+                    # ``partial`` holds whatever the controller already
+                    # created, WLAN record and passphrase included.
+                    "partial": redact(created),
+                    "rolled_back": rolled_back,
+                }
+            )
+
+        # Step 1: VLAN
+        try:
+            created["network"] = await backend.create_network(net_payload)
+        except UniFiError as exc:
+            logger.exception("create_iot_network: VLAN step failed")
+            return await _fail("vlan", exc)
+
+        net_id = (created["network"] or {}).get("_id")
+        if not net_id:
+            return await _fail("vlan", UniFiError("VLAN created but no _id returned"))
+
+        # Step 2: SSID
+        wlan_payload_real = dict(wlan_payload)
+        wlan_payload_real["networkconf_id"] = net_id
+        try:
+            wlan_payload_real["ap_group_ids"] = await resolve_default_ap_group(backend)
+        except UniFiError as exc:
+            logger.exception("create_iot_network: AP-group resolve failed")
+            return await _fail("wlan", exc)
+        if not wlan_payload_real["ap_group_ids"]:
+            return await _fail(
+                "wlan",
+                UniFiError("no AP groups found on controller; cannot create WLAN"),
+            )
+        try:
+            created["wlan"] = await backend.create_wlan(wlan_payload_real)
+        except UniFiError as exc:
+            logger.exception("create_iot_network: WLAN step failed")
+            return await _fail("wlan", exc)
+
+        # Step 3: isolation rule (optional)
+        if fw_payload is not None:
+            try:
+                created["firewall_rule"] = await backend.create_firewall_rule(fw_payload)
+            except UniFiError as exc:
+                logger.exception("create_iot_network: firewall step failed")
+                return await _fail("firewall_rule", exc)
+
+        return format_json(
+            {
+                "summary": (
+                    f"IoT network '{name}' (VLAN {vlan_id}) on {iot_subnet}"
+                    f"{' with isolation' if isolate else ''}"
+                ),
+                # The controller echoes the WLAN record back with the
+                # passphrase it was just given.
+                **redact(created),
+            }
+        )
+
+    @mcp.tool(annotations=CREATE)
+    @audited("provision_homelab_service", mutates=True)
+    async def provision_homelab_service(
+        name: BoundedName,
+        mac: str,
+        ip: str,
+        network_id: str,
+        ports: list[int] | None = None,
+        wan_expose: bool = False,
+        controller: str = "default",
+        dry_run: bool = False,
+    ) -> str:
+        """Stand up a homelab service: DHCP lease + firewall allow + (optional) port forwards.
+
+        Side effects:
+        - Step 1: creates a static DHCP reservation pinning ``mac`` to
+          ``ip`` on the named network.
+        - Step 2 (when ``ports`` is non-empty): creates a LAN_LOCAL accept
+          firewall rule for ``ip`` on the requested TCP ports.
+        - Step 3 (when ``wan_expose=True`` and ``ports`` is non-empty):
+          creates one port-forward rule per port, exposing the service to
+          the WAN.
+        - Mutates controller state. Use dry_run=True to preview the change
+          without applying.
+        - Rollback: if any sub-step fails, all prior sub-steps are reverted
+          in reverse order (port_forwards → firewall_rule → lease) and the
+          response includes ``rolled_back`` and ``partial`` keys.
+
+        Example: provision_homelab_service(name="plex", mac="aa:bb:cc:00:00:01", ip="10.50.0.10", network_id="65f...", ports=[32400], wan_expose=False)
+
+        Args:
+            name: Display name (used for both the lease and the firewall
+                rule, e.g. ``"plex"``).
+            mac: Client MAC address (e.g. ``"aa:bb:cc:00:00:01"``).
+            ip: IPv4 address to reserve (must fall inside the network's
+                subnet).
+            network_id: ``_id`` of the network/VLAN this service lives on.
+            ports: TCP ports the service listens on (e.g. ``[80, 443]``).
+                Empty creates only the lease.
+            wan_expose: ``True`` also creates port-forward rules so the
+                service is reachable from the WAN. Default ``False``
+                (LAN-only).
+            controller: Name of the UniFi controller to target. Defaults to
+                ``"default"``.
+            dry_run: Preview the change without applying it. Returns the
+                predicted change set.
+        """
+        ports = ports or []
+
+        lease_payload: dict[str, Any] = {
+            "mac": mac,
+            "use_fixedip": True,
+            "fixed_ip": ip,
+            "network_id": network_id,
+            "name": name,
+        }
+        fw_payload: dict[str, Any] | None = None
+        if ports:
+            fw_payload = {
+                "name": f"Allow {name}",
+                "ruleset": "LAN_LOCAL",
+                "rule_index": 20400,
+                "action": "accept",
+                "protocol": "tcp",
+                "enabled": True,
+                "dst_address": f"{ip}/32",
+                "dst_port": ",".join(str(p) for p in ports),
+            }
+        pf_payloads: list[dict[str, Any]] = []
+        if wan_expose and ports:
+            for port in ports:
+                pf_payloads.append(
+                    {
+                        "name": f"{name} :{port}",
+                        "fwd": ip,
+                        "fwd_port": str(port),
+                        "dst_port": str(port),
+                        "proto": "tcp",
+                        "src": "any",
+                        "enabled": True,
+                        "log": False,
+                    }
+                )
+
+        if dry_run:
+            would_create: dict[str, Any] = {"lease": lease_payload}
+            if fw_payload is not None:
+                would_create["firewall_rule"] = fw_payload
+            if pf_payloads:
+                would_create["port_forwards"] = pf_payloads
+            return format_json(
+                {
+                    "dry_run": True,
+                    "controller": controller,
+                    "would_create": would_create,
+                    "summary": (
+                        f"Would provision '{name}' at {ip}"
+                        + (f" with {len(ports)} port(s)" if ports else "")
+                        + (" (WAN-exposed)" if wan_expose and ports else "")
+                    ),
+                    "note": ("Composite preview. Real apply rolls back on partial failure."),
+                }
+            )
+
+        try:
+            backend = resolve_backend(registry, controller)
+        except UniFiError as exc:
+            return err(str(exc))
+        created: dict[str, Any] = {
+            "lease": None,
+            "firewall_rule": None,
+            "port_forwards": [],
+        }
+
+        async def _rollback(failed_step: str) -> list[dict[str, Any]]:
+            actions: list[dict[str, Any]] = []
+            for pf in reversed(created["port_forwards"]):
+                pf_id = pf.get("_id")
+                if pf_id:
+                    ok = await _delete_resource(backend, "port_forward", pf_id)
+                    actions.append({"port_forward": pf_id, "deleted": ok})
+            if created["firewall_rule"] and (fw_id := created["firewall_rule"].get("_id")):
+                ok = await _delete_resource(backend, "firewall_rule", fw_id)
+                actions.append({"firewall_rule": fw_id, "deleted": ok})
+            if created["lease"] and (lease_id := created["lease"].get("_id")):
+                ok = await _delete_resource(backend, "dhcp_lease", lease_id)
+                actions.append({"dhcp_lease": lease_id, "deleted": ok})
+            logger.warning(
+                "provision_homelab_service rolled back",
+                extra={"failed_step": failed_step, "rolled_back": actions},
+            )
+            return actions
+
+        async def _fail(step: str, exc: Exception) -> str:
+            rolled_back = await _rollback(step)
+            return format_json(
+                {
+                    "error": f"provision_homelab_service failed at {step}: {exc}",
+                    "stub_mode": settings.stub_mode,
+                    "partial": created,
+                    "rolled_back": rolled_back,
+                }
+            )
+
+        # Step 1: lease. A known client (anything that ever connected) has a
+        # user record already and the controller refuses a second one with
+        # api.err.MacUsed, so this is an upsert: PUT to the existing record
+        # or POST a new one. Rollback clears the flag either way.
+        try:
+            created["lease"] = await upsert_dhcp_lease(backend, lease_payload)
+        except UniFiError as exc:
+            return await _fail("lease", exc)
+
+        # Step 2: firewall allow rule (LAN_LOCAL accept to the service IP)
+        if fw_payload is not None:
+            try:
+                created["firewall_rule"] = await backend.create_firewall_rule(fw_payload)
+            except UniFiError as exc:
+                return await _fail("firewall_rule", exc)
+
+        # Step 3: port forwards (optional)
+        for pf_payload in pf_payloads:
+            try:
+                created["port_forwards"].append(await backend.create_port_forward(pf_payload))
+            except UniFiError as exc:
+                return await _fail("port_forward", exc)
+
+        return format_json(
+            {
+                "summary": (
+                    f"Provisioned '{name}' at {ip}"
+                    + (f" with {len(ports)} port(s)" if ports else "")
+                    + (" (WAN-exposed)" if wan_expose and ports else "")
+                ),
+                **created,
+            }
+        )
+
+    @mcp.tool(annotations=DESTRUCTIVE)
+    @audited("quarantine_client", mutates=True)
+    async def quarantine_client(
+        mac: str,
+        reason: BoundedText = "",
+        controller: str = "default",
+        dry_run: bool = False,
+    ) -> str:
+        """Block a client and log the quarantine action with a reason.
+
+        Side effects:
+        - Step 1: adds the MAC to the controller's user-block list (same as
+          ``block_client``). The client is immediately disconnected and
+          prevented from re-associating until ``unblock_client`` is called.
+        - Step 2: appends a WARNING-level structured log entry capturing
+          ``mac`` and ``reason`` for later forensics.
+        - Mutates controller state. Use dry_run=True to preview the change
+          without applying.
+        - Rollback: if any sub-step fails, all prior sub-steps are reverted
+          (the log entry is best-effort and not unwound; only step 1
+          mutates the controller).
+
+        Example: quarantine_client(mac="aa:bb:cc:00:00:01", reason="suspected malware c2")
+
+        Args:
+            mac: Client MAC address (e.g. ``"aa:bb:cc:00:00:01"``).
+            reason: Free-form justification (kept in logs only,
+                e.g. ``"suspected malware c2"``).
+            controller: Name of the UniFi controller to target. Defaults to
+                ``"default"``.
+            dry_run: Preview the change without applying it. Returns the
+                predicted change set.
+        """
+        if dry_run:
+            return format_json(
+                {
+                    "dry_run": True,
+                    "controller": controller,
+                    "would_apply": {
+                        "action": "quarantine",
+                        "mac": mac,
+                        "reason": reason or "(none provided)",
+                    },
+                    "summary": f"Would quarantine client {mac}",
+                }
+            )
+        try:
+            backend = resolve_backend(registry, controller)
+            blocked = await backend.block_client(mac)
+            if blocked is None:
+                return err(f"client {mac} not found")
+            logger.warning(
+                "client quarantined",
+                extra={"mac": mac, "reason": reason or "(none provided)"},
+            )
+            return format_json({"quarantined": True, "mac": mac, "reason": reason})
+        except UniFiError as exc:
+            logger.exception("quarantine_client failed", extra={"mac": mac})
+            return err(str(exc))
+
+    @mcp.tool(annotations=CREATE)
+    @audited("create_guest_network", mutates=True)
+    async def create_guest_network(
+        name: BoundedName,
+        ssid: BoundedSsid,
+        passphrase: BoundedSecret,
+        vlan_id: int,
+        main_lan_subnet: str = "192.168.1.0/24",
+        subnet: str = "",
+        schedule: BoundedText = "",
+        hide_ssid: bool = False,
+        controller: str = "default",
+        dry_run: bool = False,
+    ) -> str:
+        """Provision an isolated guest network end-to-end: VLAN + guest SSID + drop rule.
+
+        Side effects:
+        - Step 1: creates a VLAN-tagged network with ``purpose="guest"`` at
+          the given ``subnet`` (or ``10.0.<vlan_id>.0/24`` by default).
+        - Step 2: creates a guest WPA2 WiFi SSID (client isolation enabled)
+          bound to the new network. Access points start broadcasting within
+          seconds.
+        - Step 3: creates a LAN_IN drop rule blocking the guest subnet from
+          reaching ``main_lan_subnet``.
+        - Mutates controller state. Use dry_run=True to preview the change
+          without applying.
+        - Rollback: if any sub-step fails, all prior sub-steps are reverted
+          (firewall_rule → wlan → network) and the response includes
+          ``rolled_back`` and ``partial`` keys.
+
+        The ``passphrase`` is **redacted** to ``"[REDACTED]"`` everywhere this
+        tool emits it: the ``dry_run`` preview, the created WLAN record, and
+        the ``partial`` record on a rollback. There is no opt-in flag.
+
+        Example: create_guest_network(name="guest", ssid="guest-wifi", passphrase="hunter2hunter2", vlan_id=60, main_lan_subnet="192.168.1.0/24")
+
+        Args:
+            name: Display name for the network record (e.g. ``"guest"``).
+            ssid: SSID to broadcast (e.g. ``"guest-wifi"``).
+            passphrase: WPA2 PSK (8-63 chars).
+            vlan_id: 802.1Q VLAN ID, 2-4094.
+            main_lan_subnet: CIDR of the main LAN. The drop rule blocks
+                guest → this subnet.
+            subnet: Override the guest subnet. Empty uses
+                ``IOT_SUBNET_TEMPLATE`` (default ``10.0.{vlan_id}.0/24``).
+            schedule: Optional schedule descriptor (controller field
+                ``schedule``). Empty = always on.
+            hide_ssid: ``True`` suppresses SSID broadcast (rare for guest).
+            controller: Name of the UniFi controller to target. Defaults to
+                ``"default"``.
+            dry_run: Preview the change without applying it. Returns the
+                predicted change set.
+        """
+        if not 2 <= vlan_id <= 4094:
+            return err(f"vlan_id {vlan_id} out of range (2-4094)")
+
+        guest_subnet = normalize_ip_subnet(
+            subnet or settings.iot_subnet_template.format(vlan_id=vlan_id)
+        )
+        _, dhcp_start, dhcp_stop = subnet_to_dhcp(
+            guest_subnet,
+            settings.iot_dhcp_start_offset,
+            settings.iot_dhcp_stop_offset,
+        )
+
+        net_payload: dict[str, Any] = {
+            "name": name,
+            "purpose": "guest",
+            "vlan_enabled": True,
+            "vlan": vlan_id,
+            "ip_subnet": guest_subnet,
+            "dhcpd_enabled": True,
+            "dhcpd_start": dhcp_start,
+            "dhcpd_stop": dhcp_stop,
+            "enabled": True,
+        }
+        wlan_payload: dict[str, Any] = {
+            "name": ssid,
+            "enabled": True,
+            "security": "wpapsk",
+            "wpa_mode": "wpa2",
+            "x_passphrase": passphrase,
+            "networkconf_id": DRY_RUN_NETWORK_ID,
+            "is_guest": True,
+            "hide_ssid": hide_ssid,
+            "wlan_band": "both",
+            "ap_group_ids": ["<auto-resolve-default>"],
+            "ap_group_mode": "all",
+        }
+        if schedule:
+            wlan_payload["schedule"] = schedule
+
+        fw_payload: dict[str, Any] = {
+            "name": f"Block {name} -> Main LAN",
+            "ruleset": "LAN_IN",
+            "rule_index": 20000 + vlan_id,
+            "action": "drop",
+            "protocol": "all",
+            "enabled": True,
+            "src_address": subnet_to_network_form(guest_subnet),
+            "dst_address": main_lan_subnet,
+        }
+
+        if dry_run:
+            return format_json(
+                {
+                    "dry_run": True,
+                    "controller": controller,
+                    # The WLAN payload carries the caller's passphrase.
+                    "would_create": redact(
+                        {
+                            "network": net_payload,
+                            "wlan": wlan_payload,
+                            "firewall_rule": fw_payload,
+                        }
+                    ),
+                    "summary": (
+                        f"Would create guest network '{name}' (VLAN {vlan_id}) "
+                        f"on {guest_subnet}"
+                        f"{' with schedule' if schedule else ''}"
+                    ),
+                    "note": (
+                        "WLAN.networkconf_id is a placeholder; the real apply "
+                        "substitutes the controller-assigned _id."
+                    ),
+                }
+            )
+
+        try:
+            backend = resolve_backend(registry, controller)
+        except UniFiError as exc:
+            return err(str(exc))
+        created: dict[str, Any] = {
+            "network": None,
+            "wlan": None,
+            "firewall_rule": None,
+        }
+
+        async def _rollback(failed_step: str) -> list[dict[str, Any]]:
+            actions: list[dict[str, Any]] = []
+            if created["firewall_rule"] and (fw_id := created["firewall_rule"].get("_id")):
+                ok = await _delete_resource(backend, "firewall_rule", fw_id)
+                actions.append({"firewall_rule": fw_id, "deleted": ok})
+            if created["wlan"] and (wlan_id := created["wlan"].get("_id")):
+                ok = await _delete_resource(backend, "wlan", wlan_id)
+                actions.append({"wlan": wlan_id, "deleted": ok})
+            if created["network"] and (net_id := created["network"].get("_id")):
+                ok = await _delete_resource(backend, "network", net_id)
+                actions.append({"network": net_id, "deleted": ok})
+            logger.warning(
+                "create_guest_network rolled back",
+                extra={"failed_step": failed_step, "rolled_back": actions},
+            )
+            return actions
+
+        async def _fail(step: str, exc: Exception) -> str:
+            rolled_back = await _rollback(step)
+            return format_json(
+                {
+                    "error": f"create_guest_network failed at {step}: {exc}",
+                    "stub_mode": settings.stub_mode,
+                    # ``partial`` holds whatever the controller already
+                    # created, WLAN record and passphrase included.
+                    "partial": redact(created),
+                    "rolled_back": rolled_back,
+                }
+            )
+
+        # VLAN — guest purpose
+        try:
+            created["network"] = await backend.create_network(net_payload)
+        except UniFiError as exc:
+            return await _fail("vlan", exc)
+
+        net_id = (created["network"] or {}).get("_id")
+        if not net_id:
+            return await _fail("vlan", UniFiError("VLAN created but no _id returned"))
+
+        # Guest WLAN
+        wlan_payload_real = dict(wlan_payload)
+        wlan_payload_real["networkconf_id"] = net_id
+        try:
+            wlan_payload_real["ap_group_ids"] = await resolve_default_ap_group(backend)
+        except UniFiError as exc:
+            return await _fail("wlan", exc)
+        if not wlan_payload_real["ap_group_ids"]:
+            return await _fail(
+                "wlan",
+                UniFiError("no AP groups found on controller; cannot create WLAN"),
+            )
+        try:
+            created["wlan"] = await backend.create_wlan(wlan_payload_real)
+        except UniFiError as exc:
+            return await _fail("wlan", exc)
+
+        # Isolation rule
+        try:
+            created["firewall_rule"] = await backend.create_firewall_rule(fw_payload)
+        except UniFiError as exc:
+            return await _fail("firewall_rule", exc)
+
+        return format_json(
+            {
+                "summary": (
+                    f"Guest network '{name}' (VLAN {vlan_id}) on {guest_subnet}"
+                    f"{' with schedule' if schedule else ''}"
+                ),
+                # The controller echoes the WLAN record back with the
+                # passphrase it was just given.
+                **redact(created),
+            }
+        )
+
+    @mcp.tool(annotations=READ_ONLY)
+    @audited("audit_open_ports", mutates=False)
+    async def audit_open_ports(controller: str = "default") -> str:
+        """Audit WAN-facing exposure: port forwards plus WAN accept rules and policies.
+
+        Side effects: None (read-only).
+
+        Cross-references port forwards with BOTH firewall models a controller
+        can run, so a site on the Zone-Based Firewall is not reported as
+        clean just because its legacy rulesets are empty (issue #112):
+        - Active port forwards (DNAT into the LAN).
+        - Legacy ``WAN_*`` ``accept`` rules, excluding the boilerplate
+          established/related rule.
+        - Zone-Based Firewall ``ALLOW`` policies whose source zone is the WAN
+          (``External``) zone, excluding return-traffic allowances
+          (``connection_state_type == "RESPOND_ONLY"``); the number excluded
+          is reported. ``predefined`` policies are NOT excluded: the zone
+          matrix implements "External to Internal: Allow" as a predefined
+          "Allow All Traffic" policy, which is exactly the exposure this
+          audit exists to surface, so each record carries ``predefined`` and
+          the caller can tell matrix defaults from hand-written policies.
+
+        A controller mirrors each port forward into its own predefined WAN
+        policy, so the same exposure can appear in both halves of this audit.
+        Those carry ``duplicates_port_forward: true`` and are counted in
+        ``port_forward_mirror_policies``; they are tagged rather than dropped,
+        and a ``port_forward`` policy whose origin matches no listed forward
+        stays untagged, because it admits traffic the port-forward half does
+        not show.
+
+        Returns ``{"port_forwards", "wan_accept_rules", "wan_accept_policies",
+        "firewall_model", "wan_zone_resolved",
+        "return_traffic_policies_excluded", "port_forward_mirror_policies",
+        "summary"}``. Each entry in ``wan_accept_policies`` carries
+        ``source_zone``, ``destination_zone`` and ``duplicates_port_forward``
+        alongside the controller's own fields. ``firewall_model``
+        is ``legacy``, ``zone-based``, ``mixed`` or ``none`` from what the
+        controller actually returned. If the zone-based read fails the audit
+        still answers from the legacy side and carries the failure in
+        ``firewall_policies_error`` rather than reporting a clean WAN. If
+        policies exist but no zone could be identified as WAN,
+        ``wan_zone_resolved`` is false and none are classified.
+
+        Useful as a "did I leave something open?" sanity check before
+        publishing a service or shipping a config.
+
+        Example: audit_open_ports(controller="default")
+
+        Args:
+            controller: Name of the UniFi controller to target. Defaults to
+                ``"default"``.
+        """
+        try:
+            backend = resolve_backend(registry, controller)
+            fw_rules = await backend.list_firewall_rules()
+            port_forwards = await backend.list_port_forwards()
+
+            active_pfs = [pf for pf in port_forwards if pf.get("enabled", True)]
+            wan_accept_rules = [
+                r
+                for r in fw_rules
+                if isinstance(r, dict)
+                and r.get("ruleset", "").startswith("WAN_")
+                and r.get("action") == "accept"
+                and r.get("enabled", True)
+                and not (
+                    # Filter out the boilerplate "accept established/related" rule
+                    r.get("state_established") and r.get("state_related")
+                )
+            ]
+
+            # Zone-Based Firewall side. A failure here must not turn into a
+            # clean report: keep the legacy answer and carry the error.
+            policies: list[Any] = []
+            zones: list[Any] = []
+            policies_error: str | None = None
+            try:
+                policies = list(await backend.list_firewall_policies())
+                zones = list(await backend.list_firewall_zones())
+            except UniFiError as exc:
+                logger.warning("audit_open_ports: zone-based firewall read failed: %s", exc)
+                policies_error = str(exc)
+
+            wan_ids = wan_zone_ids(zones)
+            zone_names = zone_names_by_id(zones)
+            # A port forward the controller already gave us above reappears
+            # here as its own mirror policy. Match on the forward's own id so
+            # a policy whose origin is NOT in that set stays a finding.
+            active_pf_ids = {
+                str(pf.get("_id")) for pf in active_pfs if isinstance(pf, dict) and pf.get("_id")
+            }
+            wan_accept_policies: list[dict[str, Any]] = []
+            return_traffic_excluded = 0
+            port_forward_mirrors = 0
+            for policy in policies:
+                if not isinstance(policy, dict):
+                    continue
+                source = policy.get("source")
+                source = source if isinstance(source, dict) else {}
+                if str(policy.get("action", "")).upper() != "ALLOW":
+                    continue
+                if not policy.get("enabled", True):
+                    continue
+                if str(source.get("zone_id")) not in wan_ids:
+                    continue
+                # Return-traffic allowances only admit replies to connections
+                # the inside opened; they expose nothing. Captured controller
+                # data marks them RESPOND_ONLY. Do NOT key this on
+                # ``predefined``: the matrix's "Allow All Traffic" is
+                # predefined too, and from the WAN zone it is the finding.
+                if str(policy.get("connection_state_type", "")).upper() == "RESPOND_ONLY":
+                    return_traffic_excluded += 1
+                    continue
+                destination = policy.get("destination")
+                destination = destination if isinstance(destination, dict) else {}
+                # The controller mirrors every port forward into a predefined
+                # WAN policy, so without this the same exposure is counted in
+                # both halves of one audit (issue #112 field report). Tag it,
+                # do NOT drop it: an origin id matching no listed forward is a
+                # policy admitting traffic the port-forward half never shows,
+                # which is a finding and not a duplicate.
+                mirrors_pf = (
+                    str(policy.get("origin_type", "")) == "port_forward"
+                    and str(policy.get("origin_id", "")) in active_pf_ids
+                )
+                if mirrors_pf:
+                    port_forward_mirrors += 1
+                wan_accept_policies.append(
+                    {
+                        **policy,
+                        "source_zone": zone_names.get(str(source.get("zone_id")), ""),
+                        "destination_zone": zone_names.get(str(destination.get("zone_id")), ""),
+                        "duplicates_port_forward": mirrors_pf,
+                    }
+                )
+
+            if fw_rules and policies:
+                firewall_model = "mixed"
+            elif policies:
+                firewall_model = "zone-based"
+            elif fw_rules:
+                firewall_model = "legacy"
+            else:
+                firewall_model = "none"
+
+            summary_parts: list[str] = []
+            summary_parts.append(f"{len(active_pfs)} active port forward(s)")
+            summary_parts.append(f"{len(wan_accept_rules)} WAN accept rule(s)")
+            policy_part = f"{len(wan_accept_policies)} WAN allow policy(ies)"
+            if port_forward_mirrors:
+                policy_part += f" ({port_forward_mirrors} mirroring a listed port forward)"
+            summary_parts.append(policy_part)
+            if return_traffic_excluded:
+                summary_parts.append(
+                    f"{return_traffic_excluded} return-traffic WAN policy(ies) excluded"
+                )
+            if policies_error:
+                summary_parts.append("zone-based firewall read FAILED, policies not audited")
+            elif policies and not wan_ids:
+                summary_parts.append("WAN zone unresolved, policies not classified")
+            summary = "; ".join(summary_parts)
+
+            result: dict[str, Any] = {
+                "port_forwards": active_pfs,
+                "wan_accept_rules": wan_accept_rules,
+                "wan_accept_policies": wan_accept_policies,
+                "firewall_model": firewall_model,
+                "wan_zone_resolved": bool(wan_ids),
+                "return_traffic_policies_excluded": return_traffic_excluded,
+                "port_forward_mirror_policies": port_forward_mirrors,
+                "summary": summary,
+            }
+            if policies_error:
+                result["firewall_policies_error"] = policies_error
+            return format_json(result)
+        except UniFiError as exc:
+            logger.exception("audit_open_ports failed")
+            return err(str(exc))

@@ -1,0 +1,30 @@
+[
+  {
+    "label": "hermes-first-tests",
+    "repo": "NousResearch/hermes-agent",
+    "sha": "7fe6782a25f4aeb6b792162c946cba825813beef",
+    "path": "tests/tools/test_mcp_structured_content.py",
+    "url": "https://api.github.com/repos/NousResearch/hermes-agent/contents/tests/tools/test_mcp_structured_content.py?ref=7fe6782a25f4aeb6b792162c946cba825813beef"
+  },
+  {
+    "label": "hermes-combined-tests",
+    "repo": "NousResearch/hermes-agent",
+    "sha": "04baab54228ef380eb4acf6831b68a4190748118",
+    "path": "tests/tools/test_mcp_structured_content.py",
+    "url": "https://api.github.com/repos/NousResearch/hermes-agent/contents/tests/tools/test_mcp_structured_content.py?ref=04baab54228ef380eb4acf6831b68a4190748118"
+  },
+  {
+    "label": "agno-before-tests",
+    "repo": "agno-agi/agno",
+    "sha": "4ee266d10f1da92cdc6e22b78e81d71c83d27da6",
+    "path": "libs/agno/tests/unit/tools/test_mcp.py",
+    "url": "https://api.github.com/repos/agno-agi/agno/contents/libs/agno/tests/unit/tools/test_mcp.py?ref=4ee266d10f1da92cdc6e22b78e81d71c83d27da6"
+  },
+  {
+    "label": "agno-after-tests",
+    "repo": "agno-agi/agno",
+    "sha": "b07d573422de7dd33b3b6db25fb06281a54e47f3",
+    "path": "libs/agno/tests/unit/tools/test_mcp.py",
+    "url": "https://api.github.com/repos/agno-agi/agno/contents/libs/agno/tests/unit/tools/test_mcp.py?ref=b07d573422de7dd33b3b6db25fb06281a54e47f3"
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "scope": "All values are authored; source-shaped does not mean a production recording. These classifications do not increase the five included incident records.",
+  "fixtures": [
+    {"name": "structured_only", "basis": "Historical Agno and Hermes structured-content loss reports", "class": "reported_shape_with_authored_values"},
+    {"name": "summary_plus_data", "basis": "Hermes first upstream regression test uses ordinary text with structured payload; Agno fixed cookbook documents text priority", "class": "source_test_shape_with_authored_values"},
+    {"name": "file_plus_metadata", "basis": "Hermes Desktop Commander incident and second repair regression test", "class": "reported_shape_with_authored_values"},
+    {"name": "equivalent_dual", "basis": "MCP 2025-11-25 serialized-text fallback recommendation", "class": "specification_control"},
+    {"name": "reordered_equivalent", "basis": "Representation perturbation of equivalent_dual; no additional real-world incident claimed", "class": "authored_edge_control"},
+    {"name": "split_complementary_text", "basis": "Perturbation of file_plus_metadata into two text blocks", "class": "authored_edge_control"},
+    {"name": "whitespace_plus_data", "basis": "Agno upstream patch tests response_str.strip(); probe its boundary", "class": "source_branch_control"},
+    {"name": "empty_object", "basis": "Explicit empty JSON object versus absent structuredContent; no incident frequency claim", "class": "authored_edge_control"},
+    {"name": "typed_nested_values", "basis": "Serialization diagnostic with null, false, zero, Unicode and an array", "class": "authored_edge_control"},
+    {"name": "application_private_meta", "basis": "Agno metadata envelope and intentionally distinct recipient requirement", "class": "authored_negative_control", "not_claimed": "All _meta fields are secret or forbidden to models by MCP"},
+    {"name": "conflicting_channels", "basis": "Opposing authored status values probe limits of combination", "class": "authored_edge_control", "not_claimed": "A naturally occurring conflict was found or an authority policy evaluated"},
+    {"name": "structured_error", "basis": "Native error branches return before success-path fallback/combination", "class": "authored_branch_control", "not_claimed": "A new production defect, protocol violation or model-task failure"}
+  ],
+  "supporting_sources": [
+    "https://github.com/agno-agi/agno/issues/8653",
+    "https://github.com/agno-agi/agno/pull/8695",
+    "https://github.com/NousResearch/hermes-agent/issues/5874",
+    "https://github.com/NousResearch/hermes-agent/issues/7043",
+    "https://github.com/NousResearch/hermes-agent/pull/5979",
+    "https://github.com/NousResearch/hermes-agent/pull/7118",
+    "https://modelcontextprotocol.io/specification/2025-11-25/server/tools"
+  ]
+}

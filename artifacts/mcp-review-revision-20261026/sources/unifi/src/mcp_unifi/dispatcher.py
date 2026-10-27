@@ -1,0 +1,523 @@
+"""Controller registry and module loader for mcp-unifi.
+
+The :class:`ControllerRegistry` holds one :class:`Backend` per named
+controller. Tools fetch a backend by name (``controller="default"``) instead
+of branching on ``settings.stub_mode`` or hard-wiring a single client.
+
+:func:`register_modules` reads ``MCP_UNIFI_MODULES_ENABLED`` (CSV, default
+``"network"``) and imports the matching ``mcp_unifi.modules.<name>`` package,
+calling its ``register(mcp, settings, registry)`` entrypoint. This keeps the
+phase-3 Protect module out of the import path until it's wired in.
+"""
+
+from __future__ import annotations
+
+import importlib
+import logging
+import os
+from collections.abc import Callable
+from typing import TYPE_CHECKING, Any, Literal, overload
+
+from mcp_unifi.backends import (
+    AccessBackend,
+    AccessRealBackend,
+    AccessStubBackend,
+    Backend,
+    ProtectBackend,
+    ProtectRealBackend,
+    ProtectStubBackend,
+    RealBackend,
+    StubBackend,
+)
+from mcp_unifi.clients.access import AccessClient
+from mcp_unifi.clients.access_stubs import make_access_stub_state
+from mcp_unifi.clients.protect import ProtectClient
+from mcp_unifi.clients.protect_stubs import make_protect_stub_state
+from mcp_unifi.clients.stubs import make_stub_state
+from mcp_unifi.clients.unifi import UniFiClient, UniFiError
+from mcp_unifi.modules._audit import tool_mutates
+from mcp_unifi.scoping import MUTATING_TAG
+
+if TYPE_CHECKING:
+    from fastmcp import FastMCP
+
+    from mcp_unifi.config import Settings
+
+logger = logging.getLogger("mcp_unifi.dispatcher")
+
+#: Default module set when ``MCP_UNIFI_MODULES_ENABLED`` is unset.
+DEFAULT_MODULES = ("network",)
+
+#: The ``controller`` value every tool defaults to. See
+#: :meth:`ControllerRegistry.resolve_name` for how it maps to a real name.
+DEFAULT_CONTROLLER_ALIAS = "default"
+
+#: All modules the dispatcher knows how to import. Keep this in sync with the
+#: ``src/mcp_unifi/modules/<name>/__init__.py`` packages on disk.
+KNOWN_MODULES = frozenset({"network", "protect", "access"})
+
+
+class UnknownControllerError(KeyError):
+    """Raised when a tool requests a controller name that wasn't configured."""
+
+
+class UnknownModuleError(ValueError):
+    """Raised when ``MCP_UNIFI_MODULES_ENABLED`` references an unknown module."""
+
+
+class UnclassifiedToolError(RuntimeError):
+    """Raised when a registered tool never declared whether it mutates.
+
+    The read-only write gate can only be trusted if the classification is
+    total. Rather than default an unclassified tool to "read" (which would
+    ship a read-only mode that silently permits a new mutating tool) or to
+    "write" (which would silently break a new read tool and teach people to
+    distrust the gate), registration fails and the server does not start.
+
+    Fix: add the required ``mutates=`` argument to the tool's ``@audited(...)``
+    decorator.
+    """
+
+
+class ProtectNotAvailableError(RuntimeError):
+    """Raised when a Protect tool runs on a registry built without Protect backends.
+
+    The Protect module is opt-in. When ``MCP_UNIFI_MODULES_ENABLED`` does not
+    include ``"protect"``, :func:`build_registry` still constructs Protect
+    backends so module registration is deterministic; but if a caller wires the
+    registry manually without them, this error surfaces a clean message instead
+    of an ``AttributeError`` deep inside a tool body.
+    """
+
+
+class AccessNotAvailableError(RuntimeError):
+    """Raised when an Access tool runs on a registry built without Access backends.
+
+    The Access module is opt-in (``MCP_UNIFI_MODULES_ENABLED`` must include
+    ``"access"``) and additionally requires Access-specific config: either
+    ``UNIFI_ACCESS_HOST`` + ``UNIFI_ACCESS_API_KEY`` or per-controller
+    ``access_*`` fields in the YAML controllers file. If the module is
+    enabled but no controller has Access config, :class:`AccessStubBackend`
+    is still wired in stub mode, but real mode raises this on first call so
+    the operator sees a clean message.
+    """
+
+
+class ControllerRegistry:
+    """Map of controller name → :class:`Backend`.
+
+    Built once at startup from ``settings.controllers`` (and optional injected
+    overrides for tests). Tools call ``registry.get(name)`` to route a request
+    to the right controller.
+    """
+
+    def __init__(
+        self,
+        backends: dict[str, Backend],
+        *,
+        protect_backends: dict[str, ProtectBackend] | None = None,
+        access_backends: dict[str, AccessBackend] | None = None,
+        default_name: str | None = None,
+    ) -> None:
+        if not backends:
+            raise ValueError("ControllerRegistry requires at least one backend.")
+        if default_name is not None and default_name not in backends:
+            raise ValueError(
+                f"default_name '{default_name}' is not a registered controller: {sorted(backends)}"
+            )
+        self._backends = dict(backends)
+        self._default_name = default_name
+        self._protect_backends: dict[str, ProtectBackend] = (
+            dict(protect_backends) if protect_backends else {}
+        )
+        self._access_backends: dict[str, AccessBackend] = (
+            dict(access_backends) if access_backends else {}
+        )
+
+    def resolve_name(self, name: str) -> str:
+        """Map the ``controller`` argument a tool received to a registered name.
+
+        Every tool defaults ``controller`` to ``"default"``. That used to be
+        a literal lookup, so a deployment whose controllers file named its
+        sites ``office`` and ``lab`` failed every call that omitted the
+        argument (issue #124, item 5). The alias now resolves in this order:
+
+        1. a controller literally named ``default`` (unchanged behaviour);
+        2. the name given by ``MCP_UNIFI_DEFAULT_CONTROLLER``;
+        3. the only controller, when exactly one is configured.
+
+        With several controllers and no configured default, the alias stays
+        an error. A silent "first in the list" fallback was rejected on
+        purpose: a forgotten ``controller=`` on a multi-site deployment must
+        not quietly write to whichever site was listed first.
+
+        Note for audit readers: the audit record's ``controller`` field is
+        the argument as the caller passed it (``"default"``), not the name
+        it resolved to.
+        """
+        if name in self._backends:
+            return name
+        available = ", ".join(sorted(self._backends)) or "(none)"
+        if name == DEFAULT_CONTROLLER_ALIAS:
+            if self._default_name is not None:
+                return self._default_name
+            if len(self._backends) == 1:
+                return next(iter(self._backends))
+            raise UnknownControllerError(
+                f"No controller is named 'default' and MCP_UNIFI_DEFAULT_CONTROLLER is "
+                f"unset. Pass controller=<name> or set that variable. Available: "
+                f"{available}."
+            )
+        raise UnknownControllerError(f"Unknown controller '{name}'. Available: {available}.")
+
+    def get(self, name: str) -> Backend:
+        return self._backends[self.resolve_name(name)]
+
+    def get_protect(self, name: str) -> ProtectBackend:
+        """Return the Protect backend registered for ``name``.
+
+        Raises:
+            ProtectNotAvailableError: this registry was built without Protect
+                backends (e.g. the Protect module wasn't enabled at startup).
+            UnknownControllerError: the controller name is unknown to the
+                registry's network backends (the universe of controller names
+                is the union of Network and Protect; we surface the same error
+                shape either way).
+        """
+        if not self._protect_backends:
+            raise ProtectNotAvailableError(
+                "Protect backends are not configured on this registry. "
+                "Enable the 'protect' module via MCP_UNIFI_MODULES_ENABLED."
+            )
+        try:
+            return self._protect_backends[self.resolve_name(name)]
+        except KeyError as exc:
+            available = ", ".join(sorted(self._protect_backends)) or "(none)"
+            raise UnknownControllerError(
+                f"Unknown controller '{name}'. Available (Protect): {available}."
+            ) from exc
+
+    def get_access(self, name: str) -> AccessBackend:
+        """Return the Access backend registered for ``name``.
+
+        Raises:
+            AccessNotAvailableError: this registry was built without Access
+                backends (the Access module wasn't enabled, or the controller
+                has no ``access_*`` config in real mode).
+            UnknownControllerError: the controller name is unknown to the
+                registry's Access backends.
+        """
+        if not self._access_backends:
+            raise AccessNotAvailableError(
+                "Access backends are not configured on this registry. "
+                "Enable the 'access' module via MCP_UNIFI_MODULES_ENABLED and "
+                "set UNIFI_ACCESS_HOST + UNIFI_ACCESS_API_KEY (or per-controller "
+                "access_* fields in the controllers YAML)."
+            )
+        try:
+            return self._access_backends[self.resolve_name(name)]
+        except KeyError as exc:
+            available = ", ".join(sorted(self._access_backends)) or "(none)"
+            raise UnknownControllerError(
+                f"Unknown controller '{name}'. Available (Access): {available}."
+            ) from exc
+
+    def names(self) -> list[str]:
+        return sorted(self._backends)
+
+    def __len__(self) -> int:
+        return len(self._backends)
+
+    def __contains__(self, name: object) -> bool:
+        return name in self._backends
+
+
+def build_registry(
+    settings: Settings,
+    *,
+    stub_overrides: dict[str, Backend] | None = None,
+    real_overrides: dict[str, Backend] | None = None,
+    protect_stub_overrides: dict[str, ProtectBackend] | None = None,
+    protect_real_overrides: dict[str, ProtectBackend] | None = None,
+    access_stub_overrides: dict[str, AccessBackend] | None = None,
+    access_real_overrides: dict[str, AccessBackend] | None = None,
+) -> ControllerRegistry:
+    """Construct a :class:`ControllerRegistry` from settings.
+
+    In stub mode each configured controller gets its own fresh
+    :class:`StubBackend` and :class:`ProtectStubBackend` (state is
+    per-controller, not shared). In real mode each gets a :class:`RealBackend`
+    and :class:`ProtectRealBackend` wrapping per-controller clients.
+
+    Phase 3 (Protect) is always wired into the registry even when the
+    ``protect`` module isn't enabled — building the backends is cheap and
+    leaves the door open for ad-hoc tools to call ``registry.get_protect(...)``.
+
+    Args:
+        settings: Validated :class:`Settings` instance. Must have at least one
+            entry in ``settings.controllers``.
+        stub_overrides: Optional ``{name: Backend}`` map that wins over the
+            stub defaults for the matching names. Used by tests to inject a
+            specific :class:`StubState`.
+        real_overrides: Optional ``{name: Backend}`` map for real mode (used
+            by tests passing a respx-mocked :class:`UniFiClient`).
+        protect_stub_overrides: Optional ``{name: ProtectBackend}`` map that
+            wins over the Protect stub defaults. Used by tests to inject a
+            specific :class:`ProtectStubState`.
+        protect_real_overrides: Optional ``{name: ProtectBackend}`` map for
+            real-mode Protect tests (respx-mocked :class:`ProtectClient`).
+        access_stub_overrides: Optional ``{name: AccessBackend}`` map that
+            wins over the Access stub defaults. Used by tests to inject a
+            specific :class:`AccessStubState`.
+        access_real_overrides: Optional ``{name: AccessBackend}`` map for
+            real-mode Access tests (respx-mocked :class:`AccessClient`).
+    """
+    backends: dict[str, Backend] = {}
+    protect_backends: dict[str, ProtectBackend] = {}
+    access_backends: dict[str, AccessBackend] = {}
+    overrides = (stub_overrides if settings.stub_mode else real_overrides) or {}
+    protect_overrides = (
+        protect_stub_overrides if settings.stub_mode else protect_real_overrides
+    ) or {}
+    access_overrides = (
+        access_stub_overrides if settings.stub_mode else access_real_overrides
+    ) or {}
+
+    for ctrl in settings.controllers:
+        if ctrl.name in overrides:
+            backends[ctrl.name] = overrides[ctrl.name]
+        elif settings.stub_mode:
+            backends[ctrl.name] = StubBackend(make_stub_state())
+        else:
+            client = UniFiClient(
+                host=ctrl.host,
+                api_key=ctrl.api_key.get_secret_value(),
+                port=ctrl.port,
+                site=ctrl.site,
+                verify_ssl=ctrl.verify_ssl,
+            )
+            backends[ctrl.name] = RealBackend(client)
+
+        if ctrl.name in protect_overrides:
+            protect_backends[ctrl.name] = protect_overrides[ctrl.name]
+        elif settings.stub_mode:
+            protect_backends[ctrl.name] = ProtectStubBackend(make_protect_stub_state())
+        else:
+            protect_client = ProtectClient(
+                host=ctrl.host,
+                api_key=ctrl.api_key.get_secret_value(),
+                port=ctrl.port,
+                verify_ssl=ctrl.verify_ssl,
+                api_mode=ctrl.protect_api,
+            )
+            protect_backends[ctrl.name] = ProtectRealBackend(protect_client)
+
+        # Access is configured per-controller and may legitimately be absent
+        # in real mode if the operator has no Access hub. Stub mode always
+        # gets a backend so the dispatcher can register Access tools without
+        # branching on hardware presence.
+        if ctrl.name in access_overrides:
+            access_backends[ctrl.name] = access_overrides[ctrl.name]
+        elif settings.stub_mode:
+            access_backends[ctrl.name] = AccessStubBackend(make_access_stub_state())
+        elif ctrl.access_host and ctrl.access_api_key:
+            access_client = AccessClient(
+                host=ctrl.access_host,
+                api_key=ctrl.access_api_key.get_secret_value(),
+                port=ctrl.access_port,
+                verify_ssl=ctrl.verify_ssl,
+            )
+            access_backends[ctrl.name] = AccessRealBackend(access_client)
+
+    return ControllerRegistry(
+        backends,
+        protect_backends=protect_backends,
+        access_backends=access_backends,
+        default_name=settings.default_controller or None,
+    )
+
+
+@overload
+def resolve_backend(
+    registry: ControllerRegistry, controller: str, kind: Literal["network"] = ...
+) -> Backend: ...
+@overload
+def resolve_backend(
+    registry: ControllerRegistry, controller: str, kind: Literal["protect"]
+) -> ProtectBackend: ...
+@overload
+def resolve_backend(
+    registry: ControllerRegistry, controller: str, kind: Literal["access"]
+) -> AccessBackend: ...
+def resolve_backend(
+    registry: ControllerRegistry,
+    controller: str,
+    kind: Literal["network", "protect", "access"] = "network",
+) -> Backend | ProtectBackend | AccessBackend:
+    """Resolve a controller backend for a tool, mapping resolution failures to UniFiError.
+
+    Every tool body wraps its work in ``except UniFiError`` and returns a
+    formatted ``err(...)`` envelope. The registry getters, however, raise
+    dispatcher-layer errors that are *siblings* of :class:`UniFiError` (all
+    subclass :class:`RuntimeError`, none subclass the others), so they would
+    otherwise escape the tool's handler and surface as a raw framework error:
+
+    * :class:`AccessNotAvailableError` / :class:`ProtectNotAvailableError` when
+      the module is enabled but the registry holds no backend for it (e.g. the
+      ``access`` module is on but no controller has ``access_*`` config in real
+      mode).
+    * :class:`UnknownControllerError` when ``controller`` names a controller the
+      registry doesn't know (a typo'd or stale ``controller`` argument).
+
+    Translating them to :class:`UniFiError` here lets every current and future
+    tool handle a missing module or unknown controller through the
+    ``except UniFiError`` path it already has, with no per-tool change. Callers
+    that want the typed errors (tests, non-tool code) keep using the registry
+    getters directly.
+    """
+    getters: dict[str, Callable[[str], Backend | ProtectBackend | AccessBackend]] = {
+        "network": registry.get,
+        "protect": registry.get_protect,
+        "access": registry.get_access,
+    }
+    try:
+        return getters[kind](controller)
+    except (
+        ProtectNotAvailableError,
+        AccessNotAvailableError,
+        UnknownControllerError,
+    ) as exc:
+        raise UniFiError(str(exc)) from exc
+
+
+def _enabled_modules() -> tuple[str, ...]:
+    raw = os.environ.get("MCP_UNIFI_MODULES_ENABLED", "").strip()
+    if not raw:
+        return DEFAULT_MODULES
+    parts = tuple(p.strip() for p in raw.split(",") if p.strip())
+    return parts or DEFAULT_MODULES
+
+
+def register_modules(
+    mcp: FastMCP, settings: Settings, registry: ControllerRegistry
+) -> tuple[str, ...]:
+    """Import each enabled module and call its ``register`` entrypoint.
+
+    Returns the tuple of module names actually registered (in order).
+
+    Side effect: each newly-registered tool is tagged via FastMCP's
+    ``tool.tags`` set with (a) its module name (``"network"``, ``"protect"``,
+    ``"access"``) and (b) :data:`~mcp_unifi.scoping.MUTATING_TAG` when the tool
+    declared ``mutates=True``. The two middlewares in
+    :mod:`mcp_unifi.scoping` read those tags at request time to decide which
+    tools a given client_id may see and call, and which tools are refused in
+    read-only mode. Tagging happens here — at the one place that already
+    enumerates newly-registered tools — instead of inside every
+    ``@mcp.tool()`` call site across ~20 sub-modules.
+
+    Raises:
+        UnknownModuleError: ``MCP_UNIFI_MODULES_ENABLED`` references a module
+            that doesn't exist in ``mcp_unifi.modules``.
+        UnclassifiedToolError: a registered tool has no ``mutates``
+            declaration, or the tool list could not be enumerated at all (in
+            which case no classification could be applied and the write gate
+            would silently have nothing to filter on).
+    """
+    enabled = _enabled_modules()
+    registered: list[str] = []
+    for name in enabled:
+        if name not in KNOWN_MODULES:
+            raise UnknownModuleError(f"Unknown module '{name}'. Known: {sorted(KNOWN_MODULES)}")
+        module = importlib.import_module(f"mcp_unifi.modules.{name}")
+        register_fn = module.register
+        before = _tool_names(mcp)
+        register_fn(mcp, settings, registry)
+        _tag_new_tools(mcp, module_name=name, existing=before)
+        registered.append(name)
+    if registered and not _iter_registered_tools(mcp):
+        # Every known module registers tools, so an empty list means
+        # ``_iter_registered_tools`` lost its grip on FastMCP's internals.
+        # Tagging would then be a silent no-op and the write gate would see
+        # no mutating tools to hide. Refuse to start instead.
+        raise UnclassifiedToolError(
+            "registered modules "
+            f"{registered} but could not enumerate any tool on the FastMCP "
+            "instance, so no tool could be tagged. The write gate and per-client "
+            "scoping both depend on those tags; refusing to start."
+        )
+    logger.info(
+        "registered modules",
+        extra={"modules": registered, "controllers": registry.names()},
+    )
+    return tuple(registered)
+
+
+def _iter_registered_tools(mcp: FastMCP) -> list[Any]:
+    """Return the currently-registered tool objects.
+
+    Reads from ``_local_provider._components``, which FastMCP 3.4 keys by
+    ``"tool:<name>@..."``. Falls back to an empty list if the shape
+    changes across versions — tagging is best-effort and must not break
+    server construction.
+    """
+    provider = getattr(mcp, "_local_provider", None)
+    if provider is None:
+        return []
+    components = getattr(provider, "_components", None)
+    if components is None:
+        return []
+    return [
+        obj for key, obj in components.items() if isinstance(key, str) and key.startswith("tool:")
+    ]
+
+
+def _tool_names(mcp: FastMCP) -> set[str]:
+    """Snapshot the names of tools currently registered on ``mcp``."""
+    return {getattr(t, "name", "") for t in _iter_registered_tools(mcp)}
+
+
+def _tag_new_tools(mcp: FastMCP, *, module_name: str, existing: set[str]) -> None:
+    """Tag every tool registered since ``existing`` with its module and write class.
+
+    Raises:
+        UnclassifiedToolError: the tool declared no ``mutates`` value, or its
+            ``tags`` set is unreadable so no tag could be applied.
+    """
+    for tool in _iter_registered_tools(mcp):
+        name = getattr(tool, "name", "")
+        if not name or name in existing:
+            continue
+        tags = getattr(tool, "tags", None)
+        mutates = tool_mutates(name)
+        if mutates is None:
+            raise UnclassifiedToolError(
+                f"tool '{name}' (module '{module_name}') did not declare whether "
+                f"it mutates state. Add the required ``mutates=`` argument to its "
+                f"@audited(...) decorator: mutates=True if calling it changes "
+                f"controller config, device state, or makes the controller do "
+                f"work; mutates=False for a pure read."
+            )
+        if tags is None:
+            raise UnclassifiedToolError(
+                f"tool '{name}' (module '{module_name}') exposes no tags set, so "
+                f"its module and write classification cannot be attached. "
+                f"Per-client scoping and read-only mode both read those tags."
+            )
+        tags.add(module_name)
+        if mutates:
+            tags.add(MUTATING_TAG)
+
+
+__all__ = [
+    "DEFAULT_MODULES",
+    "KNOWN_MODULES",
+    "AccessNotAvailableError",
+    "ControllerRegistry",
+    "ProtectNotAvailableError",
+    "UnclassifiedToolError",
+    "UnknownControllerError",
+    "UnknownModuleError",
+    "build_registry",
+    "register_modules",
+    "resolve_backend",
+]

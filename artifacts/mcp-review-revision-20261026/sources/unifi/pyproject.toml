@@ -1,0 +1,156 @@
+[build-system]
+requires = ["setuptools>=84.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-unifi"
+version = "0.24.0"
+description = "MCP server for self-hosted UniFi gateway management."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.13"
+authors = [{ name = "Pete Stergion" }]
+keywords = ["mcp", "unifi", "ubiquiti", "fastmcp", "homelab"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Networking",
+]
+dependencies = [
+    "fastmcp==3.4.7",
+    "httpx==0.28.1",
+    "uvicorn==0.52.4",
+    "python-dotenv==1.2.3",
+    "pydantic==2.13.5",
+    "pydantic-settings==2.15.0",
+    "pyyaml==6.0.3",
+]
+
+[project.optional-dependencies]
+# Optional tracing. The SDK and OTLP exporter are NOT installed by default and
+# are NOT in requirements.in / requirements.lock, so a normal deployment has no
+# tracer provider and exports nothing. (opentelemetry-api arrives transitively
+# via fastmcp-slim, but the API alone is a no-op without an SDK.)
+# See docs/operations.md.
+# Ranged rather than exactly pinned (the rest of this file pins) because
+# nothing locks this extra, so an exact pin here would rot with no drift check
+# to catch it. The floor is the version this was developed against.
+otel = [
+    "opentelemetry-api>=1.44.0,<2",
+    "opentelemetry-sdk>=1.44.0,<2",
+    "opentelemetry-exporter-otlp-proto-http>=1.44.0,<2",
+]
+dev = [
+    "pytest==9.1.1",
+    "pytest-asyncio==1.4.0",
+    "pytest-cov==7.1.0",
+    "respx==0.23.1",
+    "ruff==0.16.5",
+    "mypy==2.3.1",
+    "types-PyYAML==6.0.12.20260815",
+    "hypothesis==6.167.1",
+]
+
+[project.scripts]
+mcp-unifi = "mcp_unifi.server:main"
+mcp-unifi-healthcheck = "mcp_unifi.healthcheck:main"
+mcp-unifi-replay = "mcp_unifi.cli.replay:main"
+
+[project.urls]
+Homepage = "https://github.com/pete-builds/mcp-unifi"
+Repository = "https://github.com/pete-builds/mcp-unifi"
+Issues = "https://github.com/pete-builds/mcp-unifi/issues"
+Changelog = "https://github.com/pete-builds/mcp-unifi/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mcp_unifi = ["py.typed"]
+
+# ---------------------------------------------------------------------------
+# Tooling
+# ---------------------------------------------------------------------------
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+    "--cov=mcp_unifi",
+    "--cov-report=term-missing",
+    "--cov-report=xml",
+]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.coverage.run]
+branch = true
+source = ["mcp_unifi"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+src = ["src", "tests", "evals"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "SIM", # flake8-simplify
+    "C4",  # flake8-comprehensions
+    "S",   # flake8-bandit (security)
+    "RUF", # ruff-specific
+]
+ignore = [
+    "S101", # asserts are fine in this codebase (used as type narrowers)
+    "S104", # binding 0.0.0.0 is intentional for the container
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S105", "S106"]  # hardcoded test passphrases are fine
+# Phase 2 Part C: tool descriptions include single-line ``Example:`` calls in
+# their docstrings. Realistic kwargs (subnets, MACs, payloads) push some
+# examples over 100 chars. Splitting them across lines would break the
+# single-Example-per-tool pattern that the LLM tool-selection prompt expects.
+"src/mcp_unifi/modules/network/*.py" = ["E501"]
+"src/mcp_unifi/modules/protect/*.py" = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_unreachable = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = true
+mypy_path = ["src"]
+files = ["src/mcp_unifi"]
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+module = ["fastmcp", "fastmcp.*"]
+ignore_missing_imports = true

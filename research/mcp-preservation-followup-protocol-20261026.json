@@ -1,0 +1,32 @@
+{
+  "recorded_before_probe_execution": true,
+  "date": "2026-10-26",
+  "parent": "research/mcp-preservation-protocol-20261026.json",
+  "purpose": "Independent fourth-project replay of recipient-dependent preservation, not a new prevalence sample or LLM effectiveness experiment.",
+  "case": "open-webui/open-webui issue 30327 and merged PR 30358",
+  "selection": "Purposive source-known positive case with representation controls; not blind discovery.",
+  "versions": {
+    "before": "344ea530688684c83f4cf247a1ca08bce60c0ba2",
+    "after": "6f6792d4848bd47be6abd6860f594e643f9de4ba"
+  },
+  "source_note": "File paths labeled after must be matched to actual fetched revision; manifest records that mapping. No interpretation of a non-null merge_commit_sha as proof that a PR merged.",
+  "design": {
+    "versions": 2,
+    "consumers": ["complete native drain_approved_tool_calls with controlled IO", "unchanged streaming file projection AST slice"],
+    "fixtures": ["MCP image content", "MCP embedded image resource", "MCP text", "MCP audio scope control"],
+    "formatter_modes_per_cell": [false, true],
+    "execution_cells": 16,
+    "formatter_observations": 32
+  },
+  "oracle": "Count image references in native formatted messages and retained display-file records. Verify every model image reference resolves to the exact fixture bytes in controlled storage. Text control must preserve its literal fact. No assertion that every MCP field must reach the model.",
+  "expected_source_informed_pattern": "MCP image loses model reference before fix but keeps frontend file record; after fix both have the reference. Embedded image resource passes both. Text unaffected. Audio is outside this image-specific patch and is not counted as a new confirmed defect.",
+  "boundaries": [
+    "Actual MCP typed input, unchanged process_tool_result, native approval function or streaming AST slice, unchanged output-to-message formatter",
+    "Storage, DB, event infrastructure and terminal normalization are controlled; no full Open WebUI deployment",
+    "DB history replay and plugin filters disabled; formatter invoked explicitly on stored output",
+    "No actual browser rendering, authenticated URL retrieval, HTTP provider request, visual reasoning, or real LLM task accuracy",
+    "Synthetic tiny media is a transport fixture, not a recreated Home Assistant deployment"
+  ],
+  "cost": "zero paid API calls",
+  "stop_rules": "Record execution failures separately from product observations. If native transformations cannot be executed, report source-only evidence. Do not scale formal model experiments while novelty/impact gates are open."
+}

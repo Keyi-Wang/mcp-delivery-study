@@ -1,0 +1,230 @@
+"""Async UniFi Protect client.
+
+Talks to the Protect service running on a UniFi OS gateway (UDM Pro, UCG-Fiber
+in NVR mode, etc.) using the same local API key as the Network client, sent
+via the ``X-API-Key`` header. Modern UniFi OS 3.x accepts a single API key
+across both Network (``/proxy/network``) and Protect (``/proxy/protect/api``).
+
+Unlike the Network API, Protect responses are NOT wrapped in a
+``{"meta": ..., "data": ...}`` envelope: endpoints return raw JSON objects
+and arrays. Snapshot / thumbnail endpoints return binary JPEG bytes, so a
+separate :meth:`_request_bytes` helper exists for those.
+
+This client is intentionally narrow: only the endpoints called by the Protect
+module tools are wrapped. Same retry shape as :class:`UniFiClient` (one retry
+on ``ConnectError``).
+"""
+
+from __future__ import annotations
+
+import logging
+from typing import Any, Literal
+
+import httpx
+
+from mcp_unifi.clients.ids import path_segment
+from mcp_unifi.clients.retry import request_with_retry
+from mcp_unifi.clients.unifi import UniFiError
+from mcp_unifi.models import UniFiRecord
+
+logger = logging.getLogger("mcp_unifi.protect_client")
+
+
+class ProtectClient:
+    """Thin async wrapper around the UniFi Protect REST API.
+
+    Args:
+        host: Gateway / NVR IP or hostname (no scheme).
+        api_key: Local API key from Settings -> Control Plane -> Integrations.
+        port: HTTPS port (default 443 for UniFi OS).
+        verify_ssl: Verify the gateway's TLS cert. Self-hosted gateways ship
+            with a self-signed cert, so this is False by default.
+        timeout: Per-request timeout in seconds. Protect snapshots can take
+            a moment, so the default is bumped to 30s.
+        api_mode: ``internal`` preserves the existing Protect API. ``integration``
+            selects the API-key-compatible surface on UniFi OS 5.x.
+    """
+
+    def __init__(
+        self,
+        host: str,
+        api_key: str,
+        port: int = 443,
+        verify_ssl: bool = False,
+        timeout: float = 30.0,
+        api_mode: Literal["internal", "integration"] = "internal",
+    ) -> None:
+        self.host = host
+        self.port = port
+        if api_mode not in ("internal", "integration"):
+            raise ValueError("api_mode must be 'internal' or 'integration'")
+        self.api_mode = api_mode
+        suffix = "/proxy/protect/api" if api_mode == "internal" else "/proxy/protect/integration/v1"
+        self._base = f"https://{host}:{port}{suffix}"
+        self._client = httpx.AsyncClient(
+            timeout=timeout,
+            verify=verify_ssl,
+            headers={
+                "X-API-Key": api_key,
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            },
+            limits=httpx.Limits(max_connections=10, max_keepalive_connections=5),
+        )
+
+    async def aclose(self) -> None:
+        await self._client.aclose()
+
+    # ------------------------------------------------------------------
+    # HTTP helpers
+    # ------------------------------------------------------------------
+
+    async def _request(
+        self,
+        method: str,
+        path: str,
+        json: dict[str, Any] | None = None,
+    ) -> Any:
+        """Issue a JSON-returning request with one retry on ConnectError.
+
+        Protect responses are raw JSON (no ``{"data": ...}`` envelope). Errors
+        and transport faults surface as :class:`UniFiError` so callers share
+        one exception class with the Network client.
+        """
+        url = f"{self._base}{path}"
+        resp = await request_with_retry(
+            self._client,
+            method,
+            url,
+            logger=logger,
+            service="Protect",
+            error_cls=UniFiError,
+            json=json,
+        )
+        if resp.status_code >= 400:
+            raise UniFiError(
+                f"Protect {method} {path} returned {resp.status_code}: {resp.text[:300]}"
+            )
+        if not resp.content:
+            return None
+        return resp.json()
+
+    async def _request_bytes(self, method: str, path: str) -> bytes:
+        """Issue a binary-returning request (snapshots, thumbnails) with one retry.
+
+        Same retry shape as :meth:`_request` but does not call ``resp.json``.
+        """
+        url = f"{self._base}{path}"
+        resp = await request_with_retry(
+            self._client,
+            method,
+            url,
+            logger=logger,
+            service="Protect",
+            error_cls=UniFiError,
+        )
+        if resp.status_code >= 400:
+            raise UniFiError(
+                f"Protect {method} {path} returned {resp.status_code}: {resp.text[:300]}"
+            )
+        return resp.content
+
+    @staticmethod
+    def _ensure_record(result: Any) -> UniFiRecord:
+        """Normalise a response that may come back as a 1-item list (rare on Protect)."""
+        if isinstance(result, list) and result:
+            first = result[0]
+            return first if isinstance(first, dict) else {}
+        if isinstance(result, dict):
+            return result
+        return {}
+
+    @staticmethod
+    def _ensure_list(result: Any) -> list[UniFiRecord]:
+        if isinstance(result, list):
+            return [item for item in result if isinstance(item, dict)]
+        return []
+
+    def _require_internal(self, operation: str) -> None:
+        if self.api_mode == "integration":
+            raise UniFiError(
+                f"Protect {operation} is unavailable on the Integration API v1. "
+                "Use protect_api='internal' only if the console accepts that API."
+            )
+
+    # ------------------------------------------------------------------
+    # Cameras
+    # ------------------------------------------------------------------
+
+    async def list_cameras(self) -> list[UniFiRecord]:
+        return self._ensure_list(await self._request("GET", "/cameras"))
+
+    async def get_camera(self, camera_id: str) -> UniFiRecord:
+        return self._ensure_record(
+            await self._request("GET", f"/cameras/{path_segment(camera_id, 'camera_id')}")
+        )
+
+    async def update_camera(self, camera_id: str, payload: dict[str, Any]) -> UniFiRecord:
+        return self._ensure_record(
+            await self._request(
+                "PATCH", f"/cameras/{path_segment(camera_id, 'camera_id')}", json=payload
+            )
+        )
+
+    # ------------------------------------------------------------------
+    # Events
+    # ------------------------------------------------------------------
+
+    async def list_events(
+        self, types: list[str], start_ms: int, end_ms: int, limit: int
+    ) -> list[UniFiRecord]:
+        """List events filtered by type and time window.
+
+        UniFi Protect's event endpoint accepts repeated ``types[]`` query
+        params (e.g. ``types[]=motion&types[]=smartDetectZone``) plus
+        ``start`` / ``end`` (epoch milliseconds) and ``limit``.
+        """
+        self._require_internal("list_events")
+        # Each type is a query value, and ``&`` or ``#`` inside one would
+        # add or truncate parameters. Both callers pass literals today, but
+        # ``ids.py`` promises that every query-building client method
+        # validates, and the next tool that forwards a caller-supplied type
+        # would otherwise reintroduce the class silently. ``AccessClient``
+        # does the same for its ``result`` and ``door_id`` filters.
+        parts: list[str] = []
+        for t in types:
+            parts.append(f"types[]={path_segment(t, 'event_type')}")
+        parts.append(f"start={start_ms}")
+        parts.append(f"end={end_ms}")
+        parts.append(f"limit={limit}")
+        query = "&".join(parts)
+        return self._ensure_list(await self._request("GET", f"/events?{query}"))
+
+    # ------------------------------------------------------------------
+    # Snapshots / thumbnails (binary)
+    # ------------------------------------------------------------------
+
+    async def get_snapshot(self, camera_id: str) -> bytes:
+        return await self._request_bytes(
+            "GET", f"/cameras/{path_segment(camera_id, 'camera_id')}/snapshot"
+        )
+
+    async def get_event_thumbnail(self, event_id: str) -> bytes:
+        self._require_internal("get_event_thumbnail")
+        return await self._request_bytes(
+            "GET", f"/events/{path_segment(event_id, 'event_id')}/thumbnail"
+        )
+
+    # ------------------------------------------------------------------
+    # Recordings
+    # ------------------------------------------------------------------
+
+    async def list_recordings(
+        self, camera_id: str, start_ms: int, end_ms: int
+    ) -> list[UniFiRecord]:
+        self._require_internal("list_recordings")
+        query = f"camera={path_segment(camera_id, 'camera_id')}&start={start_ms}&end={end_ms}"
+        return self._ensure_list(await self._request("GET", f"/recordings?{query}"))
+
+
+__all__ = ["ProtectClient"]

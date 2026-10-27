@@ -1,0 +1,1977 @@
+{
+  "protocol": "research/mcp-paper-evidence-protocol-20261026.json",
+  "kind": "real_loopback_HTTP_with_scripted_provider",
+  "versions": {
+    "agno": "2.6.20",
+    "mcp": "1.28.0",
+    "openai": "2.8.1",
+    "httpx": "0.28.1"
+  },
+  "mcp_transport": "actual_stdio",
+  "rows": [
+    {
+      "adapter": "before",
+      "fixture": "structured_only",
+      "answer": "STATE_ALPHA_7K",
+      "source_result": {
+        "content": [],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_ALPHA_7K"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": false,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "before",
+      "fixture": "structured_only",
+      "answer": "STATE_BETA_9M",
+      "source_result": {
+        "content": [],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_BETA_9M"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": false,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "before",
+      "fixture": "summary_plus_data",
+      "answer": "STATE_ALPHA_7K",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Query completed; the work package is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "Query completed; the work package is in structuredContent."
+            }
+          ],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_ALPHA_7K"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "Query completed; the work package is in structuredContent.",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": false,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "before",
+      "fixture": "summary_plus_data",
+      "answer": "STATE_BETA_9M",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Query completed; the work package is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "Query completed; the work package is in structuredContent."
+            }
+          ],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_BETA_9M"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "Query completed; the work package is in structuredContent.",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": false,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "before",
+      "fixture": "file_plus_metadata",
+      "answer": "STATE_ALPHA_7K",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "status=STATE_ALPHA_7K"
+          }
+        ],
+        "structuredContent": {
+          "fileName": "work-package.txt",
+          "fileType": "text"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "status=STATE_ALPHA_7K"
+            }
+          ],
+          "structuredContent": {
+            "fileName": "work-package.txt",
+            "fileType": "text"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "fileName": "work-package.txt",
+          "fileType": "text"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "status=STATE_ALPHA_7K",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": true,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "before",
+      "fixture": "file_plus_metadata",
+      "answer": "STATE_BETA_9M",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "status=STATE_BETA_9M"
+          }
+        ],
+        "structuredContent": {
+          "fileName": "work-package.txt",
+          "fileType": "text"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "status=STATE_BETA_9M"
+            }
+          ],
+          "structuredContent": {
+            "fileName": "work-package.txt",
+            "fileType": "text"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "fileName": "work-package.txt",
+          "fileType": "text"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "status=STATE_BETA_9M",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": true,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "before",
+      "fixture": "equivalent_dual",
+      "answer": "STATE_ALPHA_7K",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_ALPHA_7K\"}"
+          }
+        ],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_ALPHA_7K\"}"
+            }
+          ],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_ALPHA_7K"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_ALPHA_7K\"}",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": true,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "before",
+      "fixture": "equivalent_dual",
+      "answer": "STATE_BETA_9M",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_BETA_9M\"}"
+          }
+        ],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_BETA_9M\"}"
+            }
+          ],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_BETA_9M"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_BETA_9M\"}",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": true,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "after",
+      "fixture": "structured_only",
+      "answer": "STATE_ALPHA_7K",
+      "source_result": {
+        "content": [],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_ALPHA_7K"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_ALPHA_7K\"}",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": true,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "after",
+      "fixture": "structured_only",
+      "answer": "STATE_BETA_9M",
+      "source_result": {
+        "content": [],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_BETA_9M"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_BETA_9M\"}",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": true,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "after",
+      "fixture": "summary_plus_data",
+      "answer": "STATE_ALPHA_7K",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Query completed; the work package is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "Query completed; the work package is in structuredContent."
+            }
+          ],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_ALPHA_7K"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "Query completed; the work package is in structuredContent.",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": false,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "after",
+      "fixture": "summary_plus_data",
+      "answer": "STATE_BETA_9M",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Query completed; the work package is in structuredContent."
+          }
+        ],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "Query completed; the work package is in structuredContent."
+            }
+          ],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_BETA_9M"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "Query completed; the work package is in structuredContent.",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": false,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "after",
+      "fixture": "file_plus_metadata",
+      "answer": "STATE_ALPHA_7K",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "status=STATE_ALPHA_7K"
+          }
+        ],
+        "structuredContent": {
+          "fileName": "work-package.txt",
+          "fileType": "text"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "status=STATE_ALPHA_7K"
+            }
+          ],
+          "structuredContent": {
+            "fileName": "work-package.txt",
+            "fileType": "text"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "fileName": "work-package.txt",
+          "fileType": "text"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "status=STATE_ALPHA_7K",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": true,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "after",
+      "fixture": "file_plus_metadata",
+      "answer": "STATE_BETA_9M",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "status=STATE_BETA_9M"
+          }
+        ],
+        "structuredContent": {
+          "fileName": "work-package.txt",
+          "fileType": "text"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "status=STATE_BETA_9M"
+            }
+          ],
+          "structuredContent": {
+            "fileName": "work-package.txt",
+            "fileType": "text"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "fileName": "work-package.txt",
+          "fileType": "text"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "status=STATE_BETA_9M",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": true,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "after",
+      "fixture": "equivalent_dual",
+      "answer": "STATE_ALPHA_7K",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_ALPHA_7K\"}"
+          }
+        ],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_ALPHA_7K\"}"
+            }
+          ],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_ALPHA_7K"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_ALPHA_7K"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_ALPHA_7K\"}",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": true,
+      "model_inference_performed": false
+    },
+    {
+      "adapter": "after",
+      "fixture": "equivalent_dual",
+      "answer": "STATE_BETA_9M",
+      "source_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_BETA_9M\"}"
+          }
+        ],
+        "structuredContent": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        },
+        "isError": false
+      },
+      "mcp_transport": "actual_stdio_server_and_ClientSession",
+      "mcp_received_results": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_BETA_9M\"}"
+            }
+          ],
+          "structuredContent": {
+            "record_id": "work-package-42",
+            "status": "STATE_BETA_9M"
+          },
+          "isError": false
+        }
+      ],
+      "metadata": {
+        "structured_content": {
+          "record_id": "work-package-42",
+          "status": "STATE_BETA_9M"
+        }
+      },
+      "actual_http_requests": [
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "path": "/v1/chat/completions",
+          "body": {
+            "messages": [
+              {
+                "role": "user",
+                "content": "Read the work-package record with get_record and report its exact status. Do not guess."
+              },
+              {
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "id": "call_record",
+                    "function": {
+                      "arguments": "{}",
+                      "name": "get_record"
+                    },
+                    "type": "function"
+                  }
+                ],
+                "content": ""
+              },
+              {
+                "role": "tool",
+                "content": "{\"record_id\": \"work-package-42\", \"status\": \"STATE_BETA_9M\"}",
+                "tool_call_id": "call_record"
+              }
+            ],
+            "model": "offline-transport-receiver",
+            "max_tokens": 64,
+            "temperature": 0,
+            "tools": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "get_record",
+                  "description": "Read the current work-package record.",
+                  "parameters": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "answer_in_actual_followup_tool_message": true,
+      "model_inference_performed": false
+    }
+  ],
+  "errors": [],
+  "pairs": [
+    {
+      "adapter": "before",
+      "fixture": "structured_only",
+      "full_followup_request_collision": true,
+      "required_answers_differ": true,
+      "both_required_answers_present": false
+    },
+    {
+      "adapter": "before",
+      "fixture": "summary_plus_data",
+      "full_followup_request_collision": true,
+      "required_answers_differ": true,
+      "both_required_answers_present": false
+    },
+    {
+      "adapter": "before",
+      "fixture": "file_plus_metadata",
+      "full_followup_request_collision": false,
+      "required_answers_differ": true,
+      "both_required_answers_present": true
+    },
+    {
+      "adapter": "before",
+      "fixture": "equivalent_dual",
+      "full_followup_request_collision": false,
+      "required_answers_differ": true,
+      "both_required_answers_present": true
+    },
+    {
+      "adapter": "after",
+      "fixture": "structured_only",
+      "full_followup_request_collision": false,
+      "required_answers_differ": true,
+      "both_required_answers_present": true
+    },
+    {
+      "adapter": "after",
+      "fixture": "summary_plus_data",
+      "full_followup_request_collision": true,
+      "required_answers_differ": true,
+      "both_required_answers_present": false
+    },
+    {
+      "adapter": "after",
+      "fixture": "file_plus_metadata",
+      "full_followup_request_collision": false,
+      "required_answers_differ": true,
+      "both_required_answers_present": true
+    },
+    {
+      "adapter": "after",
+      "fixture": "equivalent_dual",
+      "full_followup_request_collision": false,
+      "required_answers_differ": true,
+      "both_required_answers_present": true
+    }
+  ],
+  "runs": 16,
+  "http_requests": 32,
+  "limits": [
+    "Real native Agent loop and provider client; MCP transport identified separately; scripted HTTP response.",
+    "No real LLM inference; no task accuracy result. Literal marker task is an authored diagnostic, not a production benchmark.",
+    "Summary-plus-data exclusion after fix is documented behavior; incompleteness is relative to a task requiring complementary structured values.",
+    "Fixed adapter swapped into2.6.20, not a complete later-release comparison."
+  ],
+  "paid_api_calls": 0
+}

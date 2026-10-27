@@ -22,7 +22,7 @@ from fastmcp.server.middleware.middleware import CallNext
 from fastmcp.tools.tool import Tool, ToolResult
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-preservation-study-20261026'
+OUT = ROOT / 'artifacts/mcp-preservation-study'
 
 
 def middleware(label):

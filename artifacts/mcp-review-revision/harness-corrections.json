@@ -1,0 +1,25 @@
+{
+  "scope": "Harness corrections, not product failures or new independent samples",
+  "entries": [
+    {
+      "issue": "Partial source acquisition left lazy imports missing",
+      "correction": "Acquire required pinned modules; bypass only unrelated gateway package initializer and inventory that control. Native MCP lifecycle/status code remains unchanged."
+    },
+    {
+      "issue": "Original StubState produces fresh UUIDs across processes",
+      "correction": "Persist one original seed realization and use identical selected controller fields across producer modes. No task oracle changed."
+    },
+    {
+      "issue": "Initial forbidden-value checker mistakenly treated the already-redacted seed placeholder as a secret",
+      "correction": "Use the synthetic correct-horse-battery-staple value from upstream test_real_list_wlans_redacts_passphrase_on_the_read_path in controller state, then check its absence independently of fact retention. Re-run all eight continuous calls and dependent analyses. Do not report the initial false positives as a product defect."
+    },
+    {
+      "issue": "Handoff reporting initially selected actions after matching the expected fact oracle",
+      "correction": "The final handoff function parses only delivered output and never receives expected answers or state labels. Revalidated the analysis; semantic task outcomes unchanged. This is a harness clarification, not a product finding."
+    },
+    {
+      "issue": "Count-only list branch also required task-field values; authored and native text controls shared a label.",
+      "correction": "Use cardinality-only count evidence, reject inconsistent representations, and add 14 oracle fixtures plus four native zero/two-record calls. Rename native_full_text and authored_append_json. Original main outputs, fact retention, counts and byte totals remain unchanged. Frozen original contracts are retained alongside the count-oracle amendment."
+    }
+  ]
+}

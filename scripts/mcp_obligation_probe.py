@@ -19,9 +19,9 @@ from mcp_repair_chain_probe import load as load_old
 from mcp_guidance_matrix import evaluate
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-obligation-study-20261026'
+OUT = ROOT / 'artifacts/mcp-obligation-study'
 SRC = OUT / 'sources/september/tools'
-HANDLER = ROOT / 'artifacts/mcp-preservation-study-20261026/sources/hermes-september/tools/mcp_tool_handlers.py'
+HANDLER = ROOT / 'artifacts/mcp-preservation-study/sources/hermes-september/tools/mcp_tool_handlers.py'
 
 
 def source_nodes(path):
@@ -137,10 +137,10 @@ def history():
 
 
 def main():
-    fixtures = json.loads((ROOT / 'artifacts/mcp-paper-evidence-20261026/guidance-fixtures.json').read_text())
+    fixtures = json.loads((ROOT / 'artifacts/mcp-paper-evidence/guidance-fixtures.json').read_text())
     test_rows, cells = [], []
     test_sources = [
-        ('combined', ROOT / 'artifacts/mcp-paper-evidence-20261026/sources/hermes-combined-tests.py',
+        ('combined', ROOT / 'artifacts/mcp-paper-evidence/sources/hermes-combined-tests.py',
          ['TestStructuredContentPreservation']),
         ('september', OUT / 'sources/september/tests/tools/test_mcp_structured_content.py',
          ['TestStructuredContentPreservation', 'TestContentStructuredArbitration'])]

@@ -14,7 +14,7 @@ from types import SimpleNamespace
 from mcp.types import CallToolResult, TextContent
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "artifacts/mcp-preservation-study-20261026"
+OUT = ROOT / "artifacts/mcp-preservation-study"
 
 
 def load(label):

@@ -1,0 +1,782 @@
+{
+  "protocol": "research/mcp-acceptance-strengthening-protocol.json",
+  "test_rows": [
+    {
+      "test_version": "before",
+      "implementation": "before",
+      "test": "test_convert_empty_text_content",
+      "status": "pass"
+    },
+    {
+      "test_version": "before",
+      "implementation": "before",
+      "test": "test_convert_single_text_content",
+      "status": "pass"
+    },
+    {
+      "test_version": "before",
+      "implementation": "before",
+      "test": "test_convert_multiple_text_contents",
+      "status": "pass"
+    },
+    {
+      "test_version": "before",
+      "implementation": "before",
+      "test": "test_convert_with_non_text_content",
+      "status": "pass"
+    },
+    {
+      "test_version": "before",
+      "implementation": "before",
+      "test": "test_convert_with_error",
+      "status": "pass"
+    },
+    {
+      "test_version": "before",
+      "implementation": "after",
+      "test": "test_convert_empty_text_content",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-before/tests/test_tools.py\", line 42, in test_convert_empty_text_content\n    assert text_content == \"\"\nAssertionError\n"
+    },
+    {
+      "test_version": "before",
+      "implementation": "after",
+      "test": "test_convert_single_text_content",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-before/tests/test_tools.py\", line 54, in test_convert_single_text_content\n    assert text_content == \"test result\"\nAssertionError\n"
+    },
+    {
+      "test_version": "before",
+      "implementation": "after",
+      "test": "test_convert_multiple_text_contents",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-before/tests/test_tools.py\", line 70, in test_convert_multiple_text_contents\n    assert text_content == [\"result 1\", \"result 2\"]\nAssertionError\n"
+    },
+    {
+      "test_version": "before",
+      "implementation": "after",
+      "test": "test_convert_with_non_text_content",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-before/tests/test_tools.py\", line 95, in test_convert_with_non_text_content\n    assert text_content == \"text result\"\nAssertionError\n"
+    },
+    {
+      "test_version": "before",
+      "implementation": "after",
+      "test": "test_convert_with_error",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_empty_text_content",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 47, in test_convert_empty_text_content\n    assert content == []\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_single_text_content",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 59, in test_convert_single_text_content\n    assert content == [{\"type\": \"text\", \"text\": \"test result\", \"id\": IsLangChainID}]\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_multiple_text_contents",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 75, in test_convert_multiple_text_contents\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_with_non_text_content",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 104, in test_convert_with_non_text_content\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_with_error",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_with_structured_content",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 144, in test_convert_with_structured_content\n    assert content == [{\"type\": \"text\", \"text\": \"text result\", \"id\": IsLangChainID}]\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_image_content",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 162, in test_convert_image_content\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_resource_link",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 189, in test_convert_resource_link\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_resource_link_image",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 216, in test_convert_resource_link_image\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_resource_link_image_jpeg",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 243, in test_convert_resource_link_image_jpeg\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_resource_link_text",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 271, in test_convert_resource_link_text\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_resource_link_no_mime_type",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 297, in test_convert_resource_link_no_mime_type\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_embedded_resource_blob_image",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 325, in test_convert_embedded_resource_blob_image\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_embedded_resource_blob_file",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 354, in test_convert_embedded_resource_blob_file\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_audio_content_raises",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 372, in test_convert_audio_content_raises\n    with pytest.raises(NotImplementedError) as exc_info:\n  File \"<ARTIFACT_ROOT>/.venv-mcp-langchain/lib/python3.10/site-packages/_pytest/raises.py\", line 712, in __exit__\n    fail(f\"DID NOT RAISE {self.expected_exceptions[0]!r}\")\n  File \"<ARTIFACT_ROOT>/.venv-mcp-langchain/lib/python3.10/site-packages/_pytest/outcomes.py\", line 177, in fail\n    raise Failed(msg=reason, pytrace=pytrace)\nFailed: DID NOT RAISE <class 'NotImplementedError'>\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "test": "test_convert_mixed_content_with_structured_content",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_langchain_contrast.py\", line 77, in main\n    env[node.name]()\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-acceptance-study/sources/langchain-after/tests/test_tools.py\", line 392, in test_convert_mixed_content_with_structured_content\n    assert content == [\nAssertionError\n"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_empty_text_content",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_single_text_content",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_multiple_text_contents",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_with_non_text_content",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_with_error",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_with_structured_content",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_image_content",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_resource_link",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_resource_link_image",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_resource_link_image_jpeg",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_resource_link_text",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_resource_link_no_mime_type",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_embedded_resource_blob_image",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_embedded_resource_blob_file",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_audio_content_raises",
+      "status": "pass"
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "test": "test_convert_mixed_content_with_structured_content",
+      "status": "pass"
+    }
+  ],
+  "test_groups": [
+    {
+      "test_version": "before",
+      "implementation": "before",
+      "total": 5,
+      "passed": 5,
+      "exceptions": 0
+    },
+    {
+      "test_version": "before",
+      "implementation": "after",
+      "total": 5,
+      "passed": 1,
+      "exceptions": 0
+    },
+    {
+      "test_version": "after",
+      "implementation": "before",
+      "total": 16,
+      "passed": 1,
+      "exceptions": 0
+    },
+    {
+      "test_version": "after",
+      "implementation": "after",
+      "total": 16,
+      "passed": 16,
+      "exceptions": 0
+    }
+  ],
+  "rows": [
+    {
+      "implementation": "before",
+      "fixture": "structured_only",
+      "source": {
+        "content": [],
+        "structuredContent": {
+          "record_id": "shared-design-42",
+          "status": "ARTIFACT_ANSWER_47"
+        },
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": null,
+        "status": "success"
+      },
+      "answer_in_content": false,
+      "answer_in_artifact": false,
+      "png_in_content": false,
+      "png_in_artifact": false
+    },
+    {
+      "implementation": "before",
+      "fixture": "summary_plus_data",
+      "source": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Record read; details are structured."
+          }
+        ],
+        "structuredContent": {
+          "record_id": "shared-design-42",
+          "status": "ARTIFACT_ANSWER_47"
+        },
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": "Record read; details are structured.",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": null,
+        "status": "success"
+      },
+      "answer_in_content": false,
+      "answer_in_artifact": false,
+      "png_in_content": false,
+      "png_in_artifact": false
+    },
+    {
+      "implementation": "before",
+      "fixture": "equivalent_dual",
+      "source": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"record_id\": \"shared-design-42\", \"status\": \"ARTIFACT_ANSWER_47\"}"
+          }
+        ],
+        "structuredContent": {
+          "record_id": "shared-design-42",
+          "status": "ARTIFACT_ANSWER_47"
+        },
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": "{\"record_id\": \"shared-design-42\", \"status\": \"ARTIFACT_ANSWER_47\"}",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": null,
+        "status": "success"
+      },
+      "answer_in_content": true,
+      "answer_in_artifact": false,
+      "png_in_content": false,
+      "png_in_artifact": false
+    },
+    {
+      "implementation": "before",
+      "fixture": "image",
+      "source": {
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=",
+            "mimeType": "image/png"
+          }
+        ],
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=",
+            "mimeType": "image/png",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "status": "success"
+      },
+      "answer_in_content": false,
+      "answer_in_artifact": false,
+      "png_in_content": false,
+      "png_in_artifact": true
+    },
+    {
+      "implementation": "before",
+      "fixture": "embedded_text",
+      "source": {
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "resource://shared/design",
+              "mimeType": "text/plain",
+              "text": "ARTIFACT_ANSWER_47"
+            }
+          }
+        ],
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "resource://shared/design",
+              "mimeType": "text/plain",
+              "meta": null,
+              "text": "ARTIFACT_ANSWER_47"
+            },
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "status": "success"
+      },
+      "answer_in_content": false,
+      "answer_in_artifact": true,
+      "png_in_content": false,
+      "png_in_artifact": false
+    },
+    {
+      "implementation": "before",
+      "fixture": "text_error",
+      "source": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Read denied"
+          }
+        ],
+        "isError": true
+      },
+      "status": "explicit_exception",
+      "exception_type": "ToolException",
+      "message": "Read denied"
+    },
+    {
+      "implementation": "before",
+      "fixture": "audio_explicit_unsupported",
+      "source": {
+        "content": [
+          {
+            "type": "audio",
+            "data": "ZmFrZQ==",
+            "mimeType": "audio/wav"
+          }
+        ],
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": "",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": [
+          {
+            "type": "audio",
+            "data": "ZmFrZQ==",
+            "mimeType": "audio/wav",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "status": "success"
+      },
+      "answer_in_content": false,
+      "answer_in_artifact": false,
+      "png_in_content": false,
+      "png_in_artifact": false
+    },
+    {
+      "implementation": "after",
+      "fixture": "structured_only",
+      "source": {
+        "content": [],
+        "structuredContent": {
+          "record_id": "shared-design-42",
+          "status": "ARTIFACT_ANSWER_47"
+        },
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": [],
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": {
+          "structured_content": {
+            "record_id": "shared-design-42",
+            "status": "ARTIFACT_ANSWER_47"
+          }
+        },
+        "status": "success"
+      },
+      "answer_in_content": false,
+      "answer_in_artifact": true,
+      "png_in_content": false,
+      "png_in_artifact": false
+    },
+    {
+      "implementation": "after",
+      "fixture": "summary_plus_data",
+      "source": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Record read; details are structured."
+          }
+        ],
+        "structuredContent": {
+          "record_id": "shared-design-42",
+          "status": "ARTIFACT_ANSWER_47"
+        },
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Record read; details are structured."
+          }
+        ],
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": {
+          "structured_content": {
+            "record_id": "shared-design-42",
+            "status": "ARTIFACT_ANSWER_47"
+          }
+        },
+        "status": "success"
+      },
+      "answer_in_content": false,
+      "answer_in_artifact": true,
+      "png_in_content": false,
+      "png_in_artifact": false
+    },
+    {
+      "implementation": "after",
+      "fixture": "equivalent_dual",
+      "source": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"record_id\": \"shared-design-42\", \"status\": \"ARTIFACT_ANSWER_47\"}"
+          }
+        ],
+        "structuredContent": {
+          "record_id": "shared-design-42",
+          "status": "ARTIFACT_ANSWER_47"
+        },
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"record_id\": \"shared-design-42\", \"status\": \"ARTIFACT_ANSWER_47\"}"
+          }
+        ],
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": {
+          "structured_content": {
+            "record_id": "shared-design-42",
+            "status": "ARTIFACT_ANSWER_47"
+          }
+        },
+        "status": "success"
+      },
+      "answer_in_content": true,
+      "answer_in_artifact": true,
+      "png_in_content": false,
+      "png_in_artifact": false
+    },
+    {
+      "implementation": "after",
+      "fixture": "image",
+      "source": {
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=",
+            "mimeType": "image/png"
+          }
+        ],
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": [
+          {
+            "type": "image",
+            "base64": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=",
+            "mime_type": "image/png"
+          }
+        ],
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": null,
+        "status": "success"
+      },
+      "answer_in_content": false,
+      "answer_in_artifact": false,
+      "png_in_content": true,
+      "png_in_artifact": false
+    },
+    {
+      "implementation": "after",
+      "fixture": "embedded_text",
+      "source": {
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "resource://shared/design",
+              "mimeType": "text/plain",
+              "text": "ARTIFACT_ANSWER_47"
+            }
+          }
+        ],
+        "isError": false
+      },
+      "status": "returned_tool_message",
+      "message": {
+        "content": [
+          {
+            "type": "text",
+            "text": "ARTIFACT_ANSWER_47"
+          }
+        ],
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "read_record",
+        "id": null,
+        "tool_call_id": "contrast-call",
+        "artifact": null,
+        "status": "success"
+      },
+      "answer_in_content": true,
+      "answer_in_artifact": false,
+      "png_in_content": false,
+      "png_in_artifact": false
+    },
+    {
+      "implementation": "after",
+      "fixture": "text_error",
+      "source": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Read denied"
+          }
+        ],
+        "isError": true
+      },
+      "status": "explicit_exception",
+      "exception_type": "ToolException",
+      "message": "Read denied"
+    },
+    {
+      "implementation": "after",
+      "fixture": "audio_explicit_unsupported",
+      "source": {
+        "content": [
+          {
+            "type": "audio",
+            "data": "ZmFrZQ==",
+            "mimeType": "audio/wav"
+          }
+        ],
+        "isError": false
+      },
+      "status": "explicit_exception",
+      "exception_type": "NotImplementedError",
+      "message": "AudioContent conversion to LangChain content blocks is not yet supported. Received audio with mime type: audio/wav"
+    }
+  ],
+  "dependency_versions": {
+    "langchain-mcp-adapters": "0.1.14",
+    "langchain-core": "1.7.0",
+    "mcp": "1.28.0",
+    "pytest": "8.4.2",
+    "dirty-equals": "0.11"
+  },
+  "boundary": "Whole pinned adapter modules, native StructuredTool.ainvoke and ToolMessage, controlled session; no provider serialization or inference.",
+  "source_requirement": "Merged PR379 explicitly assigns structured data to MCPToolArtifact and media/resource data to chat content.",
+  "limits": [
+    "Artifact retention succeeds under the documented recipient contract even where ToolMessage.content lacks the structured answer.",
+    "Both historical modules share one modern dependency environment, not full historical releases.",
+    "Original tests selected by direct converter invocation; not full upstream CI.",
+    "Only auto-generated lc_ content-block IDs are removed for deterministic comparison.",
+    "Audio is an explicit unsupported-path control, not a silent-loss defect."
+  ],
+  "paid_calls": 0
+}

@@ -10,11 +10,11 @@ from mcp_agno_http_capture import execute
 from mcp_visibility_probe import load_source
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-paper-evidence-20261026'
+OUT = ROOT / 'artifacts/mcp-paper-evidence'
 
 
 def main():
-    sources = ROOT / 'artifacts/empirical-directions-20261026/sources'
+    sources = ROOT / 'artifacts/empirical-directions/sources'
     before = (sources / 'before/mcp.py').read_text()
     after = (sources / 'after/mcp.py').read_text()
     block = ('            if not response_str.strip():\n'
@@ -66,7 +66,7 @@ def main():
         assert item['patch_only_matches_after_entire_request'] and item['reverted_matches_before_entire_request']
         assert item['before_matches_after_entire_request'] == (fixture != 'structured_only')
         comparisons.append(item)
-    report = {'protocol': 'research/mcp-guidance-amendment-20261026.json',
+    report = {'protocol': 'research/mcp-guidance-amendment.json',
               'generated_sources': manifest, 'rows': rows, 'comparisons': comparisons,
               'runs': len(rows), 'http_requests': sum(len(r['actual_http_requests']) for r in rows),
               'paid_api_calls': 0,

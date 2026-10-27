@@ -5,7 +5,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-review-revision-20261026'
+OUT = ROOT / 'artifacts/mcp-review-revision'
 PAPER = ROOT / 'tables'
 
 def read(path):
@@ -32,7 +32,7 @@ def main():
     save(OUT / 'source-manifest.json', records)
     live = read(OUT / 'continuous-results.json')
     assert len(live['cells']) == 8 and all(r['native_render_equal'] for r in live['cells'])
-    protocol_hash = hashlib.sha256((ROOT / 'research/mcp-review-contracts-20261026.json').read_bytes()).hexdigest()
+    protocol_hash = hashlib.sha256((ROOT / 'research/mcp-review-contracts.json').read_bytes()).hexdigest()
     assert live['protocol_sha256'] == protocol_hash
     replay = read(OUT / 'replay-agreement.json')
     assert replay['matches'] == replay['total'] == 8
@@ -70,7 +70,7 @@ def main():
         'continuous-results.json','task-contract-results.json','replay-agreement.json',
         'confirmation-results.json','count-control-live-results.json','source-manifest.json','unifi-native-tests.xml','hermes-native-tests.xml']]
     evidence = read(PAPER / 'evidence.json')
-    evidence['sources'] = list(dict.fromkeys(evidence['sources'] + sources + ['research/mcp-count-oracle-amendment-20261027.json','research/mcp-count-oracle-fixtures-20261027.json','scripts/mcp_count_oracle.py']))
+    evidence['sources'] = list(dict.fromkeys(evidence['sources'] + sources + ['research/mcp-count-oracle-amendment.json','research/mcp-count-oracle-fixtures.json','scripts/mcp_count_oracle.py']))
     evidence['source_sha256'] = {p:hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in evidence['sources']}
     evidence['review_revision'] = {'native_tests':tests,'continuous_calls':8,'replay_matches':8,
                                  'policies':summary, 'independent_producer_contrast':True,
@@ -78,12 +78,12 @@ def main():
     save(PAPER / 'evidence.json', evidence)
     save(OUT / 'revision-summary.json', {'verified_source_files':len(records),**evidence['review_revision']})
     save(OUT / 'table-traceability.json', {
-        'Table I':{'source':'artifacts/mcp-acceptance-study-20261026/selection-and-execution-audit.json','key':'selected_case_urls','qualification':'Boundaries updated by continuous-results.json'},
-        'Table II':{'sources':['artifacts/mcp-paper-evidence-20261026/upstream-test-execution.json','artifacts/mcp-acceptance-study-20261026/langchain-contrast.json'],'keys':['groups','test_groups'],'generator':'scripts/build_mcp_evidence_tables.py'},
+        'Table I':{'source':'artifacts/mcp-acceptance-study/selection-and-execution-audit.json','key':'selected_case_urls','qualification':'Boundaries updated by continuous-results.json'},
+        'Table II':{'sources':['artifacts/mcp-paper-evidence/upstream-test-execution.json','artifacts/mcp-acceptance-study/langchain-contrast.json'],'keys':['groups','test_groups'],'generator':'scripts/build_mcp_evidence_tables.py'},
         'Table III':{'source':str((OUT/'task-contract-results.json').relative_to(ROOT)),'key':'rows and summary_sufficient_controls','generator':'scripts/mcp_review_artifact_audit.py'},
-        'Table V':{'source':'research/mcp-cross-case-synthesis-20261027.json','key':'rows','generator':'scripts/build_mcp_evidence_tables.py','qualification':'Case-derived maintenance mapping, not measured organizational effectiveness'},
-        'Table IV':{'source':'artifacts/mcp-paper-evidence-20261026/agno-stdio-http-capture.json','key':'pairs: full_followup_request_collision and both_required_answers_present','generator':'scripts/build_mcp_evidence_tables.py'},
-        'Figure 1':{'sources':['artifacts/mcp-obligation-study-20261026/obligation-results.json','artifacts/mcp-obligation-study-20261026/dedup-ancestry.json','artifacts/mcp-obligation-study-20261026/later-ancestry.json'],'qualification':'Temporal sequence only'}})
+        'Table V':{'source':'research/mcp-cross-case-synthesis.json','key':'rows','generator':'scripts/build_mcp_evidence_tables.py','qualification':'Case-derived maintenance mapping, not measured organizational effectiveness'},
+        'Table IV':{'source':'artifacts/mcp-paper-evidence/agno-stdio-http-capture.json','key':'pairs: full_followup_request_collision and both_required_answers_present','generator':'scripts/build_mcp_evidence_tables.py'},
+        'Figure 1':{'sources':['artifacts/mcp-obligation-study/obligation-results.json','artifacts/mcp-obligation-study/dedup-ancestry.json','artifacts/mcp-obligation-study/later-ancestry.json'],'qualification':'Temporal sequence only'}})
     print(json.dumps({'verified_source_files':len(records),'native_tests':tests,'policies':summary}))
 
 if __name__ == '__main__':

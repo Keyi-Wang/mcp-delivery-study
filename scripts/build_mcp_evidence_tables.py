@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ART = ROOT / 'artifacts/mcp-paper-evidence-20261026'
+ART = ROOT / 'artifacts/mcp-paper-evidence'
 PAPER = ROOT / 'tables'
 
 
@@ -23,24 +23,24 @@ def write_csv(name, rows):
 def main():
     PAPER.mkdir(exist_ok=True)
     # Verify the adapter and historical module hashes before interpreting runs.
-    for x in read('artifacts/empirical-directions-20261026/source-manifest.json'):
+    for x in read('artifacts/empirical-directions/source-manifest.json'):
         assert hashlib.sha256((ROOT / x['path']).read_bytes()).hexdigest() == x['sha256']
-    for x in read('artifacts/mcp-preservation-study-20261026/source-manifest.json'):
-        assert hashlib.sha256((ROOT / 'artifacts/mcp-preservation-study-20261026' / x['local']).read_bytes()).hexdigest() == x['sha256']
+    for x in read('artifacts/mcp-preservation-study/source-manifest.json'):
+        assert hashlib.sha256((ROOT / 'artifacts/mcp-preservation-study' / x['local']).read_bytes()).hexdigest() == x['sha256']
 
-    tests = read('artifacts/mcp-paper-evidence-20261026/upstream-test-execution.json')
-    capture = read('artifacts/mcp-paper-evidence-20261026/agno-stdio-http-capture.json')
-    hermes = read('artifacts/mcp-preservation-study-20261026/hermes-repair-chain.json')
-    webui = read('artifacts/mcp-preservation-followup-20261026/webui-media-probe.json')
-    superset = read('artifacts/mcp-preservation-study-20261026/superset-wire-probe.json')
-    attribution = read('artifacts/mcp-paper-evidence-20261026/patch-attribution.json')
-    guidance = read('artifacts/mcp-paper-evidence-20261026/guidance-matrix.json')
-    acceptance = read('artifacts/mcp-acceptance-study-20261026/selection-and-execution-audit.json')
-    langchain = read('artifacts/mcp-acceptance-study-20261026/langchain-contrast.json')
-    adcp = read('artifacts/mcp-acceptance-study-20261026/adcp-reconstruction.json')
-    obligations = read('artifacts/mcp-obligation-study-20261026/obligation-results.json')
-    producer = read('artifacts/mcp-obligation-study-20261026/native-producer-results.json')
-    for item in read('artifacts/mcp-obligation-study-20261026/source-manifest.json'):
+    tests = read('artifacts/mcp-paper-evidence/upstream-test-execution.json')
+    capture = read('artifacts/mcp-paper-evidence/agno-stdio-http-capture.json')
+    hermes = read('artifacts/mcp-preservation-study/hermes-repair-chain.json')
+    webui = read('artifacts/mcp-preservation-followup/webui-media-probe.json')
+    superset = read('artifacts/mcp-preservation-study/superset-wire-probe.json')
+    attribution = read('artifacts/mcp-paper-evidence/patch-attribution.json')
+    guidance = read('artifacts/mcp-paper-evidence/guidance-matrix.json')
+    acceptance = read('artifacts/mcp-acceptance-study/selection-and-execution-audit.json')
+    langchain = read('artifacts/mcp-acceptance-study/langchain-contrast.json')
+    adcp = read('artifacts/mcp-acceptance-study/adcp-reconstruction.json')
+    obligations = read('artifacts/mcp-obligation-study/obligation-results.json')
+    producer = read('artifacts/mcp-obligation-study/native-producer-results.json')
+    for item in read('artifacts/mcp-obligation-study/source-manifest.json'):
         data = (ROOT / item['path']).read_bytes()
         assert hashlib.sha256(data).hexdigest() == item['sha256']
         assert hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest() == item['git_blob']
@@ -58,7 +58,7 @@ def main():
                   for v in ['combined', 'september', 'branch-removal']]
         rows.append(title + ' & ' + ' & '.join(f'{x}/4' for x in counts) + r' \\')
     (PAPER / 'obligation-rows.tex').write_text('\n'.join(rows) + '\n')
-    for item in read('artifacts/mcp-acceptance-study-20261026/source-manifest.json'):
+    for item in read('artifacts/mcp-acceptance-study/source-manifest.json'):
         assert hashlib.sha256((ROOT / item['path']).read_bytes()).hexdigest() == item['sha256']
     assert len(tests['rows']) == 61 and not any(g['runtime_errors'] for g in tests['groups'])
     assert capture['runs'] == 16 and capture['http_requests'] == 32 and not capture['errors']
@@ -171,31 +171,31 @@ def main():
         'counting': 'Do not sum these heterogeneous units into a sample size or a defect count. Transport checks supersede previous Agno controlled-session checks in main tables.',
         'paid_model_calls': 0, 'actual_model_task_success_measured': False,
         'sources': [
-            'research/mcp-cross-case-synthesis-20261027.json',
-            'artifacts/mcp-paper-evidence-20261026/upstream-test-execution.json',
-            'artifacts/mcp-paper-evidence-20261026/agno-stdio-http-capture.json',
-            'artifacts/mcp-paper-evidence-20261026/repair-metadata.json',
-            'artifacts/mcp-paper-evidence-20261026/upstream-test-diffs.json',
-            'artifacts/mcp-preservation-study-20261026/hermes-repair-chain.json',
-            'artifacts/mcp-preservation-followup-20261026/webui-media-probe.json',
-            'artifacts/mcp-preservation-study-20261026/superset-wire-probe.json',
-            'artifacts/mcp-paper-evidence-20261026/patch-attribution.json',
-            'artifacts/mcp-paper-evidence-20261026/guidance-matrix.json',
-            'artifacts/mcp-paper-evidence-20261026/guidance-fixtures.json',
-            'artifacts/mcp-acceptance-study-20261026/langchain-contrast.json',
-            'artifacts/mcp-acceptance-study-20261026/adcp-reconstruction.json',
-            'artifacts/mcp-acceptance-study-20261026/completed-screening.json',
-            'artifacts/mcp-acceptance-study-20261026/selection-and-execution-audit.json',
-            'artifacts/mcp-acceptance-study-20261026/source-manifest.json',
-            'artifacts/mcp-obligation-study-20261026/source-manifest.json',
-            'artifacts/mcp-obligation-study-20261026/native-producer-results.json',
-            'artifacts/mcp-obligation-study-20261026/obligation-results.json',
-            'artifacts/mcp-obligation-study-20261026/dedup-commit.json',
-            'artifacts/mcp-obligation-study-20261026/dedup-ancestry.json',
-            'artifacts/mcp-obligation-study-20261026/later-ancestry.json',
+            'research/mcp-cross-case-synthesis.json',
+            'artifacts/mcp-paper-evidence/upstream-test-execution.json',
+            'artifacts/mcp-paper-evidence/agno-stdio-http-capture.json',
+            'artifacts/mcp-paper-evidence/repair-metadata.json',
+            'artifacts/mcp-paper-evidence/upstream-test-diffs.json',
+            'artifacts/mcp-preservation-study/hermes-repair-chain.json',
+            'artifacts/mcp-preservation-followup/webui-media-probe.json',
+            'artifacts/mcp-preservation-study/superset-wire-probe.json',
+            'artifacts/mcp-paper-evidence/patch-attribution.json',
+            'artifacts/mcp-paper-evidence/guidance-matrix.json',
+            'artifacts/mcp-paper-evidence/guidance-fixtures.json',
+            'artifacts/mcp-acceptance-study/langchain-contrast.json',
+            'artifacts/mcp-acceptance-study/adcp-reconstruction.json',
+            'artifacts/mcp-acceptance-study/completed-screening.json',
+            'artifacts/mcp-acceptance-study/selection-and-execution-audit.json',
+            'artifacts/mcp-acceptance-study/source-manifest.json',
+            'artifacts/mcp-obligation-study/source-manifest.json',
+            'artifacts/mcp-obligation-study/native-producer-results.json',
+            'artifacts/mcp-obligation-study/obligation-results.json',
+            'artifacts/mcp-obligation-study/dedup-commit.json',
+            'artifacts/mcp-obligation-study/dedup-ancestry.json',
+            'artifacts/mcp-obligation-study/later-ancestry.json',
         ],
     }
-    synthesis = read('research/mcp-cross-case-synthesis-20261027.json')
+    synthesis = read('research/mcp-cross-case-synthesis.json')
     assert len(synthesis['rows']) == 5
     for item in synthesis['rows']:
         assert all((ROOT / p).is_file() for p in item['evidence'])

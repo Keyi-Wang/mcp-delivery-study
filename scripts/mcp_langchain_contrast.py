@@ -19,7 +19,7 @@ from langchain_core.messages import ToolMessage
 from langchain_core.tools import ToolException
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-acceptance-study-20261026'
+OUT = ROOT / 'artifacts/mcp-acceptance-study'
 
 
 def load(label):
@@ -97,7 +97,7 @@ def main():
     data = {'record_id': 'shared-design-42', 'status': answer}
     text = lambda s: mt.TextContent(type='text', text=s)
     # Valid 1x1 PNG reused from the independently checked media fixture.
-    media = json.loads((ROOT / 'artifacts/mcp-preservation-followup-20261026/webui-media-probe.json').read_text())
+    media = json.loads((ROOT / 'artifacts/mcp-preservation-followup/webui-media-probe.json').read_text())
     png = next(c['input']['content'][0]['data'] for c in media['cells'] if c['fixture'] == 'image')
     cases = {
         'structured_only': mt.CallToolResult(content=[], structuredContent=data),
@@ -137,7 +137,7 @@ def main():
     assert all(idx[v,'text_error']['exception_type'] == 'ToolException' for v in modules)
     assert all(idx[v,'equivalent_dual']['answer_in_content'] for v in modules)
     assert idx['after','embedded_text']['answer_in_content'] and not idx['before','embedded_text']['answer_in_content']
-    report = {'protocol': 'research/mcp-acceptance-strengthening-protocol-20261026.json',
+    report = {'protocol': 'research/mcp-acceptance-strengthening-protocol.json',
               'test_rows': test_rows, 'test_groups': groups, 'rows': rows,
               'dependency_versions': {p:version(p) for p in ['langchain-mcp-adapters','langchain-core','mcp','pytest','dirty-equals']},
               'boundary': 'Whole pinned adapter modules, native StructuredTool.ainvoke and ToolMessage, controlled session; no provider serialization or inference.',

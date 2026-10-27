@@ -1,0 +1,1271 @@
+[
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/LICENSE",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "LICENSE",
+    "git_blob": "75410e73319c72cd3e991a501c5455eb78f38375",
+    "git_blob_verified": true,
+    "sha256": "821556e6336796450ab852d375117b48a4887e71d255794fd6318d99982a5ab6"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/agent/__init__.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "agent/__init__.py",
+    "git_blob": "77f1cad846cb6838015a69a6fe1052262209dae4",
+    "git_blob_verified": true,
+    "sha256": "4b8495cff6ef2502e6cf2f42e384670d5da7a9cfe7d155e4b52fe971afc4c362"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/agent/async_utils.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "agent/async_utils.py",
+    "git_blob": "2bc558fad21eeec736c0283cb7df86304349f222",
+    "git_blob_verified": true,
+    "sha256": "9e2dc6964bd826c1cd0a5b756e2031761933d96da76fc4804064121925f04ee7"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/agent/conversation_compression.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "agent/conversation_compression.py",
+    "git_blob": "52778a4e3f66f67590c99ae5dd3d70a729b48168",
+    "git_blob_verified": true,
+    "sha256": "dc5522b1f9582111cc139176e1a4ce0b3c1cebe2c72140f280aa0d5f033fdad8"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/agent/delegation_context.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "agent/delegation_context.py",
+    "git_blob": "4ea7f895f0e7b0b50dad203e7cecf05455669076",
+    "git_blob_verified": true,
+    "sha256": "5644ad3f644ac33a7febf47d0b949d69bb210a55ca8e77197e447636b0f4deac"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/agent/jiter_preload.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "agent/jiter_preload.py",
+    "git_blob": "6a69352a7803f743a1d06d969ee2666b2fcaf2bb",
+    "git_blob_verified": true,
+    "sha256": "98e6b8131e74255f21000f55f4d77709e8c34200374819654dbea763cdbf6d1a"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/agent/secret_scope.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "agent/secret_scope.py",
+    "git_blob": "8446cdec5a5ba12a3715147cff3cfbc3289b1030",
+    "git_blob_verified": true,
+    "sha256": "6c43c265387340edc4095c0e9f3753302701e7444372f5bd8a68ddac14c66133"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/agent/turn_context.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "agent/turn_context.py",
+    "git_blob": "27fe703a9b8105599186434082bbc19109c83b59",
+    "git_blob_verified": true,
+    "sha256": "46ed030ee35a13f75994bf8e28cde3633db14969d1fb5c859fc0ff6964cbb0bd"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/__init__.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/__init__.py",
+    "git_blob": "7bf895717c9a668f19a969ac6060d05d1e527c45",
+    "git_blob_verified": true,
+    "sha256": "8920ead12b3b78cc727b2c6257192e954bc790717676484ad66b3238e511b95e"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/config.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/config.py",
+    "git_blob": "2437f539b9281889102b37193431bb52e15b6af0",
+    "git_blob_verified": true,
+    "sha256": "72ecc152d060f0e08206f39857c5dbe7d73b258757d7cb1e74abeea9beb91db0"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/dead_targets.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/dead_targets.py",
+    "git_blob": "2b47b3083bedaa7a3ccc5a193e8ac8c24d61705a",
+    "git_blob_verified": true,
+    "sha256": "f6944dfbba75236ef79925c7c24c441c8c9307ebd7df31de06ba765f3d0c8e9b"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/delivery.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/delivery.py",
+    "git_blob": "6585cfbe1e87eac2283ec91e7d597ba1afc296aa",
+    "git_blob_verified": true,
+    "sha256": "25f6c3f942faad47c7552521453c86bc1562cfa36ebb4292bff9e645badbdbf6"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/restart.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/restart.py",
+    "git_blob": "db149b966502c8876b2ac8dc9ff10339f75dff9f",
+    "git_blob_verified": true,
+    "sha256": "786ef1a6473bb9f1fbb8dcf4854aea802193782e430fe957f9e35076a25dee9a"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/session.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/session.py",
+    "git_blob": "fb074d0cc6b2f07a79062d5f81433aef60e1376f",
+    "git_blob_verified": true,
+    "sha256": "d466283707e7a9a451771abd0572187390314dabcdfc4a199f25a5403e6c4c81"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/session_lifecycle.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/session_lifecycle.py",
+    "git_blob": "47b3a95489f8da9280eae795eab75dceee0adadc",
+    "git_blob_verified": true,
+    "sha256": "51e4ce1524efe87702cb4e28a243bb1f33555f6ebdc32dd2cc0960fef8525c88"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/session_persistence.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/session_persistence.py",
+    "git_blob": "c9df2f9091880fec63480f4cf0d548bbb7eba71b",
+    "git_blob_verified": true,
+    "sha256": "ca6776c527b3d61f647b384d9028640b5480ada20b0b8da391772b73ac1fc7b2"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/session_recovery.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/session_recovery.py",
+    "git_blob": "cfe0a99cb4c4cb63212ca316720ae5318c180db6",
+    "git_blob_verified": true,
+    "sha256": "a836dbf860ee9bd07ae83fdb95d4dcd1366a9ac1bccd7483f0e96380b3aa760b"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/session_transcript.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/session_transcript.py",
+    "git_blob": "e24fe43a48fe343a3dc96615405297a5235f7850",
+    "git_blob_verified": true,
+    "sha256": "41d738216547fa76901f7ad1d871e30f502fdd3b28594c524e2d6abd5d04ea5d"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/shutdown_watchdog.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/shutdown_watchdog.py",
+    "git_blob": "528c8e8a01ec8d8b009fd160c8831f33d22b1290",
+    "git_blob_verified": true,
+    "sha256": "507b42c41eb280fd854b3764ea03d4d8653fce2881432f4b0985461a2b69c024"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/status.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/status.py",
+    "git_blob": "0e131a3e872fbd7b4b90216b11dfb35755d07b6a",
+    "git_blob_verified": true,
+    "sha256": "aaedf320b02db76f1f48f28f5dcf42166dc29843ac6e24535a7f25c03188f0ab"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/gateway/whatsapp_identity.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "gateway/whatsapp_identity.py",
+    "git_blob": "f8ea45377c67889faa857c3f66b43132e6bc1354",
+    "git_blob_verified": true,
+    "sha256": "bcd593d3f0bc9374984ef71061ca255998dd9cbe0b7adb02e5c8b525910a54d8"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/__init__.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/__init__.py",
+    "git_blob": "fc44bc9995db27e575ae7772fbcbae657e922f50",
+    "git_blob_verified": true,
+    "sha256": "0d78a58a9f27f32adfdac959e89767cecde93a424bcfbd39d64fb95f6cf13e6c"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/cli_output.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/cli_output.py",
+    "git_blob": "6c85046f24ab357c9d2b15dd6f7354186bd215d9",
+    "git_blob_verified": true,
+    "sha256": "bc3b749d61c01ae4454211d20ecafc8acde0ed883937fcf8c13e66def94bf2b9"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/colors.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/colors.py",
+    "git_blob": "51186e37fea2eb354e6206f6969a4ff1bd09c566",
+    "git_blob_verified": true,
+    "sha256": "12d4cd7deaa3832a73b7758609cc9607871a9aa222c5423ca6c0f3e3d4cc2ee6"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/config.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/config.py",
+    "git_blob": "8db76528c960be49e9b2485902e60d5ea4909fc2",
+    "git_blob_verified": true,
+    "sha256": "ecf1b2ef043c72033f4e21bdf3cdce6fb242e2d260cfdbf44bb8cc3acb785c1c"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/config_defaults.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/config_defaults.py",
+    "git_blob": "22a09277caf4f3f9c6d16c13878d7e42e0b64698",
+    "git_blob_verified": true,
+    "sha256": "69c33c7d0a46e0d699874d337fa99fa37b0cdceb98ca5be1a9bce5bc84829720"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/config_providers.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/config_providers.py",
+    "git_blob": "80f07823e436e76f35815909b17c2ed5fc4905e4",
+    "git_blob_verified": true,
+    "sha256": "241c1b75e6ad0f56dc87b9fd567565d6437b2499227b21ca76558a772cf5929d"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/default_soul.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/default_soul.py",
+    "git_blob": "3a194050217571f6b93cb29c6e852ffbcf31d5a5",
+    "git_blob_verified": true,
+    "sha256": "b65192a631f0011fcef245c94d9741e0c716defe605d3edfd0e59f26da211d2d"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/env_loader.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/env_loader.py",
+    "git_blob": "2f2f895eb5497fbc5c7ecbc3fd7430060ef42457",
+    "git_blob_verified": true,
+    "sha256": "4bdeccecea814299627f0e1a4fb54f9e93ba48a01f35b966337f7ad9a826f798"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/managed_scope.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/managed_scope.py",
+    "git_blob": "ef954fb86a29dfc21b0752d8c7402d14af70bb1e",
+    "git_blob_verified": true,
+    "sha256": "1ef50ab8787f4a1c9fb3cbe562de426eb9b58a4bb16fe3960427921cd22773b6"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/personality.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/personality.py",
+    "git_blob": "e2dc16312558dc4f204eb893e83b6df6e94a38c4",
+    "git_blob_verified": true,
+    "sha256": "b220d176cab97f79adbcd4da151c522792d9fde10489ba38a087d919ee13b260"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/route_identity.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/route_identity.py",
+    "git_blob": "6ada71c1d03fed73e262a9498ad8579304c00366",
+    "git_blob_verified": true,
+    "sha256": "451b936f17182121a251a0f44182d3daaa04e0f5bb4c0ec45c9b722de0b2a284"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_cli/secret_prompt.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_cli/secret_prompt.py",
+    "git_blob": "62191dea361ab59b4fb396d168c4a72d67e6ddae",
+    "git_blob_verified": true,
+    "sha256": "d523702f8899ee5b42eed38e45883c871bde991a070cd40304f8c82186966356"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_constants.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_constants.py",
+    "git_blob": "dced36c03e9a098e914968bde66a571b63dc44f0",
+    "git_blob_verified": true,
+    "sha256": "e5f72a309b3689f5fa2e85065e8051f8e6f7686d1ec1741e7543cc5e56bea162"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/hermes_state_ids.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "hermes_state_ids.py",
+    "git_blob": "4f38a4f2c973332d1aff09654ac91628090789d8",
+    "git_blob_verified": true,
+    "sha256": "c2b4531690fedd0f4d37c3f6c44f5478b4e87c1883b102c22a86340f3a4bdeb1"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/pyproject.toml",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "pyproject.toml",
+    "git_blob": "4ddeea131d7f37af5416fdbb9463380ef5f88add",
+    "git_blob_verified": true,
+    "sha256": "a674c321c63c3bfd9fa099fab5957a64092416f7771680b370a4d77e992744ba"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/__init__.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/__init__.py",
+    "git_blob": "db946d0e2bc62d468804968c074f844b5fa0cbb3",
+    "git_blob_verified": true,
+    "sha256": "7bca460f476ac9ace706c8cfd07e98f8aae34d839862f0f68abafc3a8397cf35"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/ansi_strip.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/ansi_strip.py",
+    "git_blob": "f389962416e6b0f8116d6d19ec10320173d0f482",
+    "git_blob_verified": true,
+    "sha256": "71f339d1be720c24f407565b4a90cb55164dead2e860cf438258104fd96c1922"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/interrupt.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/interrupt.py",
+    "git_blob": "e9ca0b994e9f8c84a80f6df7f32e295fb305b9af",
+    "git_blob_verified": true,
+    "sha256": "513945569eb46a6a253afc851a81e1157b66d7dbdff52a73c676c4fbce17247b"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_dashboard_oauth.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_dashboard_oauth.py",
+    "git_blob": "782cb70eb108087ad5b4288019a752cc77b6e5ca",
+    "git_blob_verified": true,
+    "sha256": "05548fd6d904b7f43e8dd208d44733a53abbaa43682aa163fafee6153a61b061"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_death_supervisor.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_death_supervisor.py",
+    "git_blob": "87302ae6858c658226b3906b719d39ce834dddbd",
+    "git_blob_verified": true,
+    "sha256": "0ee964204f162dc1d0f1358dd33431f603b7f4ebcd53cda844fc704f02e36600"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_oauth.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_oauth.py",
+    "git_blob": "6e17a8e821d561dbd2f0b30d045ff46e3cb43f16",
+    "git_blob_verified": true,
+    "sha256": "2d339b93aa2163dee7ec8276fd137fa56a332104305582659d6d0c91d651ccfc"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_oauth_device.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_oauth_device.py",
+    "git_blob": "0acb847d18292aca38a997da40439474a197355a",
+    "git_blob_verified": true,
+    "sha256": "9627f881dae8d93554f8243e1ad0b2f55e61470cb605f79718f6f5bfa0e6084d"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_oauth_manager.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_oauth_manager.py",
+    "git_blob": "f88ab41a5e60180d41f7739c1fdff9a5d4cf460c",
+    "git_blob_verified": true,
+    "sha256": "2def464dd3fe0b1ce99e0aa118b28819f5ba38cf92e101903c9ffdf37b5c8ee8"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_oauth_provider.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_oauth_provider.py",
+    "git_blob": "3db0f5fb4dd81b1db2ca4d376ea8d22187409c48",
+    "git_blob_verified": true,
+    "sha256": "36b9ea651cc205bba29014bf343b17359b83c6bbbf125ed3d325069962e84de3"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_schema_cache.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_schema_cache.py",
+    "git_blob": "98e150edb17d9d07f30df65242a49aae1ef0d1bf",
+    "git_blob_verified": true,
+    "sha256": "a3554591068d94347107d0ec887a8c8a528f283ff8dcec22871c349db31aea2c"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool.py",
+    "git_blob": "0703f8b496679f516cb5f028a1c95bd332c1c5e3",
+    "git_blob_verified": true,
+    "sha256": "0eb6e0a592722d2af4814fa4a9f00d2d260b4bd8bf71392c14116e8fcfcce7cb"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_agent.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_agent.py",
+    "git_blob": "5e8af44da0be15a5642e77c244bd1fdc2bf695f5",
+    "git_blob_verified": true,
+    "sha256": "05a96e1dc3051339404d058c75d586bc0f6b67df09bf9cf48bae825b51f80963"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_common.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_common.py",
+    "git_blob": "37f57d707cce2f2c3b5752c4efa538a6cc8d693d",
+    "git_blob_verified": true,
+    "sha256": "ad1432cfc0d6ede806b64fab5f77945dbc2694786890b893169e56823c67d61e"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_config.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_config.py",
+    "git_blob": "c7064ab32a9f0b17df8ea03265e35a6c9e5cd187",
+    "git_blob_verified": true,
+    "sha256": "f8002c2d65a1213250818912108df126f92c93f8a874a2cd4cb6cc63c0736d2d"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_content.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_content.py",
+    "git_blob": "9def98193e8424d6b86e536b917f3d8bf53390f5",
+    "git_blob_verified": true,
+    "sha256": "980a73c4d045e029b39e690fd2cf24dfc7df59a233a5fe6f99862cb88a686810"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_discovery.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_discovery.py",
+    "git_blob": "8a0429c2a7d4b6447a4dc74a616cb88da2799aca",
+    "git_blob_verified": true,
+    "sha256": "b2aca5ad925f169ea9edbdc30894babe701cd51655823eb965aa5c5412552c58"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_errors.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_errors.py",
+    "git_blob": "13167317e552260bd774f833406ef72aeb244239",
+    "git_blob_verified": true,
+    "sha256": "87e9d55837145f120c5e5d889bcb6ee2f9fd2f803f5c905e1993904d8e56e16f"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_handlers.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_handlers.py",
+    "git_blob": "78025d290977b394ffdaafb6001360fbd55e5db9",
+    "git_blob_verified": true,
+    "sha256": "ad152084f1b6a24c44c04c69315d11567e02bae0de5a26d7440dc5e2921ca743"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_health.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_health.py",
+    "git_blob": "fa39a6d0b8f069e58a87b095cd2f6c189ad1bf6e",
+    "git_blob_verified": true,
+    "sha256": "ccef7fb0ea44753b5f728dd6ebc84e4daa7ad930fa71421d4bc81fee6100736e"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_lifecycle.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_lifecycle.py",
+    "git_blob": "cbff4e77b5a53e1e24277eeb123b1986de00a545",
+    "git_blob_verified": true,
+    "sha256": "cd464c59cb66abbda1126d3ae6c4977090ce762c40873754a6cd57f6922d4f55"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_loop.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_loop.py",
+    "git_blob": "831ea81bb6db750b5cd37c1e1950c63d5b6d601f",
+    "git_blob_verified": true,
+    "sha256": "ac176bdb5084871fa3040510045f68f87ba5348328251c28389f60f3bac7d272"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_registration.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_registration.py",
+    "git_blob": "a01d24c2c53287e8c4aa446e286fd24789f0b694",
+    "git_blob_verified": true,
+    "sha256": "4a35f71f174e1dd22ed1fa2f4ad48a73794c80be29cb4f0908974fed2a066448"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_sampling.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_sampling.py",
+    "git_blob": "89a5276d411c66ac5a2266c1775bbe9795eaa067",
+    "git_blob_verified": true,
+    "sha256": "595de91fbaea40378d59787b27fad763a42caa067a93685072f0e834a742dd21"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_schema.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_schema.py",
+    "git_blob": "e0967b01267c52e347857b89978d75fa679052fc",
+    "git_blob_verified": true,
+    "sha256": "7fabc9d461c540121d06a82facd69e272bdabf99357bc7a3889915ad8747b4a5"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_scope.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_scope.py",
+    "git_blob": "7e6904b87235fe8fad888e5da4cf5c016e203ff4",
+    "git_blob_verified": true,
+    "sha256": "8ad76c51cb945c0788f83a3e876c527475373a1ace446a212ccbdef219bec825"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_server_run.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_server_run.py",
+    "git_blob": "6767526ac22063b96239a319f4a38625f27c73ef",
+    "git_blob_verified": true,
+    "sha256": "6634add56acde1d241a303aeb8813dee027b4e65d83dad9ef48c3dbdaf628cbb"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/mcp_tool_transport.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/mcp_tool_transport.py",
+    "git_blob": "d6d6751cb0b6b6f36a1e26a7849d02154065e93b",
+    "git_blob_verified": true,
+    "sha256": "691901e3bee4c8f49975b77a802a146d28c3970963753fbc539bb1a30809b3a2"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/osv_check.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/osv_check.py",
+    "git_blob": "49508e49d12f231b625e9ff22b15aa3b0462b6b5",
+    "git_blob_verified": true,
+    "sha256": "d5a60a878b94a595ead77127e4bb671f498c7227fc4bd53742753fc63e92c7e2"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/registry.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/registry.py",
+    "git_blob": "26257fccc25aaf04707b8f6d46ac83fd1e8704ab",
+    "git_blob_verified": true,
+    "sha256": "fc1337a40ef7aaa3a598378e53e7ade76e8982a4e0055526961c3e59d8b3f400"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/tools/tool_output_truncate.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "tools/tool_output_truncate.py",
+    "git_blob": "99441aaaae4d9d52a5a454c53ccebe6af409d072",
+    "git_blob_verified": true,
+    "sha256": "c008f5f4dab87a9607e1d79ee5536207cededd574eb37a47e79c9587d59c3db1"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/hermes/utils.py",
+    "repo": "NousResearch/hermes-agent",
+    "ref": "23036e20a6652aff5b1e46f43921b6ab95efe958",
+    "upstream": "utils.py",
+    "git_blob": "6de0be3312f7117dd3d0b75aeea5219e22186d94",
+    "git_blob_verified": true,
+    "sha256": "2aaf522b09fd913e411213ebcd5e5e59c1f484b699087bb68199a6a2933998a0"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/LICENSE",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "LICENSE",
+    "git_blob": "f333814de2f98d642d87eed693cb2e10f3dadd3f",
+    "git_blob_verified": true,
+    "sha256": "e0367bdcf6bf23dde6d9982e69d74caafae6082ab70567c627a37a6fef9350e2"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/README.md",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "README.md",
+    "git_blob": "fdd7cecdb44bf563668a3f44d6b462bcb3c7de8f",
+    "git_blob_verified": true,
+    "sha256": "cdbfa4c69c60cbb97957608a020c760ebdda8fa0c166aed8fce8509e1e7b8f5e"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/docs/site/src/content/docs/tools/get_wan_status/index.md",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "docs/site/src/content/docs/tools/get_wan_status/index.md",
+    "git_blob": "c31c58311e44efe70c0428705880573a3137dfc6",
+    "git_blob_verified": true,
+    "sha256": "4ef347c2bada36ad3b60ce7849d9c8ca3ab80a8067ec33bc7d21685a0c0fd86c"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/docs/site/src/content/docs/tools/list_wlans/index.md",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "docs/site/src/content/docs/tools/list_wlans/index.md",
+    "git_blob": "9d4f7910b9b7b0419376ff8c27a805321818efff",
+    "git_blob_verified": true,
+    "sha256": "99758cb7dfcc76dc73ff8bca6290ceaca7021196510c3fcd68898b0b4b69f28c"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/evals/cases/tool_selection.yaml",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "evals/cases/tool_selection.yaml",
+    "git_blob": "7157bdfdf53e411bd2aa023db6dff29ac25f5039",
+    "git_blob_verified": true,
+    "sha256": "9cd529e0598f0434b2ca9374052afc8bb51c2ae5a7942e4014501179a1097a2d"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/pyproject.toml",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "pyproject.toml",
+    "git_blob": "84f10ba64c1cb6e78c208cf2d7bbe2701821b4cf",
+    "git_blob_verified": true,
+    "sha256": "362da8fbd450aec60967b17ab1721a26018e2a35902c3756f8c5fc2a4b584dd0"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/__init__.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/__init__.py",
+    "git_blob": "81a7dcc98fd9056a431aeb1041c919a7c9053a5f",
+    "git_blob_verified": true,
+    "sha256": "e203fea5f1e2fd2a3a126489703e0fa728d8a8b8359c4e62a74c67c82872bbd0"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/annotations.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/annotations.py",
+    "git_blob": "576c3fa722f00bad138b0ca5d7d02ed98eba3499",
+    "git_blob_verified": true,
+    "sha256": "15550a01fcbc3cf4ac5bde0b3a9f98f8a8e0f261c8cb5bc42dae9799a7e111b1"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/audit.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/audit.py",
+    "git_blob": "568457f9ef42f3319048a64535a84387def8a1fa",
+    "git_blob_verified": true,
+    "sha256": "d337ca833bcde4ad56082924d764729d1e960e965f51e7548ebb7bd0c0714281"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/backends.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/backends.py",
+    "git_blob": "0d42ce1939320996851b1f118c49e56fb362795c",
+    "git_blob_verified": true,
+    "sha256": "51f9206bc0e29073e4fe7a2e6637f656b2977a86eafc42e7bd32cf4dbdde31fe"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/cli/__init__.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/cli/__init__.py",
+    "git_blob": "80599f3e5510f41587d18182336da29cc1c8431d",
+    "git_blob_verified": true,
+    "sha256": "d4165476845d762345943ba085a9ac3c42a27db1fc40a2edd615da015096cd68"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/cli/replay.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/cli/replay.py",
+    "git_blob": "ee1d21f36ed0dff56d76b16e2cfb666efc4fe13f",
+    "git_blob_verified": true,
+    "sha256": "90fcc5a10b34e957ec71189fc72f9cf7c46db3efdab4a9953c628760cb90c7de"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/__init__.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/__init__.py",
+    "git_blob": "9c3bfe3a853cc67a6b887c700bc1f12a4aaf7dfd",
+    "git_blob_verified": true,
+    "sha256": "4ff0744204b4cafc3d74d5cce9566b7f54f90b0fa3548de931a21922fac74074"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/access.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/access.py",
+    "git_blob": "b1049c8c9a51cb22aeeb0c4abbc686c649f751e8",
+    "git_blob_verified": true,
+    "sha256": "1b1a5befc89e541133096f8f01d031ec61dcc2d24cf88d0570978e85273d7b94"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/access_stubs.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/access_stubs.py",
+    "git_blob": "b1306826cbc2617ac9b2d5072d1cedff1184b55e",
+    "git_blob_verified": true,
+    "sha256": "23f8827a56f18e17ebdcdcd135ad527fc1f8fedd7c48babf0bace074d2b77ee6"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/errors.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/errors.py",
+    "git_blob": "63b8909f676e11234dafb6e26495839f592a4a60",
+    "git_blob_verified": true,
+    "sha256": "f97804fd6feac809bdfa022a734a091182b82655a451479a7f65b9e0be8794bf"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/ids.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/ids.py",
+    "git_blob": "fd2b9bc3068d34ed0736a198053f8d11d9a01d96",
+    "git_blob_verified": true,
+    "sha256": "a86f6d4fbb612141fc2d407ed85273a8bdfe2f8796f89eed7511ef9f0c6e7726"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/protect.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/protect.py",
+    "git_blob": "7aa52e0682852c8f9e84562eacb497e36a74f2b9",
+    "git_blob_verified": true,
+    "sha256": "b30f73c142694d17c011bf71f4f3e5ee7a1eeced08daef4d0b7bb31e95768e14"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/protect_stubs.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/protect_stubs.py",
+    "git_blob": "4c92cf9166bf968bafdfcbf35c53a9157a559004",
+    "git_blob_verified": true,
+    "sha256": "1ed149994cc91f56de1c776f20faee680b837335be4458125ed75a04aa50a62d"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/retry.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/retry.py",
+    "git_blob": "fef37a987b3ff830103cd3e2678bf44d4686d2b7",
+    "git_blob_verified": true,
+    "sha256": "f2b1a335768779f65537b6856ab499367a90dd842b71140fb4e1506f8cab868c"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/stats_shape.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/stats_shape.py",
+    "git_blob": "f26e90d532b0c069e5f8e2877cae5042842afe74",
+    "git_blob_verified": true,
+    "sha256": "817f2403fc398b0268ea483472fe70872cb75c34608f859a7b16bcef363c4a79"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/stubs.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/stubs.py",
+    "git_blob": "fadef637ecc2b6626dd38b672d32beb8b628c58b",
+    "git_blob_verified": true,
+    "sha256": "fc670c97b1b85ab342ed6cb42a79fe0985edb8149b9c43e7bf1f7457a2bd525c"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/unifi.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/unifi.py",
+    "git_blob": "8669c99981420b12d3a5a9f16ec4d3725430eb3a",
+    "git_blob_verified": true,
+    "sha256": "c8493d804ee3f915b133903fbf1e6227df184bd9efa39d6a35a5240b5064b6f5"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/clients/unifi_os.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/clients/unifi_os.py",
+    "git_blob": "acfe841a37861ebdcbc6be48c960c80cabf3df7e",
+    "git_blob_verified": true,
+    "sha256": "be4b233221a96cf91d65034e3e5810e97c70ecb2c9e602c62c6443a6b6fba599"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/config.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/config.py",
+    "git_blob": "d78de2398c411bd86c6ea7db6e2aabbeaa19b9bb",
+    "git_blob_verified": true,
+    "sha256": "461f5b5fcd4a2eb7b893cdf74ac9b8c49cecc2be811ad21614ef1ea9fb32763d"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/dispatcher.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/dispatcher.py",
+    "git_blob": "89cb8c24d016f5703fd5aba6ef0d2b8430c7e832",
+    "git_blob_verified": true,
+    "sha256": "9462b9c73725698be47dc70602325d67364811dbf9c04927be6c14d9288f64fe"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/healthcheck.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/healthcheck.py",
+    "git_blob": "1adbdd9d12b47aae72cfb42c9ac3c3d40ba4f60a",
+    "git_blob_verified": true,
+    "sha256": "43d7a508bee936de25a492cf204169e21d7b63ba0f0295d6939b894f44206e0e"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/logging_setup.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/logging_setup.py",
+    "git_blob": "99ee2c8dd48f7f09a0f6746e694b018a7c111230",
+    "git_blob_verified": true,
+    "sha256": "aa1159d2642cc12cdf6bae4f9b9f0393c8b061e37ce2d40da9083c516bb55b96"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/models.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/models.py",
+    "git_blob": "89e0ba63a4271e28ef2989b26ca582b0f48ca0e3",
+    "git_blob_verified": true,
+    "sha256": "722ba4561e64b8a4115739bc001448112ec1181988f72ec190f5bab14b9797e7"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/__init__.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/__init__.py",
+    "git_blob": "182092d91c353b4596d34b542111229de0c8acc1",
+    "git_blob_verified": true,
+    "sha256": "10a7c7a199896dc2c87b73fc3f225b2ccb9df1a40b0627756630d66fea955af2"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/_audit.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/_audit.py",
+    "git_blob": "1cb9c61d97ecbb93d880ced1b9524f31c82d4a58",
+    "git_blob_verified": true,
+    "sha256": "1444f93adb79aff4c9c82d2608d36210cb3efaed4a2e45b3547e6f494762523a"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/_params.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/_params.py",
+    "git_blob": "8d43668f58057793438ca9e1e1b1d64d98718419",
+    "git_blob_verified": true,
+    "sha256": "5faa9c11310dde45334472060d5fe55dd4f3c740c28e53d3a3abf43dc8d1fb9f"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/access/__init__.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/access/__init__.py",
+    "git_blob": "f2602402f858790977a945bd240237aec563ad8b",
+    "git_blob_verified": true,
+    "sha256": "0471dca5b104f25adaaf91f1de4002d0a178a85a0a4a37c26dadc63d1fb2f251"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/__init__.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/__init__.py",
+    "git_blob": "2ee83f012428ef849ab721694271727c4ea15b93",
+    "git_blob_verified": true,
+    "sha256": "b26ccfb3d36fbcc0d693bfef37ee54f84e7f6f7cf755bdb06ca55407263b5f84"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/_common.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/_common.py",
+    "git_blob": "00ce5e4971995c2a71846fbf98a2887db645ceed",
+    "git_blob_verified": true,
+    "sha256": "be46a6337347cf6670989bf2795d2db5266f5e675469a96328b76b0d47a89d78"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/_pending.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/_pending.py",
+    "git_blob": "c25deb0315862eb612cedc2778baaddb0799fce0",
+    "git_blob_verified": true,
+    "sha256": "6b1856bf439065acee51ebce04f513cecd99f772ddc7f2b721ef2848561cb1ca"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/_verify.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/_verify.py",
+    "git_blob": "857f511422ae715999f802ae94983a7abab2868c",
+    "git_blob_verified": true,
+    "sha256": "ef0c900613a4c1d5a493cf37f04b11f0f02da3e1a62c58e2b8ff0b76fdead2f9"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/backup.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/backup.py",
+    "git_blob": "1d0e2aae2fd65a916b47ede715e6d2e1be5a2765",
+    "git_blob_verified": true,
+    "sha256": "ac7a89a01cfffad59d45dbee8d38d1210b9e77c737b9cd140a0e59d585ea4488"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/clients.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/clients.py",
+    "git_blob": "4cabf99109cca87f8a4ef6493d151d2feb38796a",
+    "git_blob_verified": true,
+    "sha256": "71609234d800895a6b691c16662f2d41b828c7b77ea8c2459eba689417e71b9e"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/composites.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/composites.py",
+    "git_blob": "ab1e2c9684bbfab14abf3d49a2e9569f8088f5cc",
+    "git_blob_verified": true,
+    "sha256": "318f867341c7b4ab95544ae8ea91b1bc28e905c541ae76580aa31ce506395719"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/confirm.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/confirm.py",
+    "git_blob": "748dad775502cccef2be3459ec15d780f4c0feab",
+    "git_blob_verified": true,
+    "sha256": "5d69fb3a54c95d11ebfd0e4b45d44fb1ee79a6a0c294c70e99d2d13d74415299"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/console.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/console.py",
+    "git_blob": "03a50fe3b671b73f81920181b21d421f30b7c5b1",
+    "git_blob_verified": true,
+    "sha256": "dd12d94bc4907f07d74fcc8577795ce9163ae409e940254803cace7304bad18f"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/content_filtering.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/content_filtering.py",
+    "git_blob": "33eb32b245245a7d2504fabd9fb8d2b0d109d3da",
+    "git_blob_verified": true,
+    "sha256": "91c12900f9fd414f6a877e6cf8d362fb504b406be5715f4232b902025ab8dfea"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/devices.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/devices.py",
+    "git_blob": "097b92aff3bd6f09ae154a1cb8526da5091a4c1b",
+    "git_blob_verified": true,
+    "sha256": "c2c95b81a2875758bc67bb5a886a4cb8ea8783dbbaf1dbad471d41bb40d4cafb"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/dhcp.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/dhcp.py",
+    "git_blob": "19453bc68e9dbfd510e44ee9ad318ac7d175309f",
+    "git_blob_verified": true,
+    "sha256": "4a6d49ce9830a20bf6a9f124030b4209950683d05f9a1a71df092153c4e57914"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/drift.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/drift.py",
+    "git_blob": "539a63ff33849ad191c89311e51a95cba18c10b2",
+    "git_blob_verified": true,
+    "sha256": "d1a99a0e81fcf66e3c7672594a7a9c625a275ff85214f995ac52e5812ebc5799"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/dynamic_dns.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/dynamic_dns.py",
+    "git_blob": "df53023c877bfd685a3e613d979e56c5f22eb3ba",
+    "git_blob_verified": true,
+    "sha256": "3e237450464e02d9c208aef785dc8618d899ba88c4c63b842f652611f7e5e005"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/firewall.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/firewall.py",
+    "git_blob": "c218d04f219c14d05371d713274c11b51e765b2b",
+    "git_blob_verified": true,
+    "sha256": "f8e8857cde4acab5022d5ffb6f8b1bad1bc7b9572c28910108a15dab9a12c1f5"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/guest_portal.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/guest_portal.py",
+    "git_blob": "eeabb0321a5c5ce79a286c9f41a61f4e3cafe35d",
+    "git_blob_verified": true,
+    "sha256": "9f82e3f5786ae9be68b23cc3341d11eac698cf984d0afcac57ead1af2c44b5b4"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/honeypot.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/honeypot.py",
+    "git_blob": "3fecbd6baa5a074dc581e665a5eeb6f11004e04f",
+    "git_blob_verified": true,
+    "sha256": "7f2fe2ee3725aa77d7ba4aaaea2cba511112a73db5f60d8c255276df2d06903b"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/ipv6.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/ipv6.py",
+    "git_blob": "3beab98bd75fed9780fa54605885f160b072c9cc",
+    "git_blob_verified": true,
+    "sha256": "8658bbe8917efd7e4170290958ea70a144c22ff6856f9423ecdae2687fc8dd32"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/observability.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/observability.py",
+    "git_blob": "2e543cfaaff118d266bbd1595c094318470bfc63",
+    "git_blob_verified": true,
+    "sha256": "68fe6575d74696a324f6264db544193c28a68ece60c5d6aada0e95430c0b73cb"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/port_forwards.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/port_forwards.py",
+    "git_blob": "5ec9b238f15f2cf916e0aa45baaf3848d75d5ce5",
+    "git_blob_verified": true,
+    "sha256": "5f2852d8107ea7c944268f0f80e1071c4c613e4eb81f8ddc4758c5e7a8ca8f6e"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/port_profiles.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/port_profiles.py",
+    "git_blob": "bf52313f36cf8fe79f6cf8abaccd669358a981bf",
+    "git_blob_verified": true,
+    "sha256": "739fecb07e80edd191dc03ee13b45cd097bd57d8bed63914a5c9d71ff8fe594f"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/routing.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/routing.py",
+    "git_blob": "7121fffbb0afa42a37b799cad2c49be8fcac45f2",
+    "git_blob_verified": true,
+    "sha256": "779bda595e61d86a6eca4a6a75e3bf39e81375b62d1e4c8f7a0245f7da0adccf"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/stats.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/stats.py",
+    "git_blob": "82fcca181c39fc89982aba38b81a35abee10f8a2",
+    "git_blob_verified": true,
+    "sha256": "c6a6e81f07ab00626381a85187f26f38f45b130ad34b01ec4973c8e5ed71e3eb"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/teleport.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/teleport.py",
+    "git_blob": "f75e67e24ab51186c7c917b9e306775d214fef6b",
+    "git_blob_verified": true,
+    "sha256": "c537e070829d7ff25dec017d69150ff59e7029d2f5d725278d8336fbf83e6aa1"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/threat_management.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/threat_management.py",
+    "git_blob": "b00a5e670830bffa660c5cf40a91975700309f03",
+    "git_blob_verified": true,
+    "sha256": "af8333303eaf43adaf1a59beec8e7de0c8539ce7d899d6ec6afc737a81ae9fb7"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/traffic.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/traffic.py",
+    "git_blob": "09956db729f0148dbdb113bce7a23a0af55a21da",
+    "git_blob_verified": true,
+    "sha256": "e9a3838b9197b9c86d44dc1cc0bf9d013e09de08195afcd1662c95bebbfbebed"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/vlans.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/vlans.py",
+    "git_blob": "cf169a661587e4b03c360ad90ee67560e3b1d506",
+    "git_blob_verified": true,
+    "sha256": "dd5d0f9d25d218ec97d946d804e93a5b38e224dbefcc4eae4ada86609cb1e0b0"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/network/wlans.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/network/wlans.py",
+    "git_blob": "a40b3aedb4ec9229974038f06ab86cbc4fbb7d1c",
+    "git_blob_verified": true,
+    "sha256": "ecc24f353a95cd0f6bdf4db4ce309295db0974a804d8e05e0c87c9d81892422f"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/modules/protect/__init__.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/modules/protect/__init__.py",
+    "git_blob": "b4070b58dd94898b5a09632379eea31dc6848483",
+    "git_blob_verified": true,
+    "sha256": "544fb9b2b252b1b92d539a85fa1abd84db2b408ea52297ce978b2f63fa7855f3"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/redaction.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/redaction.py",
+    "git_blob": "0ce5db639b1e7d59943ac9b87b76c1e4209b0967",
+    "git_blob_verified": true,
+    "sha256": "d1b8907e819ba6ac1f690271ee90bd4b86065fde86264fb661380288e7c32ad3"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/responses.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/responses.py",
+    "git_blob": "0299a70c49d0a913911601f34654955fbbc3d19b",
+    "git_blob_verified": true,
+    "sha256": "468653f23e14ef7d455b49a24210b8609529f838e2bf168e5b97cf73a5d5f77f"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/scoping.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/scoping.py",
+    "git_blob": "223a4e23be91a166c7adf011be11d5a76b0c6c39",
+    "git_blob_verified": true,
+    "sha256": "49bfb531a32beca1f919b5c50768c12f609ad94dc88ff38e16fce8e706a2b994"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/server.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/server.py",
+    "git_blob": "4654ce8ba4b2d069442d53a81584c93791cefd34",
+    "git_blob_verified": true,
+    "sha256": "83af9805764d728cadb6b2d0c9a1ddb8c66a686a7d72dc0c82586ad162ab4f0e"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/telemetry.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/telemetry.py",
+    "git_blob": "6ea7bae37181371c537088f7754e58eb6f0aa531",
+    "git_blob_verified": true,
+    "sha256": "3ba5bde72e27599b78d56bbe1a1240c565804823360f3710d9aa4b551b12f168"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/src/mcp_unifi/verification.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "src/mcp_unifi/verification.py",
+    "git_blob": "042252794903cae3d4a81857676577011a2ff45d",
+    "git_blob_verified": true,
+    "sha256": "0888f9d1091c9aaa9efe1dbf26efbb7f3776cedf020a5c6375ba98c350d2c935"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/tests/__init__.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "tests/__init__.py",
+    "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "git_blob_verified": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/tests/conftest.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "tests/conftest.py",
+    "git_blob": "fe3faaddf8d5e972feff9bf72723c700aa8df3c0",
+    "git_blob_verified": true,
+    "sha256": "636d1a9e17aac08089e764aa52757f11ddab88cd714f8c123dc02f60e41a09bb"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/tests/network/__init__.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "tests/network/__init__.py",
+    "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "git_blob_verified": true,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/tests/network/conftest.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "tests/network/conftest.py",
+    "git_blob": "e86e5a0c81a69bb868c80b4b2a3423b752e5ef38",
+    "git_blob_verified": true,
+    "sha256": "0569635786fcb158cbde248bcf450b9f9eb5b72cabc9a27f37192feb1dd2961f"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/tests/network/test_wlans.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "tests/network/test_wlans.py",
+    "git_blob": "ad5303e4f2fe55895efeb0cb581d8c6b67f7f30d",
+    "git_blob_verified": true,
+    "sha256": "08dfe5a9c5aa60d16feac17ecc86ef1cb37056975c5b15243e6df4e98bfcb02e"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/unifi/tests/test_adaptive_responses.py",
+    "repo": "pete-builds/mcp-unifi",
+    "ref": "a6b5ce6e585dfb83cf237b6e84e978fe5fe3346a",
+    "upstream": "tests/test_adaptive_responses.py",
+    "git_blob": "0e423293ca8f61ef38fd81762834f383080191e0",
+    "git_blob_verified": true,
+    "sha256": "fd60a9f2237b24b2b867bb4b00b65c8efe48b5ee9d44f2b3ff074369d1041242"
+  }
+]

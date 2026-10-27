@@ -19,7 +19,7 @@ from mcp_visibility_probe import load_source
 from mcp_repair_chain_probe import load as load_hermes
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-paper-evidence-20261026'
+OUT = ROOT / 'artifacts/mcp-paper-evidence'
 
 
 def classify_exception(exc, test_path):
@@ -92,7 +92,7 @@ def main():
                            total=len(group), passed=sum(r['status'] == 'pass' for r in group),
                            assertion_failures=sum(r['status'] in ['assertion_failure', 'assertion_evaluation_failure'] for r in group),
                            runtime_errors=sum(r['status'] == 'harness_or_runtime_error' for r in group)))
-    report = {'protocol': 'research/mcp-paper-evidence-protocol-20261026.json', 'rows': rows, 'groups': groups,
+    report = {'protocol': 'research/mcp-paper-evidence-protocol.json', 'rows': rows, 'groups': groups,
               'source_hashes': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (OUT / 'sources').glob('*tests.py')},
               'limits': ['Selected original upstream tests only, not complete CI suites or historical environments.',
                          'Agno original function AST bodies and decorators executed; imports bound to existing native dependencies.',

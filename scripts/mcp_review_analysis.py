@@ -8,7 +8,7 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-review-revision-20261026'
+OUT = ROOT / 'artifacts/mcp-review-revision'
 sys.path.insert(0, str(OUT / 'sources/hermes'))
 from tools import mcp_tool_handlers as handlers
 from mcp.types import CallToolResult
@@ -122,7 +122,7 @@ def main():
                 count_ok = count_retained(output, n)
                 count_controls.append({'state': cell['state'], 'strategy': strategy,
                                        'count_retained': count_ok, 'expected_count': n, 'observed_counts': observed_counts(output), 'full_object_retained': contains(output, expected)})
-    authored = json.loads((ROOT / 'artifacts/mcp-paper-evidence-20261026/guidance-fixtures.json').read_text())
+    authored = json.loads((ROOT / 'artifacts/mcp-paper-evidence/guidance-fixtures.json').read_text())
     diagnostic = []
     for case in authored:
         if case['name'] not in ['equivalent_dual', 'conflicting_channels', 'file_plus_metadata', 'application_private_meta']:
@@ -156,7 +156,7 @@ def main():
             count_sensitivity.append({'state':cell['state'],'mode':cell['mode'],
                 'strategy':strategy,'expected_count':n,'observed_counts':observed_counts(output),
                 'count_retained':count_retained(output,n),'output':output})
-    fixtures = json.loads((ROOT/'research/mcp-count-oracle-fixtures-20261027.json').read_text())
+    fixtures = json.loads((ROOT/'research/mcp-count-oracle-fixtures.json').read_text())
     count_checks = []
     for case in fixtures:
         observed = count_retained(case['output'], case['expected_count'])
@@ -174,7 +174,7 @@ def main():
               'summary_sufficient_controls': count_controls, 'authored_diagnostics': diagnostic,
               'instrument_checks': selfchecks,
               'count_sensitivity_controls': count_sensitivity, 'count_oracle_checks': count_checks,
-              'amendment_sha256':hashlib.sha256((ROOT/'research/mcp-count-oracle-amendment-20261027.json').read_bytes()).hexdigest(),
+              'amendment_sha256':hashlib.sha256((ROOT/'research/mcp-count-oracle-amendment.json').read_bytes()).hexdigest(),
               'strategy_definitions':{'native_full_text':'Native UniFi force_full_text_responses option; separate producer call', 'authored_append_json':'Append serialized structuredContent to the original text blocks; diagnostic only'},
               'qualification': 'Exact fixture-level evidence retention; no general semantic oracle, real task success, or universal strategy ranking. authored_append_json is an authored diagnostic; native_full_text rows are native producer runs. Count controls inspect only cardinality, including empty/two-record sensitivity states.'}
     (OUT / 'task-contract-results.json').write_text(json.dumps(report, indent=2) + '\n')

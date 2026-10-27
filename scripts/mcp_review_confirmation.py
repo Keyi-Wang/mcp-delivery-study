@@ -9,7 +9,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-review-revision-20261026'
+OUT = ROOT / 'artifacts/mcp-review-revision'
 sys.path.insert(0, str(OUT / 'sources/hermes'))
 with tempfile.TemporaryDirectory(prefix='mcp-review-git-') as tmp:
     repo = Path(tmp) / 'repo'
@@ -56,7 +56,7 @@ with tempfile.TemporaryDirectory(prefix='mcp-review-git-') as tmp:
         result = observed[0].model_dump(mode='json', by_alias=True, exclude_none=True)
         report = {'source': 'modelcontextprotocol/servers; PyPI mcp-server-git==2026.10.19',
                   'selection': 'First available package version after the producer-contrast rule was frozen',
-                  'protocol_sha256': hashlib.sha256((ROOT / 'research/mcp-review-contracts-20261026.json').read_bytes()).hexdigest(),
+                  'protocol_sha256': hashlib.sha256((ROOT / 'research/mcp-review-contracts.json').read_bytes()).hexdigest(),
                   'producer_mode': 'Native packaged server, real local Git repository, real stdio connection to native Hermes handler',
                   'prediction': 'Plain-text commit message remains available through text priority',
                   'received': result, 'output': output,

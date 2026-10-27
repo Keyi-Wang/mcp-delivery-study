@@ -1,0 +1,3111 @@
+{
+  "protocol": "research/mcp-preservation-followup-protocol.json",
+  "source_verification": [
+    {
+      "path": "sources/webui-media-before/middleware.py",
+      "revision": "344ea530688684c83f4cf247a1ca08bce60c0ba2",
+      "sha256": "019632dbc6accafa2927da55a203b752752c5a5bb5f43a7a05fa6afd2ac2ba06",
+      "remote_exact_or_only_trailing_newline_difference": true,
+      "source_url": "https://github.com/open-webui/open-webui/blob/344ea530688684c83f4cf247a1ca08bce60c0ba2/backend/open_webui/utils/middleware.py"
+    },
+    {
+      "path": "sources/webui-media-before/misc.py",
+      "revision": "344ea530688684c83f4cf247a1ca08bce60c0ba2",
+      "sha256": "d41212c582e04a41849f0db988385cf0c90d0daa06efee41b8cd9befc3f6d707",
+      "remote_exact_or_only_trailing_newline_difference": true,
+      "source_url": "https://github.com/open-webui/open-webui/blob/344ea530688684c83f4cf247a1ca08bce60c0ba2/backend/open_webui/utils/misc.py"
+    },
+    {
+      "path": "sources/webui-media-after/middleware.py",
+      "revision": "6f6792d4848bd47be6abd6860f594e643f9de4ba",
+      "sha256": "7a534b9003bec4db476d50bc71cd7ee54443b04d6e208ab5e6f86b48fc8e3a42",
+      "remote_exact_or_only_trailing_newline_difference": true,
+      "source_url": "https://github.com/open-webui/open-webui/blob/6f6792d4848bd47be6abd6860f594e643f9de4ba/backend/open_webui/utils/middleware.py"
+    },
+    {
+      "path": "sources/webui-media-after/misc.py",
+      "revision": "6f6792d4848bd47be6abd6860f594e643f9de4ba",
+      "sha256": "d41212c582e04a41849f0db988385cf0c90d0daa06efee41b8cd9befc3f6d707",
+      "remote_exact_or_only_trailing_newline_difference": true,
+      "source_url": "https://github.com/open-webui/open-webui/blob/6f6792d4848bd47be6abd6860f594e643f9de4ba/backend/open_webui/utils/misc.py"
+    }
+  ],
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "packages": {
+    "mcp": "1.30.0",
+    "starlette": "1.7.0",
+    "pydantic": "2.14.1"
+  },
+  "execution_cells": 16,
+  "formatter_observations": 32,
+  "png_fixture_validation": "signature, chunk CRCs, and decompressed one-pixel scanline passed",
+  "checks_passed": true,
+  "failures": [],
+  "cells": [
+    {
+      "version": "before",
+      "consumer": "approval",
+      "fixture": "image",
+      "boundary": "complete approval function; controlled IO; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=",
+            "mimeType": "image/png"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "image",
+            "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            }
+          ],
+          "status": "completed",
+          "files": [
+            {
+              "type": "image",
+              "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "id": "msg_controlled",
+          "status": "in_progress",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "output_text",
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3610
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6133,
+        "end_line": 6140
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "consumer": "approval",
+      "fixture": "embedded_image",
+      "boundary": "complete approval function; controlled IO; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "camera://front-door/snapshot",
+              "mimeType": "image/png",
+              "blob": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+            }
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "image",
+            "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            },
+            {
+              "type": "input_image",
+              "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+            }
+          ],
+          "status": "completed"
+        },
+        {
+          "type": "message",
+          "id": "msg_controlled",
+          "status": "in_progress",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "output_text",
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3610
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6133,
+        "end_line": 6140
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "{\n  \"results\": []\n}"
+                },
+                {
+                  "type": "input_image",
+                  "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Here are the images from the tool results above. Please analyze them."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                  }
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "consumer": "approval",
+      "fixture": "text",
+      "boundary": "complete approval function; controlled IO; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "camera_status=online; source=camera.front_door"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "camera_status=online; source=camera.front_door",
+        "files": [],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "status": "completed"
+        },
+        {
+          "type": "message",
+          "id": "msg_controlled",
+          "status": "in_progress",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "output_text",
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3610
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6133,
+        "end_line": 6140
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": true,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": true,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "consumer": "approval",
+      "fixture": "audio_scope_control",
+      "boundary": "complete approval function; controlled IO; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "audio",
+            "data": "cm91dGluZy1maXh0dXJlLW5vdC1wbGF5YWJsZS1hdWRpbw==",
+            "mimeType": "audio/wav"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "audio",
+            "url": "/api/v1/files/3964056be65d0f6c6272/content"
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            }
+          ],
+          "status": "completed",
+          "files": [
+            {
+              "type": "audio",
+              "url": "/api/v1/files/3964056be65d0f6c6272/content"
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "id": "msg_controlled",
+          "status": "in_progress",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "output_text",
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3610
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6133,
+        "end_line": 6140
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "consumer": "streaming_slice",
+      "fixture": "image",
+      "boundary": "original streaming file projection slice; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=",
+            "mimeType": "image/png"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "image",
+            "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            }
+          ],
+          "status": "completed",
+          "files": [
+            {
+              "type": "image",
+              "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3610
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6133,
+        "end_line": 6140
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "consumer": "streaming_slice",
+      "fixture": "embedded_image",
+      "boundary": "original streaming file projection slice; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "camera://front-door/snapshot",
+              "mimeType": "image/png",
+              "blob": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+            }
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "image",
+            "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            },
+            {
+              "type": "input_image",
+              "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+            }
+          ],
+          "status": "completed",
+          "files": []
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3610
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6133,
+        "end_line": 6140
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "{\n  \"results\": []\n}"
+                },
+                {
+                  "type": "input_image",
+                  "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Here are the images from the tool results above. Please analyze them."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                  }
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "consumer": "streaming_slice",
+      "fixture": "text",
+      "boundary": "original streaming file projection slice; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "camera_status=online; source=camera.front_door"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "camera_status=online; source=camera.front_door",
+        "files": [],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "status": "completed",
+          "files": []
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3610
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6133,
+        "end_line": 6140
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": true,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": true,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "consumer": "streaming_slice",
+      "fixture": "audio_scope_control",
+      "boundary": "original streaming file projection slice; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "audio",
+            "data": "cm91dGluZy1maXh0dXJlLW5vdC1wbGF5YWJsZS1hdWRpbw==",
+            "mimeType": "audio/wav"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "audio",
+            "url": "/api/v1/files/3964056be65d0f6c6272/content"
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            }
+          ],
+          "status": "completed",
+          "files": [
+            {
+              "type": "audio",
+              "url": "/api/v1/files/3964056be65d0f6c6272/content"
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3610
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6133,
+        "end_line": 6140
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "consumer": "approval",
+      "fixture": "image",
+      "boundary": "complete approval function; controlled IO; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=",
+            "mimeType": "image/png"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "image",
+            "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            },
+            {
+              "type": "input_image",
+              "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+            }
+          ],
+          "status": "completed",
+          "files": [
+            {
+              "type": "image",
+              "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "id": "msg_controlled",
+          "status": "in_progress",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "output_text",
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3612
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6134,
+        "end_line": 6142
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "{\n  \"results\": []\n}"
+                },
+                {
+                  "type": "input_image",
+                  "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Here are the images from the tool results above. Please analyze them."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                  }
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "consumer": "approval",
+      "fixture": "embedded_image",
+      "boundary": "complete approval function; controlled IO; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "camera://front-door/snapshot",
+              "mimeType": "image/png",
+              "blob": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+            }
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "image",
+            "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            },
+            {
+              "type": "input_image",
+              "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+            }
+          ],
+          "status": "completed"
+        },
+        {
+          "type": "message",
+          "id": "msg_controlled",
+          "status": "in_progress",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "output_text",
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3612
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6134,
+        "end_line": 6142
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "{\n  \"results\": []\n}"
+                },
+                {
+                  "type": "input_image",
+                  "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Here are the images from the tool results above. Please analyze them."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                  }
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "consumer": "approval",
+      "fixture": "text",
+      "boundary": "complete approval function; controlled IO; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "camera_status=online; source=camera.front_door"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "camera_status=online; source=camera.front_door",
+        "files": [],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "status": "completed"
+        },
+        {
+          "type": "message",
+          "id": "msg_controlled",
+          "status": "in_progress",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "output_text",
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3612
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6134,
+        "end_line": 6142
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": true,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": true,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "consumer": "approval",
+      "fixture": "audio_scope_control",
+      "boundary": "complete approval function; controlled IO; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "audio",
+            "data": "cm91dGluZy1maXh0dXJlLW5vdC1wbGF5YWJsZS1hdWRpbw==",
+            "mimeType": "audio/wav"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "audio",
+            "url": "/api/v1/files/3964056be65d0f6c6272/content"
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            }
+          ],
+          "status": "completed",
+          "files": [
+            {
+              "type": "audio",
+              "url": "/api/v1/files/3964056be65d0f6c6272/content"
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "id": "msg_controlled",
+          "status": "in_progress",
+          "role": "assistant",
+          "content": [
+            {
+              "type": "output_text",
+              "text": ""
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3612
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6134,
+        "end_line": 6142
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "consumer": "streaming_slice",
+      "fixture": "image",
+      "boundary": "original streaming file projection slice; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "image",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=",
+            "mimeType": "image/png"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "image",
+            "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            },
+            {
+              "type": "input_image",
+              "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+            }
+          ],
+          "status": "completed",
+          "files": [
+            {
+              "type": "image",
+              "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3612
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6134,
+        "end_line": 6142
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "{\n  \"results\": []\n}"
+                },
+                {
+                  "type": "input_image",
+                  "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Here are the images from the tool results above. Please analyze them."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                  }
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "consumer": "streaming_slice",
+      "fixture": "embedded_image",
+      "boundary": "original streaming file projection slice; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "resource",
+            "resource": {
+              "uri": "camera://front-door/snapshot",
+              "mimeType": "image/png",
+              "blob": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+            }
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "image",
+            "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            },
+            {
+              "type": "input_image",
+              "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+            }
+          ],
+          "status": "completed",
+          "files": []
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3612
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6134,
+        "end_line": 6142
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "{\n  \"results\": []\n}"
+                },
+                {
+                  "type": "input_image",
+                  "image_url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [
+            "/api/v1/files/5e3d382db4dd83d59aa5/content"
+          ],
+          "model_image_byte_digests": [
+            "5e3d382db4dd83d59aa5742793ad6b7903409e865c83bcbc54835049f043bc15"
+          ],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            },
+            {
+              "role": "user",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Here are the images from the tool results above. Please analyze them."
+                },
+                {
+                  "type": "image_url",
+                  "image_url": {
+                    "url": "/api/v1/files/5e3d382db4dd83d59aa5/content"
+                  }
+                }
+              ]
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "consumer": "streaming_slice",
+      "fixture": "text",
+      "boundary": "original streaming file projection slice; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "text",
+            "text": "camera_status=online; source=camera.front_door"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "camera_status=online; source=camera.front_door",
+        "files": [],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "status": "completed",
+          "files": []
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3612
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6134,
+        "end_line": 6142
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": true,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 0,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "camera_status=online; source=camera.front_door"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": true,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "consumer": "streaming_slice",
+      "fixture": "audio_scope_control",
+      "boundary": "original streaming file projection slice; explicit formatter",
+      "input": {
+        "content": [
+          {
+            "type": "audio",
+            "data": "cm91dGluZy1maXh0dXJlLW5vdC1wbGF5YWJsZS1hdWRpbw==",
+            "mimeType": "audio/wav"
+          }
+        ],
+        "isError": false
+      },
+      "processed_result": {
+        "tool_call_id": "call_1",
+        "content": "{\n  \"results\": []\n}",
+        "files": [
+          {
+            "type": "audio",
+            "url": "/api/v1/files/3964056be65d0f6c6272/content"
+          }
+        ],
+        "embeds": []
+      },
+      "stored_output": [
+        {
+          "type": "function_call",
+          "id": "fc_1",
+          "call_id": "call_1",
+          "name": "camera_snapshot",
+          "arguments": "{}",
+          "status": "completed",
+          "approved": true
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_controlled",
+          "call_id": "call_1",
+          "output": [
+            {
+              "type": "input_text",
+              "text": "{\n  \"results\": []\n}"
+            }
+          ],
+          "status": "completed",
+          "files": [
+            {
+              "type": "audio",
+              "url": "/api/v1/files/3964056be65d0f6c6272/content"
+            }
+          ]
+        }
+      ],
+      "native_functions": [
+        {
+          "function": "_is_tool_result_error",
+          "line": 158,
+          "end_line": 197
+        },
+        {
+          "function": "extract_base64_images",
+          "line": 1013,
+          "end_line": 1026
+        },
+        {
+          "function": "store_tool_result_image",
+          "line": 1029,
+          "end_line": 1049
+        },
+        {
+          "function": "process_tool_result",
+          "line": 1052,
+          "end_line": 1266
+        },
+        {
+          "function": "drain_approved_tool_calls",
+          "line": 3412,
+          "end_line": 3612
+        },
+        {
+          "function": "get_content_from_message",
+          "line": 228,
+          "end_line": 238
+        },
+        {
+          "function": "reconcile_tool_pairs",
+          "line": 264,
+          "end_line": 313
+        },
+        {
+          "function": "convert_output_to_messages",
+          "line": 325,
+          "end_line": 574
+        }
+      ],
+      "streaming_projection": {
+        "unchanged_AST_slice": "streaming file_item loop",
+        "line": 6134,
+        "end_line": 6142
+      },
+      "observations": [
+        {
+          "flatten_tool_images": false,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        },
+        {
+          "flatten_tool_images": true,
+          "model_image_references": [],
+          "model_image_byte_digests": [],
+          "display_file_count": 1,
+          "formatted_messages": [
+            {
+              "role": "assistant",
+              "content": "",
+              "tool_calls": [
+                {
+                  "id": "call_1",
+                  "type": "function",
+                  "function": {
+                    "name": "camera_snapshot",
+                    "arguments": "{}"
+                  }
+                }
+              ]
+            },
+            {
+              "role": "tool",
+              "tool_call_id": "call_1",
+              "content": "{\n  \"results\": []\n}"
+            }
+          ],
+          "checks": {
+            "expected_image_reference_count": true,
+            "expected_display_file_count": true,
+            "model_image_bytes_match_fixture": true,
+            "text_control_preserved": null,
+            "tool_pair_survives_formatter": true
+          },
+          "checks_passed": true
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "No full application, browser, authenticated file fetch, provider HTTP request or LLM inference",
+    "Model references are formatted-message evidence, not proof of visual task success",
+    "Streaming slice is narrower evidence than native approval function execution",
+    "Display file record is not browser rendering evidence",
+    "JSONCodec bound to stdlib JSON, corresponding to upstream ENABLE_ORJSON=False",
+    "Fixture oracle is source-informed; controls do not estimate defect prevalence"
+  ],
+  "paid_api_calls": 0
+}

@@ -13,7 +13,7 @@ from mcp_visibility_probe import LocalSession, NoProviderModel, load_source
 from mcp_repair_chain_probe import Session, load as load_hermes
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-paper-evidence-20261026'
+OUT = ROOT / 'artifacts/mcp-paper-evidence'
 
 
 def json_documents(value):
@@ -127,7 +127,7 @@ def fixtures():
 def main():
     selfchecks = oracle_selfchecks()
     inputs = fixtures()
-    expected_names = json.loads((ROOT / 'research/mcp-guidance-amendment-20261026.json').read_text())['guidance_matrix']['fixtures']
+    expected_names = json.loads((ROOT / 'research/mcp-guidance-amendment.json').read_text())['guidance_matrix']['fixtures']
     assert [r['name'] for r in inputs] == expected_names
     fixture_path = OUT / 'guidance-fixtures.json'
     fixture_path.write_text(json.dumps(inputs, ensure_ascii=False, indent=2) + '\n')
@@ -162,7 +162,7 @@ def main():
     assert len(rows) == 60
     assert all(r['application_private_values_excluded'] for r in rows)
     # Expected outcome is reported per requirement, not an aggregate framework ranking.
-    report = {'protocol': 'research/mcp-guidance-amendment-20261026.json', 'rows': rows,
+    report = {'protocol': 'research/mcp-guidance-amendment.json', 'rows': rows,
               'oracle_selfchecks': selfchecks,
               'fixture_sha256': hashlib.sha256(fixture_path.read_bytes()).hexdigest(),
               'paid_api_calls': 0,

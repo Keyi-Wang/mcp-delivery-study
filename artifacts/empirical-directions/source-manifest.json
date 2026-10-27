@@ -1,0 +1,24 @@
+[
+  {
+    "path": "artifacts/empirical-directions/sources/libs/agno/agno/models/base.py",
+    "git_blob": "6b19e9148d68f59f606540947ee2318891b596c5",
+    "sha256": "892e7d6e51045364f68069b1773a99876e4c12b0f021dfd848f7e06c027a1f7f",
+    "bytes": 146956
+  },
+  {
+    "path": "artifacts/empirical-directions/sources/before/mcp.py",
+    "ref": "4ee266d10f1da92cdc6e22b78e81d71c83d27da6",
+    "url": "https://api.github.com/repos/agno-agi/agno/contents/libs/agno/agno/utils/mcp.py?ref=4ee266d10f1da92cdc6e22b78e81d71c83d27da6",
+    "git_blob": "16a0c656eb3d8959f310a16207ef15de2a26c7ec",
+    "sha256": "3069f8c14d6d4a61553a1c7176a46f436b8ab8cf278cea817e410996d9d9fa06",
+    "bytes": 11648
+  },
+  {
+    "path": "artifacts/empirical-directions/sources/after/mcp.py",
+    "ref": "b07d573422de7dd33b3b6db25fb06281a54e47f3",
+    "url": "https://api.github.com/repos/agno-agi/agno/contents/libs/agno/agno/utils/mcp.py?ref=b07d573422de7dd33b3b6db25fb06281a54e47f3",
+    "git_blob": "6a22bba9716b6f77abbf3b7fce89544c052015ec",
+    "sha256": "f7372053ad27773b2220947a71d7f8c75436d40b1273f7f7d4da79b47d066958",
+    "bytes": 14606
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "scope": "Analytical mapping of retained case results to maintenance checks; adoption and defect-prevention effects are not measured.",
+  "rows": [
+    {
+      "observation": "Local retention can miss downstream delivery",
+      "cases": "Agno; WebUI",
+      "maintenance_check": "Assert at the intended recipient",
+      "evidence": [
+        "artifacts/mcp-paper-evidence/agno-stdio-http-capture.json",
+        "artifacts/mcp-preservation-followup/webui-media-probe.json"
+      ],
+      "basis": "Repeated case mechanism; Agno fallback additionally isolated by addition/reversion"
+    },
+    {
+      "observation": "Error prose can accompany a success flag",
+      "cases": "Superset",
+      "maintenance_check": "Check payload and status separately",
+      "evidence": [
+        "artifacts/mcp-preservation-study/superset-wire-probe.json"
+      ],
+      "basis": "Native middleware before/after observations"
+    },
+    {
+      "observation": "Artifact routing can satisfy intended use",
+      "cases": "LangChain",
+      "maintenance_check": "Name the intended recipient first",
+      "evidence": [
+        "artifacts/mcp-acceptance-study/langchain-contrast.json"
+      ],
+      "basis": "Successful repair contrast and original assertions"
+    },
+    {
+      "observation": "Field reconstruction can omit original detail",
+      "cases": "AdCP",
+      "maintenance_check": "Declare the recovery granularity",
+      "evidence": [
+        "artifacts/mcp-acceptance-study/adcp-reconstruction.json"
+      ],
+      "basis": "Original field validations and raw-data diagnostic control"
+    },
+    {
+      "observation": "Passing components can lose required facts",
+      "cases": "Hermes--UniFi",
+      "maintenance_check": "Add producer--consumer task checks",
+      "evidence": [
+        "artifacts/mcp-review-revision/task-contract-results.json",
+        "artifacts/mcp-review-revision/continuous-results.json"
+      ],
+      "basis": "Native composition and policy interventions"
+    }
+  ]
+}

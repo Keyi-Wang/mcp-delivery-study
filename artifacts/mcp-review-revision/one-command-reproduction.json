@@ -1,0 +1,102 @@
+{
+  "scope": "Same operator local reproduction; not independent human replication",
+  "all_contrasts": true,
+  "steps": [
+    {
+      "step": "unifi-native-tests",
+      "exit_code": 0
+    },
+    {
+      "step": "hermes-native-tests",
+      "exit_code": 0
+    },
+    {
+      "step": "count-control-live-calls",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_review_continuous.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_review_analysis.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_review_replay_agreement.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_review_confirmation.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_upstream_oracle_audit.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_agno_http_capture.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_repair_chain_probe.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_webui_media_probe.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_superset_wire_probe.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_patch_attribution.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_guidance_matrix.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_langchain_contrast.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_adcp_reconstruction.cjs",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_native_producer_probe.py",
+      "exit_code": 0
+    },
+    {
+      "step": "mcp_obligation_probe.py",
+      "exit_code": 0
+    },
+    {
+      "step": "normalize-report-paths",
+      "exit_code": 0
+    },
+    {
+      "step": "build-historical-tables",
+      "exit_code": 0
+    },
+    {
+      "step": "audit-revision",
+      "exit_code": 0
+    }
+  ],
+  "same_primary_observations": {
+    "continuous-results.json:cells": true,
+    "task-contract-results.json:rows": true,
+    "task-contract-results.json:summary_sufficient_controls": true,
+    "task-contract-results.json:authored_diagnostics": true,
+    "task-contract-results.json:count_sensitivity_controls": true,
+    "task-contract-results.json:count_oracle_checks": true,
+    "replay-agreement.json:rows": true,
+    "independent-producer-contrast": true
+  },
+  "elapsed_seconds": 55.065,
+  "paid_model_calls": 0
+}

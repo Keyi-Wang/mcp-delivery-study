@@ -7,7 +7,7 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'artifacts/mcp-review-revision-20261026/sources/unifi/src'))
+sys.path.insert(0, str(ROOT / 'artifacts/mcp-review-revision/sources/unifi/src'))
 from mcp_unifi.config import Settings
 from mcp_unifi.clients.stubs import StubState
 from mcp_unifi.server import build_server
@@ -23,7 +23,7 @@ for key in list(os.environ):
         os.environ.pop(key)
 state = StubState()
 # Keep the upstream-generated UUIDs identical across subprocesses and modes.
-snapshot = json.loads((ROOT / 'artifacts/mcp-review-revision-20261026/upstream-seed-snapshot.json').read_text())
+snapshot = json.loads((ROOT / 'artifacts/mcp-review-revision/upstream-seed-snapshot.json').read_text())
 state.health, state.wlans = snapshot['health'], snapshot['wlans']
 # Synthetic passphrase copied from the original upstream read-redaction test.
 # The seed itself is already redacted, so leaving it untouched would not test exclusion.

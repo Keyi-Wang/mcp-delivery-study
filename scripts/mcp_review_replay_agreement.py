@@ -7,7 +7,7 @@ from mcp.types import CallToolResult
 from mcp_obligation_probe import load_september
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-review-revision-20261026'
+OUT = ROOT / 'artifacts/mcp-review-revision'
 module = load_september()
 live = json.loads((OUT / 'continuous-results.json').read_text())
 rows = []

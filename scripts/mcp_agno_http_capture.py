@@ -21,7 +21,7 @@ from mcp.client.stdio import stdio_client
 from mcp_visibility_probe import LocalSession, load_source
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-paper-evidence-20261026'
+OUT = ROOT / 'artifacts/mcp-paper-evidence'
 
 
 def execute(label, fixture, answer, mcp_stdio=False, adapter_module=None,
@@ -151,7 +151,7 @@ def main():
                               'full_followup_request_collision': first == second,
                               'required_answers_differ': True,
                               'both_required_answers_present': all(r['answer_in_actual_followup_tool_message'] for r in group)})
-    report = {'protocol': 'research/mcp-paper-evidence-protocol-20261026.json', 'kind': 'real_loopback_HTTP_with_scripted_provider',
+    report = {'protocol': 'research/mcp-paper-evidence-protocol.json', 'kind': 'real_loopback_HTTP_with_scripted_provider',
               'versions': {p: version(p) for p in ['agno', 'mcp', 'openai', 'httpx']},
               'mcp_transport': 'actual_stdio' if args.mcp_stdio else 'controlled_session',
               'rows': rows, 'errors': errors, 'pairs': pairs, 'runs': len(rows),

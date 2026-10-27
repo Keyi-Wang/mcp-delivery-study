@@ -17,7 +17,7 @@ import pytest
 from fastmcp import Client, FastMCP
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-obligation-study-20261026'
+OUT = ROOT / 'artifacts/mcp-obligation-study'
 SOURCE = OUT / 'sources/unifi/src/mcp_unifi/responses.py'
 TESTS = OUT / 'sources/unifi/tests/test_adaptive_responses.py'
 

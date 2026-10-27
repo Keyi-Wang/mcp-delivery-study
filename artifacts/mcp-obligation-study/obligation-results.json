@@ -1,0 +1,1870 @@
+{
+  "groups": [
+    {
+      "implementation": "combined",
+      "test_source": "combined",
+      "passed": 5,
+      "total": 5
+    },
+    {
+      "implementation": "combined",
+      "test_source": "september",
+      "passed": 5,
+      "total": 7
+    },
+    {
+      "implementation": "september",
+      "test_source": "combined",
+      "passed": 3,
+      "total": 5
+    },
+    {
+      "implementation": "september",
+      "test_source": "september",
+      "passed": 7,
+      "total": 7
+    },
+    {
+      "implementation": "branch-removal",
+      "test_source": "combined",
+      "passed": 5,
+      "total": 5
+    },
+    {
+      "implementation": "branch-removal",
+      "test_source": "september",
+      "passed": 5,
+      "total": 7
+    }
+  ],
+  "test_rows": [
+    {
+      "test": "TestStructuredContentPreservation.test_both_content_and_structured",
+      "status": "pass",
+      "implementation": "combined",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_both_content_and_structured_desktop_commander",
+      "status": "pass",
+      "implementation": "combined",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_empty_text_with_structured_content",
+      "status": "pass",
+      "implementation": "combined",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_structured_content_none_falls_back_to_text",
+      "status": "pass",
+      "implementation": "combined",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_text_only_result",
+      "status": "pass",
+      "implementation": "combined",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_empty_text_with_structured_content",
+      "status": "pass",
+      "implementation": "combined",
+      "test_source": "september"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_structured_content_none_falls_back_to_text",
+      "status": "pass",
+      "implementation": "combined",
+      "test_source": "september"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_text_only_result",
+      "status": "pass",
+      "implementation": "combined",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_dual_emit_suppresses_structured",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_obligation_probe.py\", line 116, in run_original_tests\n    getattr(instance, name)(session)\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-obligation-study/sources/september/tests/tools/test_mcp_structured_content.py\", line 242, in test_dual_emit_suppresses_structured\n    assert data == {\"result\": json.dumps(payload)}\nAssertionError\n",
+      "implementation": "combined",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_prose_summary_suppresses_structured",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_obligation_probe.py\", line 116, in run_original_tests\n    getattr(instance, name)(session)\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-obligation-study/sources/september/tests/tools/test_mcp_structured_content.py\", line 255, in test_prose_summary_suppresses_structured\n    assert data == {\"result\": \"3 item(s) found\"}\nAssertionError\n",
+      "implementation": "combined",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_structured_only_still_surfaced",
+      "status": "pass",
+      "implementation": "combined",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_whitespace_only_content_falls_back",
+      "status": "pass",
+      "implementation": "combined",
+      "test_source": "september"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_both_content_and_structured",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_obligation_probe.py\", line 116, in run_original_tests\n    getattr(instance, name)(session)\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-paper-evidence/sources/hermes-combined-tests.py\", line 84, in test_both_content_and_structured\n    assert data[\"structuredContent\"] == payload\nKeyError: 'structuredContent'\n",
+      "implementation": "september",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_both_content_and_structured_desktop_commander",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_obligation_probe.py\", line 116, in run_original_tests\n    getattr(instance, name)(session)\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-paper-evidence/sources/hermes-combined-tests.py\", line 102, in test_both_content_and_structured_desktop_commander\n    assert data[\"structuredContent\"] == metadata\nKeyError: 'structuredContent'\n",
+      "implementation": "september",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_empty_text_with_structured_content",
+      "status": "pass",
+      "implementation": "september",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_structured_content_none_falls_back_to_text",
+      "status": "pass",
+      "implementation": "september",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_text_only_result",
+      "status": "pass",
+      "implementation": "september",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_empty_text_with_structured_content",
+      "status": "pass",
+      "implementation": "september",
+      "test_source": "september"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_structured_content_none_falls_back_to_text",
+      "status": "pass",
+      "implementation": "september",
+      "test_source": "september"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_text_only_result",
+      "status": "pass",
+      "implementation": "september",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_dual_emit_suppresses_structured",
+      "status": "pass",
+      "implementation": "september",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_prose_summary_suppresses_structured",
+      "status": "pass",
+      "implementation": "september",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_structured_only_still_surfaced",
+      "status": "pass",
+      "implementation": "september",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_whitespace_only_content_falls_back",
+      "status": "pass",
+      "implementation": "september",
+      "test_source": "september"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_both_content_and_structured",
+      "status": "pass",
+      "implementation": "branch-removal",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_both_content_and_structured_desktop_commander",
+      "status": "pass",
+      "implementation": "branch-removal",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_empty_text_with_structured_content",
+      "status": "pass",
+      "implementation": "branch-removal",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_structured_content_none_falls_back_to_text",
+      "status": "pass",
+      "implementation": "branch-removal",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_text_only_result",
+      "status": "pass",
+      "implementation": "branch-removal",
+      "test_source": "combined"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_empty_text_with_structured_content",
+      "status": "pass",
+      "implementation": "branch-removal",
+      "test_source": "september"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_structured_content_none_falls_back_to_text",
+      "status": "pass",
+      "implementation": "branch-removal",
+      "test_source": "september"
+    },
+    {
+      "test": "TestStructuredContentPreservation.test_text_only_result",
+      "status": "pass",
+      "implementation": "branch-removal",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_dual_emit_suppresses_structured",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_obligation_probe.py\", line 116, in run_original_tests\n    getattr(instance, name)(session)\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-obligation-study/sources/september/tests/tools/test_mcp_structured_content.py\", line 242, in test_dual_emit_suppresses_structured\n    assert data == {\"result\": json.dumps(payload)}\nAssertionError\n",
+      "implementation": "branch-removal",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_prose_summary_suppresses_structured",
+      "status": "assertion_failure",
+      "traceback": "Traceback (most recent call last):\n  File \"<ARTIFACT_ROOT>/scripts/mcp_obligation_probe.py\", line 116, in run_original_tests\n    getattr(instance, name)(session)\n  File \"<ARTIFACT_ROOT>/artifacts/mcp-obligation-study/sources/september/tests/tools/test_mcp_structured_content.py\", line 255, in test_prose_summary_suppresses_structured\n    assert data == {\"result\": \"3 item(s) found\"}\nAssertionError\n",
+      "implementation": "branch-removal",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_structured_only_still_surfaced",
+      "status": "pass",
+      "implementation": "branch-removal",
+      "test_source": "september"
+    },
+    {
+      "test": "TestContentStructuredArbitration.test_whitespace_only_content_falls_back",
+      "status": "pass",
+      "implementation": "branch-removal",
+      "test_source": "september"
+    }
+  ],
+  "cells": [
+    {
+      "implementation": "combined",
+      "fixture": "structured_only",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "summary_plus_data",
+      "output": "{\"result\": \"Query completed; details follow in structuredContent.\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 143,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "file_plus_metadata",
+      "output": "{\"result\": \"FILE_ANSWER_19\", \"structuredContent\": {\"fileName\": \"shared.txt\"}}",
+      "utf8_bytes": 77,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "equivalent_dual",
+      "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 151,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "reordered_equivalent",
+      "output": "{\"result\": \"{\\n  \\\"status\\\": \\\"STATUS_READY_7K\\\",\\n  \\\"record_id\\\": \\\"work-42\\\"\\n}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 160,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "split_complementary_text",
+      "output": "{\"result\": \"FILE_ANSWER_19\\nSECOND_LINE_24\", \"structuredContent\": {\"fileName\": \"shared.txt\"}}",
+      "utf8_bytes": 93,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "SECOND_LINE_24"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "whitespace_plus_data",
+      "output": "{\"result\": \" \\n\\t \", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 96,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "empty_object",
+      "output": "{\"result\": {}}",
+      "utf8_bytes": 14,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "explicit_empty_object"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "typed_nested_values",
+      "output": "{\"result\": {\"record\": {\"count\": 0, \"ready\": false, \"note\": null, \"labels\": [\"\\u7814\\u53d1\", \"\\u00e9\"]}}}",
+      "utf8_bytes": 104,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record": {
+                "count": 0,
+                "ready": false,
+                "note": null,
+                "labels": [
+                  "研发",
+                  "é"
+                ]
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "application_private_meta",
+      "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 151,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "conflicting_channels",
+      "output": "{\"result\": \"{\\\"status\\\": \\\"STATUS_BLOCKED_3Q\\\"}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 125,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_BLOCKED_3Q"
+            }
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "fixture": "structured_error",
+      "output": "{\"error\": \"MCP tool returned an error\"}",
+      "utf8_bytes": 39,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "code": "DENIED_REASON_43"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "structured_only",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "summary_plus_data",
+      "output": "{\"result\": \"Query completed; details follow in structuredContent.\"}",
+      "utf8_bytes": 67,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "file_plus_metadata",
+      "output": "{\"result\": \"FILE_ANSWER_19\"}",
+      "utf8_bytes": 28,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "equivalent_dual",
+      "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\"}",
+      "utf8_bytes": 75,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "reordered_equivalent",
+      "output": "{\"result\": \"{\\n  \\\"status\\\": \\\"STATUS_READY_7K\\\",\\n  \\\"record_id\\\": \\\"work-42\\\"\\n}\"}",
+      "utf8_bytes": 84,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "split_complementary_text",
+      "output": "{\"result\": \"FILE_ANSWER_19\\nSECOND_LINE_24\"}",
+      "utf8_bytes": 44,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "SECOND_LINE_24"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "whitespace_plus_data",
+      "output": "{\"result\": \" \\n\\t \", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 96,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "empty_object",
+      "output": "{\"result\": {}}",
+      "utf8_bytes": 14,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "explicit_empty_object"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "typed_nested_values",
+      "output": "{\"result\": {\"record\": {\"count\": 0, \"ready\": false, \"note\": null, \"labels\": [\"研发\", \"é\"]}}}",
+      "utf8_bytes": 94,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record": {
+                "count": 0,
+                "ready": false,
+                "note": null,
+                "labels": [
+                  "研发",
+                  "é"
+                ]
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "application_private_meta",
+      "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\", \"_meta\": {\"application_only\": \"PRIVATE_APP_88\"}}",
+      "utf8_bytes": 124,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [
+        "PRIVATE_APP_88"
+      ],
+      "application_private_values_excluded": false
+    },
+    {
+      "implementation": "september",
+      "fixture": "conflicting_channels",
+      "output": "{\"result\": \"{\\\"status\\\": \\\"STATUS_BLOCKED_3Q\\\"}\"}",
+      "utf8_bytes": 49,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_BLOCKED_3Q"
+            }
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "fixture": "structured_error",
+      "output": "{\"error\": \"MCP tool returned an error\"}",
+      "utf8_bytes": 39,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "code": "DENIED_REASON_43"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "structured_only",
+      "output": "{\"result\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 65,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "summary_plus_data",
+      "output": "{\"result\": \"Query completed; details follow in structuredContent.\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 143,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "file_plus_metadata",
+      "output": "{\"result\": \"FILE_ANSWER_19\", \"structuredContent\": {\"fileName\": \"shared.txt\"}}",
+      "utf8_bytes": 77,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "equivalent_dual",
+      "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 151,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "reordered_equivalent",
+      "output": "{\"result\": \"{\\n  \\\"status\\\": \\\"STATUS_READY_7K\\\",\\n  \\\"record_id\\\": \\\"work-42\\\"\\n}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 160,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "split_complementary_text",
+      "output": "{\"result\": \"FILE_ANSWER_19\\nSECOND_LINE_24\", \"structuredContent\": {\"fileName\": \"shared.txt\"}}",
+      "utf8_bytes": 93,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "FILE_ANSWER_19"
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "text",
+            "value": "SECOND_LINE_24"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "whitespace_plus_data",
+      "output": "{\"result\": \" \\n\\t \", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 96,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "empty_object",
+      "output": "{\"result\": {}}",
+      "utf8_bytes": 14,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "explicit_empty_object"
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "typed_nested_values",
+      "output": "{\"result\": {\"record\": {\"count\": 0, \"ready\": false, \"note\": null, \"labels\": [\"研发\", \"é\"]}}}",
+      "utf8_bytes": 94,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record": {
+                "count": 0,
+                "ready": false,
+                "note": null,
+                "labels": [
+                  "研发",
+                  "é"
+                ]
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "application_private_meta",
+      "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}, \"_meta\": {\"application_only\": \"PRIVATE_APP_88\"}}",
+      "utf8_bytes": 200,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "record_id": "work-42",
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [
+        "PRIVATE_APP_88"
+      ],
+      "application_private_values_excluded": false
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "conflicting_channels",
+      "output": "{\"result\": \"{\\\"status\\\": \\\"STATUS_BLOCKED_3Q\\\"}\", \"structuredContent\": {\"record_id\": \"work-42\", \"status\": \"STATUS_READY_7K\"}}",
+      "utf8_bytes": 125,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_BLOCKED_3Q"
+            }
+          },
+          "present": true
+        },
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "status": "STATUS_READY_7K"
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "fixture": "structured_error",
+      "output": "{\"error\": \"MCP tool returned an error\"}",
+      "utf8_bytes": 39,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "code": "DENIED_REASON_43"
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    }
+  ],
+  "history": {
+    "removed_at_prune": [
+      "test_both_content_and_structured",
+      "test_both_content_and_structured_desktop_commander"
+    ],
+    "introduced_since_prune": [
+      "test_all_reserved_meta_omits_field",
+      "test_drop_notice_does_not_suppress_structured",
+      "test_dual_emit_suppresses_structured",
+      "test_meta_with_structured_content",
+      "test_non_dict_meta_ignored",
+      "test_non_serializable_meta_dropped",
+      "test_notice_helper_minimal_block",
+      "test_prose_summary_suppresses_structured",
+      "test_reserved_meta_keys_dropped",
+      "test_reserved_prefixes",
+      "test_structured_only_still_surfaced",
+      "test_unsupported_block_renders_notice",
+      "test_vendor_and_unprefixed_not_reserved",
+      "test_vendor_meta_passes_through",
+      "test_whitespace_only_content_falls_back"
+    ],
+    "test_names_by_version": {
+      "before-prune": [
+        "test_both_content_and_structured",
+        "test_both_content_and_structured_desktop_commander",
+        "test_empty_text_with_structured_content",
+        "test_structured_content_none_falls_back_to_text",
+        "test_text_only_result"
+      ],
+      "after-prune": [
+        "test_empty_text_with_structured_content",
+        "test_structured_content_none_falls_back_to_text",
+        "test_text_only_result"
+      ],
+      "dedup": [
+        "test_all_reserved_meta_omits_field",
+        "test_drop_notice_does_not_suppress_structured",
+        "test_dual_emit_suppresses_structured",
+        "test_empty_text_with_structured_content",
+        "test_meta_with_structured_content",
+        "test_non_dict_meta_ignored",
+        "test_non_serializable_meta_dropped",
+        "test_notice_helper_minimal_block",
+        "test_prose_summary_suppresses_structured",
+        "test_reserved_meta_keys_dropped",
+        "test_reserved_prefixes",
+        "test_structured_content_none_falls_back_to_text",
+        "test_structured_only_still_surfaced",
+        "test_text_only_result",
+        "test_unsupported_block_renders_notice",
+        "test_vendor_and_unprefixed_not_reserved",
+        "test_vendor_meta_passes_through",
+        "test_whitespace_only_content_falls_back"
+      ],
+      "september": [
+        "test_all_reserved_meta_omits_field",
+        "test_drop_notice_does_not_suppress_structured",
+        "test_dual_emit_suppresses_structured",
+        "test_empty_text_with_structured_content",
+        "test_meta_with_structured_content",
+        "test_non_dict_meta_ignored",
+        "test_non_serializable_meta_dropped",
+        "test_notice_helper_minimal_block",
+        "test_prose_summary_suppresses_structured",
+        "test_reserved_meta_keys_dropped",
+        "test_reserved_prefixes",
+        "test_structured_content_none_falls_back_to_text",
+        "test_structured_only_still_surfaced",
+        "test_text_only_result",
+        "test_unsupported_block_renders_notice",
+        "test_vendor_and_unprefixed_not_reserved",
+        "test_vendor_meta_passes_through",
+        "test_whitespace_only_content_falls_back"
+      ]
+    },
+    "limits": "Temporal order and verified ancestry do not establish that test pruning caused the later policy change."
+  },
+  "paid_model_calls": 0,
+  "producer_consumer_cells": [
+    {
+      "implementation": "combined",
+      "force_full_text": false,
+      "task": "wan_status",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\", \"structuredContent\": {\"wan2\": {\"state\": \"ALPHA_PROBE\"}}}",
+      "utf8_bytes": 133,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "ALPHA_PROBE"
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "force_full_text": false,
+      "task": "wan_status",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\", \"structuredContent\": {\"wan2\": {\"state\": \"BETA_PROBE\"}}}",
+      "utf8_bytes": 132,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "BETA_PROBE"
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "force_full_text": false,
+      "task": "wlan_record",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"list_wlans returned 1 record(s). Full result is in structuredContent.\", \"structuredContent\": {\"result\": [{\"_id\": \"w1\", \"name\": \"ALPHA_PROBE\", \"enabled\": true, \"security\": \"wpa2\", \"wlan_band\": \"both\", \"x_passphrase\": \"[REDACTED]\"}]}}",
+      "utf8_bytes": 244,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "ALPHA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "force_full_text": false,
+      "task": "wlan_record",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"list_wlans returned 1 record(s). Full result is in structuredContent.\", \"structuredContent\": {\"result\": [{\"_id\": \"w1\", \"name\": \"BETA_PROBE\", \"enabled\": true, \"security\": \"wpa2\", \"wlan_band\": \"both\", \"x_passphrase\": \"[REDACTED]\"}]}}",
+      "utf8_bytes": 243,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "BETA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "force_full_text": true,
+      "task": "wan_status",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"{\\n  \\\"wan2\\\": {\\n    \\\"state\\\": \\\"ALPHA_PROBE\\\"\\n  }\\n}\", \"structuredContent\": {\"result\": \"{\\n  \\\"wan2\\\": {\\n    \\\"state\\\": \\\"ALPHA_PROBE\\\"\\n  }\\n}\"}}",
+      "utf8_bytes": 163,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "ALPHA_PROBE"
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "force_full_text": true,
+      "task": "wan_status",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"{\\n  \\\"wan2\\\": {\\n    \\\"state\\\": \\\"BETA_PROBE\\\"\\n  }\\n}\", \"structuredContent\": {\"result\": \"{\\n  \\\"wan2\\\": {\\n    \\\"state\\\": \\\"BETA_PROBE\\\"\\n  }\\n}\"}}",
+      "utf8_bytes": 161,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "BETA_PROBE"
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "force_full_text": true,
+      "task": "wlan_record",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"w1\\\",\\n    \\\"name\\\": \\\"ALPHA_PROBE\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpa2\\\",\\n    \\\"wlan_band\\\": \\\"both\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\"\\n  }\\n]\", \"structuredContent\": {\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"w1\\\",\\n    \\\"name\\\": \\\"ALPHA_PROBE\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpa2\\\",\\n    \\\"wlan_band\\\": \\\"both\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\"\\n  }\\n]\"}}",
+      "utf8_bytes": 429,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "ALPHA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "combined",
+      "force_full_text": true,
+      "task": "wlan_record",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"w1\\\",\\n    \\\"name\\\": \\\"BETA_PROBE\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpa2\\\",\\n    \\\"wlan_band\\\": \\\"both\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\"\\n  }\\n]\", \"structuredContent\": {\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"w1\\\",\\n    \\\"name\\\": \\\"BETA_PROBE\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpa2\\\",\\n    \\\"wlan_band\\\": \\\"both\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\"\\n  }\\n]\"}}",
+      "utf8_bytes": 427,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "BETA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "force_full_text": false,
+      "task": "wan_status",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\"}",
+      "utf8_bytes": 76,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "ALPHA_PROBE"
+              }
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "force_full_text": false,
+      "task": "wan_status",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\"}",
+      "utf8_bytes": 76,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "BETA_PROBE"
+              }
+            }
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "force_full_text": false,
+      "task": "wlan_record",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"list_wlans returned 1 record(s). Full result is in structuredContent.\"}",
+      "utf8_bytes": 83,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "ALPHA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "force_full_text": false,
+      "task": "wlan_record",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"list_wlans returned 1 record(s). Full result is in structuredContent.\"}",
+      "utf8_bytes": 83,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "BETA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": false
+        }
+      ],
+      "required_information_present": false,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "force_full_text": true,
+      "task": "wan_status",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"{\\n  \\\"wan2\\\": {\\n    \\\"state\\\": \\\"ALPHA_PROBE\\\"\\n  }\\n}\"}",
+      "utf8_bytes": 70,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "ALPHA_PROBE"
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "force_full_text": true,
+      "task": "wan_status",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"{\\n  \\\"wan2\\\": {\\n    \\\"state\\\": \\\"BETA_PROBE\\\"\\n  }\\n}\"}",
+      "utf8_bytes": 69,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "BETA_PROBE"
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "force_full_text": true,
+      "task": "wlan_record",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"w1\\\",\\n    \\\"name\\\": \\\"ALPHA_PROBE\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpa2\\\",\\n    \\\"wlan_band\\\": \\\"both\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\"\\n  }\\n]\"}",
+      "utf8_bytes": 203,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "ALPHA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "september",
+      "force_full_text": true,
+      "task": "wlan_record",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"w1\\\",\\n    \\\"name\\\": \\\"BETA_PROBE\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpa2\\\",\\n    \\\"wlan_band\\\": \\\"both\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\"\\n  }\\n]\"}",
+      "utf8_bytes": 202,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "BETA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": false,
+      "task": "wan_status",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\", \"structuredContent\": {\"wan2\": {\"state\": \"ALPHA_PROBE\"}}}",
+      "utf8_bytes": 133,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "ALPHA_PROBE"
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": false,
+      "task": "wan_status",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"get_wan_status completed. Full result is in structuredContent.\", \"structuredContent\": {\"wan2\": {\"state\": \"BETA_PROBE\"}}}",
+      "utf8_bytes": 132,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "BETA_PROBE"
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": false,
+      "task": "wlan_record",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"list_wlans returned 1 record(s). Full result is in structuredContent.\", \"structuredContent\": {\"result\": [{\"_id\": \"w1\", \"name\": \"ALPHA_PROBE\", \"enabled\": true, \"security\": \"wpa2\", \"wlan_band\": \"both\", \"x_passphrase\": \"[REDACTED]\"}]}}",
+      "utf8_bytes": 244,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "ALPHA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": false,
+      "task": "wlan_record",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"list_wlans returned 1 record(s). Full result is in structuredContent.\", \"structuredContent\": {\"result\": [{\"_id\": \"w1\", \"name\": \"BETA_PROBE\", \"enabled\": true, \"security\": \"wpa2\", \"wlan_band\": \"both\", \"x_passphrase\": \"[REDACTED]\"}]}}",
+      "utf8_bytes": 243,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "BETA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": true,
+      "task": "wan_status",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"{\\n  \\\"wan2\\\": {\\n    \\\"state\\\": \\\"ALPHA_PROBE\\\"\\n  }\\n}\", \"structuredContent\": {\"result\": \"{\\n  \\\"wan2\\\": {\\n    \\\"state\\\": \\\"ALPHA_PROBE\\\"\\n  }\\n}\"}}",
+      "utf8_bytes": 163,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "ALPHA_PROBE"
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": true,
+      "task": "wan_status",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"{\\n  \\\"wan2\\\": {\\n    \\\"state\\\": \\\"BETA_PROBE\\\"\\n  }\\n}\", \"structuredContent\": {\"result\": \"{\\n  \\\"wan2\\\": {\\n    \\\"state\\\": \\\"BETA_PROBE\\\"\\n  }\\n}\"}}",
+      "utf8_bytes": 161,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": {
+              "wan2": {
+                "state": "BETA_PROBE"
+              }
+            }
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": true,
+      "task": "wlan_record",
+      "answer": "ALPHA_PROBE",
+      "output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"w1\\\",\\n    \\\"name\\\": \\\"ALPHA_PROBE\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpa2\\\",\\n    \\\"wlan_band\\\": \\\"both\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\"\\n  }\\n]\", \"structuredContent\": {\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"w1\\\",\\n    \\\"name\\\": \\\"ALPHA_PROBE\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpa2\\\",\\n    \\\"wlan_band\\\": \\\"both\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\"\\n  }\\n]\"}}",
+      "utf8_bytes": 429,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "ALPHA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": true,
+      "task": "wlan_record",
+      "answer": "BETA_PROBE",
+      "output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"w1\\\",\\n    \\\"name\\\": \\\"BETA_PROBE\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpa2\\\",\\n    \\\"wlan_band\\\": \\\"both\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\"\\n  }\\n]\", \"structuredContent\": {\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"w1\\\",\\n    \\\"name\\\": \\\"BETA_PROBE\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpa2\\\",\\n    \\\"wlan_band\\\": \\\"both\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\"\\n  }\\n]\"}}",
+      "utf8_bytes": 427,
+      "checks": [
+        {
+          "requirement": {
+            "kind": "json_subset",
+            "value": [
+              {
+                "_id": "w1",
+                "name": "BETA_PROBE",
+                "enabled": true,
+                "security": "wpa2",
+                "wlan_band": "both",
+                "x_passphrase": "[REDACTED]"
+              }
+            ]
+          },
+          "present": true
+        }
+      ],
+      "required_information_present": true,
+      "forbidden_values_present": [],
+      "application_private_values_excluded": true
+    }
+  ],
+  "producer_consumer_pairs": [
+    {
+      "implementation": "combined",
+      "force_full_text": false,
+      "task": "wan_status",
+      "different_answers_same_handler_output": false
+    },
+    {
+      "implementation": "combined",
+      "force_full_text": false,
+      "task": "wlan_record",
+      "different_answers_same_handler_output": false
+    },
+    {
+      "implementation": "combined",
+      "force_full_text": true,
+      "task": "wan_status",
+      "different_answers_same_handler_output": false
+    },
+    {
+      "implementation": "combined",
+      "force_full_text": true,
+      "task": "wlan_record",
+      "different_answers_same_handler_output": false
+    },
+    {
+      "implementation": "september",
+      "force_full_text": false,
+      "task": "wan_status",
+      "different_answers_same_handler_output": true
+    },
+    {
+      "implementation": "september",
+      "force_full_text": false,
+      "task": "wlan_record",
+      "different_answers_same_handler_output": true
+    },
+    {
+      "implementation": "september",
+      "force_full_text": true,
+      "task": "wan_status",
+      "different_answers_same_handler_output": false
+    },
+    {
+      "implementation": "september",
+      "force_full_text": true,
+      "task": "wlan_record",
+      "different_answers_same_handler_output": false
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": false,
+      "task": "wan_status",
+      "different_answers_same_handler_output": false
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": false,
+      "task": "wlan_record",
+      "different_answers_same_handler_output": false
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": true,
+      "task": "wan_status",
+      "different_answers_same_handler_output": false
+    },
+    {
+      "implementation": "branch-removal",
+      "force_full_text": true,
+      "task": "wlan_record",
+      "different_answers_same_handler_output": false
+    }
+  ],
+  "limits": [
+    "Unchanged original test bodies and assertions; controlled session fixture bindings.",
+    "Native September handler, dispatch and rendering bodies execute with pinned native helpers.",
+    "Lifecycle gates, bookkeeping, session and scheduler are controlled; recovery fails closed if reached.",
+    "No complete Hermes installation, provider request, model inference or production trace.",
+    "Producer-consumer composition replays serialized client-observed MCP results into a controlled Hermes session; not one continuous distributed session.",
+    "Combined-version comparisons overlap earlier evidence; do not add them as independent observations.",
+    "Branch removal isolates arbitration, but duplicates payload and does not solve recipient privacy.",
+    "Application-private metadata fixture is an authored policy requirement, not a universal MCP rule."
+  ],
+  "source_sha256": {
+    "artifacts/mcp-obligation-study/sources/september/tools/mcp_tool_content.py": "980a73c4d045e029b39e690fd2cf24dfc7df59a233a5fe6f99862cb88a686810",
+    "artifacts/mcp-obligation-study/sources/september/tools/registry.py": "fc1337a40ef7aaa3a598378e53e7ade76e8982a4e0055526961c3e59d8b3f400",
+    "artifacts/mcp-obligation-study/sources/september/tools/tool_output_truncate.py": "c008f5f4dab87a9607e1d79ee5536207cededd574eb37a47e79c9587d59c3db1",
+    "artifacts/mcp-obligation-study/sources/september/tools/ansi_strip.py": "71f339d1be720c24f407565b4a90cb55164dead2e860cf438258104fd96c1922",
+    "artifacts/mcp-obligation-study/sources/september/tools/mcp_tool_common.py": "ad1432cfc0d6ede806b64fab5f77945dbc2694786890b893169e56823c67d61e",
+    "artifacts/mcp-preservation-study/sources/hermes-september/tools/mcp_tool_handlers.py": "ad152084f1b6a24c44c04c69315d11567e02bae0de5a26d7440dc5e2921ca743",
+    "artifacts/mcp-paper-evidence/sources/hermes-combined-tests.py": "025eb22359463b077326741a04e693b8aebc84e0d2432980cbea78338ba16e9a",
+    "artifacts/mcp-obligation-study/sources/september/tests/tools/test_mcp_structured_content.py": "60884e9110cb6353db1cf76b3288e2c278a73a8f94e80f68116292ea4d7f6bc3"
+  }
+}

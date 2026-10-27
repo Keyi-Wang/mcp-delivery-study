@@ -2,7 +2,7 @@
 """Offline pinned-native replay, NOT a full Open WebUI/model deployment.
 
 Run: .venv-mcp-wire/bin/python scripts/mcp_webui_media_probe.py
-Protocol: research/mcp-preservation-followup-protocol-20261026.json
+Protocol: research/mcp-preservation-followup-protocol.json
 """
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ from mcp.types import CallToolResult
 from starlette.responses import HTMLResponse
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "artifacts/mcp-preservation-followup-20261026"
+OUT = ROOT / "artifacts/mcp-preservation-followup"
 PNG = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="
 FACT = "camera_status=online; source=camera.front_door"
 
@@ -204,7 +204,7 @@ async def main():
                 except Exception:
                     failures.append({"version": version, "consumer": consumer, "fixture": fixture, "traceback": traceback.format_exc()})
     checks_passed = not failures and all(o["checks_passed"] for c in cells for o in c["observations"])
-    report = {"protocol": "research/mcp-preservation-followup-protocol-20261026.json", "source_verification": manifest,
+    report = {"protocol": "research/mcp-preservation-followup-protocol.json", "source_verification": manifest,
               "python": sys.version, "packages": {p: importlib.metadata.version(p) for p in ["mcp", "starlette", "pydantic"]},
               "execution_cells": len(cells), "formatter_observations": sum(len(c["observations"]) for c in cells),
               "png_fixture_validation": "signature, chunk CRCs, and decompressed one-pixel scanline passed",

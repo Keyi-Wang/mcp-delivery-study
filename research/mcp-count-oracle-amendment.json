@@ -1,0 +1,25 @@
+{
+  "status": "Recorded before the new count-only checks; the eight original continuous results were already known.",
+  "parent": "research/mcp-review-contracts.json",
+  "reason": "The old list-count branch also checked WLAN names/enabled values, coupling the count control to the field task.",
+  "count_rule": "Collect explicit list_wlans returned N record(s) summaries and lengths of complete JSON record arrays through result/structuredContent wrappers. Accept only when there is count evidence and every observed count agrees with the expected cardinality. Record field values are not inspected.",
+  "new_native_conditions": {
+    "tool": "list_wlans",
+    "record_counts": [
+      0,
+      2
+    ],
+    "producer_modes": [
+      "adaptive",
+      "full_text"
+    ],
+    "live_calls": 4,
+    "policy_rows": 8
+  },
+  "strategy_ids": {
+    "native_full_text": "Real force_full_text_responses setting with unmodified consumer; replaces historical main-row label full_text_fallback.",
+    "authored_append_json": "Append json.dumps(structuredContent) as a text block to the original result; author-defined diagnostic only; replaces historical diagnostic label full_text_fallback."
+  },
+  "invariants": "Keep the original frozen contract bytes, original eight-call workload and the four main task/policy totals. New count controls are instrument and sensitivity checks, not new incidents.",
+  "outcome_reporting": "Retain raw new calls, count evidence, expectations and failures; do not tune the original fact oracle."
+}

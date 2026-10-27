@@ -1,0 +1,1251 @@
+{
+  "protocol": "research/mcp-acceptance-strengthening-protocol.json",
+  "source_sha256": "fc67b0a946ed64c7e02077767bd2126c9851d34fccbc35933baf10627f2a97dc",
+  "retrieved_hits": 90,
+  "unique_screened": 87,
+  "decision_counts": {
+    "exclude_nonincident": 7,
+    "retain": 10,
+    "exclude_proposal": 13,
+    "exclude_other_boundary": 10,
+    "retain_qualified": 12,
+    "unresolved_insufficient": 4,
+    "exclude_non_mcp": 31
+  },
+  "stage_counts": {
+    "title": 37,
+    "body": 44,
+    "title_and_opening": 4,
+    "body_plus_prior_discussion": 1,
+    "body_plus_new_timeline": 1
+  },
+  "rows": [
+    {
+      "id": "S01",
+      "url": "https://github.com/chatmcp/mcpso/issues/1",
+      "title": "Submit Your MCP Servers here",
+      "created_at": "2024-12-06T02:23:42Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_nonincident",
+      "reason": "Server-submission directory thread, not a result-handling incident.",
+      "body_sha256": "0837aec6e2ba74fa0472d893085f8af55896d1d9f4b91ece54c13fa3823fcb39",
+      "independent_human_review": false
+    },
+    {
+      "id": "S02",
+      "url": "https://github.com/langchain-ai/langchain-mcp-adapters/issues/283",
+      "title": "langchain-mcp-adapters ignores structuredContent field from MCP tool responses",
+      "created_at": "2025-08-11T13:20:34Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "body",
+      "decision": "retain",
+      "reason": "Structured payload discarded; existing ledger, now contrasting repair execution.",
+      "body_sha256": "878a62054bda20d0511d3c2939826f2dcd1b6f90f137602966bd3ee6b19a3a77",
+      "independent_human_review": false
+    },
+    {
+      "id": "S03",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1391",
+      "title": "SEP-1391: Long-Running Operations",
+      "created_at": "2025-08-26T23:18:40Z",
+      "query_membership": [
+        1,
+        2,
+        4
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_proposal",
+      "reason": "Long-running-operation specification proposal; not a concrete integration repair incident.",
+      "body_sha256": "9cfd212d26c3d8398f3ae3a941a05bb9efd1ecd1e8d5cd37e469de324db5019e",
+      "independent_human_review": false
+    },
+    {
+      "id": "S04",
+      "url": "https://github.com/run-llama/llama_index/issues/20071",
+      "title": "[Bug]: AgentOutput tool_calls is list of tool call results, not tool selections",
+      "created_at": "2025-10-13T12:49:58Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_other_boundary",
+      "reason": "AgentOutput tool_calls type mismatch; body retains tool output and does not establish lost result facts.",
+      "body_sha256": "a759694f351b2a3e3fed7e3cd2a9e4d755732c2d446bd09e08a5b0cfd2f38754",
+      "independent_human_review": false
+    },
+    {
+      "id": "S05",
+      "url": "https://github.com/openai/codex/issues/6426",
+      "title": "Replace line-based tool output truncation with token-based limits",
+      "created_at": "2025-11-09T14:13:22Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Deliberate output truncation policy; concrete historical code pointers, no local execution or optimal-budget claim.",
+      "body_sha256": "3d3a51f344193b1ab65da32528ddf7ebfe4f02b907833039b244107afe0f5e08",
+      "independent_human_review": false
+    },
+    {
+      "id": "S06",
+      "url": "https://github.com/microsoft/agent-framework/issues/2284",
+      "title": "Python: Agent Framework Bug Report: MCP CallToolResult._meta Field Not Respected",
+      "created_at": "2025-11-17T21:54:03Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Application _meta retention, not automatically model-facing; existing ledger.",
+      "body_sha256": "7429fbdaa625dc2d92dc6d9c630fe4bbeffa20d21378b129512bbd48cc9cb117",
+      "independent_human_review": false
+    },
+    {
+      "id": "S07",
+      "url": "https://github.com/stacklok/toolhive/issues/2640",
+      "title": "Virtual MCP Server Not Preserving `_meta` Field in Responses",
+      "created_at": "2025-11-18T16:55:47Z",
+      "query_membership": [
+        1,
+        3
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Proxy metadata propagation; legitimate separate recipient, no local execution; existing ledger.",
+      "body_sha256": "733b1a1f18bfe680d512e688ab5c9c1c125fff51c4938b4d40d5b10963b3435f",
+      "independent_human_review": false
+    },
+    {
+      "id": "S08",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1888",
+      "title": "[SEP] Progressive Disclosure for Typed Library Discovery & Introspection",
+      "created_at": "2025-11-24T21:15:47Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_proposal",
+      "reason": "Typed-library discovery/introspection SEP rather than a reported result-transformation repair.",
+      "body_sha256": "e424b82aabb1ef2a731927d840f98edcdeb7f29a599fb909a0a139804e58ad8f",
+      "independent_human_review": false
+    },
+    {
+      "id": "S09",
+      "url": "https://github.com/iloom-ai/iloom-cli/issues/346",
+      "title": "Loom Recap MCP Server",
+      "created_at": "2025-12-15T22:27:39Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_proposal",
+      "reason": "New context-panel server feature, not loss during transformation of an existing tool result.",
+      "body_sha256": "3d1dd29e06ac23c9bb56d900954d70119842f81592760b0cba9aaaf6d4b95b52",
+      "independent_human_review": false
+    },
+    {
+      "id": "S10",
+      "url": "https://github.com/agentscope-ai/agentscope-runtime/issues/336",
+      "title": "MCP tool errors lose ErrorData and become HTTP 500 with traceback",
+      "created_at": "2025-12-23T07:28:59Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "body",
+      "decision": "retain",
+      "reason": "MCP error data flattened into HTTP500; existing ledger, source-only pending execution.",
+      "body_sha256": "4c6dfc6cab681a95f5d97a06961c5f14f942023a7c71ebc165d195be57019be2",
+      "independent_human_review": false
+    },
+    {
+      "id": "S11",
+      "url": "https://github.com/openai/codex/issues/9251",
+      "title": "MCP server never emits TurnComplete event - only threadId returned to caller",
+      "created_at": "2026-01-15T02:06:22Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Missing lifecycle event before MCP response construction; adjacent server-side boundary, no local replay.",
+      "body_sha256": "ab8f0e90ca33130ccf8e7306d4160b4918028dbfcf67d20ecbe69233b9d2c048",
+      "independent_human_review": false
+    },
+    {
+      "id": "S12",
+      "url": "https://github.com/openai/codex/issues/13641",
+      "title": "Expose thread/read and thread/list as MCP tools for tool-only clients",
+      "created_at": "2026-03-05T23:32:27Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_proposal",
+      "reason": "Requests new read/list tools; absent tool surface rather than result delivery.",
+      "body_sha256": "5221733d22d8b1652d57ee05160f7a650745c87c035af2a87e0c1748bd095bf4",
+      "independent_human_review": false
+    },
+    {
+      "id": "S13",
+      "url": "https://github.com/nesquikm/mcp-rubber-duck/issues/78",
+      "title": "feat: multimodal MCP Bridge \u2014 pass image tool results to LLM conversations",
+      "created_at": "2026-03-06T15:30:54Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "body",
+      "decision": "retain",
+      "reason": "Concrete bridge serializes image result as JSON text; implementation proposal and source pointers, not reproduced here.",
+      "body_sha256": "0adf2a70f4ebd3df7dfa537e87a17ebc656414fc63d6bcd328d1865f30d60492",
+      "independent_human_review": false
+    },
+    {
+      "id": "S14",
+      "url": "https://github.com/modelcontextprotocol/ext-apps/issues/542",
+      "title": "PostMessageTransport: Race condition with srcdoc iframes \u2014 host misses ui/initialize",
+      "created_at": "2026-03-08T12:06:58Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_other_boundary",
+      "reason": "Iframe initialization handshake race before result delivery.",
+      "body_sha256": "1fdcd9fec2b2fc93b46e44bd10e3349030bc541a884165b1bb04c08e1d8f3cb8",
+      "independent_human_review": false
+    },
+    {
+      "id": "S15",
+      "url": "https://github.com/shaun0927/openchrome/issues/263",
+      "title": "feat: RTK-inspired Response Compression Layer for 40-67% Token Reduction",
+      "created_at": "2026-03-09T05:10:04Z",
+      "query_membership": [
+        1
+      ],
+      "screening_stage": "title_and_opening",
+      "decision": "exclude_proposal",
+      "reason": "Response-compression design proposal; does not by itself establish a repaired preservation incident.",
+      "body_sha256": "e1b2e33429d502f889160eb46a0ffe975bc5b20632ebcbba63ac3434d4017945",
+      "independent_human_review": false
+    },
+    {
+      "id": "S16",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/issues/229",
+      "title": "Pagination for tool/call",
+      "created_at": "2025-03-26T10:10:25Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_proposal",
+      "reason": "Pagination design question with no source-backed loss incident.",
+      "body_sha256": "d6662728a8b3fbf691f564172d7ec68bcf2ab1a8902e52cded0547e6aa247477",
+      "independent_human_review": false
+    },
+    {
+      "id": "S17",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/issues/834",
+      "title": "SEP-834 Support full JSON Schema `2020-12`",
+      "created_at": "2025-06-24T22:11:24Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_proposal",
+      "reason": "JSON Schema support SEP, not a specific result transformation incident.",
+      "body_sha256": "e931e99c181a31e9af6ed61e27c0d9466f887e94d8ccc706c21131745e787f4f",
+      "independent_human_review": false
+    },
+    {
+      "id": "S18",
+      "url": "https://github.com/anthropics/claude-code/issues/4427",
+      "title": "[BUG] `CallToolResult.structuredContent` is ignored",
+      "created_at": "2025-07-25T17:13:45Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "retain",
+      "reason": "Structured glTF results in debug trace but reportedly absent downstream; proprietary historical path, unexecuted.",
+      "body_sha256": "61de6525937a789bdb4d77be7e5334c3fdfb87f40d8a4ad4b34256beba06fab9",
+      "independent_human_review": false
+    },
+    {
+      "id": "S19",
+      "url": "https://github.com/modelcontextprotocol/go-sdk/issues/386",
+      "title": "`mcp.CallToolResult.StructuredContent`: what is its usage?",
+      "created_at": "2025-09-01T04:59:32Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Conflicting explicit/generic return values cause schema rejection; intended API usage unresolved, not verified loss.",
+      "body_sha256": "efae97cd9831b325c49b7a969348043093f349dcb2e4318bd4eb05b4ca0d20bd",
+      "independent_human_review": false
+    },
+    {
+      "id": "S20",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/issues/747",
+      "title": "StructuredContent vs Content Mismatch",
+      "created_at": "2025-09-01T15:26:07Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Same Echo answer present in text and object; representation mismatch alone is not answer loss.",
+      "body_sha256": "7fe471aed479c5a86decc5d200a124f7cc9a75e6d9067d2124290a5865d77dc2",
+      "independent_human_review": false
+    },
+    {
+      "id": "S21",
+      "url": "https://github.com/PrefectHQ/fastmcp/issues/1746",
+      "title": "ToolCallResult: StructuredContent w/ AudioContent",
+      "created_at": "2025-09-03T21:52:37Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Audio duplicated into structured/data fields; no missing bytes or downstream recipient failure established.",
+      "body_sha256": "2ecb6398b6ca69fc4c68d92a989c0bd82e57a7a9a2c8d3aae3fe77da5ab5a432",
+      "independent_human_review": false
+    },
+    {
+      "id": "S22",
+      "url": "https://github.com/HautechAI/github-mcp/issues/74",
+      "title": "Output shaping: hide rate info by default; conditionally include via argument; hide pagination/meta when not applicable",
+      "created_at": "2025-10-10T00:06:40Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_proposal",
+      "reason": "Intentional opt-in rate/pagination metadata shaping, not an accidental-loss report; retain as contextual counterexample.",
+      "body_sha256": "70d51445c7d54a242a7b93e4b31c8cbc19aaf6cd661ec41aaa0e5bc0f409e190",
+      "independent_human_review": false
+    },
+    {
+      "id": "S23",
+      "url": "https://github.com/HautechAI/github-mcp/issues/109",
+      "title": "Replace live E2E with cargo integration tests; keep minimal Inspector smoke (tools/list + get_issue)",
+      "created_at": "2025-10-12T15:12:52Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_proposal",
+      "reason": "Test infrastructure migration request without a particular result-handling defect.",
+      "body_sha256": "f565fb25b6fa81bef7fdab55064a3f9272f19cecf1a6a992ee2b19e2d3eb178e",
+      "independent_human_review": false
+    },
+    {
+      "id": "S24",
+      "url": "https://github.com/hestonhamilton/mcp-shell-aliases/issues/2",
+      "title": "alias.catalog returns no results",
+      "created_at": "2025-11-04T21:31:59Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "unresolved_insufficient",
+      "reason": "Empty aliases result but no nonempty source result or integration boundary evidence.",
+      "body_sha256": "6075e564e1c5067293457967b0ecaa82b6fe4a6261f8e879ffb8ceee4af6a25b",
+      "independent_human_review": false
+    },
+    {
+      "id": "S25",
+      "url": "https://github.com/WangShuXian6/blog/issues/266",
+      "title": "\u501f\u52a9MCP\u548cACP\u8ba9AI\u4ee3\u7406\u53d8\u5f97\u66f4\u806a\u660e, \u66f4\u9ad8\u6548  MCP and ACP for Smarter AI Agents",
+      "created_at": "2025-11-09T03:08:52Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_nonincident",
+      "reason": "General MCP/ACP article in a blog issue tracker.",
+      "body_sha256": "7ce1b654767da52f03749fc20d6828f178a2d2bf193e42d961189621c8b9d474",
+      "independent_human_review": false
+    },
+    {
+      "id": "S26",
+      "url": "https://github.com/OpenLiberty/open-liberty/issues/33602",
+      "title": "BETA BLOG - mcpServer-1.0 updates in 26.0.0.1-beta",
+      "created_at": "2025-12-05T13:03:00Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_nonincident",
+      "reason": "Release blog planning entry, not a preservation incident.",
+      "body_sha256": "b5c59653c090ee0a88a4138e76f840f0056abe15d0d45aac5c3002f123d19972",
+      "independent_human_review": false
+    },
+    {
+      "id": "S27",
+      "url": "https://github.com/openai/openai-apps-sdk-examples/issues/144",
+      "title": "`content` field in tool results is not forwarded to the model when widget is rendered",
+      "created_at": "2025-12-09T23:28:56Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "retain",
+      "reason": "Widget-associated text omission reportedly captured in conversation stream; unexecuted proprietary host.",
+      "body_sha256": "139c7d3e17f50ae8f53c196dd180d00cbcc386dfafeb0aafcf980ee596757d37",
+      "independent_human_review": false
+    },
+    {
+      "id": "S28",
+      "url": "https://github.com/stacklok/toolhive/issues/2994",
+      "title": "Composite Tools: Support references to structured tool responses",
+      "created_at": "2025-12-10T23:49:45Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "retain",
+      "reason": "Composite workflow cannot access typed structured fields; report identifies backend projection.",
+      "body_sha256": "cbaf0b496c15263e6391f2ce01a4ff665c30e23eba6afe1da0f93785de6a3b15",
+      "independent_human_review": false
+    },
+    {
+      "id": "S29",
+      "url": "https://github.com/anthropics/claude-code/issues/15412",
+      "title": "[Bug] MCP Server Tool Response: structuredContent Displayed While content Array Ignored",
+      "created_at": "2025-12-26T07:13:30Z",
+      "query_membership": [
+        2
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Text omitted from displayed glab result; model-request loss not established by display evidence.",
+      "body_sha256": "7862ad99b8b3cdb7206ff5a0871d54d7fe023d7180d2fced19fc95861c2c5004",
+      "independent_human_review": false
+    },
+    {
+      "id": "S30",
+      "url": "https://github.com/codenameone/CodenameOne/issues/3508",
+      "title": "'iOS build failed' running via 'Xcode iOS Project(Maven)' on IntelliJ idea CE (macOS BigSur11.01)",
+      "created_at": "2021-10-07T09:06:48Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "2021 iOS/Xcode build issue, unrelated to Model Context Protocol result handling.",
+      "body_sha256": "246dc5a2069ce642374d01d14413c0bcf4730623630c1e2246754575d921a578",
+      "independent_human_review": false
+    },
+    {
+      "id": "S31",
+      "url": "https://github.com/modelcontextprotocol/csharp-sdk/issues/754",
+      "title": "Example to give description to tool's result",
+      "created_at": "2025-09-05T13:43:46Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_proposal",
+      "reason": "Return-description/schema documentation API question, no lost result.",
+      "body_sha256": "43f6dcc76799005a8f4ebca48c554efb0b6e6c848932081e31694a4e358ecfcf",
+      "independent_human_review": false
+    },
+    {
+      "id": "S32",
+      "url": "https://github.com/agent-of-mkmeral/strands-coder/issues/23",
+      "title": "mcp research ",
+      "created_at": "2026-03-18T17:38:44Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_nonincident",
+      "reason": "Research/gap-analysis task, not an incident report.",
+      "body_sha256": "9dced239f70dbb8c57d35e1605b792b5a6530869c9cd1af26858225ef3ec8dc6",
+      "independent_human_review": false
+    },
+    {
+      "id": "S33",
+      "url": "https://github.com/PrefectHQ/fastmcp/issues/3590",
+      "title": "on_call_tool middleware return value discarded \u2014 wire response uses inner result",
+      "created_at": "2026-03-22T20:22:37Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body_plus_prior_discussion",
+      "decision": "retain_qualified",
+      "reason": "Reporter retracted middleware/wire-loss diagnosis; client channel selection remains a contrast.",
+      "body_sha256": "11ff50a71cdcc4725085706ec8b746969f131433e35821bd172edabfaecd315c",
+      "independent_human_review": false
+    },
+    {
+      "id": "S34",
+      "url": "https://github.com/NousResearch/hermes-agent/issues/5874",
+      "title": "[Bug]: MCP tool adapter drops structuredContent and only forwards content text",
+      "created_at": "2026-04-07T16:21:40Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body",
+      "decision": "retain",
+      "reason": "Hermes structured data loss, previously executed repair family.",
+      "body_sha256": "a272c97fbb4ab7d208db9ee8a0f9fc248a3bb59ccaa1df6223733b0eed980903",
+      "independent_human_review": false
+    },
+    {
+      "id": "S35",
+      "url": "https://github.com/adcontextprotocol/adcp-client/issues/464",
+      "title": "expect_error steps can't validate controller error response fields",
+      "created_at": "2026-04-10T00:59:06Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body_plus_new_timeline",
+      "decision": "retain",
+      "reason": "Controller error structured fields unavailable to real storyboard validators; linked closing commit reviewed separately.",
+      "body_sha256": "a3f42d34324959d26bfa1c7085bbe04cf2be9026158112f6df73969ca7f7f90d",
+      "independent_human_review": false
+    },
+    {
+      "id": "S36",
+      "url": "https://github.com/NousResearch/hermes-agent/issues/7043",
+      "title": "[Bug]:  MCP client discards text content when structuredContent is present",
+      "created_at": "2026-04-10T08:35:00Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body",
+      "decision": "retain",
+      "reason": "Hermes Desktop Commander text loss after channel-priority change; same family as record34.",
+      "body_sha256": "e38fd2d87220d7cdfb1645a9c682349660b6770fd19bfd368ffad91753b51bf5",
+      "independent_human_review": false
+    },
+    {
+      "id": "S37",
+      "url": "https://github.com/Trinity-S-AI-DNA/trios/issues/143",
+      "title": "\ud83c\udfaf IGLA RACE \u2014 Distributed Hunt: JEPA-T + NCA + GF16 + ASHA + Coq Invariants (Rust-only, Never-Stopping)",
+      "created_at": "2026-04-20T18:20:43Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "title_and_opening",
+      "decision": "exclude_nonincident",
+      "reason": "Training/race program epic rather than a discrete tool-result preservation incident.",
+      "body_sha256": "85f32c3bb911083de1b3ff3507ff6659c3cad58b14b0441abd5c9d5b6c29fdc7",
+      "independent_human_review": false
+    },
+    {
+      "id": "S38",
+      "url": "https://github.com/Trinity-S-AI-DNA/trios/issues/446",
+      "title": "\ud83c\udf3b EPIC \u2014 E2E TTT Pipeline O(1) \u00b7 Ring-Pattern Refactor (3 GOLD \u00d7 ~19 SR)",
+      "created_at": "2026-05-02T05:53:33Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "title_and_opening",
+      "decision": "exclude_nonincident",
+      "reason": "Training-pipeline/refactoring epic; title and opening define unrelated work.",
+      "body_sha256": "edbdc93244b5dadd5d1fafa155696330dc94b909ddedf8fd1c9bb8b01ab10fd1",
+      "independent_human_review": false
+    },
+    {
+      "id": "S39",
+      "url": "https://github.com/adcontextprotocol/adcp-client/issues/1600",
+      "title": "fix(adapter): hello_seller_adapter_proposal_mode create_media_buy fails schema validation against AdCP 3.0.7",
+      "created_at": "2026-05-08T13:59:42Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body",
+      "decision": "unresolved_insufficient",
+      "reason": "Adapter/schema projection suspected, but body supplies no actual response or confirmed missing field.",
+      "body_sha256": "786f4dd0a3479d45f2faaea199747fe9ed76911baa891f8e66d2a64ecdd3cbb3",
+      "independent_human_review": false
+    },
+    {
+      "id": "S40",
+      "url": "https://github.com/sleep2agi/agent-network/issues/18",
+      "title": "[docs] Deep-dive: claude-agent-sdk vs codex-sdk adapter comparison",
+      "created_at": "2026-05-12T07:57:27Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_nonincident",
+      "reason": "Documentation task comparing runtime adapters, not a reported preservation defect.",
+      "body_sha256": "30e4dba07e2a2c069c15303743511d7c19434949dde38143ffad60439e6e71a1",
+      "independent_human_review": false
+    },
+    {
+      "id": "S41",
+      "url": "https://github.com/ragingwind/mcp-ai-relay/issues/92",
+      "title": "feat(sdk): OpenAI Responses API tool \u2014 second tool under ./openai subpath",
+      "created_at": "2026-05-13T05:37:24Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_proposal",
+      "reason": "New Responses API tool with intentional separate reasoning field; not a repair incident.",
+      "body_sha256": "e4f6b446d16347019ecfd0632ed04dbc25274f49220f5a0330cbfe9b5dbd667d",
+      "independent_human_review": false
+    },
+    {
+      "id": "S42",
+      "url": "https://github.com/rxbynerd/stirrup/issues/231",
+      "title": "tools: return structured tool results with text fallback",
+      "created_at": "2026-05-19T22:04:06Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Feature request includes explicit current MCP result-drop behavior; no incident or verified repair history yet.",
+      "body_sha256": "5d05d5ff044ba4f1be6081ed51b54cc3a93faa8734aadc8dabf5a69e4ef800d2",
+      "independent_human_review": false
+    },
+    {
+      "id": "S43",
+      "url": "https://github.com/cyanheads/socrata-mcp-server/issues/2",
+      "title": "bug(socrata_query_dataset): SoQL 400 errors swallow upstream message and bypass soql_error contract",
+      "created_at": "2026-05-23T18:51:40Z",
+      "query_membership": [
+        3
+      ],
+      "screening_stage": "body",
+      "decision": "retain",
+      "reason": "Upstream SODA error message and recovery hint lost during tool-server normalization; source-backed report, not replayed.",
+      "body_sha256": "e3f9a3ec5fdb4f0fdbd2c15c80e4de50e472a282330eccaab727aacd296cb035",
+      "independent_human_review": false
+    },
+    {
+      "id": "S44",
+      "url": "https://github.com/modelcontextprotocol/servers/issues/773",
+      "title": "Authorization issue with Google Maps MCP Server",
+      "created_at": "2025-03-09T21:17:57Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_other_boundary",
+      "reason": "Legacy Places endpoint authorization failure; error text is delivered.",
+      "body_sha256": "aa4918e1da3811162a9373dd695a8f15f52a9d28ac08fccb2f8a622605a548f6",
+      "independent_human_review": false
+    },
+    {
+      "id": "S45",
+      "url": "https://github.com/modelcontextprotocol/python-sdk/issues/316",
+      "title": "Input should be a valid string [type=string_type, input_value=123, input_type=int]",
+      "created_at": "2025-03-19T09:02:22Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_other_boundary",
+      "reason": "Input string/number validation mismatch; error text is present in the result.",
+      "body_sha256": "3a4dba35c1088dd861a0db19316983879b82816a12292f0120b45af8281a34a7",
+      "independent_human_review": false
+    },
+    {
+      "id": "S46",
+      "url": "https://github.com/dailydaniel/logseq-mcp/issues/3",
+      "title": "BaseModel.__init__() takes 1 positional argument but 3 were given",
+      "created_at": "2025-04-08T23:37:55Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "unresolved_insufficient",
+      "reason": "Constructor exception without enough source/recipient evidence to diagnose preservation.",
+      "body_sha256": "0d77524ed1ff575851d8de50d13fc408a545b4d47615e6d07c146fbeb78776d3",
+      "independent_human_review": false
+    },
+    {
+      "id": "S47",
+      "url": "https://github.com/langchain4j/langchain4j/issues/2896",
+      "title": "[BUG] invalid argument happens while using Claude to operate tool",
+      "created_at": "2025-04-21T13:17:14Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_other_boundary",
+      "reason": "Generated tool arguments truncated/missing; this concerns input construction, not returned result projection.",
+      "body_sha256": "b989bb7c7c3f3d8900bb330cd6df4475bfe801bbd5a09c5c2d6289a8d5a33037",
+      "independent_human_review": false
+    },
+    {
+      "id": "S48",
+      "url": "https://github.com/anthropics/claude-code/issues/1804",
+      "title": "[BUG] MCP Error Responses Only Display First Content Block",
+      "created_at": "2025-06-08T21:53:22Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Only first error block displayed; no model-boundary capture, existing ledger.",
+      "body_sha256": "e0b155b51b3c482e0b27471eb617f5d0a7d000dcc542f8fdf72d226bee41c2f8",
+      "independent_human_review": false
+    },
+    {
+      "id": "S49",
+      "url": "https://github.com/langchain-ai/langchain-mcp-adapters/issues/207",
+      "title": "Question: Why start a new session on each tool call in MultiServerMCPClient? (Causes issues with stateful MCP servers in stdio mode)",
+      "created_at": "2025-06-09T09:24:47Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_other_boundary",
+      "reason": "Session lifetime/state continuity rather than transformation of one completed result.",
+      "body_sha256": "ae34a6105a87218ce07568bdc3958146b6c71f9acc412f0c8ee0473a4c08df1b",
+      "independent_human_review": false
+    },
+    {
+      "id": "S50",
+      "url": "https://github.com/tadata-org/fastapi_mcp/issues/189",
+      "title": "[BUG] MCP session 404 in multi worker production environment",
+      "created_at": "2025-07-02T11:25:57Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_other_boundary",
+      "reason": "Load-balanced session routing failure before completed tool result.",
+      "body_sha256": "bc5181b277a96d64507493c5377c07554016c57055adb24c66d837a6d23dbab8",
+      "independent_human_review": false
+    },
+    {
+      "id": "S51",
+      "url": "https://github.com/GoogleCloudPlatform/cloud-code-vscode/issues/1121",
+      "title": "VSCode version",
+      "created_at": "2025-07-22T04:03:40Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "title_and_opening",
+      "decision": "unresolved_insufficient",
+      "reason": "Generic VSCode title and verbose logs without an identified result-preservation claim; not full-log coded.",
+      "body_sha256": "ea05f60cbb8f33af9d5492e4a336e26007533ad8ac0b37691605e6313eb580d4",
+      "independent_human_review": false
+    },
+    {
+      "id": "S52",
+      "url": "https://github.com/anthropics/claude-code/issues/4188",
+      "title": "[BUG] [BUG] Claude Desktop MCP tools failing with \"Required\" parameter error",
+      "created_at": "2025-07-23T04:50:44Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_other_boundary",
+      "reason": "Required tool arguments absent; returned validation error is visible.",
+      "body_sha256": "30b0f4866d80f1ffd1ebb1fd066a6ba44648d56b7824bf35aa574443adbe0329",
+      "independent_human_review": false
+    },
+    {
+      "id": "S53",
+      "url": "https://github.com/elastic/mcp-server-elasticsearch/issues/182",
+      "title": "the `Search` tool needs some improvement",
+      "created_at": "2025-08-04T23:09:53Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_other_boundary",
+      "reason": "Search-tool input description/query generation difficulty, not lost returned result.",
+      "body_sha256": "701fc6f9fd54681beeab420df21425d78667e3ba055d526db4da04098b2c5d7d",
+      "independent_human_review": false
+    },
+    {
+      "id": "S54",
+      "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1303",
+      "title": "SEP-1303: Input Validation Errors as Tool Execution Errors",
+      "created_at": "2025-08-05T09:51:44Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_proposal",
+      "reason": "Normative error-envelope SEP; useful context but not a verified project repair incident.",
+      "body_sha256": "1ea9cb59ce0dc06671de0b4efe508670cc2d74950710ac833352d7eb3750795f",
+      "independent_human_review": false
+    },
+    {
+      "id": "S55",
+      "url": "https://github.com/PrefectHQ/fastmcp/issues/1606",
+      "title": "Pydantic ValidationError is mapped to Internal error (-32603) instead of Invalid params (-32602) in ErrorHandlingMiddleware",
+      "created_at": "2025-08-24T16:08:52Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "retain_qualified",
+      "reason": "Validation error classified as internal error; control-status representation report, not locally replayed.",
+      "body_sha256": "b9abfce6e012d473b7ebab4894869b8045e3a88bb9c49bf0c26f0e5c14a898b4",
+      "independent_human_review": false
+    },
+    {
+      "id": "S56",
+      "url": "https://github.com/modelcontextprotocol/go-sdk/issues/396",
+      "title": "Proposal: add a simpler version of AddTool that drops request and response",
+      "created_at": "2025-09-03T11:15:44Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_proposal",
+      "reason": "Simplified Go handler API proposal linked to record19, not an additional incident.",
+      "body_sha256": "8b2f7852368b4998cf9119c67b29033639749f97a2d57977dce66650bd0ce71a",
+      "independent_human_review": false
+    },
+    {
+      "id": "S57",
+      "url": "https://github.com/axelmierczuk/tenrec/issues/3",
+      "title": "Can\u00b4t get tenrec to work with Claude",
+      "created_at": "2025-09-21T19:47:02Z",
+      "query_membership": [
+        4
+      ],
+      "screening_stage": "body",
+      "decision": "exclude_other_boundary",
+      "reason": "Installation/configuration exception before usable MCP exchange.",
+      "body_sha256": "708cef99cf4157c0d9088f2cba85d3064982358ddc3097c91d3112c0e31056b5",
+      "independent_human_review": false
+    },
+    {
+      "id": "S58",
+      "url": "https://github.com/erogenousbeef-zz/BigReactors/issues/95",
+      "title": "Crash when loading world with reactor",
+      "created_at": "2014-01-20T18:09:53Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Minecraft reactor crash; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "c70994d586165a10a69a1533e805fa0f91b0e698c336a676d0c8f45c5598dad4",
+      "independent_human_review": false
+    },
+    {
+      "id": "S59",
+      "url": "https://github.com/WildBamaBoy/minecraft-comes-alive/issues/79",
+      "title": "[1.6.4] New Error coming up after replacing the patch 3.6.1",
+      "created_at": "2014-03-18T19:48:42Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Minecraft mod patch error; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "f627389c497a51cdb8008bda2c2d1b72720f1ff6e8dd6493b145ce526d688468",
+      "independent_human_review": false
+    },
+    {
+      "id": "S60",
+      "url": "https://github.com/huginn/huginn/issues/353",
+      "title": "Official Agent Suggestions Thread",
+      "created_at": "2014-06-01T09:58:13Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "2014 automation-agent suggestion thread; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "b424f48212d5d975246d55cff95d33f69851865c2d4ce8d8e804a60f2608b6e6",
+      "independent_human_review": false
+    },
+    {
+      "id": "S61",
+      "url": "https://github.com/reaper-oss/sws/issues/236",
+      "title": "SWS/S&M Extension beta",
+      "created_at": "2014-07-08T15:13:11Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "2014 audio-workstation extension beta; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "508965b9180924bb763822b18858c63c667c25454166b5549e8c61866359dd93",
+      "independent_human_review": false
+    },
+    {
+      "id": "S62",
+      "url": "https://github.com/BluSunrize/ImmersiveEngineering/issues/1704",
+      "title": "[1.10.2] [FIXED FOR FUTURE RELEASES] Manual Crashes - VertexBuffer State Exception",
+      "created_at": "2016-11-20T21:55:58Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Minecraft rendering crash; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "36e9d79e7f551bae0b1b756848e7bd10e6f2adb39e3977b579c01f144b16f582",
+      "independent_human_review": false
+    },
+    {
+      "id": "S63",
+      "url": "https://github.com/thephpleague/oauth2-server/issues/857",
+      "title": "BearerTokenValidator:validateAuthorization seems to incorrectly use the audience claim.",
+      "created_at": "2018-02-18T20:24:42Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "OAuth audience validation; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "9eef7209cfff9ef4990b63f48c25f34171e67373fae13841774d960f6b202406",
+      "independent_human_review": false
+    },
+    {
+      "id": "S64",
+      "url": "https://github.com/ValveSoftware/Proton/issues/580",
+      "title": "Final Fantasy 14 (39210)",
+      "created_at": "2018-08-25T18:46:21Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Proton game compatibility; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "87ab456bfb846ae130c498402f64ef37a41dbaba5b9cff10aec35e34e81da368",
+      "independent_human_review": false
+    },
+    {
+      "id": "S65",
+      "url": "https://github.com/ValveSoftware/Proton/issues/1199",
+      "title": "VRChat (438100)",
+      "created_at": "2018-09-03T05:02:44Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Proton VRChat compatibility; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "970b6504c17768761e516811e8cf273d6446f7bf8f541da1525071aa03f3da42",
+      "independent_human_review": false
+    },
+    {
+      "id": "S66",
+      "url": "https://github.com/istio/istio/issues/8469",
+      "title": "Rationalize namespaced vs. cluster scoped MCP resources ",
+      "created_at": "2018-09-04T17:59:22Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Istio Mesh Configuration Protocol resources; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "16dbf7b1850cd4d1077f26d8f5b0bdd3b841ac7f4656f721b3568cc248745dfb",
+      "independent_human_review": false
+    },
+    {
+      "id": "S67",
+      "url": "https://github.com/lumien231/Custom-Main-Menu/issues/326",
+      "title": "Do these work?",
+      "created_at": "2019-01-27T04:36:49Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Minecraft custom menu compatibility; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "06ed89c92689e590909a9324d067a3109f325a253fc7c6213d0055b1d4eb54c2",
+      "independent_human_review": false
+    },
+    {
+      "id": "S68",
+      "url": "https://github.com/istio/istio/issues/11937",
+      "title": "Istio-Proxy leaks memory on ServiceEntry updates",
+      "created_at": "2019-02-21T08:16:40Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Istio proxy memory leak; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "3ef27e0f2a3153a715cdbef9b79f619566c45e09cf016cc949ba75339c12059b",
+      "independent_human_review": false
+    },
+    {
+      "id": "S69",
+      "url": "https://github.com/linuxmint/cinnamon/issues/8856",
+      "title": "Grouped Window List - Zombies stay alive after being closed",
+      "created_at": "2019-09-15T02:15:48Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Cinnamon window handling; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "8978624483b91b1ae473c5b303b81f8065c7000fdfb7a805e4d0a1ae63af3433",
+      "independent_human_review": false
+    },
+    {
+      "id": "S70",
+      "url": "https://github.com/DandelionSprout/adfilt/issues/63",
+      "title": "General filter chit-chat \u21162",
+      "created_at": "2020-02-25T17:03:39Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Ad-filter discussion thread; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "3767f2ea53046199b96be1394b7704da753f74f6100751d6e0ddf551c47e6d32",
+      "independent_human_review": false
+    },
+    {
+      "id": "S71",
+      "url": "https://github.com/Feodor2/Mypal/issues/3",
+      "title": "license",
+      "created_at": "2020-09-10T12:09:51Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Browser licensing; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "ba36edfcc1fadc13337228170818049f8ade6ced77050f18121a21afa47d07c6",
+      "independent_human_review": false
+    },
+    {
+      "id": "S72",
+      "url": "https://github.com/ValveSoftware/Proton/issues/4450",
+      "title": "Cyberpunk 2077 (1091500)",
+      "created_at": "2020-12-10T00:24:23Z",
+      "query_membership": [
+        5
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Proton Cyberpunk compatibility; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "a389c9979c04fd1008748bfaefc1acb32ba4ba05c11938eadc63e7864dc5d0d7",
+      "independent_human_review": false
+    },
+    {
+      "id": "S73",
+      "url": "https://github.com/apneadiving/Google-Maps-for-Rails/issues/47",
+      "title": "Design limitations and missing features",
+      "created_at": "2011-06-26T02:52:51Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "2011 Rails maps API design; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "77059593a82e3b230d61004556645c1eecb6b05dcf6129132beaae006f188c43",
+      "independent_human_review": false
+    },
+    {
+      "id": "S74",
+      "url": "https://github.com/ExtrabiomesXL/ExtrabiomesXL/issues/50",
+      "title": "Idea for Cracked Sand growth",
+      "created_at": "2012-07-31T22:12:09Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Minecraft sand feature; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "59b922cabb0e634bd5213423bf7328fb350092ec74121aa323436d0575e3f516",
+      "independent_human_review": false
+    },
+    {
+      "id": "S75",
+      "url": "https://github.com/linuxmint/cinnamon/issues/3423",
+      "title": "Tearing/Vsync issues in Cinnamon/Clutter",
+      "created_at": "2014-08-10T20:28:50Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Cinnamon compositor vsync; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "243e2d685eadc269ed0060e6aa17cf413f4789325e1d07812ab2bb67044628df",
+      "independent_human_review": false
+    },
+    {
+      "id": "S76",
+      "url": "https://github.com/KaOSx/main/issues/9",
+      "title": "Multiple Displays",
+      "created_at": "2015-03-11T18:16:40Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Linux display setup; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "b3000ec6291b980bcc25a834a7ed9c0f7e4039ceaca0dc9e054723eaebba1f69",
+      "independent_human_review": false
+    },
+    {
+      "id": "S77",
+      "url": "https://github.com/ValveSoftware/csgo-osx-linux/issues/608",
+      "title": "[Linux] Unusually long startup time",
+      "created_at": "2016-02-07T22:18:36Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Counter-Strike Linux startup; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "3b51a86c5eba61330c3582930645bf9cbc0cc1f4a66b5b260605574f1004e466",
+      "independent_human_review": false
+    },
+    {
+      "id": "S78",
+      "url": "https://github.com/raspberrypi/linux/issues/1490",
+      "title": "Receiving concurrently with two mcp2515 is unstable",
+      "created_at": "2016-05-24T19:42:18Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "MCP2515 hardware CAN controller; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "b639892baa404a6088663e610d839f7b05dcdfcd15b8752af2c6a07a633dc80b",
+      "independent_human_review": false
+    },
+    {
+      "id": "S79",
+      "url": "https://github.com/flowtender/MachineMusePowersuits/issues/724",
+      "title": "How to run client in dev environment?",
+      "created_at": "2016-06-03T02:52:46Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Minecraft mod development environment; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "7239c902331977f08a30f201a5831af2312f65402acc58470cab2b72fe611631",
+      "independent_human_review": false
+    },
+    {
+      "id": "S80",
+      "url": "https://github.com/iChun/Morph/issues/838",
+      "title": "Morph mod crashes the world when morphing to anything",
+      "created_at": "2017-04-04T03:05:13Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Minecraft morph crash; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "ce724248fa89902b57d9728e3988e0dc8e716f0bdd8d9ece718826fd1b4663bc",
+      "independent_human_review": false
+    },
+    {
+      "id": "S81",
+      "url": "https://github.com/AppliedEnergistics/Applied-Energistics-2/issues/2927",
+      "title": "[1.12] Is this mod still 'alive'?",
+      "created_at": "2017-06-13T08:37:49Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Minecraft mod maintenance; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "c16ba22c01c3e034bec61c1bd9d6505b11197c5fb0348c122280da64ebcae108",
+      "independent_human_review": false
+    },
+    {
+      "id": "S82",
+      "url": "https://github.com/ValveSoftware/csgo-osx-linux/issues/1470",
+      "title": "Wayland support (GNU/Linux)",
+      "created_at": "2017-07-08T14:21:35Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Counter-Strike Wayland support; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "1d2c4fb7d6a0cf224380dc589a6f992c1fd5cb55f4009e90352a39e6f010c925",
+      "independent_human_review": false
+    },
+    {
+      "id": "S83",
+      "url": "https://github.com/linuxmint/cinnamon/issues/6850",
+      "title": "Memory usage increasing over time",
+      "created_at": "2017-08-26T07:46:55Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Cinnamon memory usage; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "9234dc43f7e389c3aa0bb4301a05d026ae1d3048bfae062e6f427fb23da95f43",
+      "independent_human_review": false
+    },
+    {
+      "id": "S84",
+      "url": "https://github.com/espressif/esp-idf/issues/1263",
+      "title": "[TW#16442] BLE gatt server for muti-connect, disconnects and reconnects if using Android background connection mode",
+      "created_at": "2017-11-11T23:25:29Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "ESP-IDF Bluetooth connectivity; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "5be1b8b3b10d20149400f2a6b1cd4b7a81fb708a76192db61e37945fe9324d45",
+      "independent_human_review": false
+    },
+    {
+      "id": "S85",
+      "url": "https://github.com/pesintta/vdr-plugin-vaapidevice/issues/111",
+      "title": "Segfault on some channels",
+      "created_at": "2018-03-17T09:43:08Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Video decoder plugin crash; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "9d36097eeb35b635afeeb79221dba48d35565d0998934a02095346c05a6438f9",
+      "independent_human_review": false
+    },
+    {
+      "id": "S86",
+      "url": "https://github.com/pesintta/vdr-plugin-vaapidevice/issues/113",
+      "title": "post process color issue",
+      "created_at": "2018-03-17T12:17:47Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Video postprocessing color; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "c99bc6f60aa0630db4c3960b79c9a1eca99568a9604d74323bda0406b79dde21",
+      "independent_human_review": false
+    },
+    {
+      "id": "S87",
+      "url": "https://github.com/doitsujin/dxvk/issues/252",
+      "title": "AMD RADV driver discussion",
+      "created_at": "2018-04-07T16:25:28Z",
+      "query_membership": [
+        6
+      ],
+      "screening_stage": "title",
+      "decision": "exclude_non_mcp",
+      "reason": "Graphics-driver discussion; unrelated to Model Context Protocol tool-result delivery.",
+      "body_sha256": "11f694423bd4536a1ff7a6368933023d53fd37302cdcbef9574a01a256342510",
+      "independent_human_review": false
+    }
+  ],
+  "limits": [
+    "Completed staged screening of a frozen bounded retrieval, NOT exhaustive ecosystem search.",
+    "Title/opening exclusions are not full-body reviews; retained body reports are not confirmed defects.",
+    "Seeds/link expansions and this retrieval have separate denominators.",
+    "Independent human review has not been completed."
+  ]
+}

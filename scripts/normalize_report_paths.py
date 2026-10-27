@@ -1,5 +1,6 @@
-"""Make generated report paths portable without modifying source snapshots."""
+"""Make generated report paths portable and omit volatile test-run metadata without modifying source snapshots."""
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -18,6 +19,8 @@ def main():
         normalized = original
         for prefix, replacement in sorted(prefixes.items(), key=lambda pair: -len(pair[0])):
             normalized = normalized.replace(prefix, replacement)
+        if path.suffix == '.xml':
+            normalized = re.sub(r' (?:timestamp|hostname)="[^"]*"', '', normalized)
         if normalized != original:
             path.write_text(normalized)
 

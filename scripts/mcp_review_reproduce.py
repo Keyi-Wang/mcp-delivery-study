@@ -13,7 +13,7 @@ import sys
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-review-revision-20261026'
+OUT = ROOT / 'artifacts/mcp-review-revision'
 
 def main():
     parser = argparse.ArgumentParser()
@@ -37,11 +37,11 @@ def main():
         ('.venv-mcp-review-producer','3.13.17',OUT/'producer-requirements-freeze.txt'),
         ('.venv-mcp-review-consumer','3.13.17',OUT/'consumer-requirements-freeze.txt'),
         ('.venv-mcp-review-git','3.13.17',OUT/'git-requirements-freeze.txt'),
-        ('.venv-mcp-visibility','3.10',ROOT/'artifacts/mcp-paper-evidence-20261026/handler-requirements-freeze.txt')]
+        ('.venv-mcp-visibility','3.10',ROOT/'artifacts/mcp-paper-evidence/handler-requirements-freeze.txt')]
     if args.all:
         environments += [
-            ('.venv-mcp-wire','3.10',ROOT/'artifacts/mcp-preservation-followup-20261026/requirements-freeze.txt'),
-            ('.venv-mcp-langchain','3.10',ROOT/'artifacts/mcp-acceptance-study-20261026/langchain-requirements-freeze.txt')]
+            ('.venv-mcp-wire','3.10',ROOT/'artifacts/mcp-preservation-followup/requirements-freeze.txt'),
+            ('.venv-mcp-langchain','3.10',ROOT/'artifacts/mcp-acceptance-study/langchain-requirements-freeze.txt')]
     if args.install:
         uv = ROOT / '.venv-mcp-bootstrap/bin/uv'
         if not uv.exists():
@@ -57,7 +57,7 @@ def main():
             ts = ROOT / '.mcp-ts-runtime'
             ts.mkdir(exist_ok=True)
             for original,target in [('typescript-package.json','package.json'),('typescript-package-lock.json','package-lock.json')]:
-                shutil.copyfile(ROOT/'artifacts/mcp-acceptance-study-20261026'/original,ts/target)
+                shutil.copyfile(ROOT/'artifacts/mcp-acceptance-study'/original,ts/target)
             run('install-typescript',['npm','ci','--prefix',ts,'--ignore-scripts','--no-audit','--no-fund'])
     for env,_,_ in environments:
         if not py(env).exists():
@@ -69,7 +69,7 @@ def main():
     run('unifi-native-tests',[py('.venv-mcp-review-producer'),'-m','pytest','tests/test_adaptive_responses.py',
          'tests/network/test_wlans.py','-q','--override-ini','addopts=',f'--junitxml={OUT / "unifi-native-tests.xml"}'],producer_root,producer_env)
     hermes_env = dict(os.environ,PYTHONPATH=str(OUT/'sources/hermes'))
-    original = ROOT/'artifacts/mcp-obligation-study-20261026/sources/september/tests/tools/test_mcp_structured_content.py'
+    original = ROOT/'artifacts/mcp-obligation-study/sources/september/tests/tools/test_mcp_structured_content.py'
     run('hermes-native-tests',[py('.venv-mcp-review-consumer'),'-m','pytest',str(original)+'::TestStructuredContentPreservation',
          str(original)+'::TestContentStructuredArbitration','-q','--override-ini','addopts=',f'--junitxml={OUT / "hermes-native-tests.xml"}'],env=hermes_env)
     run('count-control-live-calls',[py('.venv-mcp-review-consumer'),ROOT/'scripts/mcp_review_continuous.py','--count-controls'])

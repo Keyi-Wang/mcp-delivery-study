@@ -1,0 +1,32 @@
+[
+  {
+    "path": "artifacts/mcp-review-revision/sources/git-package/LICENSE",
+    "sha256": "8cc7c6e33b24ed4ee8fcccc33eccf102549d04fa4cb9737cecc9770dad1080ff",
+    "package": "mcp-server-git==2026.10.19",
+    "source": "Official PyPI package; archived metadata records distribution hashes"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/git-package/PACKAGE-METADATA.txt",
+    "sha256": "08c0fe9c5041ef4611cdffdc55c8723217b9ef7a9c7347ff76d562592ed14167",
+    "package": "mcp-server-git==2026.10.19",
+    "source": "Official PyPI package; archived metadata records distribution hashes"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/git-package/__init__.py",
+    "sha256": "c818b6a458dd4b8382ee9856d8f2a1923ee2a2fda2fa4084b6ec41b3cc990603",
+    "package": "mcp-server-git==2026.10.19",
+    "source": "Official PyPI package; archived metadata records distribution hashes"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/git-package/__main__.py",
+    "sha256": "86c286117b9b580820e25077f04d6d289dd9669f053852bc5b5093d3e8bc491f",
+    "package": "mcp-server-git==2026.10.19",
+    "source": "Official PyPI package; archived metadata records distribution hashes"
+  },
+  {
+    "path": "artifacts/mcp-review-revision/sources/git-package/server.py",
+    "sha256": "1756064c0bd498f0fa5065891b16f4203a54b210eec813f5d1948ac78780316a",
+    "package": "mcp-server-git==2026.10.19",
+    "source": "Official PyPI package; archived metadata records distribution hashes"
+  }
+]

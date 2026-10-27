@@ -6,7 +6,7 @@ const vm = require('vm');
 const assert = require('assert');
 const crypto = require('crypto');
 const ROOT = path.resolve(__dirname, '..');
-const OUT = path.join(ROOT, 'artifacts/mcp-acceptance-study-20261026');
+const OUT = path.join(ROOT, 'artifacts/mcp-acceptance-study');
 const ts = require(process.env.MCP_TYPESCRIPT_PATH || path.join(ROOT, '.mcp-ts-runtime/node_modules/typescript'));
 const sha = text => crypto.createHash('sha256').update(text).digest('hex');
 const clone = value => JSON.parse(JSON.stringify(value));
@@ -109,7 +109,7 @@ async function main() {
     assert.equal(same,route==='flattened_error');
     comparisons.push({version,route,step_id:step.id,paired_details_same_output:same});
   }
-  const report={protocol:'research/mcp-adcp-reconstruction-amendment-20261026.json',
+  const report={protocol:'research/mcp-adcp-reconstruction-amendment.json',
     rows,comparisons,source_selections:selections,node:process.version,typescript:ts.version,
     boundary:'Unchanged native TS function bodies transpiled by TypeScript. Native server response construction, MCP error flattening, storyboard runner and field validators; controlled connection and TaskExecutor return shape. No HTTP transport or complete SDK deployment.',
     held_fixed:'After-version producer, MCP functions, task dispatcher, context helpers and validators are shared across the two runner versions. The before/after MCP files are byte-identical. This isolates runner reconstruction; not two complete historical releases.',

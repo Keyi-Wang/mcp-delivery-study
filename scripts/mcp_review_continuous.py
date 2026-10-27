@@ -15,7 +15,7 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'artifacts/mcp-review-revision-20261026'
+OUT = ROOT / 'artifacts/mcp-review-revision'
 sys.path.insert(0, str(OUT / 'sources/hermes'))
 parser = argparse.ArgumentParser()
 parser.add_argument('--output')
@@ -88,7 +88,7 @@ finally:
     loop._stop_mcp_loop()
     isolated.cleanup()
 report = {'python': platform.python_version(), 'consumer_mcp': importlib.metadata.version('mcp'),
-          'protocol_sha256': hashlib.sha256((ROOT / 'research/mcp-review-contracts-20261026.json').read_bytes()).hexdigest(),
+          'protocol_sha256': hashlib.sha256((ROOT / 'research/mcp-review-contracts.json').read_bytes()).hexdigest(),
           'scope': 'Complete producer build_server, upstream built-in controller stub, native Hermes live MCP connection and unchanged synchronous handler; no model/provider request',
           'interventions': ['Author sensitivity state perturbation', 'Existing producer full-text option'],
           'replaced_dependencies': ['Live UniFi controller replaced by upstream built-in StubState',
@@ -96,7 +96,7 @@ report = {'python': platform.python_version(), 'consumer_mcp': importlib.metadat
           'observation_wrappers': ['session.call_tool delegates unchanged, records the returned SDK object'],
           'cells': cells}
 if args.count_controls:
-    report['amendment_sha256'] = hashlib.sha256((ROOT/'research/mcp-count-oracle-amendment-20261027.json').read_bytes()).hexdigest()
+    report['amendment_sha256'] = hashlib.sha256((ROOT/'research/mcp-count-oracle-amendment.json').read_bytes()).hexdigest()
     report['interventions'] = ['Author-defined empty and two-record controller states','Existing producer full-text option']
     report['scope'] = 'Four additional native stdio calls for count-only sensitivity checks; separate from the original eight calls'
 output_path = Path(args.output) if args.output else OUT / ('count-control-live-results.json' if args.count_controls else 'continuous-results.json')

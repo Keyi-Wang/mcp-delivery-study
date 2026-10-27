@@ -1,6 +1,6 @@
 {
   "source": "modelcontextprotocol/servers; PyPI mcp-server-git==2026.10.19",
-  "selection": "First available package version after the confirmation rule was frozen",
+  "selection": "First available package version after the producer-contrast rule was frozen",
   "protocol_sha256": "ed996a12ec78ce6eb05c02bc1db315062b03bfac8382d1547b376b074a461c62",
   "producer_mode": "Native packaged server, real local Git repository, real stdio connection to native Hermes handler",
   "prediction": "Plain-text commit message remains available through text priority",

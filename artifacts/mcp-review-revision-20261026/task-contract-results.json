@@ -100,7 +100,7 @@
     {
       "tool": "get_wan_status",
       "state": "upstream_seed",
-      "strategy": "full_text_fallback",
+      "strategy": "native_full_text",
       "required": {
         "status": "ok",
         "wan_ip": "203.0.113.42"
@@ -115,7 +115,7 @@
     {
       "tool": "list_wlans",
       "state": "upstream_seed",
-      "strategy": "full_text_fallback",
+      "strategy": "native_full_text",
       "required": [
         {
           "name": "Home",
@@ -228,7 +228,7 @@
     {
       "tool": "get_wan_status",
       "state": "perturbed",
-      "strategy": "full_text_fallback",
+      "strategy": "native_full_text",
       "required": {
         "status": "warning",
         "wan_ip": "203.0.113.99"
@@ -243,7 +243,7 @@
     {
       "tool": "list_wlans",
       "state": "perturbed",
-      "strategy": "full_text_fallback",
+      "strategy": "native_full_text",
       "required": [
         {
           "name": "Office-Review",
@@ -263,48 +263,80 @@
       "state": "upstream_seed",
       "strategy": "text_priority",
       "count_retained": true,
+      "expected_count": 1,
+      "observed_counts": [
+        1
+      ],
       "full_object_retained": false
     },
     {
       "state": "upstream_seed",
       "strategy": "structured_priority",
       "count_retained": true,
+      "expected_count": 1,
+      "observed_counts": [
+        1
+      ],
       "full_object_retained": true
     },
     {
       "state": "upstream_seed",
       "strategy": "combination",
       "count_retained": true,
+      "expected_count": 1,
+      "observed_counts": [
+        1
+      ],
       "full_object_retained": true
     },
     {
       "state": "upstream_seed",
-      "strategy": "full_text_fallback",
+      "strategy": "native_full_text",
       "count_retained": true,
+      "expected_count": 1,
+      "observed_counts": [
+        1
+      ],
       "full_object_retained": true
     },
     {
       "state": "perturbed",
       "strategy": "text_priority",
       "count_retained": true,
+      "expected_count": 1,
+      "observed_counts": [
+        1
+      ],
       "full_object_retained": false
     },
     {
       "state": "perturbed",
       "strategy": "structured_priority",
       "count_retained": true,
+      "expected_count": 1,
+      "observed_counts": [
+        1
+      ],
       "full_object_retained": true
     },
     {
       "state": "perturbed",
       "strategy": "combination",
       "count_retained": true,
+      "expected_count": 1,
+      "observed_counts": [
+        1
+      ],
       "full_object_retained": true
     },
     {
       "state": "perturbed",
-      "strategy": "full_text_fallback",
+      "strategy": "native_full_text",
       "count_retained": true,
+      "expected_count": 1,
+      "observed_counts": [
+        1
+      ],
       "full_object_retained": true
     }
   ],
@@ -344,7 +376,7 @@
     },
     {
       "fixture": "file_plus_metadata",
-      "strategy": "full_text_fallback",
+      "strategy": "authored_append_json",
       "output": "{\"result\": \"FILE_ANSWER_19\\n{\\\"fileName\\\": \\\"shared.txt\\\"}\"}",
       "all_declared_facts_retained": true,
       "both_conflicting_claims_delivered": null,
@@ -388,7 +420,7 @@
     },
     {
       "fixture": "equivalent_dual",
-      "strategy": "full_text_fallback",
+      "strategy": "authored_append_json",
       "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\\n{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\"}",
       "all_declared_facts_retained": true,
       "both_conflicting_claims_delivered": null,
@@ -438,7 +470,7 @@
     },
     {
       "fixture": "application_private_meta",
-      "strategy": "full_text_fallback",
+      "strategy": "authored_append_json",
       "output": "{\"result\": \"{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\\n{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\", \"_meta\": {\"application_only\": \"PRIVATE_APP_88\"}}",
       "all_declared_facts_retained": true,
       "both_conflicting_claims_delivered": null,
@@ -484,7 +516,7 @@
     },
     {
       "fixture": "conflicting_channels",
-      "strategy": "full_text_fallback",
+      "strategy": "authored_append_json",
       "output": "{\"result\": \"{\\\"status\\\": \\\"STATUS_BLOCKED_3Q\\\"}\\n{\\\"record_id\\\": \\\"work-42\\\", \\\"status\\\": \\\"STATUS_READY_7K\\\"}\"}",
       "all_declared_facts_retained": true,
       "both_conflicting_claims_delivered": true,
@@ -500,5 +532,249 @@
     true,
     true
   ],
-  "qualification": "Exact fixture-level evidence retention; no general semantic oracle, real task success, or universal strategy ranking. Full-text diagnostic is authored; main full-text rows are native producer runs."
+  "count_sensitivity_controls": [
+    {
+      "state": "wlan_count_0",
+      "mode": "adaptive",
+      "strategy": "text_priority",
+      "expected_count": 0,
+      "observed_counts": [
+        0
+      ],
+      "count_retained": true,
+      "output": "{\"result\": \"list_wlans returned 0 record(s). Full result is in structuredContent.\"}"
+    },
+    {
+      "state": "wlan_count_0",
+      "mode": "adaptive",
+      "strategy": "structured_priority",
+      "expected_count": 0,
+      "observed_counts": [
+        0
+      ],
+      "count_retained": true,
+      "output": "{\"result\": {\"result\": []}}"
+    },
+    {
+      "state": "wlan_count_0",
+      "mode": "adaptive",
+      "strategy": "combination",
+      "expected_count": 0,
+      "observed_counts": [
+        0
+      ],
+      "count_retained": true,
+      "output": "{\"result\": \"list_wlans returned 0 record(s). Full result is in structuredContent.\", \"structuredContent\": {\"result\": []}}"
+    },
+    {
+      "state": "wlan_count_0",
+      "mode": "full_text",
+      "strategy": "native_full_text",
+      "expected_count": 0,
+      "observed_counts": [
+        0
+      ],
+      "count_retained": true,
+      "output": "{\"result\": \"[]\", \"_meta\": {\"fastmcp\": {\"wrap_result\": true}}}"
+    },
+    {
+      "state": "wlan_count_2",
+      "mode": "adaptive",
+      "strategy": "text_priority",
+      "expected_count": 2,
+      "observed_counts": [
+        2
+      ],
+      "count_retained": true,
+      "output": "{\"result\": \"list_wlans returned 2 record(s). Full result is in structuredContent.\"}"
+    },
+    {
+      "state": "wlan_count_2",
+      "mode": "adaptive",
+      "strategy": "structured_priority",
+      "expected_count": 2,
+      "observed_counts": [
+        2
+      ],
+      "count_retained": true,
+      "output": "{\"result\": {\"result\": [{\"_id\": \"78a36809d9f24a819a05aab5\", \"name\": \"Home\", \"enabled\": true, \"security\": \"wpapsk\", \"wpa_mode\": \"wpa2\", \"x_passphrase\": \"[REDACTED]\", \"networkconf_id\": \"8542be8e3b5c4e11bc87afff\", \"is_guest\": false, \"hide_ssid\": false, \"wlan_band\": \"both\"}, {\"_id\": \"count-control-second-wlan\", \"name\": \"Count-Control-Second\", \"enabled\": true, \"security\": \"wpapsk\", \"wpa_mode\": \"wpa2\", \"x_passphrase\": \"[REDACTED]\", \"networkconf_id\": \"8542be8e3b5c4e11bc87afff\", \"is_guest\": false, \"hide_ssid\": false, \"wlan_band\": \"both\"}]}}"
+    },
+    {
+      "state": "wlan_count_2",
+      "mode": "adaptive",
+      "strategy": "combination",
+      "expected_count": 2,
+      "observed_counts": [
+        2
+      ],
+      "count_retained": true,
+      "output": "{\"result\": \"list_wlans returned 2 record(s). Full result is in structuredContent.\", \"structuredContent\": {\"result\": [{\"_id\": \"78a36809d9f24a819a05aab5\", \"name\": \"Home\", \"enabled\": true, \"security\": \"wpapsk\", \"wpa_mode\": \"wpa2\", \"x_passphrase\": \"[REDACTED]\", \"networkconf_id\": \"8542be8e3b5c4e11bc87afff\", \"is_guest\": false, \"hide_ssid\": false, \"wlan_band\": \"both\"}, {\"_id\": \"count-control-second-wlan\", \"name\": \"Count-Control-Second\", \"enabled\": true, \"security\": \"wpapsk\", \"wpa_mode\": \"wpa2\", \"x_passphrase\": \"[REDACTED]\", \"networkconf_id\": \"8542be8e3b5c4e11bc87afff\", \"is_guest\": false, \"hide_ssid\": false, \"wlan_band\": \"both\"}]}}"
+    },
+    {
+      "state": "wlan_count_2",
+      "mode": "full_text",
+      "strategy": "native_full_text",
+      "expected_count": 2,
+      "observed_counts": [
+        2
+      ],
+      "count_retained": true,
+      "output": "{\"result\": \"[\\n  {\\n    \\\"_id\\\": \\\"78a36809d9f24a819a05aab5\\\",\\n    \\\"name\\\": \\\"Home\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpapsk\\\",\\n    \\\"wpa_mode\\\": \\\"wpa2\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\",\\n    \\\"networkconf_id\\\": \\\"8542be8e3b5c4e11bc87afff\\\",\\n    \\\"is_guest\\\": false,\\n    \\\"hide_ssid\\\": false,\\n    \\\"wlan_band\\\": \\\"both\\\"\\n  },\\n  {\\n    \\\"_id\\\": \\\"count-control-second-wlan\\\",\\n    \\\"name\\\": \\\"Count-Control-Second\\\",\\n    \\\"enabled\\\": true,\\n    \\\"security\\\": \\\"wpapsk\\\",\\n    \\\"wpa_mode\\\": \\\"wpa2\\\",\\n    \\\"x_passphrase\\\": \\\"[REDACTED]\\\",\\n    \\\"networkconf_id\\\": \\\"8542be8e3b5c4e11bc87afff\\\",\\n    \\\"is_guest\\\": false,\\n    \\\"hide_ssid\\\": false,\\n    \\\"wlan_band\\\": \\\"both\\\"\\n  }\\n]\", \"_meta\": {\"fastmcp\": {\"wrap_result\": true}}}"
+    }
+  ],
+  "count_oracle_checks": [
+    {
+      "id": "empty_list",
+      "output": "{\"result\": []}",
+      "expected_count": 0,
+      "expected_acceptance": true,
+      "observed_counts": [
+        0
+      ],
+      "observed_acceptance": true,
+      "check_passed": true
+    },
+    {
+      "id": "zero_summary",
+      "output": "{\"result\": \"list_wlans returned 0 record(s). Full result is in structuredContent.\"}",
+      "expected_count": 0,
+      "expected_acceptance": true,
+      "observed_counts": [
+        0
+      ],
+      "observed_acceptance": true,
+      "check_passed": true
+    },
+    {
+      "id": "two_records_without_task_fields",
+      "output": "{\"result\": [{\"opaque\": 1}, {\"opaque\": 2}]}",
+      "expected_count": 2,
+      "expected_acceptance": true,
+      "observed_counts": [
+        2
+      ],
+      "observed_acceptance": true,
+      "check_passed": true
+    },
+    {
+      "id": "renamed_task_fields",
+      "output": "{\"result\": [{\"name\": \"different\", \"enabled\": \"not-a-bool\"}]}",
+      "expected_count": 1,
+      "expected_acceptance": true,
+      "observed_counts": [
+        1
+      ],
+      "observed_acceptance": true,
+      "check_passed": true
+    },
+    {
+      "id": "two_serialized_records",
+      "output": "{\"result\": \"[{}, {}]\"}",
+      "expected_count": 2,
+      "expected_acceptance": true,
+      "observed_counts": [
+        2
+      ],
+      "observed_acceptance": true,
+      "check_passed": true
+    },
+    {
+      "id": "wrong_list_length",
+      "output": "{\"result\": [{}, {}]}",
+      "expected_count": 1,
+      "expected_acceptance": false,
+      "observed_counts": [
+        2
+      ],
+      "observed_acceptance": false,
+      "check_passed": true
+    },
+    {
+      "id": "wrong_summary_count",
+      "output": "{\"result\": \"list_wlans returned 2 record(s).\"}",
+      "expected_count": 1,
+      "expected_acceptance": false,
+      "observed_counts": [
+        2
+      ],
+      "observed_acceptance": false,
+      "check_passed": true
+    },
+    {
+      "id": "missing_count",
+      "output": "{\"result\": \"completed\"}",
+      "expected_count": 0,
+      "expected_acceptance": false,
+      "observed_counts": [],
+      "observed_acceptance": false,
+      "check_passed": true
+    },
+    {
+      "id": "unrelated_metadata_list",
+      "output": "{\"_meta\": {\"result\": []}, \"result\": \"completed\"}",
+      "expected_count": 0,
+      "expected_acceptance": false,
+      "observed_counts": [],
+      "observed_acceptance": false,
+      "check_passed": true
+    },
+    {
+      "id": "nested_record_list",
+      "output": "{\"result\": [{\"items\": []}]}",
+      "expected_count": 0,
+      "expected_acceptance": false,
+      "observed_counts": [
+        1
+      ],
+      "observed_acceptance": false,
+      "check_passed": true
+    },
+    {
+      "id": "conflicting_representations",
+      "output": "{\"result\": \"list_wlans returned 1 record(s).\", \"structuredContent\": {\"result\": [{}, {}]}}",
+      "expected_count": 1,
+      "expected_acceptance": false,
+      "observed_counts": [
+        1,
+        2
+      ],
+      "observed_acceptance": false,
+      "check_passed": true
+    },
+    {
+      "id": "truncated_list",
+      "output": "{\"result\": \"[{\\\"opaque\\\": 1}\"}",
+      "expected_count": 1,
+      "expected_acceptance": false,
+      "observed_counts": [],
+      "observed_acceptance": false,
+      "check_passed": true
+    },
+    {
+      "id": "primitive_array",
+      "output": "{\"result\": [1, 2]}",
+      "expected_count": 2,
+      "expected_acceptance": false,
+      "observed_counts": [],
+      "observed_acceptance": false,
+      "check_passed": true
+    },
+    {
+      "id": "zero_dual",
+      "output": "{\"result\": \"list_wlans returned 0 record(s).\", \"structuredContent\": {\"result\": []}}",
+      "expected_count": 0,
+      "expected_acceptance": true,
+      "observed_counts": [
+        0
+      ],
+      "observed_acceptance": true,
+      "check_passed": true
+    }
+  ],
+  "amendment_sha256": "04aff09c22fdd7533936c17328d24301423a746a0c5ae48c46f59ea7d0abbfea",
+  "strategy_definitions": {
+    "native_full_text": "Native UniFi force_full_text_responses option; separate producer call",
+    "authored_append_json": "Append serialized structuredContent to the original text blocks; diagnostic only"
+  },
+  "qualification": "Exact fixture-level evidence retention; no general semantic oracle, real task success, or universal strategy ranking. authored_append_json is an authored diagnostic; native_full_text rows are native producer runs. Count controls inspect only cardinality, including empty/two-record sensitivity states."
 }

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "empty_list",
+    "output": "{\"result\": []}",
+    "expected_count": 0,
+    "expected_acceptance": true
+  },
+  {
+    "id": "zero_summary",
+    "output": "{\"result\": \"list_wlans returned 0 record(s). Full result is in structuredContent.\"}",
+    "expected_count": 0,
+    "expected_acceptance": true
+  },
+  {
+    "id": "two_records_without_task_fields",
+    "output": "{\"result\": [{\"opaque\": 1}, {\"opaque\": 2}]}",
+    "expected_count": 2,
+    "expected_acceptance": true
+  },
+  {
+    "id": "renamed_task_fields",
+    "output": "{\"result\": [{\"name\": \"different\", \"enabled\": \"not-a-bool\"}]}",
+    "expected_count": 1,
+    "expected_acceptance": true
+  },
+  {
+    "id": "two_serialized_records",
+    "output": "{\"result\": \"[{}, {}]\"}",
+    "expected_count": 2,
+    "expected_acceptance": true
+  },
+  {
+    "id": "wrong_list_length",
+    "output": "{\"result\": [{}, {}]}",
+    "expected_count": 1,
+    "expected_acceptance": false
+  },
+  {
+    "id": "wrong_summary_count",
+    "output": "{\"result\": \"list_wlans returned 2 record(s).\"}",
+    "expected_count": 1,
+    "expected_acceptance": false
+  },
+  {
+    "id": "missing_count",
+    "output": "{\"result\": \"completed\"}",
+    "expected_count": 0,
+    "expected_acceptance": false
+  },
+  {
+    "id": "unrelated_metadata_list",
+    "output": "{\"_meta\": {\"result\": []}, \"result\": \"completed\"}",
+    "expected_count": 0,
+    "expected_acceptance": false
+  },
+  {
+    "id": "nested_record_list",
+    "output": "{\"result\": [{\"items\": []}]}",
+    "expected_count": 0,
+    "expected_acceptance": false
+  },
+  {
+    "id": "conflicting_representations",
+    "output": "{\"result\": \"list_wlans returned 1 record(s).\", \"structuredContent\": {\"result\": [{}, {}]}}",
+    "expected_count": 1,
+    "expected_acceptance": false
+  },
+  {
+    "id": "truncated_list",
+    "output": "{\"result\": \"[{\\\"opaque\\\": 1}\"}",
+    "expected_count": 1,
+    "expected_acceptance": false
+  },
+  {
+    "id": "primitive_array",
+    "output": "{\"result\": [1, 2]}",
+    "expected_count": 2,
+    "expected_acceptance": false
+  },
+  {
+    "id": "zero_dual",
+    "output": "{\"result\": \"list_wlans returned 0 record(s).\", \"structuredContent\": {\"result\": []}}",
+    "expected_count": 0,
+    "expected_acceptance": true
+  }
+]

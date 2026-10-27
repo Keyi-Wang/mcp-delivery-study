@@ -34,6 +34,7 @@
   "paid_model_calls": 0,
   "actual_model_task_success_measured": false,
   "sources": [
+    "research/mcp-cross-case-synthesis-20261027.json",
     "artifacts/mcp-paper-evidence-20261026/upstream-test-execution.json",
     "artifacts/mcp-paper-evidence-20261026/agno-stdio-http-capture.json",
     "artifacts/mcp-paper-evidence-20261026/repair-metadata.json",
@@ -59,11 +60,16 @@
     "artifacts/mcp-review-revision-20261026/task-contract-results.json",
     "artifacts/mcp-review-revision-20261026/replay-agreement.json",
     "artifacts/mcp-review-revision-20261026/confirmation-results.json",
+    "artifacts/mcp-review-revision-20261026/count-control-live-results.json",
     "artifacts/mcp-review-revision-20261026/source-manifest.json",
     "artifacts/mcp-review-revision-20261026/unifi-native-tests.xml",
-    "artifacts/mcp-review-revision-20261026/hermes-native-tests.xml"
+    "artifacts/mcp-review-revision-20261026/hermes-native-tests.xml",
+    "research/mcp-count-oracle-amendment-20261027.json",
+    "research/mcp-count-oracle-fixtures-20261027.json",
+    "scripts/mcp_count_oracle.py"
   ],
   "source_sha256": {
+    "research/mcp-cross-case-synthesis-20261027.json": "e183772503f29332edf6f7f75816b35b290c4cf5acd89b71c13eaf0bfad9bb4c",
     "artifacts/mcp-paper-evidence-20261026/upstream-test-execution.json": "4fee30ce4f392e3977ddc9ef69e761d3c054e8bec271ee1f9723c0a83bfdb4b0",
     "artifacts/mcp-paper-evidence-20261026/agno-stdio-http-capture.json": "ae9c8f5067fa1b52b7183b45067bc517704f7bfe22fa94b912cbf39b4927a1f0",
     "artifacts/mcp-paper-evidence-20261026/repair-metadata.json": "e015949e5dbbbec1e42e7059317c9049ad38615aeaf58a88002ada8b7bcc2e9e",
@@ -86,12 +92,16 @@
     "artifacts/mcp-obligation-study-20261026/dedup-ancestry.json": "300c79a3c0feb9096795a60d3da59bc652f6a8e6552454fb58485dc89fbf655e",
     "artifacts/mcp-obligation-study-20261026/later-ancestry.json": "e8342450d261198a2cafc7b3001c5fc58c0b8caf57f353f12ea73911173d6d55",
     "artifacts/mcp-review-revision-20261026/continuous-results.json": "2547e3b1bab0a604931160d4a54b6198824937066a780a67ffa3e2d7a1b290f2",
-    "artifacts/mcp-review-revision-20261026/task-contract-results.json": "f1ad418d9b6d44e3431065cadd66727bb4a5df35803acc5e88b833021e202011",
+    "artifacts/mcp-review-revision-20261026/task-contract-results.json": "2a881e392b2da81cfa0484450ff4bf7f9c431d9f631d27b0ff02f0dc10771946",
     "artifacts/mcp-review-revision-20261026/replay-agreement.json": "3874133fd0108bbecbc0e236f5d450119f51e9732e3bb429307cbb33770bed4d",
-    "artifacts/mcp-review-revision-20261026/confirmation-results.json": "b10211a0c03e74e10b9a2370ff5b418831d46150570585d62b332ddd3d999f44",
+    "artifacts/mcp-review-revision-20261026/confirmation-results.json": "a594b76994835817ef16bc7a41ca0c03186f4b52749d7bf70f484217ee4af1ae",
+    "artifacts/mcp-review-revision-20261026/count-control-live-results.json": "c5e0d7f79f4c5f64e22b5bae6c1a59ffa2ee31447bd8cbff6cfbda33a7a6034e",
     "artifacts/mcp-review-revision-20261026/source-manifest.json": "8234036c6d41f313899b4e0ce9e2f9c7f55dce7958cbf008c1e1627141edfb44",
-    "artifacts/mcp-review-revision-20261026/unifi-native-tests.xml": "656f0532b33d8be88850dace620f62a4509194c593b3b368e643b3a4b3173a70",
-    "artifacts/mcp-review-revision-20261026/hermes-native-tests.xml": "ff7e9c2820edd92be5e84aba816c105e2f0d8cf3a93d30f75db8cb39f9be3696"
+    "artifacts/mcp-review-revision-20261026/unifi-native-tests.xml": "473a0c56f162e8eaf46a274fb14f1859a6999475316554f465f97810acbc20e8",
+    "artifacts/mcp-review-revision-20261026/hermes-native-tests.xml": "c7e80e520fac31960f4e88173da1311ac845ce84cc5373c2815e22b1096b85dd",
+    "research/mcp-count-oracle-amendment-20261027.json": "04aff09c22fdd7533936c17328d24301423a746a0c5ae48c46f59ea7d0abbfea",
+    "research/mcp-count-oracle-fixtures-20261027.json": "0d0db27d9fb92016856f2b88c48e22811b7922d5262319ef17d6426707f83a47",
+    "scripts/mcp_count_oracle.py": "3723731d5a2540ebe8db220ced710a9a56be517435b9a73e5ac75890137312be"
   },
   "review_revision": {
     "native_tests": {
@@ -125,7 +135,7 @@
         "count_only": 2,
         "total_utf8_bytes": 1451
       },
-      "full_text_fallback": {
+      "native_full_text": {
         "required_facts": 4,
         "full_objects": 4,
         "count_only": 2,
@@ -133,6 +143,8 @@
       }
     },
     "independent_producer_contrast": true,
-    "human_review_completed": false
+    "human_review_completed": false,
+    "count_sensitivity_policy_checks": 8,
+    "count_oracle_selfchecks": 14
   }
 }

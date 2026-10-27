@@ -171,6 +171,7 @@ def main():
         'counting': 'Do not sum these heterogeneous units into a sample size or a defect count. Transport checks supersede previous Agno controlled-session checks in main tables.',
         'paid_model_calls': 0, 'actual_model_task_success_measured': False,
         'sources': [
+            'research/mcp-cross-case-synthesis-20261027.json',
             'artifacts/mcp-paper-evidence-20261026/upstream-test-execution.json',
             'artifacts/mcp-paper-evidence-20261026/agno-stdio-http-capture.json',
             'artifacts/mcp-paper-evidence-20261026/repair-metadata.json',
@@ -194,6 +195,13 @@ def main():
             'artifacts/mcp-obligation-study-20261026/later-ancestry.json',
         ],
     }
+    synthesis = read('research/mcp-cross-case-synthesis-20261027.json')
+    assert len(synthesis['rows']) == 5
+    for item in synthesis['rows']:
+        assert all((ROOT / p).is_file() for p in item['evidence'])
+    (PAPER / 'cross-case-rows.tex').write_text('\n'.join(
+        ' & '.join(item[k] for k in ['observation','cases','maintenance_check']) + r' \\'
+        for item in synthesis['rows']) + '\n')
     evidence['source_sha256'] = {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in evidence['sources']}
     (PAPER / 'evidence.json').write_text(json.dumps(evidence, indent=2) + '\n')
     print(json.dumps({k: v for k, v in evidence.items() if k not in ['sources', 'source_sha256']}, indent=2))

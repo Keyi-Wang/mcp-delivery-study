@@ -1,5 +1,6 @@
 """Launch the unchanged, pinned UniFi application with its own test controller."""
 import argparse
+import copy
 import json
 import os
 from pathlib import Path
@@ -14,6 +15,7 @@ from mcp_unifi.server import build_server
 parser = argparse.ArgumentParser()
 parser.add_argument('--full-text', action='store_true')
 parser.add_argument('--perturbed', action='store_true')
+parser.add_argument('--wlan-count', type=int, choices=[0,2])
 args = parser.parse_args()
 # The launcher reads no credential files. Isolate settings from inherited UniFi configuration.
 for key in list(os.environ):
@@ -31,6 +33,12 @@ if args.perturbed:
         if row.get('subsystem') == 'wan':
             row.update(status='warning', wan_ip='203.0.113.99')
     state.wlans[0].update(name='Office-Review', enabled=False)
+if args.wlan_count == 0:
+    state.wlans = []
+elif args.wlan_count == 2:
+    second = copy.deepcopy(state.wlans[0])
+    second.update(_id='count-control-second-wlan', name='Count-Control-Second')
+    state.wlans.append(second)
 settings = Settings(stub_mode=True, auth_required=False, log_format='text',
                     force_full_text_responses=args.full_text, _env_file=None)
 build_server(settings, stub=state).run(transport='stdio', show_banner=False)

@@ -20,7 +20,7 @@ From a checkout of this repository:
   python3 scripts/mcp_review_reproduce.py --install --all
 
 Use a fresh checkout when checking the manifest: reproduction overwrites generated
-results. Omit --all to execute only the main producer/consumer case and confirmation.
+results. Omit --all to execute only the main producer/consumer case and independent producer contrast.
 After dependencies are installed, omit --install on subsequent runs.
 
 Requirements: Linux/POSIX environment, Python 3 with venv/pip, Git, and Node/npm
@@ -39,8 +39,8 @@ stub, and the native Hermes MCP client/handler. The controller seed realization 
 fixed; the second state is an explicitly authored sensitivity condition. Neither
 state is a recording from a production network.
 
-  Original UniFi tests:                         50/50 pass
-  Original Hermes tests:                        7/7 pass
+  Selected UniFi test modules:                         50/50 pass
+  Selected Hermes test classes:                        7/7 pass
   Live stdio calls:                            8
   Exact live-output/replay agreements:          8/8
 
@@ -57,6 +57,21 @@ Full-object retention, required-fact retention, excluded values, and byte counts
 are reported separately. The synthetic password used in an exclusion control is
 from an upstream test, not an actual credential.
 
+The count-only oracle accepts explicit counts or complete record-list lengths,
+without inspecting WLAN names or enabled values. In addition to the original
+one-record controls, four native calls exercise empty/two-record producer states;
+all eight policy-level count checks pass. Fourteen instrument checks include
+wrong counts, field-independent lists, unrelated metadata, truncated JSON and
+conflicting summary/list counts. The original task/policy totals above are unchanged.
+
+Policy identifiers distinguish operations:
+  native_full_text: real UniFi force_full_text_responses setting, new producer call;
+  authored_append_json: append serialized structuredContent to the original text
+                        in an authored diagnostic; not the UniFi configuration.
+The initial commit used full_text_fallback for both. The frozen original contract
+is preserved; research/mcp-count-oracle-amendment-20261027.json records the clarified
+identifiers and count-oracle correction before the additional checks were run.
+
 A separate official Git MCP producer retains its known text commit message through
 the same Hermes path. It is a working contrast, not another loss incident.
 
@@ -72,12 +87,13 @@ READING THE EVIDENCE
 Start with artifacts/mcp-review-revision-20261026/:
 
   continuous-results.json       Complete received results and handler outputs
-  task-contract-results.json    Facts, full objects, exclusions, bytes and actions
+  task-contract-results.json    Facts, counts, exclusions, bytes, actions and oracle checks
+  count-control-live-results.json  Four additional native empty/two-record calls
   replay-agreement.json         Exact live-versus-replay comparisons
   confirmation-results.json     Independent producer contrast
   execution-inventory.json      Native and replaced components; execution limits
   source-manifest.json           Pinned commits, Git blobs and SHA-256 hashes
-  table-traceability.json        Four paper tables and timeline mapped to evidence
+  table-traceability.json        Five paper tables and timeline mapped to evidence
   harness-corrections.json       Setup/oracle corrections, not product defects
 
 research/mcp-review-contracts-20261026.json contains the frozen main task contracts.
@@ -99,9 +115,10 @@ revision experiment batch; it does not imply external reviewer endorsement.
 Generated table fragments and the hash-linked evidence index are in tables/.
 Table I uses the selection audit; Table II uses original cross-version tests;
 Table III uses the main task/policy comparison; Table IV uses actual Agno follow-up
-HTTP request captures. See table-traceability.json for exact files and keys.
+HTTP request captures. Table V maps cases to maintenance checks using
+research/mcp-cross-case-synthesis-20261027.json. See table-traceability.json for exact files and keys.
 
-After reproduction, one-command-reproduction.json reports executed steps and six
+After reproduction, one-command-reproduction.json reports executed steps and eight
 comparisons with the retained primary observations. Diagnostic logs are written
 locally under reproduction-logs/ and are not part of the versioned release.
 

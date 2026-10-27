@@ -1,23 +1,74 @@
 {
- "main_case":{
-  "native":"Complete UniFi build_server; native response middleware; stdio MCP transport; Hermes SDK client, connection task, lifecycle checks, scheduler, synchronous handler and renderer",
-  "runtime":"Python 3.13.17 in both processes; FastMCP 3.4.7 producer; MCP 2.0.0 consumer",
-  "replacements":[
-   {"component":"UniFi hardware/controller","replacement":"Original built-in StubState with fixed original seed realization and declared sensitivity changes","possible_effect":"No production traffic distribution, controller timing, authentication, or hardware failure claim"},
-   {"component":"gateway package initializer","replacement":"Namespace package pointing to pinned gateway sources; actual gateway.status imports retained","possible_effect":"No claim about chat-platform startup, messaging adapters, or full-agent configuration integration"},
-   {"component":"session.call_tool observer","replacement":"Transparent async wrapper calls original method and returns same object","possible_effect":"Capture overhead only; no timing result reported"}
+  "main_case": {
+    "native": "Complete UniFi build_server; native response middleware; stdio MCP transport; Hermes SDK client, connection task, lifecycle checks, scheduler, synchronous handler and renderer",
+    "runtime": "Python 3.13.17 in both processes; FastMCP 3.4.7 producer; MCP 2.0.0 consumer",
+    "replacements": [
+      {
+        "component": "UniFi hardware/controller",
+        "replacement": "Original built-in StubState with fixed original seed realization and declared sensitivity changes",
+        "possible_effect": "No production traffic distribution, controller timing, authentication, or hardware failure claim"
+      },
+      {
+        "component": "gateway package initializer",
+        "replacement": "Namespace package pointing to pinned gateway sources; actual gateway.status imports retained",
+        "possible_effect": "No claim about chat-platform startup, messaging adapters, or full-agent configuration integration"
+      },
+      {
+        "component": "session.call_tool observer",
+        "replacement": "Transparent async wrapper calls original method and returns same object",
+        "possible_effect": "Capture overhead only; no timing result reported"
+      }
+    ],
+    "policy_controls": "Only comparison alternatives alter arbitration; main continuous handler is unchanged",
+    "secret_control": "Synthetic value from original upstream read-redaction test; no actual password",
+    "validation": "8/8 output agreement with earlier replay; 50 producer and 7 consumer original tests pass; neither comparison proves unexercised recovery paths",
+    "count_sensitivity_extension": {
+      "additional_native_calls": 4,
+      "states": [
+        0,
+        2
+      ],
+      "modes": [
+        "adaptive",
+        "native_full_text"
+      ],
+      "policy_level_checks": 8,
+      "oracle_fixture_checks": 14,
+      "rule": "Record-list cardinality or explicit summary count; independent of task field values; conflicting counts fail."
+    },
+    "diagnostic_control": "authored_append_json appends serialized structure to original text; distinct from native_full_text producer configuration."
+  },
+  "exploratory_contrasts": [
+    {
+      "case": "Agno",
+      "native": "Agent, MCP SDK stdio, HTTP client",
+      "controlled": "Local producer fixture and scripted loopback provider, adapter substitution; no inference"
+    },
+    {
+      "case": "Historical Hermes",
+      "native": "Pinned handlers and rendering helper bodies",
+      "controlled": "Session, scheduling/lifecycle harness; main September result separately validated by live execution"
+    },
+    {
+      "case": "Open WebUI",
+      "native": "Tool-result processor and message converter; streaming source slice",
+      "controlled": "Storage, database and event services; no browser or provider image retrieval"
+    },
+    {
+      "case": "Superset",
+      "native": "Compatibility middleware and actual local HTTP exchange",
+      "controlled": "Minimal ASGI application; not full Superset deployment"
+    },
+    {
+      "case": "LangChain",
+      "native": "Whole adapter and native tool/ToolMessage invocation",
+      "controlled": "MCP session and fixed dependency environment; no provider serialization"
+    },
+    {
+      "case": "AdCP",
+      "native": "Unchanged TypeScript runner, producer, dispatcher and validator functions",
+      "controlled": "Connection and TaskExecutor result shape; shared later validators isolate reconstruction"
+    }
   ],
-  "policy_controls":"Only comparison alternatives alter arbitration; main continuous handler is unchanged",
-  "secret_control":"Synthetic value from original upstream read-redaction test; no actual password",
-  "validation":"8/8 output agreement with earlier replay; 50 producer and 7 consumer original tests pass; neither comparison proves unexercised recovery paths"
- },
- "exploratory_contrasts":[
-  {"case":"Agno","native":"Agent, MCP SDK stdio, HTTP client","controlled":"Local producer fixture and scripted loopback provider, adapter substitution; no inference"},
-  {"case":"Historical Hermes","native":"Pinned handlers and rendering helper bodies","controlled":"Session, scheduling/lifecycle harness; main September result separately validated by live execution"},
-  {"case":"Open WebUI","native":"Tool-result processor and message converter; streaming source slice","controlled":"Storage, database and event services; no browser or provider image retrieval"},
-  {"case":"Superset","native":"Compatibility middleware and actual local HTTP exchange","controlled":"Minimal ASGI application; not full Superset deployment"},
-  {"case":"LangChain","native":"Whole adapter and native tool/ToolMessage invocation","controlled":"MCP session and fixed dependency environment; no provider serialization"},
-  {"case":"AdCP","native":"Unchanged TypeScript runner, producer, dispatcher and validator functions","controlled":"Connection and TaskExecutor result shape; shared later validators isolate reconstruction"}
- ],
- "independent_confirmation":"Official installed Git MCP server and real local Git; same native Hermes path and inventoried gateway-initializer bypass"
+  "independent_producer_contrast": "Official installed Git MCP server and real local Git; same native Hermes path and inventoried gateway-initializer bypass"
 }

@@ -15,8 +15,8 @@
     },
     {
       "path": "README.txt",
-      "bytes": 6918,
-      "sha256": "36b5361cedc5e663e13286b7891943e825197a2abbffd1fa1e0d5a9fe6366cf0"
+      "bytes": 8154,
+      "sha256": "1502f8c9be25ea3b8e06af78864f8d5af8c125fe952078824c12c02277577bf6"
     },
     {
       "path": "artifacts/empirical-directions-20261026/source-manifest.json",
@@ -515,8 +515,8 @@
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/confirmation-results.json",
-      "bytes": 1273,
-      "sha256": "b10211a0c03e74e10b9a2370ff5b418831d46150570585d62b332ddd3d999f44"
+      "bytes": 1278,
+      "sha256": "a594b76994835817ef16bc7a41ca0c03186f4b52749d7bf70f484217ee4af1ae"
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/consumer-requirements-freeze.txt",
@@ -529,9 +529,14 @@
       "sha256": "2547e3b1bab0a604931160d4a54b6198824937066a780a67ffa3e2d7a1b290f2"
     },
     {
+      "path": "artifacts/mcp-review-revision-20261026/count-control-live-results.json",
+      "bytes": 9595,
+      "sha256": "c5e0d7f79f4c5f64e22b5bae6c1a59ffa2ee31447bd8cbff6cfbda33a7a6034e"
+    },
+    {
       "path": "artifacts/mcp-review-revision-20261026/execution-inventory.json",
-      "bytes": 2744,
-      "sha256": "806a572ebd423f6a09c60f5d15994073c6a16c670c8d4953e936af780f4ef8dd"
+      "bytes": 3629,
+      "sha256": "e3a1aa61412327c7ac6cd8b0e441b2ac29d8feaa9311befeb541fcdd923c3c56"
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/git-package-metadata.json",
@@ -550,13 +555,13 @@
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/harness-corrections.json",
-      "bytes": 1453,
-      "sha256": "863c079203cfcba6f9554d32ae07ebd42ee0f6eb2d4ff2c5127eeec9c3fd5f90"
+      "bytes": 1953,
+      "sha256": "78791156c66b587af3071fc2133de7dfa395b4340504c3e45a0cc7ae823a4687"
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/hermes-native-tests.xml",
       "bytes": 1732,
-      "sha256": "ff7e9c2820edd92be5e84aba816c105e2f0d8cf3a93d30f75db8cb39f9be3696"
+      "sha256": "c7e80e520fac31960f4e88173da1311ac845ce84cc5373c2815e22b1096b85dd"
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/hermes-upstream-tree.json",
@@ -565,8 +570,8 @@
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/one-command-reproduction.json",
-      "bytes": 2027,
-      "sha256": "85f2abf234024fb0118d2c63ac9a25a4ddf56516025f09e9b7066f86469d6d8a"
+      "bytes": 2235,
+      "sha256": "b14e59eccac50e16c7586b84e30a752714a4abc7424a18cf6a3a954bfd9f8978"
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/producer-requirements-freeze.txt",
@@ -580,8 +585,8 @@
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/revision-summary.json",
-      "bytes": 874,
-      "sha256": "22a6cbca459acc255f36c18d3d7217a8771fcfd9af9a249ad9862fae46e2684a"
+      "bytes": 945,
+      "sha256": "c1b70ebfbe883c60e6b05317b9d151e7e833a64cee53d57e54608f7b3d30df2a"
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/source-manifest.json",
@@ -1320,18 +1325,18 @@
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/table-traceability.json",
-      "bytes": 1284,
-      "sha256": "9bef1e36c6a2507bdbbd5d7d50764c4a016d99dc03cb9d612d95e855d674d584"
+      "bytes": 1544,
+      "sha256": "e122019f69bebbafcaaf9cfcd8cb29134cf60efb9ceba70adf39878ac4fc9433"
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/task-contract-results.json",
-      "bytes": 20988,
-      "sha256": "f1ad418d9b6d44e3431065cadd66727bb4a5df35803acc5e88b833021e202011"
+      "bytes": 30506,
+      "sha256": "2a881e392b2da81cfa0484450ff4bf7f9c431d9f631d27b0ff02f0dc10771946"
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/unifi-native-tests.xml",
       "bytes": 5979,
-      "sha256": "656f0532b33d8be88850dace620f62a4509194c593b3b368e643b3a4b3173a70"
+      "sha256": "473a0c56f162e8eaf46a274fb14f1859a6999475316554f465f97810acbc20e8"
     },
     {
       "path": "artifacts/mcp-review-revision-20261026/unifi-upstream-tree.json",
@@ -1352,6 +1357,21 @@
       "path": "research/mcp-adcp-reconstruction-amendment-20261026.json",
       "bytes": 1492,
       "sha256": "d92e3936b6e0e7f970830e9b027db62a2b20ce0a8f407af1fd73c9707af860fe"
+    },
+    {
+      "path": "research/mcp-count-oracle-amendment-20261027.json",
+      "bytes": 1553,
+      "sha256": "04aff09c22fdd7533936c17328d24301423a746a0c5ae48c46f59ea7d0abbfea"
+    },
+    {
+      "path": "research/mcp-count-oracle-fixtures-20261027.json",
+      "bytes": 2311,
+      "sha256": "0d0db27d9fb92016856f2b88c48e22811b7922d5262319ef17d6426707f83a47"
+    },
+    {
+      "path": "research/mcp-cross-case-synthesis-20261027.json",
+      "bytes": 2063,
+      "sha256": "e183772503f29332edf6f7f75816b35b290c4cf5acd89b71c13eaf0bfad9bb4c"
     },
     {
       "path": "research/mcp-guidance-amendment-20261026.json",
@@ -1395,8 +1415,8 @@
     },
     {
       "path": "scripts/build_mcp_evidence_tables.py",
-      "bytes": 14008,
-      "sha256": "79d75bb12192fcec197983069ffe980a7268568b770255f5ad670256eadf576c"
+      "bytes": 14479,
+      "sha256": "3b2233667d6e757a3063e3cab09f2c5213a0905b63bab143d2d68c60fd709ac4"
     },
     {
       "path": "scripts/mcp_adcp_reconstruction.cjs",
@@ -1407,6 +1427,11 @@
       "path": "scripts/mcp_agno_http_capture.py",
       "bytes": 9864,
       "sha256": "6459bd1d1f7f354008d3fa0b88e1b0374bff311f8a465f2d9098f193569bb07b"
+    },
+    {
+      "path": "scripts/mcp_count_oracle.py",
+      "bytes": 1520,
+      "sha256": "3723731d5a2540ebe8db220ced710a9a56be517435b9a73e5ac75890137312be"
     },
     {
       "path": "scripts/mcp_guidance_matrix.py",
@@ -1445,23 +1470,23 @@
     },
     {
       "path": "scripts/mcp_review_analysis.py",
-      "bytes": 9110,
-      "sha256": "0b887e009a4f724a957777dae92656b387a20efcb4f7ebffce8b4da91a2b2daa"
+      "bytes": 11200,
+      "sha256": "7f60d8a2025723229a3b2f11b09d7fb11e1e6a466149783fed59969ff880b3c2"
     },
     {
       "path": "scripts/mcp_review_artifact_audit.py",
-      "bytes": 5922,
-      "sha256": "9b6d404834a93a844e8356ebbc772fa338b438a1f85f2b1f1bf8e3867c064c1b"
+      "bytes": 6819,
+      "sha256": "2d3e64941adf0ab5e7dec7f93651efa8562963a3ede2d7a647fd7f19028c0fe9"
     },
     {
       "path": "scripts/mcp_review_confirmation.py",
-      "bytes": 4018,
-      "sha256": "f28ddefe780f1548dd97ab9466d514c2368ad1144eb1a32d5415e14438d149fd"
+      "bytes": 4028,
+      "sha256": "dd7a9f328e255d319dac2a277a95499c43115030e9591c291af49f305a8ed89e"
     },
     {
       "path": "scripts/mcp_review_continuous.py",
-      "bytes": 5104,
-      "sha256": "45f57171fe80560e194f93feec9daa2947e053a541f58dc4ba62de31b4c62961"
+      "bytes": 6103,
+      "sha256": "a6edd1d65214d8d5ddab8e93ae224534ad8470b03ec2b79cabf4f6d486ab40cf"
     },
     {
       "path": "scripts/mcp_review_replay_agreement.py",
@@ -1470,13 +1495,13 @@
     },
     {
       "path": "scripts/mcp_review_reproduce.py",
-      "bytes": 7163,
-      "sha256": "82fc219ca0c2b4b858063a4219b3c7d912e4b625c2cfff8905f6b1558e529f6a"
+      "bytes": 7454,
+      "sha256": "94c3fe1eae8b5e90d2402206e035bb356713c874e28705df56d32ad4e88e42a9"
     },
     {
       "path": "scripts/mcp_review_unifi_server.py",
-      "bytes": 1758,
-      "sha256": "b90cd74de186ee5eac0eac37ec4b78fad9e443c2cc913094e4df5762ba3881e8"
+      "bytes": 2058,
+      "sha256": "77cc9236672299f72809df7fb4926bb3dbe8ef8e8ac49318e28d4c8201aabcb1"
     },
     {
       "path": "scripts/mcp_superset_wire_probe.py",
@@ -1509,9 +1534,14 @@
       "sha256": "2d2cbf53b69c59113b7ea63457d6745e4731030cb6a01834472cf0fbe84df830"
     },
     {
+      "path": "tables/cross-case-rows.tex",
+      "bytes": 473,
+      "sha256": "b56853043c7e6a6bd16500ee7750a0d5aec77bfac58fea16b957d6aeeb51b8c7"
+    },
+    {
       "path": "tables/evidence.json",
-      "bytes": 8417,
-      "sha256": "75c9b1a13fe2951532d7a698ea0c13087ec1014d76c864f8dd28cbd3386c39da"
+      "bytes": 9394,
+      "sha256": "b7631bfe63f0c40422bdeb72db1dfc643f99ed7f80eab7af1296c5cb1abbd893"
     },
     {
       "path": "tables/guidance-rows.tex",

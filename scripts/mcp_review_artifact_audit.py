@@ -47,9 +47,13 @@ def main():
         tests[name] = {'passed':len(cases)-failed,'total':len(cases)}
     data = read(OUT / 'task-contract-results.json')
     assert data['contracts_sha256'] == protocol_hash
+    assert len(data['count_sensitivity_controls']) == 8 and all(x['count_retained'] for x in data['count_sensitivity_controls'])
+    assert len(data['count_oracle_checks']) == 14 and all(x['check_passed'] for x in data['count_oracle_checks'])
+    assert 'authored_append_json' in {x['strategy'] for x in data['authored_diagnostics']}
+    assert 'native_full_text' not in {x['strategy'] for x in data['authored_diagnostics']}
     table, summary = [], {}
     for strategy,label in [('text_priority','Text priority'),('structured_priority','Structure (control)'),
-                           ('combination','Combine (control)'),('full_text_fallback','Native full text')]:
+                           ('combination','Combine (control)'),('native_full_text','Native full text')]:
         rows = [r for r in data['rows'] if r['strategy'] == strategy]
         count = [r for r in data['summary_sufficient_controls'] if r['strategy'] == strategy]
         assert len(rows) == 4 and len(count) == 2
@@ -64,19 +68,20 @@ def main():
     (PAPER / 'review-policy-rows.tex').write_text('\n'.join(table) + '\n')
     sources = [str((OUT / name).relative_to(ROOT)) for name in [
         'continuous-results.json','task-contract-results.json','replay-agreement.json',
-        'confirmation-results.json','source-manifest.json','unifi-native-tests.xml','hermes-native-tests.xml']]
+        'confirmation-results.json','count-control-live-results.json','source-manifest.json','unifi-native-tests.xml','hermes-native-tests.xml']]
     evidence = read(PAPER / 'evidence.json')
-    evidence['sources'] = list(dict.fromkeys(evidence['sources'] + sources))
+    evidence['sources'] = list(dict.fromkeys(evidence['sources'] + sources + ['research/mcp-count-oracle-amendment-20261027.json','research/mcp-count-oracle-fixtures-20261027.json','scripts/mcp_count_oracle.py']))
     evidence['source_sha256'] = {p:hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in evidence['sources']}
     evidence['review_revision'] = {'native_tests':tests,'continuous_calls':8,'replay_matches':8,
                                  'policies':summary, 'independent_producer_contrast':True,
-                                 'human_review_completed':False}
+                                 'human_review_completed':False,'count_sensitivity_policy_checks':8,'count_oracle_selfchecks':14}
     save(PAPER / 'evidence.json', evidence)
     save(OUT / 'revision-summary.json', {'verified_source_files':len(records),**evidence['review_revision']})
     save(OUT / 'table-traceability.json', {
         'Table I':{'source':'artifacts/mcp-acceptance-study-20261026/selection-and-execution-audit.json','key':'selected_case_urls','qualification':'Boundaries updated by continuous-results.json'},
         'Table II':{'sources':['artifacts/mcp-paper-evidence-20261026/upstream-test-execution.json','artifacts/mcp-acceptance-study-20261026/langchain-contrast.json'],'keys':['groups','test_groups'],'generator':'scripts/build_mcp_evidence_tables.py'},
         'Table III':{'source':str((OUT/'task-contract-results.json').relative_to(ROOT)),'key':'rows and summary_sufficient_controls','generator':'scripts/mcp_review_artifact_audit.py'},
+        'Table V':{'source':'research/mcp-cross-case-synthesis-20261027.json','key':'rows','generator':'scripts/build_mcp_evidence_tables.py','qualification':'Case-derived maintenance mapping, not measured organizational effectiveness'},
         'Table IV':{'source':'artifacts/mcp-paper-evidence-20261026/agno-stdio-http-capture.json','key':'pairs: full_followup_request_collision and both_required_answers_present','generator':'scripts/build_mcp_evidence_tables.py'},
         'Figure 1':{'sources':['artifacts/mcp-obligation-study-20261026/obligation-results.json','artifacts/mcp-obligation-study-20261026/dedup-ancestry.json','artifacts/mcp-obligation-study-20261026/later-ancestry.json'],'qualification':'Temporal sequence only'}})
     print(json.dumps({'verified_source_files':len(records),'native_tests':tests,'policies':summary}))

@@ -11,6 +11,10 @@
       "exit_code": 0
     },
     {
+      "step": "count-control-live-calls",
+      "exit_code": 0
+    },
+    {
       "step": "mcp_review_continuous.py",
       "exit_code": 0
     },
@@ -88,9 +92,11 @@
     "task-contract-results.json:rows": true,
     "task-contract-results.json:summary_sufficient_controls": true,
     "task-contract-results.json:authored_diagnostics": true,
+    "task-contract-results.json:count_sensitivity_controls": true,
+    "task-contract-results.json:count_oracle_checks": true,
     "replay-agreement.json:rows": true,
-    "independent-confirmation": true
+    "independent-producer-contrast": true
   },
-  "elapsed_seconds": 49.679,
+  "elapsed_seconds": 54.007,
   "paid_model_calls": 0
 }

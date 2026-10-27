@@ -72,6 +72,7 @@ def main():
     original = ROOT/'artifacts/mcp-obligation-study-20261026/sources/september/tests/tools/test_mcp_structured_content.py'
     run('hermes-native-tests',[py('.venv-mcp-review-consumer'),'-m','pytest',str(original)+'::TestStructuredContentPreservation',
          str(original)+'::TestContentStructuredArbitration','-q','--override-ini','addopts=',f'--junitxml={OUT / "hermes-native-tests.xml"}'],env=hermes_env)
+    run('count-control-live-calls',[py('.venv-mcp-review-consumer'),ROOT/'scripts/mcp_review_continuous.py','--count-controls'])
     for env,script in [('.venv-mcp-review-consumer','mcp_review_continuous.py'),
                        ('.venv-mcp-review-consumer','mcp_review_analysis.py'),
                        ('.venv-mcp-visibility','mcp_review_replay_agreement.py'),
@@ -80,10 +81,12 @@ def main():
     checks = {}
     for name,key in [('continuous-results.json','cells'),('task-contract-results.json','rows'),
                      ('task-contract-results.json','summary_sufficient_controls'),
-                     ('task-contract-results.json','authored_diagnostics'),('replay-agreement.json','rows')]:
+                     ('task-contract-results.json','authored_diagnostics'),
+                     ('task-contract-results.json','count_sensitivity_controls'),
+                     ('task-contract-results.json','count_oracle_checks'),('replay-agreement.json','rows')]:
         checks[name+':'+key] = expected[name][key] == json.loads((OUT/name).read_text())[key]
     observed = json.loads((OUT/'confirmation-results.json').read_text())
-    checks['independent-confirmation'] = all(expected['confirmation-results.json'][k] == observed[k]
+    checks['independent-producer-contrast'] = all(expected['confirmation-results.json'][k] == observed[k]
         for k in ['received','output','required_message_retained','structured_channel_present'])
     if not all(checks.values()):
         raise RuntimeError(f'Primary observations changed: {checks}')

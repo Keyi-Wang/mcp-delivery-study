@@ -1,6 +1,7 @@
 """Task-level oracles and policy-only comparisons on captured native results."""
 import ast
 import copy
+import hashlib
 import inspect
 import json
 from pathlib import Path
@@ -11,6 +12,7 @@ OUT = ROOT / 'artifacts/mcp-review-revision-20261026'
 sys.path.insert(0, str(OUT / 'sources/hermes'))
 from tools import mcp_tool_handlers as handlers
 from mcp.types import CallToolResult
+from mcp_count_oracle import count_retained, observed_counts
 
 def documents(value):
     if isinstance(value, (dict, list)):
@@ -102,11 +104,11 @@ def main():
                 expected.update(status='warning', wan_ip='203.0.113.99')
             required = {k:expected[k] for k in ['status', 'wan_ip']}
         assert contains(cell['received'], expected), 'Producer did not deliver the expected source-derived data'
-        strategies = ['full_text_fallback'] if cell['mode'] == 'full_text' else [
+        strategies = ['native_full_text'] if cell['mode'] == 'full_text' else [
             'text_priority', 'structured_priority', 'combination']
         for strategy in strategies:
             output = render(cell['received'], strategy)
-            if strategy in ('text_priority', 'full_text_fallback'):
+            if strategy in ('text_priority', 'native_full_text'):
                 assert output == cell['handler_output']
             retained = contains(output, required)
             action = handoff(output, cell['tool'])
@@ -117,17 +119,17 @@ def main():
                          'utf8_bytes': len(output.encode()), 'handoff_action': action})
             if cell['tool'] == 'list_wlans':
                 n = len(expected)
-                count_ok = f'returned {n} record(s)' in output or contains(output, required)
+                count_ok = count_retained(output, n)
                 count_controls.append({'state': cell['state'], 'strategy': strategy,
-                                       'count_retained': count_ok, 'full_object_retained': contains(output, expected)})
+                                       'count_retained': count_ok, 'expected_count': n, 'observed_counts': observed_counts(output), 'full_object_retained': contains(output, expected)})
     authored = json.loads((ROOT / 'artifacts/mcp-paper-evidence-20261026/guidance-fixtures.json').read_text())
     diagnostic = []
     for case in authored:
         if case['name'] not in ['equivalent_dual', 'conflicting_channels', 'file_plus_metadata', 'application_private_meta']:
             continue
-        for strategy in ['text_priority', 'structured_priority', 'combination', 'full_text_fallback']:
+        for strategy in ['text_priority', 'structured_priority', 'combination', 'authored_append_json']:
             source = copy.deepcopy(case['source'])
-            if strategy == 'full_text_fallback':
+            if strategy == 'authored_append_json':
                 # Explicitly authored fallback control; preserve original text and add
                 # structured JSON. Native UniFi fallback is evaluated separately above.
                 source['content'].append({'type': 'text', 'text': json.dumps(source['structuredContent'])})
@@ -141,6 +143,27 @@ def main():
                                'forbidden_values_present': [v for v in case['forbidden'] if v in output],
                                'utf8_bytes': len(output.encode()),
                                'ready_fact_occurrences': output.count('STATUS_READY_7K')})
+    count_live = json.loads((OUT/'count-control-live-results.json').read_text())
+    count_sensitivity = []
+    for cell in count_live['cells']:
+        n = cell['expected_count']
+        assert count_retained(cell['received'], n), 'Producer count mismatch'
+        strategies = ['native_full_text'] if cell['mode'] == 'full_text' else ['text_priority','structured_priority','combination']
+        for strategy in strategies:
+            output = render(cell['received'], strategy)
+            if strategy in ('text_priority','native_full_text'):
+                assert output == cell['handler_output']
+            count_sensitivity.append({'state':cell['state'],'mode':cell['mode'],
+                'strategy':strategy,'expected_count':n,'observed_counts':observed_counts(output),
+                'count_retained':count_retained(output,n),'output':output})
+    fixtures = json.loads((ROOT/'research/mcp-count-oracle-fixtures-20261027.json').read_text())
+    count_checks = []
+    for case in fixtures:
+        observed = count_retained(case['output'], case['expected_count'])
+        count_checks.append({**case,'observed_counts':observed_counts(case['output']),
+            'observed_acceptance':observed,'check_passed':observed == case['expected_acceptance']})
+    assert len(count_sensitivity) == 8 and all(x['count_retained'] for x in count_sensitivity)
+    assert all(x['check_passed'] for x in count_checks)
     # Instrument checks: type-sensitive values and nonrequired-field omission.
     selfchecks = [contains('{"status":"ok","wan_ip":"203.0.113.42"}', {'status':'ok','wan_ip':'203.0.113.42'}),
                   not contains('{"enabled":"false"}', {'enabled':False}),
@@ -150,11 +173,14 @@ def main():
     report = {'contracts_sha256': live['protocol_sha256'], 'rows': rows,
               'summary_sufficient_controls': count_controls, 'authored_diagnostics': diagnostic,
               'instrument_checks': selfchecks,
-              'qualification': 'Exact fixture-level evidence retention; no general semantic oracle, real task success, or universal strategy ranking. Full-text diagnostic is authored; main full-text rows are native producer runs.'}
+              'count_sensitivity_controls': count_sensitivity, 'count_oracle_checks': count_checks,
+              'amendment_sha256':hashlib.sha256((ROOT/'research/mcp-count-oracle-amendment-20261027.json').read_bytes()).hexdigest(),
+              'strategy_definitions':{'native_full_text':'Native UniFi force_full_text_responses option; separate producer call', 'authored_append_json':'Append serialized structuredContent to the original text blocks; diagnostic only'},
+              'qualification': 'Exact fixture-level evidence retention; no general semantic oracle, real task success, or universal strategy ranking. authored_append_json is an authored diagnostic; native_full_text rows are native producer runs. Count controls inspect only cardinality, including empty/two-record sensitivity states.'}
     (OUT / 'task-contract-results.json').write_text(json.dumps(report, indent=2) + '\n')
     summary = {s:{'facts':sum(r['required_facts_retained'] for r in rows if r['strategy']==s),
                   'total':sum(r['strategy']==s for r in rows),
-                  'bytes':sum(r['utf8_bytes'] for r in rows if r['strategy']==s)} for s in ['text_priority','structured_priority','combination','full_text_fallback']}
+                  'bytes':sum(r['utf8_bytes'] for r in rows if r['strategy']==s)} for s in ['text_priority','structured_priority','combination','native_full_text']}
     print(json.dumps(summary))
 
 if __name__ == '__main__':

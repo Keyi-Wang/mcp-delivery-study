@@ -16,6 +16,10 @@
     {
       "issue": "Handoff reporting initially selected actions after matching the expected fact oracle",
       "correction": "The final handoff function parses only delivered output and never receives expected answers or state labels. Revalidated the analysis; semantic task outcomes unchanged. This is a harness clarification, not a product finding."
+    },
+    {
+      "issue": "Count-only list branch also required task-field values; authored and native text controls shared a label.",
+      "correction": "Use cardinality-only count evidence, reject inconsistent representations, and add 14 oracle fixtures plus four native zero/two-record calls. Rename native_full_text and authored_append_json. Original main outputs, fact retention, counts and byte totals remain unchanged. Frozen original contracts are retained alongside the dated amendment."
     }
   ]
 }

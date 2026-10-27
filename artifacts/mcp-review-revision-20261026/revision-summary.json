@@ -31,7 +31,7 @@
       "count_only": 2,
       "total_utf8_bytes": 1451
     },
-    "full_text_fallback": {
+    "native_full_text": {
       "required_facts": 4,
       "full_objects": 4,
       "count_only": 2,
@@ -39,5 +39,7 @@
     }
   },
   "independent_producer_contrast": true,
-  "human_review_completed": false
+  "human_review_completed": false,
+  "count_sensitivity_policy_checks": 8,
+  "count_oracle_selfchecks": 14
 }

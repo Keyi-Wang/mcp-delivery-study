@@ -9,4 +9,4 @@ node_modules/
 reproduction-logs/
 *.log
 *.zip
-artifacts/mcp-paper-evidence-20261026/stdio-fixtures/
+artifacts/mcp-paper-evidence/stdio-fixtures/

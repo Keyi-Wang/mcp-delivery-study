@@ -79,7 +79,7 @@ def main():
     save(OUT / 'revision-summary.json', {'verified_source_files':len(records),**evidence['review_revision']})
     save(OUT / 'table-traceability.json', {
         'Table I':{'source':'artifacts/mcp-acceptance-study/selection-and-execution-audit.json','key':'selected_case_urls','qualification':'Boundaries updated by continuous-results.json'},
-        'Table II':{'sources':['artifacts/mcp-paper-evidence/upstream-test-execution.json','artifacts/mcp-acceptance-study/langchain-contrast.json'],'keys':['groups','test_groups'],'generator':'scripts/build_mcp_evidence_tables.py'},
+        'Table II':{'sources':['artifacts/mcp-paper-evidence/upstream-test-execution.json','artifacts/mcp-obligation-study/obligation-results.json','artifacts/mcp-acceptance-study/langchain-contrast.json'],'keys':['groups','groups','test_groups'],'generator':'scripts/build_mcp_evidence_tables.py','qualification':'Hermes panel compares April combination, September text priority, and September with suppression removed using the retained historical assertions.'},
         'Table III':{'source':str((OUT/'task-contract-results.json').relative_to(ROOT)),'key':'rows and summary_sufficient_controls','generator':'scripts/mcp_review_artifact_audit.py'},
         'Table V':{'source':'research/mcp-cross-case-synthesis.json','key':'rows','generator':'scripts/build_mcp_evidence_tables.py','qualification':'Case-derived maintenance mapping, not measured organizational effectiveness'},
         'Table IV':{'source':'artifacts/mcp-paper-evidence/agno-stdio-http-capture.json','key':'pairs: full_followup_request_collision and both_required_answers_present','generator':'scripts/build_mcp_evidence_tables.py'},

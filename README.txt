@@ -113,7 +113,9 @@ fixtures, source manifests and dependency locks. Directories identify the study 
 revision experiment batch; it does not imply external reviewer endorsement.
 
 Generated table fragments and the hash-linked evidence index are in tables/.
-Table I uses the selection audit; Table II uses original cross-version tests;
+Table I uses the selection audit; Table II uses original cross-version tests,
+including the Hermes April/September acceptance-policy comparison (April
+combination, September text priority, and September with suppression removed);
 Table III uses the main task/policy comparison; Table IV uses actual Agno follow-up
 HTTP request captures. Table V maps cases to maintenance checks using
 research/mcp-cross-case-synthesis.json. See table-traceability.json for exact files and keys.

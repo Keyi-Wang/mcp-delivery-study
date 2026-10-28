@@ -15,8 +15,8 @@
     },
     {
       "path": "README.txt",
-      "bytes": 8601,
-      "sha256": "d74a98e57ffb1c8dafafaeedf94661110df018ed3ca55901f42409f9ac46c323"
+      "bytes": 8753,
+      "sha256": "39f490f1f5d9b71dc20ff91e23b75c661fad1d6e83d43a484596bd81ef84ba56"
     },
     {
       "path": "artifacts/empirical-directions/source-manifest.json",
@@ -1325,8 +1325,8 @@
     },
     {
       "path": "artifacts/mcp-review-revision/table-traceability.json",
-      "bytes": 1463,
-      "sha256": "9c12b40a332c42001965423fa54bcb403ba9acc2c90cbbfa8e1d590a348aa595"
+      "bytes": 1714,
+      "sha256": "c8196e14d4ce5c835a4b921ca4f8bf3d0a1975f820c84c9ba5a95bafb1f789a7"
     },
     {
       "path": "artifacts/mcp-review-revision/task-contract-results.json",
@@ -1415,8 +1415,8 @@
     },
     {
       "path": "scripts/build_mcp_evidence_tables.py",
-      "bytes": 14110,
-      "sha256": "0991473a1000250f720d0ebea7916a3ec89145e14fa4c3517abe677693b0fba9"
+      "bytes": 14248,
+      "sha256": "18c9c00fcc234b181dda45c4cd025926cd34797e57b88922abde44e83f46388b"
     },
     {
       "path": "scripts/mcp_adcp_reconstruction.cjs",
@@ -1475,8 +1475,8 @@
     },
     {
       "path": "scripts/mcp_review_artifact_audit.py",
-      "bytes": 6711,
-      "sha256": "62c434543759f8d944bb536e0b3aca9d44d227118355e384e1d79d1336eaa99a"
+      "bytes": 6942,
+      "sha256": "d191e68b01bc848eeca14b74315c75a6f0239c12d03a64ee152a14941fd93194"
     },
     {
       "path": "scripts/mcp_review_confirmation.py",
@@ -1570,8 +1570,8 @@
     },
     {
       "path": "tables/test-rows.tex",
-      "bytes": 375,
-      "sha256": "dfde59f1527bfce6d8b6187f8fd57da3d21601cda8ae557d7873afeb6cd96847"
+      "bytes": 382,
+      "sha256": "67bd31adf9f17645d993c7e7377a30a5af19b5fa464a4ad09f20d9048caa68d8"
     }
   ]
 }

@@ -7,13 +7,16 @@
   "Table II": {
     "sources": [
       "artifacts/mcp-paper-evidence/upstream-test-execution.json",
+      "artifacts/mcp-obligation-study/obligation-results.json",
       "artifacts/mcp-acceptance-study/langchain-contrast.json"
     ],
     "keys": [
       "groups",
+      "groups",
       "test_groups"
     ],
-    "generator": "scripts/build_mcp_evidence_tables.py"
+    "generator": "scripts/build_mcp_evidence_tables.py",
+    "qualification": "Hermes panel compares April combination, September text priority, and September with suppression removed using the retained historical assertions."
   },
   "Table III": {
     "source": "artifacts/mcp-review-revision/task-contract-results.json",

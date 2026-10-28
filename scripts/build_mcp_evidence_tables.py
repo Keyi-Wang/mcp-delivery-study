@@ -84,17 +84,22 @@ def main():
         assert combined['ready_answer_occurrences'] == 2 and priority['ready_answer_occurrences'] == 1
 
     groups = {(g['test_source'], g['implementation']): g for g in tests['groups']}
-    rows = []
-    for label, names, versions in [
-        ('Agno', ['agno-before-tests', 'agno-after-tests'], ['before', 'after']),
-        ('Hermes', ['hermes-first-tests', 'hermes-combined-tests'], ['hermes-before', 'hermes-structured-first', 'hermes-combined'])]:
-        rows.append((r'Agno tests & Metadata & Fallback & --- \\' if label == 'Agno' else
-                     r'\midrule Hermes tests & Text & Structure & Combined \\'))
-        for test in names:
-            counts = [str(groups[test, v]['passed']) + '/' + str(groups[test, v]['total']) for v in versions]
-            name = {'agno-before-tests': 'Metadata tests', 'agno-after-tests': 'Fallback tests',
-                    'hermes-first-tests': 'Priority tests', 'hermes-combined-tests': 'Combined tests'}[test]
-            rows.append(f'{name} & ' + ' & '.join(counts + (['---'] if label == 'Agno' else [])) + r' \\')
+    rows = [r'Agno tests & Metadata & Fallback & --- \\']
+    for source, title in [('agno-before-tests', 'Metadata tests'),
+                          ('agno-after-tests', 'Fallback tests')]:
+        cells = [groups[source, v] for v in ['before', 'after']]
+        rows.append(title + ' & ' + ' & '.join(
+            f"{g['passed']}/{g['total']}" for g in cells) + r' & --- \\')
+    rows.append(r'\midrule Hermes tests & Apr. both & Sep. text & No suppress. \\')
+    for source, title, expected in [
+        ('combined', 'April tests', [(5, 5), (3, 5), (5, 5)]),
+        ('september', 'September tests', [(5, 7), (7, 7), (5, 7)])]:
+        cells = [next(g for g in obligations['groups'] if g['test_source'] == source
+                      and g['implementation'] == v)
+                 for v in ['combined', 'september', 'branch-removal']]
+        assert [(g['passed'], g['total']) for g in cells] == expected
+        rows.append(title + ' & ' + ' & '.join(
+            f"{g['passed']}/{g['total']}" for g in cells) + r' \\')
     rows.append(r'\midrule LangChain tests & Earlier & Repaired & --- \\')
     for source, title in [('before', 'earlier converter'), ('after', 'later converter')]:
         cells = [next(g for g in langchain['test_groups'] if g['test_version'] == source and

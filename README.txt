@@ -2,7 +2,7 @@ MCP Result Delivery Study
 =========================
 
 Reproduction artifact for:
-When Passing Tests Disagree: A Longitudinal Study of MCP Result Delivery
+When Passing Tests Disagree: An Empirical Study of MCP Result Delivery
 Keyi Wang, East China Normal University
 Contact: keyiwang1010@gmail.com
 Repository: https://github.com/Keyi-Wang/mcp-delivery-study

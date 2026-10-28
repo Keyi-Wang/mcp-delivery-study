@@ -15,8 +15,8 @@
     },
     {
       "path": "README.txt",
-      "bytes": 8603,
-      "sha256": "f5b57cb2fe2dfaa6132a94fe86eb3464718969f227e922dcf6058eebc3c199a7"
+      "bytes": 8601,
+      "sha256": "d74a98e57ffb1c8dafafaeedf94661110df018ed3ca55901f42409f9ac46c323"
     },
     {
       "path": "artifacts/empirical-directions/source-manifest.json",
